@@ -1,0 +1,35 @@
+/* html {
+    background-color: #000;
+    color: #fff;
+    height: 100%;
+} */
+
+
+body {
+    /* cursor: none; */
+    /* display: flex;
+    height: 100%;
+    margin: 0; */
+    color: blue;
+}
+
+
+/* svg {
+    height: 100%;
+    min-width: 800px;
+    min-height: 480px;
+    width: 100%;
+} */
+
+
+/* div {
+    background-color: red;
+    border-radius: 240px;
+    height: 480px;
+    width: 480px;
+} */
+
+
+p {
+    color: red;
+}

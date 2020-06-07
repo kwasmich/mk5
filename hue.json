@@ -1,0 +1,7000 @@
+{
+	"lights": {
+		"1": {
+			"state": {
+				"on": false,
+				"bri": 144,
+				"hue": 13524,
+				"sat": 200,
+				"effect": "none",
+				"xy": [
+					0.5017,
+					0.4152
+				],
+				"ct": 443,
+				"alert": "select",
+				"colormode": "xy",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "noupdates",
+				"lastinstall": "2018-12-12T12:02:14"
+			},
+			"type": "Extended color light",
+			"name": "Work Ambient",
+			"modelid": "LCT001",
+			"manufacturername": "Signify Netherlands B.V.",
+			"productname": "Hue color lamp",
+			"capabilities": {
+				"certified": true,
+				"control": {
+					"mindimlevel": 5000,
+					"maxlumen": 600,
+					"colorgamuttype": "B",
+					"colorgamut": [
+						[
+							0.675,
+							0.322
+						],
+						[
+							0.409,
+							0.518
+						],
+						[
+							0.167,
+							0.04
+						]
+					],
+					"ct": {
+						"min": 153,
+						"max": 500
+					}
+				},
+				"streaming": {
+					"renderer": true,
+					"proxy": false
+				}
+			},
+			"config": {
+				"archetype": "sultanbulb",
+				"function": "mixed",
+				"direction": "omnidirectional",
+				"startup": {
+					"mode": "safety",
+					"configured": true
+				}
+			},
+			"uniqueid": "00:17:88:01:00:b5:53:ed-0b",
+			"swversion": "5.127.1.26581"
+		},
+		"2": {
+			"state": {
+				"on": false,
+				"bri": 165,
+				"hue": 14915,
+				"sat": 144,
+				"effect": "none",
+				"xy": [
+					0.4595,
+					0.4105
+				],
+				"ct": 369,
+				"alert": "select",
+				"colormode": "xy",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "noupdates",
+				"lastinstall": "2018-12-13T12:29:33"
+			},
+			"type": "Extended color light",
+			"name": "Dorm",
+			"modelid": "LCT001",
+			"manufacturername": "Signify Netherlands B.V.",
+			"productname": "Hue color lamp",
+			"capabilities": {
+				"certified": true,
+				"control": {
+					"mindimlevel": 5000,
+					"maxlumen": 600,
+					"colorgamuttype": "B",
+					"colorgamut": [
+						[
+							0.675,
+							0.322
+						],
+						[
+							0.409,
+							0.518
+						],
+						[
+							0.167,
+							0.04
+						]
+					],
+					"ct": {
+						"min": 153,
+						"max": 500
+					}
+				},
+				"streaming": {
+					"renderer": true,
+					"proxy": false
+				}
+			},
+			"config": {
+				"archetype": "sultanbulb",
+				"function": "mixed",
+				"direction": "omnidirectional",
+				"startup": {
+					"mode": "safety",
+					"configured": true
+				}
+			},
+			"uniqueid": "00:17:88:01:00:b5:57:a7-0b",
+			"swversion": "5.127.1.26581"
+		},
+		"3": {
+			"state": {
+				"on": false,
+				"bri": 127,
+				"hue": 13402,
+				"sat": 222,
+				"effect": "none",
+				"xy": [
+					0.5052,
+					0.4152
+				],
+				"ct": 346,
+				"alert": "select",
+				"colormode": "xy",
+				"mode": "homeautomation",
+				"reachable": false
+			},
+			"swupdate": {
+				"state": "noupdates",
+				"lastinstall": "2018-12-13T12:29:30"
+			},
+			"type": "Extended color light",
+			"name": "Living iMac",
+			"modelid": "LCT001",
+			"manufacturername": "Signify Netherlands B.V.",
+			"productname": "Hue color lamp",
+			"capabilities": {
+				"certified": true,
+				"control": {
+					"mindimlevel": 5000,
+					"maxlumen": 600,
+					"colorgamuttype": "B",
+					"colorgamut": [
+						[
+							0.675,
+							0.322
+						],
+						[
+							0.409,
+							0.518
+						],
+						[
+							0.167,
+							0.04
+						]
+					],
+					"ct": {
+						"min": 153,
+						"max": 500
+					}
+				},
+				"streaming": {
+					"renderer": true,
+					"proxy": false
+				}
+			},
+			"config": {
+				"archetype": "sultanbulb",
+				"function": "mixed",
+				"direction": "omnidirectional",
+				"startup": {
+					"mode": "safety",
+					"configured": true
+				}
+			},
+			"uniqueid": "00:17:88:01:00:b5:50:12-0b",
+			"swversion": "5.127.1.26581"
+		},
+		"4": {
+			"state": {
+				"on": false,
+				"bri": 127,
+				"hue": 13402,
+				"sat": 204,
+				"effect": "none",
+				"xy": [
+					0.5052,
+					0.4152
+				],
+				"ct": 451,
+				"alert": "select",
+				"colormode": "xy",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "noupdates",
+				"lastinstall": "2020-03-03T12:57:02"
+			},
+			"type": "Extended color light",
+			"name": "Living Spot",
+			"modelid": "LCT003",
+			"manufacturername": "Signify Netherlands B.V.",
+			"productname": "Hue color spot",
+			"capabilities": {
+				"certified": true,
+				"control": {
+					"mindimlevel": 5000,
+					"maxlumen": 250,
+					"colorgamuttype": "B",
+					"colorgamut": [
+						[
+							0.675,
+							0.322
+						],
+						[
+							0.409,
+							0.518
+						],
+						[
+							0.167,
+							0.04
+						]
+					],
+					"ct": {
+						"min": 153,
+						"max": 500
+					}
+				},
+				"streaming": {
+					"renderer": true,
+					"proxy": true
+				}
+			},
+			"config": {
+				"archetype": "spotbulb",
+				"function": "mixed",
+				"direction": "downwards",
+				"startup": {
+					"mode": "safety",
+					"configured": true
+				}
+			},
+			"uniqueid": "00:17:88:01:00:f0:a0:2a-0b",
+			"swversion": "5.130.1.30000"
+		},
+		"7": {
+			"state": {
+				"on": false,
+				"bri": 254,
+				"hue": 12244,
+				"sat": 22,
+				"effect": "none",
+				"xy": [
+					0.4451,
+					0.4075
+				],
+				"alert": "select",
+				"colormode": "xy",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "noupdates",
+				"lastinstall": "2018-12-13T12:29:17"
+			},
+			"type": "Color light",
+			"name": "Living Bloom",
+			"modelid": "LLC012",
+			"manufacturername": "Signify Netherlands B.V.",
+			"productname": "Hue bloom",
+			"capabilities": {
+				"certified": true,
+				"control": {
+					"mindimlevel": 10000,
+					"maxlumen": 120,
+					"colorgamuttype": "A",
+					"colorgamut": [
+						[
+							0.704,
+							0.296
+						],
+						[
+							0.2151,
+							0.7106
+						],
+						[
+							0.138,
+							0.08
+						]
+					]
+				},
+				"streaming": {
+					"renderer": true,
+					"proxy": false
+				}
+			},
+			"config": {
+				"archetype": "huebloom",
+				"function": "decorative",
+				"direction": "upwards",
+				"startup": {
+					"mode": "safety",
+					"configured": true
+				}
+			},
+			"uniqueid": "00:17:88:01:00:c3:b3:d7-0b",
+			"swversion": "5.127.1.26581"
+		},
+		"8": {
+			"state": {
+				"on": false,
+				"bri": 0,
+				"alert": "select",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "notupdatable",
+				"lastinstall": null
+			},
+			"type": "Dimmable plug-in unit",
+			"name": "Pufflicht",
+			"modelid": "LWL001",
+			"manufacturername": "Signify Netherlands B.V.",
+			"productname": "LivingWhites Plug",
+			"capabilities": {
+				"certified": true,
+				"control": {},
+				"streaming": {
+					"renderer": false,
+					"proxy": false
+				}
+			},
+			"config": {
+				"archetype": "plug",
+				"function": "functional",
+				"direction": "omnidirectional"
+			},
+			"uniqueid": "00:17:88:01:00:2e:e7:0c-0c",
+			"swversion": "1.0.1.4591"
+		},
+		"9": {
+			"state": {
+				"on": false,
+				"bri": 254,
+				"hue": 15342,
+				"sat": 121,
+				"effect": "none",
+				"xy": [
+					0.4448,
+					0.4066
+				],
+				"ct": 343,
+				"alert": "select",
+				"colormode": "xy",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "noupdates",
+				"lastinstall": "2018-12-13T12:28:51"
+			},
+			"type": "Extended color light",
+			"name": "Ceiling flooder",
+			"modelid": "LCT001",
+			"manufacturername": "Signify Netherlands B.V.",
+			"productname": "Hue color lamp",
+			"capabilities": {
+				"certified": true,
+				"control": {
+					"mindimlevel": 5000,
+					"maxlumen": 600,
+					"colorgamuttype": "B",
+					"colorgamut": [
+						[
+							0.675,
+							0.322
+						],
+						[
+							0.409,
+							0.518
+						],
+						[
+							0.167,
+							0.04
+						]
+					],
+					"ct": {
+						"min": 153,
+						"max": 500
+					}
+				},
+				"streaming": {
+					"renderer": true,
+					"proxy": false
+				}
+			},
+			"config": {
+				"archetype": "sultanbulb",
+				"function": "mixed",
+				"direction": "omnidirectional",
+				"startup": {
+					"mode": "safety",
+					"configured": true
+				}
+			},
+			"uniqueid": "00:17:88:01:00:bf:45:8b-0b",
+			"swversion": "5.127.1.26581"
+		},
+		"10": {
+			"state": {
+				"on": false,
+				"bri": 127,
+				"hue": 13402,
+				"sat": 204,
+				"effect": "none",
+				"xy": [
+					0.5052,
+					0.4152
+				],
+				"ct": 451,
+				"alert": "select",
+				"colormode": "xy",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "noupdates",
+				"lastinstall": "2020-03-03T12:56:41"
+			},
+			"type": "Extended color light",
+			"name": "Holmö",
+			"modelid": "LCT001",
+			"manufacturername": "Signify Netherlands B.V.",
+			"productname": "Hue color lamp",
+			"capabilities": {
+				"certified": true,
+				"control": {
+					"mindimlevel": 5000,
+					"maxlumen": 600,
+					"colorgamuttype": "B",
+					"colorgamut": [
+						[
+							0.675,
+							0.322
+						],
+						[
+							0.409,
+							0.518
+						],
+						[
+							0.167,
+							0.04
+						]
+					],
+					"ct": {
+						"min": 153,
+						"max": 500
+					}
+				},
+				"streaming": {
+					"renderer": true,
+					"proxy": true
+				}
+			},
+			"config": {
+				"archetype": "sultanbulb",
+				"function": "mixed",
+				"direction": "omnidirectional",
+				"startup": {
+					"mode": "safety",
+					"configured": true
+				}
+			},
+			"uniqueid": "00:17:88:01:00:f5:b2:dd-0b",
+			"swversion": "5.130.1.30000"
+		},
+		"11": {
+			"state": {
+				"on": false,
+				"bri": 127,
+				"hue": 13402,
+				"sat": 204,
+				"effect": "none",
+				"xy": [
+					0.5052,
+					0.4152
+				],
+				"ct": 451,
+				"alert": "select",
+				"colormode": "xy",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "noupdates",
+				"lastinstall": "2020-03-03T12:56:36"
+			},
+			"type": "Extended color light",
+			"name": "Living Corner",
+			"modelid": "LCT001",
+			"manufacturername": "Signify Netherlands B.V.",
+			"productname": "Hue color lamp",
+			"capabilities": {
+				"certified": true,
+				"control": {
+					"mindimlevel": 5000,
+					"maxlumen": 600,
+					"colorgamuttype": "B",
+					"colorgamut": [
+						[
+							0.675,
+							0.322
+						],
+						[
+							0.409,
+							0.518
+						],
+						[
+							0.167,
+							0.04
+						]
+					],
+					"ct": {
+						"min": 153,
+						"max": 500
+					}
+				},
+				"streaming": {
+					"renderer": true,
+					"proxy": true
+				}
+			},
+			"config": {
+				"archetype": "sultanbulb",
+				"function": "mixed",
+				"direction": "omnidirectional",
+				"startup": {
+					"mode": "safety",
+					"configured": true
+				}
+			},
+			"uniqueid": "00:17:88:01:00:f5:b3:a7-0b",
+			"swversion": "5.130.1.30000"
+		},
+		"15": {
+			"state": {
+				"on": false,
+				"bri": 127,
+				"hue": 7614,
+				"sat": 203,
+				"effect": "none",
+				"xy": [
+					0.5051,
+					0.4152
+				],
+				"ct": 451,
+				"alert": "select",
+				"colormode": "xy",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "noupdates",
+				"lastinstall": "2020-03-03T12:56:30"
+			},
+			"type": "Extended color light",
+			"name": "Hue go",
+			"modelid": "LLC020",
+			"manufacturername": "Signify Netherlands B.V.",
+			"productname": "Hue go",
+			"capabilities": {
+				"certified": true,
+				"control": {
+					"mindimlevel": 40,
+					"maxlumen": 300,
+					"colorgamuttype": "C",
+					"colorgamut": [
+						[
+							0.6915,
+							0.3083
+						],
+						[
+							0.17,
+							0.7
+						],
+						[
+							0.1532,
+							0.0475
+						]
+					],
+					"ct": {
+						"min": 153,
+						"max": 500
+					}
+				},
+				"streaming": {
+					"renderer": true,
+					"proxy": true
+				}
+			},
+			"config": {
+				"archetype": "huego",
+				"function": "decorative",
+				"direction": "omnidirectional",
+				"startup": {
+					"mode": "safety",
+					"configured": true
+				}
+			},
+			"uniqueid": "00:17:88:01:04:7a:aa:11-0b",
+			"swversion": "5.130.1.30000"
+		},
+		"16": {
+			"state": {
+				"on": false,
+				"bri": 1,
+				"ct": 370,
+				"alert": "select",
+				"colormode": "ct",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "notupdatable",
+				"lastinstall": "2019-01-28T18:55:43"
+			},
+			"type": "Color temperature light",
+			"name": "Night Light",
+			"modelid": "ZBT-ColorTemperature",
+			"manufacturername": "MLI",
+			"productname": "Color temperature light",
+			"capabilities": {
+				"certified": false,
+				"control": {
+					"ct": {
+						"min": 153,
+						"max": 370
+					}
+				},
+				"streaming": {
+					"renderer": false,
+					"proxy": false
+				}
+			},
+			"config": {
+				"archetype": "classicbulb",
+				"function": "functional",
+				"direction": "omnidirectional"
+			},
+			"uniqueid": "00:15:8d:00:03:1e:f4:df-01",
+			"swversion": "2.0"
+		},
+		"17": {
+			"state": {
+				"on": false,
+				"bri": 254,
+				"ct": 370,
+				"alert": "select",
+				"colormode": "ct",
+				"mode": "homeautomation",
+				"reachable": false
+			},
+			"swupdate": {
+				"state": "notupdatable",
+				"lastinstall": "2019-04-21T16:10:27"
+			},
+			"type": "Color temperature light",
+			"name": "Hall End",
+			"modelid": "ZBT-ColorTemperature",
+			"manufacturername": "MLI",
+			"productname": "Color temperature light",
+			"capabilities": {
+				"certified": false,
+				"control": {
+					"ct": {
+						"min": 153,
+						"max": 370
+					}
+				},
+				"streaming": {
+					"renderer": false,
+					"proxy": false
+				}
+			},
+			"config": {
+				"archetype": "classicbulb",
+				"function": "functional",
+				"direction": "omnidirectional"
+			},
+			"uniqueid": "00:15:8d:00:03:1d:81:44-01",
+			"swversion": "2.0"
+		},
+		"18": {
+			"state": {
+				"on": false,
+				"bri": 254,
+				"ct": 370,
+				"alert": "select",
+				"colormode": "ct",
+				"mode": "homeautomation",
+				"reachable": false
+			},
+			"swupdate": {
+				"state": "notupdatable",
+				"lastinstall": "2019-10-27T11:20:43"
+			},
+			"type": "Color temperature light",
+			"name": "Hall Door",
+			"modelid": "ZBT-ColorTemperature",
+			"manufacturername": "MLI",
+			"productname": "Color temperature light",
+			"capabilities": {
+				"certified": false,
+				"control": {
+					"ct": {
+						"min": 153,
+						"max": 370
+					}
+				},
+				"streaming": {
+					"renderer": false,
+					"proxy": false
+				}
+			},
+			"config": {
+				"archetype": "classicbulb",
+				"function": "functional",
+				"direction": "omnidirectional"
+			},
+			"uniqueid": "00:15:8d:00:03:27:01:c1-01",
+			"swversion": "2.0"
+		},
+		"20": {
+			"state": {
+				"on": true,
+				"bri": 254,
+				"hue": 0,
+				"sat": 254,
+				"effect": "none",
+				"xy": [
+					0.5018,
+					0.4152
+				],
+				"ct": 346,
+				"alert": "select",
+				"colormode": "ct",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "notupdatable",
+				"lastinstall": "2019-11-18T21:21:06"
+			},
+			"type": "Extended color light",
+			"name": "Kitchen Sink",
+			"modelid": "RGBW Lighting",
+			"manufacturername": "MLI",
+			"productname": "Extended color light",
+			"capabilities": {
+				"certified": false,
+				"control": {
+					"colorgamuttype": "other",
+					"ct": {
+						"min": 155,
+						"max": 550
+					}
+				},
+				"streaming": {
+					"renderer": false,
+					"proxy": false
+				}
+			},
+			"config": {
+				"archetype": "classicbulb",
+				"function": "mixed",
+				"direction": "omnidirectional"
+			},
+			"uniqueid": "cc:cc:cc:ff:fe:e2:cb:7f-01",
+			"swversion": "2.5.3_r44"
+		},
+		"21": {
+			"state": {
+				"on": false,
+				"bri": 1,
+				"hue": 0,
+				"sat": 229,
+				"effect": "none",
+				"xy": [
+					0.5018,
+					0.4152
+				],
+				"ct": 440,
+				"alert": "select",
+				"colormode": "xy",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "notupdatable",
+				"lastinstall": "2019-11-28T18:37:45"
+			},
+			"type": "Extended color light",
+			"name": "Stern",
+			"modelid": "ZBT-ExtendedColor",
+			"manufacturername": "MLI",
+			"productname": "Extended color light",
+			"capabilities": {
+				"certified": false,
+				"control": {
+					"colorgamuttype": "other",
+					"colorgamut": [
+						[
+							0,
+							0
+						],
+						[
+							0,
+							0
+						],
+						[
+							0,
+							0
+						]
+					],
+					"ct": {
+						"min": 153,
+						"max": 555
+					}
+				},
+				"streaming": {
+					"renderer": false,
+					"proxy": false
+				}
+			},
+			"config": {
+				"archetype": "classicbulb",
+				"function": "mixed",
+				"direction": "omnidirectional"
+			},
+			"uniqueid": "00:0d:6f:ff:fe:05:7c:6d-01",
+			"swversion": "4.4"
+		},
+		"22": {
+			"state": {
+				"on": true,
+				"bri": 254,
+				"hue": 6707,
+				"sat": 189,
+				"effect": "none",
+				"xy": [
+					0.4426,
+					0.4058
+				],
+				"ct": 346,
+				"alert": "select",
+				"colormode": "ct",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "notupdatable",
+				"lastinstall": "2019-12-05T18:15:45"
+			},
+			"type": "Extended color light",
+			"name": "Kitchen Center",
+			"modelid": "ZBT-ExtendedColor",
+			"manufacturername": "MLI",
+			"productname": "Extended color light",
+			"capabilities": {
+				"certified": false,
+				"control": {
+					"colorgamuttype": "other",
+					"colorgamut": [
+						[
+							0.68,
+							0.31
+						],
+						[
+							0.11,
+							0.82
+						],
+						[
+							0.13,
+							0.04
+						]
+					],
+					"ct": {
+						"min": 153,
+						"max": 556
+					}
+				},
+				"streaming": {
+					"renderer": false,
+					"proxy": false
+				}
+			},
+			"config": {
+				"archetype": "classicbulb",
+				"function": "mixed",
+				"direction": "omnidirectional"
+			},
+			"uniqueid": "00:15:8d:00:03:47:5b:01-01",
+			"swversion": "2.0"
+		},
+		"23": {
+			"state": {
+				"on": false,
+				"bri": 1,
+				"hue": 0,
+				"sat": 230,
+				"effect": "none",
+				"xy": [
+					0.5052,
+					0.4152
+				],
+				"ct": 447,
+				"alert": "select",
+				"colormode": "xy",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "notupdatable",
+				"lastinstall": "2020-02-18T19:15:17"
+			},
+			"type": "Extended color light",
+			"name": "Reading",
+			"modelid": "ZBT-ExtendedColor",
+			"manufacturername": "MLI",
+			"productname": "Extended color light",
+			"capabilities": {
+				"certified": false,
+				"control": {
+					"colorgamuttype": "other",
+					"colorgamut": [
+						[
+							0,
+							0
+						],
+						[
+							0,
+							0
+						],
+						[
+							0,
+							0
+						]
+					],
+					"ct": {
+						"min": 153,
+						"max": 555
+					}
+				},
+				"streaming": {
+					"renderer": false,
+					"proxy": false
+				}
+			},
+			"config": {
+				"archetype": "classicbulb",
+				"function": "mixed",
+				"direction": "omnidirectional"
+			},
+			"uniqueid": "00:0d:6f:ff:fe:03:60:03-01",
+			"swversion": "4.4"
+		},
+		"24": {
+			"state": {
+				"on": false,
+				"bri": 0,
+				"hue": 0,
+				"sat": 254,
+				"effect": "none",
+				"xy": [
+					0.5018,
+					0.4152
+				],
+				"ct": 367,
+				"alert": "select",
+				"colormode": "xy",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "notupdatable",
+				"lastinstall": "2020-02-23T12:29:14"
+			},
+			"type": "Extended color light",
+			"name": "Balcony",
+			"modelid": "RGBW Lighting",
+			"manufacturername": "MLI",
+			"productname": "Extended color light",
+			"capabilities": {
+				"certified": false,
+				"control": {
+					"colorgamuttype": "other",
+					"ct": {
+						"min": 155,
+						"max": 550
+					}
+				},
+				"streaming": {
+					"renderer": false,
+					"proxy": false
+				}
+			},
+			"config": {
+				"archetype": "classicbulb",
+				"function": "mixed",
+				"direction": "omnidirectional"
+			},
+			"uniqueid": "cc:cc:cc:ff:fe:bb:0d:ed-01",
+			"swversion": "2.5.3_r44"
+		}
+	},
+	"groups": {
+		"1": {
+			"name": "Dimmer 3",
+			"lights": [
+				"3",
+				"4",
+				"9",
+				"1"
+			],
+			"sensors": [],
+			"type": "LightGroup",
+			"state": {
+				"all_on": false,
+				"any_on": false
+			},
+			"recycle": false,
+			"action": {
+				"on": false,
+				"bri": 144,
+				"hue": 13524,
+				"sat": 200,
+				"effect": "none",
+				"xy": [
+					0.5017,
+					0.4152
+				],
+				"ct": 443,
+				"alert": "select",
+				"colormode": "xy"
+			}
+		},
+		"2": {
+			"name": "Wohnzimmer",
+			"lights": [
+				"23",
+				"10",
+				"3",
+				"4",
+				"9",
+				"15",
+				"11",
+				"7"
+			],
+			"sensors": [],
+			"type": "Room",
+			"state": {
+				"all_on": false,
+				"any_on": false
+			},
+			"recycle": false,
+			"class": "Living room",
+			"action": {
+				"on": false,
+				"bri": 254,
+				"hue": 12244,
+				"sat": 22,
+				"effect": "none",
+				"xy": [
+					0.4451,
+					0.4075
+				],
+				"ct": 451,
+				"alert": "select",
+				"colormode": "xy"
+			}
+		},
+		"3": {
+			"name": "Küche",
+			"lights": [
+				"22",
+				"20"
+			],
+			"sensors": [],
+			"type": "Room",
+			"state": {
+				"all_on": true,
+				"any_on": true
+			},
+			"recycle": false,
+			"class": "Kitchen",
+			"action": {
+				"on": true,
+				"bri": 254,
+				"hue": 0,
+				"sat": 254,
+				"effect": "none",
+				"xy": [
+					0.5018,
+					0.4152
+				],
+				"ct": 346,
+				"alert": "select",
+				"colormode": "ct"
+			}
+		},
+		"4": {
+			"name": "Schlafzimmer",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"sensors": [],
+			"type": "Room",
+			"state": {
+				"all_on": false,
+				"any_on": false
+			},
+			"recycle": false,
+			"class": "Bedroom",
+			"action": {
+				"on": false,
+				"bri": 1,
+				"hue": 14915,
+				"sat": 144,
+				"effect": "none",
+				"xy": [
+					0.4595,
+					0.4105
+				],
+				"ct": 370,
+				"alert": "select",
+				"colormode": "ct"
+			}
+		},
+		"5": {
+			"name": "Group for wakeup",
+			"lights": [
+				"8"
+			],
+			"sensors": [],
+			"type": "LightGroup",
+			"state": {
+				"all_on": false,
+				"any_on": false
+			},
+			"recycle": true,
+			"action": {
+				"on": false,
+				"bri": 0,
+				"alert": "select"
+			}
+		},
+		"6": {
+			"name": "Arbeitszimmer",
+			"lights": [
+				"1"
+			],
+			"sensors": [],
+			"type": "Room",
+			"state": {
+				"all_on": false,
+				"any_on": false
+			},
+			"recycle": false,
+			"class": "Office",
+			"action": {
+				"on": false,
+				"bri": 144,
+				"hue": 13524,
+				"sat": 200,
+				"effect": "none",
+				"xy": [
+					0.5017,
+					0.4152
+				],
+				"ct": 443,
+				"alert": "select",
+				"colormode": "xy"
+			}
+		},
+		"7": {
+			"name": "Flur",
+			"lights": [
+				"17",
+				"18"
+			],
+			"sensors": [],
+			"type": "Room",
+			"state": {
+				"all_on": false,
+				"any_on": false
+			},
+			"recycle": false,
+			"class": "Other",
+			"action": {
+				"on": false,
+				"bri": 254,
+				"ct": 370,
+				"alert": "select",
+				"colormode": "ct"
+			}
+		},
+		"8": {
+			"name": "Bla",
+			"lights": [
+				"24",
+				"21"
+			],
+			"sensors": [],
+			"type": "Room",
+			"state": {
+				"all_on": false,
+				"any_on": false
+			},
+			"recycle": false,
+			"class": "Living room",
+			"action": {
+				"on": false,
+				"bri": 1,
+				"hue": 0,
+				"sat": 229,
+				"effect": "none",
+				"xy": [
+					0.5018,
+					0.4152
+				],
+				"ct": 440,
+				"alert": "select",
+				"colormode": "xy"
+			}
+		}
+	},
+	"config": {
+		"name": "Kwasi hue",
+		"zigbeechannel": 20,
+		"bridgeid": "001788FFFE2478A6",
+		"mac": "00:17:88:24:78:a6",
+		"dhcp": true,
+		"ipaddress": "192.168.2.157",
+		"netmask": "255.255.255.0",
+		"gateway": "192.168.2.1",
+		"proxyaddress": "none",
+		"proxyport": 0,
+		"UTC": "2020-06-05T17:48:29",
+		"localtime": "2020-06-05T19:48:29",
+		"timezone": "Europe/Berlin",
+		"modelid": "BSB002",
+		"datastoreversion": "93",
+		"swversion": "1938112040",
+		"apiversion": "1.38.0",
+		"swupdate": {
+			"updatestate": 0,
+			"checkforupdate": false,
+			"devicetypes": {
+				"bridge": false,
+				"lights": [],
+				"sensors": []
+			},
+			"url": "",
+			"text": "",
+			"notify": true
+		},
+		"swupdate2": {
+			"checkforupdate": false,
+			"lastchange": "2020-05-14T12:09:42",
+			"bridge": {
+				"state": "noupdates",
+				"lastinstall": "2020-05-14T11:58:17"
+			},
+			"state": "noupdates",
+			"autoinstall": {
+				"updatetime": "T13:00:00",
+				"on": true
+			}
+		},
+		"linkbutton": false,
+		"portalservices": true,
+		"portalconnection": "connected",
+		"portalstate": {
+			"signedon": true,
+			"incoming": false,
+			"outgoing": true,
+			"communication": "disconnected"
+		},
+		"internetservices": {
+			"internet": "connected",
+			"remoteaccess": "connected",
+			"time": "connected",
+			"swupdate": "connected"
+		},
+		"factorynew": false,
+		"replacesbridgeid": "001788FFFE0A31E1",
+		"backup": {
+			"status": "idle",
+			"errorcode": 0
+		},
+		"starterkitid": "",
+		"whitelist": {
+			"df119095-070c-45d6-9e18-bc4ad2913fde": {
+				"last use date": "2017-10-09T19:33:20",
+				"create date": "2015-02-25T18:37:51",
+				"name": "Hue#Kwasi iPhone"
+			},
+			"kwasihueremote": {
+				"last use date": "2020-06-05T17:48:29",
+				"create date": "2015-03-15T19:49:57",
+				"name": "kwasi hue"
+			},
+			"1ae085af-03f5-4e56-9d43-b45eaa0aade4": {
+				"last use date": "2017-02-01T18:51:10",
+				"create date": "2016-05-30T20:15:01",
+				"name": "Hue 2#Kwasi iPhone"
+			},
+			"7430fe90-755b-477f-be3e-5bee33656ae1": {
+				"last use date": "2016-10-14T05:19:32",
+				"create date": "2016-10-14T05:19:32",
+				"name": "iftttv2"
+			},
+			"be750a41-635e-46f6-8199-1babdff9ffdc": {
+				"last use date": "2016-12-10T00:14:30",
+				"create date": "2016-10-14T18:03:00",
+				"name": "iftttv2"
+			},
+			"bff2377f-58e1-48bd-905f-d05b4ef985e8": {
+				"last use date": "2016-11-23T17:26:36",
+				"create date": "2016-11-23T17:21:34",
+				"name": "vivaldi_browser#desktop_hue"
+			},
+			"9aa622f4-506f-42db-8d62-d33921984e05": {
+				"last use date": "2017-02-01T18:55:47",
+				"create date": "2017-02-01T18:55:47",
+				"name": "iPhone"
+			},
+			"d4990c01-32d8-409b-9309-157424a994b2": {
+				"last use date": "2020-06-04T21:36:34",
+				"create date": "2017-02-01T19:02:28",
+				"name": "hue_ios_app#iPhone"
+			},
+			"049d6d45-84d7-4d6d-8086-43afe53d7092": {
+				"last use date": "2018-01-10T22:03:12",
+				"create date": "2017-04-17T22:05:29",
+				"name": "huelabs2"
+			},
+			"7e8f1a5e-788d-4ec9-824c-5331e2230e54": {
+				"last use date": "2018-07-18T22:50:06",
+				"create date": "2017-05-07T18:33:07",
+				"name": "hue_ios_app#iPhone von Sarah"
+			},
+			"624d598a-5c39-4c17-9cfd-e82139a357be": {
+				"last use date": "2020-03-26T06:00:53",
+				"create date": "2018-01-23T21:12:07",
+				"name": "hue_ios_app#KwasiPhone 8"
+			},
+			"418a2291-637f-40b8-959d-71717fe413f0": {
+				"last use date": "2020-06-03T21:47:05",
+				"create date": "2018-09-07T19:55:56",
+				"name": "Hue 3#iPhone von Sarah"
+			},
+			"ecf4ad95-fd3c-4154-85a0-75fcdcb976ae": {
+				"last use date": "2019-07-15T15:30:56",
+				"create date": "2019-07-15T15:30:16",
+				"name": "Hue Sync#optiplex.local"
+			}
+		}
+	},
+	"schedules": {
+		"1": {
+			"name": "Dimmer Switch 13 Reset",
+			"description": "Resets dimmer switch scene cycler",
+			"command": {
+				"address": "/api/d4990c01-32d8-409b-9309-157424a994b2/sensors/14/state",
+				"body": {
+					"status": 0
+				},
+				"method": "PUT"
+			},
+			"localtime": "PT00:00:10",
+			"time": "PT00:00:10",
+			"created": "2017-02-01T19:08:22",
+			"status": "disabled",
+			"autodelete": false,
+			"starttime": "2020-06-04T21:28:03",
+			"recycle": true
+		},
+		"2": {
+			"name": "Aufwachen 2",
+			"description": "L_04_nbxAL_start wake up",
+			"command": {
+				"address": "/api/hmL5jezUN2y9L2HnwlvtWyPqH8mPgsvL/sensors/12/state",
+				"body": {
+					"flag": true
+				},
+				"method": "PUT"
+			},
+			"localtime": "W124/T06:44:00",
+			"time": "W124/T04:44:00",
+			"created": "2020-03-16T22:19:44",
+			"status": "disabled",
+			"recycle": true
+		},
+		"3": {
+			"name": "L_04_nbxAL",
+			"description": "L_04_nbxAL_trigger end scene",
+			"command": {
+				"address": "/api/hmL5jezUN2y9L2HnwlvtWyPqH8mPgsvL/groups/0/action",
+				"body": {
+					"scene": "vPABBrgDogSzqjt"
+				},
+				"method": "PUT"
+			},
+			"localtime": "PT00:01:00",
+			"time": "PT00:01:00",
+			"created": "2020-03-16T22:19:44",
+			"status": "disabled",
+			"autodelete": false,
+			"starttime": "2020-03-26T05:44:00",
+			"recycle": true
+		},
+		"4": {
+			"name": "Go to sleep start",
+			"description": "Trigger go to sleep start",
+			"command": {
+				"address": "/api/v2BtcJ8bjYS2Sb7J7g0o3s0inh7E8rU3/sensors/11/state",
+				"body": {
+					"flag": true
+				},
+				"method": "PUT"
+			},
+			"localtime": "W127/T23:15:00",
+			"time": "W127/T21:15:00",
+			"created": "2019-04-27T22:15:51",
+			"status": "disabled",
+			"recycle": true
+		},
+		"5": {
+			"name": "Goto Bed",
+			"description": "MyRoutine",
+			"command": {
+				"address": "/api/gKUfl8umgSh0AQUOWnPu868D7EcsTt5F/sensors/22/state",
+				"body": {
+					"flag": true
+				},
+				"method": "PUT"
+			},
+			"localtime": "W121/T22:45:00",
+			"time": "W121/T20:45:00",
+			"created": "2019-01-29T21:34:53",
+			"status": "disabled",
+			"recycle": true
+		},
+		"6": {
+			"name": "Dimmer Switch 19 Reset",
+			"description": "Resets dimmer switch scene cycler",
+			"command": {
+				"address": "/api/d4990c01-32d8-409b-9309-157424a994b2/sensors/20/state",
+				"body": {
+					"status": 0
+				},
+				"method": "PUT"
+			},
+			"localtime": "PT00:00:10",
+			"time": "PT00:00:10",
+			"created": "2020-06-04T20:57:22",
+			"status": "disabled",
+			"autodelete": false,
+			"starttime": "2020-06-04T20:57:22",
+			"recycle": true
+		},
+		"7": {
+			"name": "Dimmer Switch 15 Reset",
+			"description": "Resets dimmer switch scene cycler",
+			"command": {
+				"address": "/api/624d598a-5c39-4c17-9cfd-e82139a357be/sensors/16/state",
+				"body": {
+					"status": 0
+				},
+				"method": "PUT"
+			},
+			"localtime": "PT00:00:10",
+			"time": "PT00:00:10",
+			"created": "2020-06-05T17:39:49",
+			"status": "disabled",
+			"autodelete": false,
+			"starttime": "2020-06-05T17:39:49",
+			"recycle": true
+		}
+	},
+	"scenes": {
+		"lMYpcDRdAuCXtij": {
+			"name": "Wake Up init",
+			"type": "LightScene",
+			"lights": [
+				"8"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": true,
+			"locked": true,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2020-03-16T22:19:44",
+			"version": 2
+		},
+		"ACWu7xFsUuPOlHz": {
+			"name": "Wake Up init",
+			"type": "LightScene",
+			"lights": [
+				"8"
+			],
+			"owner": "1ae085af-03f5-4e56-9d43-b45eaa0aade4",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-01-19T22:31:44",
+			"version": 2
+		},
+		"vPABBrgDogSzqjt": {
+			"name": "Wake Up end",
+			"type": "LightScene",
+			"lights": [
+				"8"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": true,
+			"locked": true,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2020-03-16T22:19:44",
+			"version": 2
+		},
+		"pL1CpziZEB6QLll": {
+			"name": "Hell",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "sWQqn_r04_d05"
+			},
+			"picture": "",
+			"image": "732ff1d9-76a7-4630-aad0-c8acc499bb0b",
+			"lastupdated": "2020-04-18T13:57:04",
+			"version": 2
+		},
+		"DrbIkSD7EQh1uqI": {
+			"name": "Good Night",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "vry90_r04_d99"
+			},
+			"picture": "",
+			"lastupdated": "2020-04-18T13:57:04",
+			"version": 2
+		},
+		"rNEAE6gOCHlckSj": {
+			"name": "Good Night",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": true,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "vry90_r04_d99"
+			},
+			"picture": "",
+			"lastupdated": "2020-04-18T13:57:04",
+			"version": 2
+		},
+		"DeXgPUZJwvUJNLe": {
+			"name": "Night Activities",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "SqxsR_r04_d99"
+			},
+			"picture": "",
+			"lastupdated": "2020-04-18T14:00:47",
+			"version": 2
+		},
+		"a64f42fa2-on-0": {
+			"name": "Guten Abend on 0",
+			"type": "LightScene",
+			"lights": [
+				"2"
+			],
+			"owner": "none",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": null,
+			"version": 1
+		},
+		"DEJjs6vpOTxFId0": {
+			"name": "Go to sleep start",
+			"type": "LightScene",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"20",
+				"22",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": true,
+			"locked": true,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"28fedgiLBtQsIZ-": {
+			"name": "Go to sleep end",
+			"type": "LightScene",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"20",
+				"22",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": true,
+			"locked": true,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"IimdUHon4p6LdDR": {
+			"name": "Entspannen",
+			"type": "GroupScene",
+			"group": "6",
+			"lights": [
+				"1"
+			],
+			"owner": "418a2291-637f-40b8-959d-71717fe413f0",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "EI0Iz_r06_d01"
+			},
+			"picture": "",
+			"image": "a1f7da49-d181-4328-abea-68c9dc4b5416",
+			"lastupdated": "2019-05-05T17:22:04",
+			"version": 2
+		},
+		"9moWwRAGBv1Jmtw": {
+			"name": "Lesen",
+			"type": "GroupScene",
+			"group": "6",
+			"lights": [
+				"1"
+			],
+			"owner": "418a2291-637f-40b8-959d-71717fe413f0",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "HSPaL_r06_d02"
+			},
+			"picture": "",
+			"image": "e101a77f-9984-4f61-aac8-15741983c656",
+			"lastupdated": "2019-05-05T17:22:04",
+			"version": 2
+		},
+		"2wKNNqbStl4WPvU": {
+			"name": "Konzentrieren",
+			"type": "GroupScene",
+			"group": "6",
+			"lights": [
+				"1"
+			],
+			"owner": "418a2291-637f-40b8-959d-71717fe413f0",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "GRd4o_r06_d03"
+			},
+			"picture": "",
+			"image": "b90c8900-a6b7-422c-a5d3-e170187dbf8c",
+			"lastupdated": "2019-05-05T17:22:04",
+			"version": 2
+		},
+		"X1pYSnc2ygmeDpg": {
+			"name": "Energie tanken",
+			"type": "GroupScene",
+			"group": "6",
+			"lights": [
+				"1"
+			],
+			"owner": "418a2291-637f-40b8-959d-71717fe413f0",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "gC3DP_r06_d04"
+			},
+			"picture": "",
+			"image": "7fd2ccc5-5749-4142-b7a5-66405a676f03",
+			"lastupdated": "2019-05-05T17:22:04",
+			"version": 2
+		},
+		"2wKOTn89L6mv21h": {
+			"name": "Hell",
+			"type": "GroupScene",
+			"group": "6",
+			"lights": [
+				"1"
+			],
+			"owner": "418a2291-637f-40b8-959d-71717fe413f0",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "R7QcN_r06_d05"
+			},
+			"picture": "",
+			"image": "732ff1d9-76a7-4630-aad0-c8acc499bb0b",
+			"lastupdated": "2019-05-05T17:22:04",
+			"version": 2
+		},
+		"LJefNxFzNMk4bHB": {
+			"name": "Gedimmt",
+			"type": "GroupScene",
+			"group": "6",
+			"lights": [
+				"1"
+			],
+			"owner": "418a2291-637f-40b8-959d-71717fe413f0",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "0seVE_r06_d06"
+			},
+			"picture": "",
+			"image": "8c74b9ba-6e89-4083-a2a7-b10a1e566fed",
+			"lastupdated": "2019-05-05T17:22:05",
+			"version": 2
+		},
+		"aD0ufTGnNN65W-D": {
+			"name": "Nachtlicht",
+			"type": "GroupScene",
+			"group": "6",
+			"lights": [
+				"1"
+			],
+			"owner": "418a2291-637f-40b8-959d-71717fe413f0",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "Ew1wL_r06_d07"
+			},
+			"picture": "",
+			"image": "28bbfeff-1a0c-444e-bb4b-0b74b88e0c95",
+			"lastupdated": "2019-05-05T17:22:05",
+			"version": 2
+		},
+		"1dxvwn2Os0I5e9D": {
+			"name": "Sonnenuntergang Savanne",
+			"type": "GroupScene",
+			"group": "6",
+			"lights": [
+				"1"
+			],
+			"owner": "418a2291-637f-40b8-959d-71717fe413f0",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "feD5R_r06_d15"
+			},
+			"picture": "",
+			"image": "4f2ed241-5aea-4c9d-8028-55d2b111e06f",
+			"lastupdated": "2019-05-05T17:22:05",
+			"version": 2
+		},
+		"RC97mt6EUSqKuGT": {
+			"name": "Tropendämmerung",
+			"type": "GroupScene",
+			"group": "6",
+			"lights": [
+				"1"
+			],
+			"owner": "418a2291-637f-40b8-959d-71717fe413f0",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "HDvcQ_r06_d16"
+			},
+			"picture": "",
+			"image": "a6a03e6a-fe6e-45bc-b686-878137f3ba91",
+			"lastupdated": "2019-05-05T17:22:05",
+			"version": 2
+		},
+		"Qrh0bJpYdkruVUb": {
+			"name": "Nordlichter",
+			"type": "GroupScene",
+			"group": "6",
+			"lights": [
+				"1"
+			],
+			"owner": "418a2291-637f-40b8-959d-71717fe413f0",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "0Tkx3_r06_d17"
+			},
+			"picture": "",
+			"image": "1e42b2e8-d02e-40d2-9c8d-b1fd8216c686",
+			"lastupdated": "2019-05-05T17:22:05",
+			"version": 2
+		},
+		"WBKBSxg3a7XRAus": {
+			"name": "Frühlingsblüten",
+			"type": "GroupScene",
+			"group": "6",
+			"lights": [
+				"1"
+			],
+			"owner": "418a2291-637f-40b8-959d-71717fe413f0",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "UxUdP_r06_d18"
+			},
+			"picture": "",
+			"image": "adfa9c3e-e9aa-4b65-b9d3-c5b2c0576715",
+			"lastupdated": "2019-05-05T17:22:05",
+			"version": 2
+		},
+		"HfkHdEfo9OQB603": {
+			"name": "Abendbeleutung",
+			"type": "GroupScene",
+			"group": "6",
+			"lights": [
+				"1"
+			],
+			"owner": "418a2291-637f-40b8-959d-71717fe413f0",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "oI6Pw_r06_d99"
+			},
+			"picture": "",
+			"lastupdated": "2019-05-05T17:24:08",
+			"version": 2
+		},
+		"t2GRPycrVjfo-8Y": {
+			"name": "GoTo Bed",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "laQ0R_r04_d99"
+			},
+			"picture": "",
+			"lastupdated": "2020-04-18T13:59:59",
+			"version": 2
+		},
+		"0Jez5lGd24RY0C-": {
+			"name": "Medium",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "hiOzC_r04_d99"
+			},
+			"picture": "",
+			"lastupdated": "2020-04-18T13:57:03",
+			"version": 2
+		},
+		"O0uIwIxt8ndmH64": {
+			"name": "Entspannen",
+			"type": "GroupScene",
+			"group": "7",
+			"lights": [
+				"17",
+				"18"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "b2VGJ_r07_d01"
+			},
+			"picture": "",
+			"image": "a1f7da49-d181-4328-abea-68c9dc4b5416",
+			"lastupdated": "2019-10-27T11:23:32",
+			"version": 2
+		},
+		"32b5ece98-off-0": {
+			"name": "Guten Morgen off",
+			"type": "LightScene",
+			"lights": [
+				"1",
+				"2",
+				"3",
+				"4",
+				"9",
+				"10",
+				"11"
+			],
+			"owner": "df119095-070c-45d6-9e18-bc4ad2913fde",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2016-01-28T21:43:14",
+			"version": 1
+		},
+		"120271c25-on-0": {
+			"name": "Neue Szene xxx o",
+			"type": "LightScene",
+			"lights": [
+				"7",
+				"10",
+				"11"
+			],
+			"owner": "df119095-070c-45d6-9e18-bc4ad2913fde",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2016-03-02T20:45:42",
+			"version": 1
+		},
+		"c0b54a2aa-on-0": {
+			"name": "Guten Abend on 0",
+			"type": "LightScene",
+			"lights": [
+				"2"
+			],
+			"owner": "df119095-070c-45d6-9e18-bc4ad2913fde",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2016-04-21T21:23:03",
+			"version": 1
+		},
+		"i6uz9yeXckKMdjC": {
+			"name": "Entspannen",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "pWPZ0_r02_d01"
+			},
+			"picture": "",
+			"image": "a1f7da49-d181-4328-abea-68c9dc4b5416",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"AXTfbA9YaC40U0T": {
+			"name": "Lesen",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "ZKDsJ_r02_d02"
+			},
+			"picture": "",
+			"image": "e101a77f-9984-4f61-aac8-15741983c656",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"NQxn1cPbs229W7T": {
+			"name": "Konzentration",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "Sd8TM_r02_d03"
+			},
+			"picture": "",
+			"image": "b90c8900-a6b7-422c-a5d3-e170187dbf8c",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"5Vr2jVdI3p6qylj": {
+			"name": "Aktivieren",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "NHPAd_r02_d04"
+			},
+			"picture": "",
+			"image": "7fd2ccc5-5749-4142-b7a5-66405a676f03",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"qejoOPMIIp-vKKA": {
+			"name": "Hell",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "MqP4R_r02_d05"
+			},
+			"picture": "",
+			"image": "732ff1d9-76a7-4630-aad0-c8acc499bb0b",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"p5dCjaADDAe4qqV": {
+			"name": "Gedimmt",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "HdmKL_r02_d06"
+			},
+			"picture": "",
+			"image": "8c74b9ba-6e89-4083-a2a7-b10a1e566fed",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"AayDG-CKRFOQHF1": {
+			"name": "Nachtlicht",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "CkYYc_r02_d07"
+			},
+			"picture": "",
+			"image": "28bbfeff-1a0c-444e-bb4b-0b74b88e0c95",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"c9Q-CoV8xaYMCgX": {
+			"name": "Sonnenuntergang Savanne",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "RKvyu_r02_d15"
+			},
+			"picture": "",
+			"image": "4f2ed241-5aea-4c9d-8028-55d2b111e06f",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"Ln1z-DaAeeivwm7": {
+			"name": "Tropendämmerung",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "B85N9_r02_d16"
+			},
+			"picture": "",
+			"image": "a6a03e6a-fe6e-45bc-b686-878137f3ba91",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"r15gAzfz5oZLZcU": {
+			"name": "Frühlingsblüten",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "xV45X_r02_d18"
+			},
+			"picture": "",
+			"image": "adfa9c3e-e9aa-4b65-b9d3-c5b2c0576715",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"K8GpVrpx9US1a0O": {
+			"name": "Nordlichter",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "L2Ybt_r02_d17"
+			},
+			"picture": "",
+			"image": "1e42b2e8-d02e-40d2-9c8d-b1fd8216c686",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"V-lX78zKNa-3il-": {
+			"name": "Rot-grün schwäche",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "8wOzb_r02_d99"
+			},
+			"picture": "",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"JsmSGdK7LYVhkUD": {
+			"name": "Entspannen",
+			"type": "GroupScene",
+			"group": "3",
+			"lights": [
+				"20",
+				"22"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "7Ienf_r03_d01"
+			},
+			"picture": "",
+			"image": "a1f7da49-d181-4328-abea-68c9dc4b5416",
+			"lastupdated": "2019-12-05T18:16:26",
+			"version": 2
+		},
+		"K6WLKBUmp47THdu": {
+			"name": "Lesen",
+			"type": "GroupScene",
+			"group": "3",
+			"lights": [
+				"20",
+				"22"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "8jGwz_r03_d02"
+			},
+			"picture": "",
+			"image": "e101a77f-9984-4f61-aac8-15741983c656",
+			"lastupdated": "2019-12-05T18:16:27",
+			"version": 2
+		},
+		"tkixv4jP0mhXVKZ": {
+			"name": "Konzentrieren",
+			"type": "GroupScene",
+			"group": "3",
+			"lights": [
+				"20",
+				"22"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "FqnKz_r03_d03"
+			},
+			"picture": "",
+			"image": "b90c8900-a6b7-422c-a5d3-e170187dbf8c",
+			"lastupdated": "2019-12-05T18:16:27",
+			"version": 2
+		},
+		"OtHyIKX57hsyKr8": {
+			"name": "Energie tanken",
+			"type": "GroupScene",
+			"group": "3",
+			"lights": [
+				"20",
+				"22"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "m6J75_r03_d04"
+			},
+			"picture": "",
+			"image": "7fd2ccc5-5749-4142-b7a5-66405a676f03",
+			"lastupdated": "2019-12-05T18:16:27",
+			"version": 2
+		},
+		"rOtepQ7JIPv4tlu": {
+			"name": "Hell",
+			"type": "GroupScene",
+			"group": "3",
+			"lights": [
+				"20",
+				"22"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "Nt1Vl_r03_d05"
+			},
+			"picture": "",
+			"image": "732ff1d9-76a7-4630-aad0-c8acc499bb0b",
+			"lastupdated": "2019-12-05T18:16:27",
+			"version": 2
+		},
+		"sTyyLabwpuYbXO-": {
+			"name": "Gedimmt",
+			"type": "GroupScene",
+			"group": "3",
+			"lights": [
+				"20",
+				"22"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "dUtSC_r03_d06"
+			},
+			"picture": "",
+			"image": "8c74b9ba-6e89-4083-a2a7-b10a1e566fed",
+			"lastupdated": "2019-12-05T18:16:27",
+			"version": 2
+		},
+		"U0JAOJSxWB2GlnZ": {
+			"name": "Nachtlicht",
+			"type": "GroupScene",
+			"group": "3",
+			"lights": [
+				"20",
+				"22"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "3QyxP_r03_d07"
+			},
+			"picture": "",
+			"image": "28bbfeff-1a0c-444e-bb4b-0b74b88e0c95",
+			"lastupdated": "2019-12-05T18:16:27",
+			"version": 2
+		},
+		"hsdXUOmvLwzrtiS": {
+			"name": "Sonnenuntergang Savanne",
+			"type": "GroupScene",
+			"group": "3",
+			"lights": [
+				"20",
+				"22"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "JhNgr_r03_d15"
+			},
+			"picture": "",
+			"image": "4f2ed241-5aea-4c9d-8028-55d2b111e06f",
+			"lastupdated": "2019-12-05T18:16:27",
+			"version": 2
+		},
+		"XgPAP8c7awyvQBX": {
+			"name": "Tropendämmerung",
+			"type": "GroupScene",
+			"group": "3",
+			"lights": [
+				"20",
+				"22"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "K3iG1_r03_d16"
+			},
+			"picture": "",
+			"image": "a6a03e6a-fe6e-45bc-b686-878137f3ba91",
+			"lastupdated": "2019-12-05T18:16:27",
+			"version": 2
+		},
+		"Ozf-ily2YEwn9V4": {
+			"name": "Nordlichter",
+			"type": "GroupScene",
+			"group": "3",
+			"lights": [
+				"20",
+				"22"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "pRBpD_r03_d17"
+			},
+			"picture": "",
+			"image": "1e42b2e8-d02e-40d2-9c8d-b1fd8216c686",
+			"lastupdated": "2019-12-05T18:16:27",
+			"version": 2
+		},
+		"vDkc9x16mBO6b7h": {
+			"name": "Entspannen",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "RaHkJ_r04_d01"
+			},
+			"picture": "",
+			"image": "a1f7da49-d181-4328-abea-68c9dc4b5416",
+			"lastupdated": "2020-04-18T13:57:04",
+			"version": 2
+		},
+		"0DqBbAHvf3Xif9c": {
+			"name": "Lesen",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "9kQzs_r04_d02"
+			},
+			"picture": "",
+			"image": "e101a77f-9984-4f61-aac8-15741983c656",
+			"lastupdated": "2020-04-18T13:57:04",
+			"version": 2
+		},
+		"mwqIahUnLOFWGsV": {
+			"name": "Konzentration",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "fzlOZ_r04_d03"
+			},
+			"picture": "",
+			"image": "b90c8900-a6b7-422c-a5d3-e170187dbf8c",
+			"lastupdated": "2020-04-18T13:57:03",
+			"version": 2
+		},
+		"pGgquSrdvTNHa-6": {
+			"name": "Aktivieren",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "Qcrpe_r04_d04"
+			},
+			"picture": "",
+			"image": "7fd2ccc5-5749-4142-b7a5-66405a676f03",
+			"lastupdated": "2020-04-18T13:57:03",
+			"version": 2
+		},
+		"qjQYWIxkyzKU4lz": {
+			"name": "Hell",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "sWQqn_r04_d05"
+			},
+			"picture": "",
+			"image": "732ff1d9-76a7-4630-aad0-c8acc499bb0b",
+			"lastupdated": "2020-04-18T13:57:03",
+			"version": 2
+		},
+		"44WR4qk3WF9SkhL": {
+			"name": "Gedimmt",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "idDSz_r04_d06"
+			},
+			"picture": "",
+			"image": "8c74b9ba-6e89-4083-a2a7-b10a1e566fed",
+			"lastupdated": "2020-04-18T13:57:03",
+			"version": 2
+		},
+		"wiJwHeEaT0Y4UTe": {
+			"name": "Nachtlicht",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "bHOVa_r04_d07"
+			},
+			"picture": "",
+			"image": "28bbfeff-1a0c-444e-bb4b-0b74b88e0c95",
+			"lastupdated": "2020-04-18T13:57:03",
+			"version": 2
+		},
+		"jDH-Ct5UZ42pk9A": {
+			"name": "Frühlingsblüten",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "VgXay_r04_d18"
+			},
+			"picture": "",
+			"image": "adfa9c3e-e9aa-4b65-b9d3-c5b2c0576715",
+			"lastupdated": "2020-04-18T13:57:03",
+			"version": 2
+		},
+		"dzBx45KxZyJssan": {
+			"name": "Tropendämmerung",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "kduXY_r04_d16"
+			},
+			"picture": "",
+			"image": "a6a03e6a-fe6e-45bc-b686-878137f3ba91",
+			"lastupdated": "2020-04-18T13:57:03",
+			"version": 2
+		},
+		"HOvExWVt9OKIc5a": {
+			"name": "Sonnenuntergang Savanne",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "KABA9_r04_d15"
+			},
+			"picture": "",
+			"image": "4f2ed241-5aea-4c9d-8028-55d2b111e06f",
+			"lastupdated": "2020-04-18T13:57:03",
+			"version": 2
+		},
+		"NwBRoJGCkKuIIz2": {
+			"name": "Nordlichter",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "fji8o_r04_d17"
+			},
+			"picture": "",
+			"image": "1e42b2e8-d02e-40d2-9c8d-b1fd8216c686",
+			"lastupdated": "2020-04-18T13:57:04",
+			"version": 2
+		},
+		"yoeUpDhC7MBiODk": {
+			"name": "Letzter \"Ein\" Zustand",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": true,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "0IsEr_r02_d20"
+			},
+			"picture": "",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"1rMYotL6znPnNCS": {
+			"name": "Aus",
+			"type": "GroupScene",
+			"group": "0",
+			"lights": [
+				"1",
+				"2",
+				"3",
+				"4",
+				"7",
+				"8",
+				"9",
+				"10",
+				"11",
+				"15",
+				"16",
+				"17",
+				"18",
+				"20",
+				"21",
+				"22",
+				"23",
+				"24"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "nmReg_r00_d19"
+			},
+			"picture": "",
+			"lastupdated": "2018-10-21T18:16:15",
+			"version": 2
+		},
+		"Bd3rOpS3z01ZYZf": {
+			"name": "TV",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "gYI0k_r02_d99"
+			},
+			"picture": "",
+			"lastupdated": "2020-02-20T18:05:14",
+			"version": 2
+		},
+		"Eso9WL8lYh5lqfS": {
+			"name": "Aus",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": true,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "qHoPu_r02_d19"
+			},
+			"picture": "",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"uHBpuWFc6URZApK": {
+			"name": "Rot",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "EjIjW_r02"
+			},
+			"picture": "",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"UdWMbyRSKPlmyvf": {
+			"name": "Wake Up end",
+			"type": "LightScene",
+			"lights": [
+				"8"
+			],
+			"owner": "1ae085af-03f5-4e56-9d43-b45eaa0aade4",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-01-19T22:31:44",
+			"version": 2
+		},
+		"8jBKho1xWDd9RMr": {
+			"name": "Lesen",
+			"type": "GroupScene",
+			"group": "7",
+			"lights": [
+				"17",
+				"18"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "L7YNm_r07_d02"
+			},
+			"picture": "",
+			"image": "e101a77f-9984-4f61-aac8-15741983c656",
+			"lastupdated": "2019-10-27T11:23:32",
+			"version": 2
+		},
+		"SuO3GI04-pyai5p": {
+			"name": "Konzentrieren",
+			"type": "GroupScene",
+			"group": "7",
+			"lights": [
+				"17",
+				"18"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "RGD2T_r07_d03"
+			},
+			"picture": "",
+			"image": "b90c8900-a6b7-422c-a5d3-e170187dbf8c",
+			"lastupdated": "2019-10-27T11:23:32",
+			"version": 2
+		},
+		"5QROWRaMh27nPMX": {
+			"name": "Entspannen",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "RaHkJ_r04_d01"
+			},
+			"picture": "",
+			"image": "a1f7da49-d181-4328-abea-68c9dc4b5416",
+			"lastupdated": "2020-04-18T13:57:03",
+			"version": 2
+		},
+		"0hwquv67RU5yBiG": {
+			"name": "Lesen",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "9kQzs_r04_d02"
+			},
+			"picture": "",
+			"image": "e101a77f-9984-4f61-aac8-15741983c656",
+			"lastupdated": "2020-04-18T13:57:03",
+			"version": 2
+		},
+		"74dywxP1CjluA7e": {
+			"name": "Energie tanken",
+			"type": "GroupScene",
+			"group": "7",
+			"lights": [
+				"17",
+				"18"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "TTnGa_r07_d04"
+			},
+			"picture": "",
+			"image": "7fd2ccc5-5749-4142-b7a5-66405a676f03",
+			"lastupdated": "2019-10-27T11:23:32",
+			"version": 2
+		},
+		"uq6DNo7FSlB5m4m": {
+			"name": "Hell",
+			"type": "GroupScene",
+			"group": "7",
+			"lights": [
+				"17",
+				"18"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "bkRgr_r07_d05"
+			},
+			"picture": "",
+			"image": "732ff1d9-76a7-4630-aad0-c8acc499bb0b",
+			"lastupdated": "2019-10-27T11:23:32",
+			"version": 2
+		},
+		"uVUCSxHO5Ezxi5S": {
+			"name": "Frühlingsblüten",
+			"type": "GroupScene",
+			"group": "3",
+			"lights": [
+				"20",
+				"22"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "NvbLJ_r03_d18"
+			},
+			"picture": "",
+			"image": "adfa9c3e-e9aa-4b65-b9d3-c5b2c0576715",
+			"lastupdated": "2019-12-05T18:16:27",
+			"version": 2
+		},
+		"CEqR-HqMG9NVkex": {
+			"name": "Letzter \"Ein\" Zustand",
+			"type": "GroupScene",
+			"group": "4",
+			"lights": [
+				"2",
+				"8",
+				"16"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "NN8M2_r04_d20"
+			},
+			"picture": "",
+			"lastupdated": "2020-04-18T13:57:03",
+			"version": 2
+		},
+		"tvvo540OBVW-1A9": {
+			"name": "Entspannen",
+			"type": "GroupScene",
+			"group": "0",
+			"lights": [
+				"1",
+				"2",
+				"3",
+				"4",
+				"7",
+				"8",
+				"9",
+				"10",
+				"11",
+				"15",
+				"16",
+				"17",
+				"18",
+				"20",
+				"21",
+				"22",
+				"23",
+				"24"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "fC8VC_r00_d01"
+			},
+			"picture": "",
+			"image": "a1f7da49-d181-4328-abea-68c9dc4b5416",
+			"lastupdated": "2018-10-21T18:16:15",
+			"version": 2
+		},
+		"dEHMZ6fpXtVU1Ad": {
+			"name": "Aus",
+			"type": "GroupScene",
+			"group": "0",
+			"lights": [
+				"1",
+				"2",
+				"3",
+				"4",
+				"7",
+				"8",
+				"9",
+				"10",
+				"11",
+				"15",
+				"16",
+				"17",
+				"18",
+				"20",
+				"21",
+				"22",
+				"23",
+				"24"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "GD0qf_r00_d19"
+			},
+			"picture": "",
+			"lastupdated": "2018-10-21T18:16:16",
+			"version": 2
+		},
+		"zqjDALiQDL80Am7": {
+			"name": "Gedimmt",
+			"type": "GroupScene",
+			"group": "7",
+			"lights": [
+				"17",
+				"18"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "4bKfy_r07_d06"
+			},
+			"picture": "",
+			"image": "8c74b9ba-6e89-4083-a2a7-b10a1e566fed",
+			"lastupdated": "2019-10-27T11:23:32",
+			"version": 2
+		},
+		"lNrffS7vermc8cy": {
+			"name": "Nachtlicht",
+			"type": "GroupScene",
+			"group": "7",
+			"lights": [
+				"17",
+				"18"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "uCt34_r07_d07"
+			},
+			"picture": "",
+			"image": "28bbfeff-1a0c-444e-bb4b-0b74b88e0c95",
+			"lastupdated": "2019-10-27T11:23:32",
+			"version": 2
+		},
+		"cOm7ioZkdel8CUM": {
+			"name": "Nordlichter",
+			"type": "GroupScene",
+			"group": "7",
+			"lights": [
+				"17",
+				"18"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "a4UcL_r07_d17"
+			},
+			"picture": "",
+			"image": "1e42b2e8-d02e-40d2-9c8d-b1fd8216c686",
+			"lastupdated": "2019-10-27T11:23:32",
+			"version": 2
+		},
+		"S2TRHQ2nKrccotB": {
+			"name": "Sonnenuntergang Savanne",
+			"type": "GroupScene",
+			"group": "7",
+			"lights": [
+				"17",
+				"18"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "3CKd0_r07_d15"
+			},
+			"picture": "",
+			"image": "4f2ed241-5aea-4c9d-8028-55d2b111e06f",
+			"lastupdated": "2019-10-27T11:23:32",
+			"version": 2
+		},
+		"QLx4KjhtAciUHvn": {
+			"name": "Tropendämmerung",
+			"type": "GroupScene",
+			"group": "7",
+			"lights": [
+				"17",
+				"18"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "aRcXq_r07_d16"
+			},
+			"picture": "",
+			"image": "a6a03e6a-fe6e-45bc-b686-878137f3ba91",
+			"lastupdated": "2019-10-27T11:23:33",
+			"version": 2
+		},
+		"Hder3pc2x7UKSKg": {
+			"name": "Frühlingsblüten",
+			"type": "GroupScene",
+			"group": "7",
+			"lights": [
+				"17",
+				"18"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "Ae3Kv_r07_d18"
+			},
+			"picture": "",
+			"image": "adfa9c3e-e9aa-4b65-b9d3-c5b2c0576715",
+			"lastupdated": "2019-10-27T11:23:33",
+			"version": 2
+		},
+		"PajFsma0knR7gkA": {
+			"name": "Pink",
+			"type": "GroupScene",
+			"group": "2",
+			"lights": [
+				"3",
+				"4",
+				"7",
+				"9",
+				"10",
+				"11",
+				"15",
+				"23"
+			],
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "UIngX_r02_d99"
+			},
+			"picture": "",
+			"lastupdated": "2020-02-18T19:16:01",
+			"version": 2
+		},
+		"6wxsUtWvJpd9mHr": {
+			"name": "Entspannen",
+			"type": "GroupScene",
+			"group": "8",
+			"lights": [
+				"21",
+				"24"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "U7BpE_r08_d01"
+			},
+			"picture": "",
+			"image": "a1f7da49-d181-4328-abea-68c9dc4b5416",
+			"lastupdated": "2020-02-23T12:31:08",
+			"version": 2
+		},
+		"riKfbGP41EXg7MV": {
+			"name": "Lesen",
+			"type": "GroupScene",
+			"group": "8",
+			"lights": [
+				"21",
+				"24"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "ishJv_r08_d02"
+			},
+			"picture": "",
+			"image": "e101a77f-9984-4f61-aac8-15741983c656",
+			"lastupdated": "2020-02-23T12:31:08",
+			"version": 2
+		},
+		"VXfYOTqEHm6adeX": {
+			"name": "Konzentrieren",
+			"type": "GroupScene",
+			"group": "8",
+			"lights": [
+				"21",
+				"24"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "4Hl1R_r08_d03"
+			},
+			"picture": "",
+			"image": "b90c8900-a6b7-422c-a5d3-e170187dbf8c",
+			"lastupdated": "2020-02-23T12:31:08",
+			"version": 2
+		},
+		"zHFMpbDGMHnFcyC": {
+			"name": "Energie tanken",
+			"type": "GroupScene",
+			"group": "8",
+			"lights": [
+				"21",
+				"24"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "2aflH_r08_d04"
+			},
+			"picture": "",
+			"image": "7fd2ccc5-5749-4142-b7a5-66405a676f03",
+			"lastupdated": "2020-02-23T12:31:08",
+			"version": 2
+		},
+		"FqsTjW4z3-ZOd4G": {
+			"name": "Hell",
+			"type": "GroupScene",
+			"group": "8",
+			"lights": [
+				"21",
+				"24"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "pHr4H_r08_d05"
+			},
+			"picture": "",
+			"image": "732ff1d9-76a7-4630-aad0-c8acc499bb0b",
+			"lastupdated": "2020-02-23T12:31:08",
+			"version": 2
+		},
+		"07BXRieuaQdgm6L": {
+			"name": "Gedimmt",
+			"type": "GroupScene",
+			"group": "8",
+			"lights": [
+				"21",
+				"24"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "5AR66_r08_d06"
+			},
+			"picture": "",
+			"image": "8c74b9ba-6e89-4083-a2a7-b10a1e566fed",
+			"lastupdated": "2020-02-23T12:31:08",
+			"version": 2
+		},
+		"DkdohHnokPGN3aF": {
+			"name": "Nachtlicht",
+			"type": "GroupScene",
+			"group": "8",
+			"lights": [
+				"21",
+				"24"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "Xx8fN_r08_d07"
+			},
+			"picture": "",
+			"image": "28bbfeff-1a0c-444e-bb4b-0b74b88e0c95",
+			"lastupdated": "2020-02-23T12:31:08",
+			"version": 2
+		},
+		"j7buFN8o5oQGAdR": {
+			"name": "Sonnenuntergang Savanne",
+			"type": "GroupScene",
+			"group": "8",
+			"lights": [
+				"21",
+				"24"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "Ph4Ag_r08_d15"
+			},
+			"picture": "",
+			"image": "4f2ed241-5aea-4c9d-8028-55d2b111e06f",
+			"lastupdated": "2020-02-23T12:31:08",
+			"version": 2
+		},
+		"L69NDKkY01gcrzD": {
+			"name": "Tropendämmerung",
+			"type": "GroupScene",
+			"group": "8",
+			"lights": [
+				"21",
+				"24"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "bi8Ex_r08_d16"
+			},
+			"picture": "",
+			"image": "a6a03e6a-fe6e-45bc-b686-878137f3ba91",
+			"lastupdated": "2020-02-23T12:31:08",
+			"version": 2
+		},
+		"fCsedu2mU-KvIj4": {
+			"name": "Nordlichter",
+			"type": "GroupScene",
+			"group": "8",
+			"lights": [
+				"21",
+				"24"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "81sIR_r08_d17"
+			},
+			"picture": "",
+			"image": "1e42b2e8-d02e-40d2-9c8d-b1fd8216c686",
+			"lastupdated": "2020-02-23T12:31:08",
+			"version": 2
+		},
+		"BhmzMgRRjZH29BP": {
+			"name": "Frühlingsblüten",
+			"type": "GroupScene",
+			"group": "8",
+			"lights": [
+				"21",
+				"24"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "r4MkK_r08_d18"
+			},
+			"picture": "",
+			"image": "adfa9c3e-e9aa-4b65-b9d3-c5b2c0576715",
+			"lastupdated": "2020-02-23T12:31:08",
+			"version": 2
+		},
+		"csMUPeA6t5FIVb5": {
+			"name": "Sink dimmed",
+			"type": "GroupScene",
+			"group": "3",
+			"lights": [
+				"20",
+				"22"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "FKgR0_r03_d99"
+			},
+			"picture": "",
+			"lastupdated": "2019-12-05T18:23:38",
+			"version": 2
+		},
+		"sPBbGtQ0nZjVnSN": {
+			"name": "Sink only",
+			"type": "GroupScene",
+			"group": "3",
+			"lights": [
+				"20",
+				"22"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "VWfPO_r03_d99"
+			},
+			"picture": "",
+			"lastupdated": "2019-12-05T18:22:06",
+			"version": 2
+		},
+		"dlp4YTCjYG42qkR": {
+			"name": "Kitchen center",
+			"type": "GroupScene",
+			"group": "3",
+			"lights": [
+				"20",
+				"22"
+			],
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "bsYHd_r03_d99"
+			},
+			"picture": "",
+			"lastupdated": "2019-12-05T18:24:59",
+			"version": 2
+		}
+	},
+	"rules": {
+		"1": {
+			"name": "Tap 2.3",
+			"owner": "1ae085af-03f5-4e56-9d43-b45eaa0aade4",
+			"created": "2016-08-21T20:49:18",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/2/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/2/state/buttonevent",
+					"operator": "eq",
+					"value": "17"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"scene": "p5dCjaADDAe4qqV"
+					}
+				}
+			]
+		},
+		"2": {
+			"name": "Tap 2.2",
+			"owner": "1ae085af-03f5-4e56-9d43-b45eaa0aade4",
+			"created": "2016-08-21T20:49:18",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/2/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/2/state/buttonevent",
+					"operator": "eq",
+					"value": "16"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"scene": "AayDG-CKRFOQHF1"
+					}
+				}
+			]
+		},
+		"3": {
+			"name": "Tap 2.4",
+			"owner": "1ae085af-03f5-4e56-9d43-b45eaa0aade4",
+			"created": "2016-08-21T20:48:56",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/2/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/2/state/buttonevent",
+					"operator": "eq",
+					"value": "18"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"scene": "qejoOPMIIp-vKKA"
+					}
+				}
+			]
+		},
+		"4": {
+			"name": "Tap 2.1",
+			"owner": "1ae085af-03f5-4e56-9d43-b45eaa0aade4",
+			"created": "2016-09-01T21:39:26",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/2/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/2/state/buttonevent",
+					"operator": "eq",
+					"value": "34"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"scene": "Eso9WL8lYh5lqfS"
+					}
+				}
+			]
+		},
+		"5": {
+			"name": "Dimmer Switch 13 on0",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2017-02-01T19:08:22",
+			"lasttriggered": "2020-06-04T21:27:47",
+			"timestriggered": 26,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/14/state/status",
+					"operator": "lt",
+					"value": "1"
+				},
+				{
+					"address": "/sensors/13/state/buttonevent",
+					"operator": "eq",
+					"value": "1000"
+				},
+				{
+					"address": "/sensors/13/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"scene": "yoeUpDhC7MBiODk"
+					}
+				},
+				{
+					"address": "/sensors/14/state",
+					"method": "PUT",
+					"body": {
+						"status": 1
+					}
+				}
+			]
+		},
+		"6": {
+			"name": "Dimmer Switch 13 on1",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2017-02-01T19:08:22",
+			"lasttriggered": "2020-06-04T19:48:57",
+			"timestriggered": 13,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/14/state/status",
+					"operator": "eq",
+					"value": "1"
+				},
+				{
+					"address": "/sensors/13/state/buttonevent",
+					"operator": "eq",
+					"value": "1000"
+				},
+				{
+					"address": "/sensors/13/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"scene": "i6uz9yeXckKMdjC"
+					}
+				},
+				{
+					"address": "/sensors/14/state",
+					"method": "PUT",
+					"body": {
+						"status": 2
+					}
+				}
+			]
+		},
+		"7": {
+			"name": "Dimmer Switch 13 on2",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2017-02-01T19:08:22",
+			"lasttriggered": "2020-06-04T19:48:58",
+			"timestriggered": 6,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/14/state/status",
+					"operator": "eq",
+					"value": "2"
+				},
+				{
+					"address": "/sensors/13/state/buttonevent",
+					"operator": "eq",
+					"value": "1000"
+				},
+				{
+					"address": "/sensors/13/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"scene": "AXTfbA9YaC40U0T"
+					}
+				},
+				{
+					"address": "/sensors/14/state",
+					"method": "PUT",
+					"body": {
+						"status": 3
+					}
+				}
+			]
+		},
+		"8": {
+			"name": "Dimmer Switch 13 on3",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2017-02-01T19:08:22",
+			"lasttriggered": "2020-06-04T15:33:05",
+			"timestriggered": 1,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/14/state/status",
+					"operator": "eq",
+					"value": "3"
+				},
+				{
+					"address": "/sensors/13/state/buttonevent",
+					"operator": "eq",
+					"value": "1000"
+				},
+				{
+					"address": "/sensors/13/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"scene": "NQxn1cPbs229W7T"
+					}
+				},
+				{
+					"address": "/sensors/14/state",
+					"method": "PUT",
+					"body": {
+						"status": 4
+					}
+				}
+			]
+		},
+		"9": {
+			"name": "Dimmer Switch 13 on4",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2017-02-01T19:08:22",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/14/state/status",
+					"operator": "gt",
+					"value": "3"
+				},
+				{
+					"address": "/sensors/13/state/buttonevent",
+					"operator": "eq",
+					"value": "1000"
+				},
+				{
+					"address": "/sensors/13/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"scene": "5Vr2jVdI3p6qylj"
+					}
+				},
+				{
+					"address": "/sensors/14/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				}
+			]
+		},
+		"10": {
+			"name": "Dimmer 13.3 Lights",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2017-02-01T19:08:22",
+			"lasttriggered": "2020-05-25T17:25:36",
+			"timestriggered": 1,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/13/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/13/state/buttonevent",
+					"operator": "eq",
+					"value": "3000"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 9,
+						"bri_inc": -30
+					}
+				}
+			]
+		},
+		"11": {
+			"name": "Dimmer 13.3 Lights",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2017-02-01T19:08:22",
+			"lasttriggered": "2020-05-25T17:25:38",
+			"timestriggered": 3,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/13/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/13/state/buttonevent",
+					"operator": "eq",
+					"value": "3001"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 9,
+						"bri_inc": -56
+					}
+				}
+			]
+		},
+		"12": {
+			"name": "Dimmer 13.3 Lights",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2017-02-01T19:08:22",
+			"lasttriggered": "2020-05-25T17:25:39",
+			"timestriggered": 1,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/13/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/13/state/buttonevent",
+					"operator": "eq",
+					"value": "3003"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"bri_inc": 0
+					}
+				}
+			]
+		},
+		"13": {
+			"name": "Dimmer 13.2 Lights",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2017-02-01T19:08:22",
+			"lasttriggered": "2020-05-23T18:23:19",
+			"timestriggered": 1,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/13/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/13/state/buttonevent",
+					"operator": "eq",
+					"value": "2000"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 9,
+						"bri_inc": 30
+					}
+				}
+			]
+		},
+		"14": {
+			"name": "Dimmer 13.2 Lights",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2017-02-01T19:08:22",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/13/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/13/state/buttonevent",
+					"operator": "eq",
+					"value": "2001"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 9,
+						"bri_inc": 56
+					}
+				}
+			]
+		},
+		"15": {
+			"name": "Dimmer 13.2 Lights",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2017-02-01T19:08:22",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/13/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/13/state/buttonevent",
+					"operator": "eq",
+					"value": "2003"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"bri_inc": 0
+					}
+				}
+			]
+		},
+		"16": {
+			"name": "Dimmer 13.4 Lights",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2017-02-01T19:08:22",
+			"lasttriggered": "2020-06-04T21:28:03",
+			"timestriggered": 24,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/13/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/13/state/buttonevent",
+					"operator": "eq",
+					"value": "4000"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"on": false
+					}
+				},
+				{
+					"address": "/sensors/14/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				}
+			]
+		},
+		"17": {
+			"name": "Dimmer Switch 13 reset timer",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2017-02-01T19:08:22",
+			"lasttriggered": "2020-06-04T21:28:03",
+			"timestriggered": 147,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/13/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/schedules/1",
+					"method": "PUT",
+					"body": {
+						"status": "enabled"
+					}
+				}
+			]
+		},
+		"18": {
+			"name": "iPhone",
+			"owner": "1ae085af-03f5-4e56-9d43-b45eaa0aade4",
+			"created": "2016-12-05T21:16:17",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/6/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/6/state/presence",
+					"operator": "eq",
+					"value": "true"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/5/state",
+					"method": "PUT",
+					"body": {
+						"presence": true
+					}
+				}
+			]
+		},
+		"19": {
+			"name": "iPhone",
+			"owner": "1ae085af-03f5-4e56-9d43-b45eaa0aade4",
+			"created": "2016-12-05T21:16:17",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/6/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/6/state/presence",
+					"operator": "eq",
+					"value": "false"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/5/state",
+					"method": "PUT",
+					"body": {
+						"presence": false
+					}
+				}
+			]
+		},
+		"20": {
+			"name": "iPhone",
+			"owner": "1ae085af-03f5-4e56-9d43-b45eaa0aade4",
+			"created": "2016-12-10T00:10:13",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/9/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/9/state/presence",
+					"operator": "eq",
+					"value": "true"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/5/state",
+					"method": "PUT",
+					"body": {
+						"presence": true
+					}
+				}
+			]
+		},
+		"21": {
+			"name": "iPhone",
+			"owner": "1ae085af-03f5-4e56-9d43-b45eaa0aade4",
+			"created": "2016-12-10T00:10:13",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/9/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/9/state/presence",
+					"operator": "eq",
+					"value": "false"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/5/state",
+					"method": "PUT",
+					"body": {
+						"presence": false
+					}
+				}
+			]
+		},
+		"22": {
+			"name": "L_01_3F7Iz_Arrive",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2016-12-05T21:17:11",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/5/state/presence",
+					"operator": "eq",
+					"value": "true"
+				},
+				{
+					"address": "/sensors/5/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/1/state/daylight",
+					"operator": "eq",
+					"value": "false"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"scene": "AayDG-CKRFOQHF1"
+					}
+				}
+			]
+		},
+		"23": {
+			"name": "L_01_3F7Iz_Leave",
+			"owner": "1ae085af-03f5-4e56-9d43-b45eaa0aade4",
+			"created": "2016-12-05T21:17:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/5/state/presence",
+					"operator": "eq",
+					"value": "false"
+				},
+				{
+					"address": "/sensors/5/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"on": false
+					}
+				},
+				{
+					"address": "/groups/3/action",
+					"method": "PUT",
+					"body": {
+						"on": false
+					}
+				},
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"on": false
+					}
+				}
+			]
+		},
+		"24": {
+			"name": "L_04_nbxAL_Start",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2020-03-16T22:19:45",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/12/state/flag",
+					"operator": "eq",
+					"value": "true"
+				}
+			],
+			"actions": [
+				{
+					"address": "/schedules/3",
+					"method": "PUT",
+					"body": {
+						"status": "enabled"
+					}
+				},
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"scene": "lMYpcDRdAuCXtij"
+					}
+				}
+			]
+		},
+		"25": {
+			"name": "iPhone",
+			"owner": "1ae085af-03f5-4e56-9d43-b45eaa0aade4",
+			"created": "2016-12-10T00:10:13",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/10/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/10/state/presence",
+					"operator": "eq",
+					"value": "true"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/5/state",
+					"method": "PUT",
+					"body": {
+						"presence": true
+					}
+				}
+			]
+		},
+		"26": {
+			"name": "iPhone",
+			"owner": "1ae085af-03f5-4e56-9d43-b45eaa0aade4",
+			"created": "2016-12-10T00:10:13",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/10/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/10/state/presence",
+					"operator": "eq",
+					"value": "false"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/5/state",
+					"method": "PUT",
+					"body": {
+						"presence": false
+					}
+				}
+			]
+		},
+		"27": {
+			"name": "Go to sleep start",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-04-27T22:15:51",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/11/state/flag",
+					"operator": "eq",
+					"value": "true"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/0/action",
+					"method": "PUT",
+					"body": {
+						"scene": "DEJjs6vpOTxFId0"
+					}
+				}
+			]
+		},
+		"28": {
+			"name": "Go to sleep fade",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-04-27T22:15:51",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/11/state/flag",
+					"operator": "eq",
+					"value": "true"
+				},
+				{
+					"address": "/sensors/11/state/flag",
+					"operator": "ddx",
+					"value": "PT00:01:00"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/0/action",
+					"method": "PUT",
+					"body": {
+						"scene": "28fedgiLBtQsIZ-"
+					}
+				},
+				{
+					"address": "/sensors/11/state",
+					"method": "PUT",
+					"body": {
+						"flag": false
+					}
+				}
+			]
+		},
+		"29": {
+			"name": "Dimmer Switch 15 on0",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2019-12-26T15:30:42",
+			"lasttriggered": "2020-06-05T17:39:49",
+			"timestriggered": 47,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/16/state/status",
+					"operator": "lt",
+					"value": "1"
+				},
+				{
+					"address": "/sensors/15/state/buttonevent",
+					"operator": "eq",
+					"value": "1000"
+				},
+				{
+					"address": "/sensors/15/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/3/action",
+					"method": "PUT",
+					"body": {
+						"scene": "K6WLKBUmp47THdu"
+					}
+				},
+				{
+					"address": "/sensors/16/state",
+					"method": "PUT",
+					"body": {
+						"status": 1
+					}
+				}
+			]
+		},
+		"30": {
+			"name": "Dimmer Switch 15 on1",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2019-12-26T15:30:42",
+			"lasttriggered": "2020-06-05T11:12:01",
+			"timestriggered": 17,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/16/state/status",
+					"operator": "eq",
+					"value": "1"
+				},
+				{
+					"address": "/sensors/15/state/buttonevent",
+					"operator": "eq",
+					"value": "1000"
+				},
+				{
+					"address": "/sensors/15/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/3/action",
+					"method": "PUT",
+					"body": {
+						"scene": "sPBbGtQ0nZjVnSN"
+					}
+				},
+				{
+					"address": "/sensors/16/state",
+					"method": "PUT",
+					"body": {
+						"status": 2
+					}
+				}
+			]
+		},
+		"31": {
+			"name": "Dimmer Switch 15 on2",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2019-12-26T15:30:42",
+			"lasttriggered": "2020-05-31T19:21:07",
+			"timestriggered": 2,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/16/state/status",
+					"operator": "eq",
+					"value": "2"
+				},
+				{
+					"address": "/sensors/15/state/buttonevent",
+					"operator": "eq",
+					"value": "1000"
+				},
+				{
+					"address": "/sensors/15/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/3/action",
+					"method": "PUT",
+					"body": {
+						"scene": "csMUPeA6t5FIVb5"
+					}
+				},
+				{
+					"address": "/sensors/16/state",
+					"method": "PUT",
+					"body": {
+						"status": 3
+					}
+				}
+			]
+		},
+		"32": {
+			"name": "Dimmer Switch 15 on3",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2019-12-26T15:30:42",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/16/state/status",
+					"operator": "eq",
+					"value": "3"
+				},
+				{
+					"address": "/sensors/15/state/buttonevent",
+					"operator": "eq",
+					"value": "1000"
+				},
+				{
+					"address": "/sensors/15/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/3/action",
+					"method": "PUT",
+					"body": {
+						"scene": "dlp4YTCjYG42qkR"
+					}
+				},
+				{
+					"address": "/sensors/16/state",
+					"method": "PUT",
+					"body": {
+						"status": 4
+					}
+				}
+			]
+		},
+		"33": {
+			"name": "Dimmer Switch 15 on4",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2019-12-26T15:30:42",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/16/state/status",
+					"operator": "gt",
+					"value": "3"
+				},
+				{
+					"address": "/sensors/15/state/buttonevent",
+					"operator": "eq",
+					"value": "1000"
+				},
+				{
+					"address": "/sensors/15/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/3/action",
+					"method": "PUT",
+					"body": {
+						"scene": "tkixv4jP0mhXVKZ"
+					}
+				},
+				{
+					"address": "/sensors/16/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				}
+			]
+		},
+		"34": {
+			"name": "Dimmer 15.3 Lights",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2019-12-26T15:30:42",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/15/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/15/state/buttonevent",
+					"operator": "eq",
+					"value": "3000"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/3/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 9,
+						"bri_inc": -30
+					}
+				}
+			]
+		},
+		"35": {
+			"name": "Dimmer 15.3 Lights",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2019-12-26T15:30:42",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/15/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/15/state/buttonevent",
+					"operator": "eq",
+					"value": "3001"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/3/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 9,
+						"bri_inc": -56
+					}
+				}
+			]
+		},
+		"36": {
+			"name": "Dimmer 15.3 Lights",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2019-12-26T15:30:42",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/15/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/15/state/buttonevent",
+					"operator": "eq",
+					"value": "3003"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/3/action",
+					"method": "PUT",
+					"body": {
+						"bri_inc": 0
+					}
+				}
+			]
+		},
+		"37": {
+			"name": "Dimmer 15.2 Lights",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2019-12-26T15:30:42",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/15/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/15/state/buttonevent",
+					"operator": "eq",
+					"value": "2000"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/3/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 9,
+						"bri_inc": 30
+					}
+				}
+			]
+		},
+		"38": {
+			"name": "Dimmer 15.2 Lights",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2019-12-26T15:30:42",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/15/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/15/state/buttonevent",
+					"operator": "eq",
+					"value": "2001"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/3/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 9,
+						"bri_inc": 56
+					}
+				}
+			]
+		},
+		"39": {
+			"name": "Dimmer 15.2 Lights",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2019-12-26T15:30:42",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/15/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/15/state/buttonevent",
+					"operator": "eq",
+					"value": "2003"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/3/action",
+					"method": "PUT",
+					"body": {
+						"bri_inc": 0
+					}
+				}
+			]
+		},
+		"40": {
+			"name": "Dimmer 15.4 Lights",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2019-12-26T15:30:42",
+			"lasttriggered": "2020-06-05T11:34:49",
+			"timestriggered": 38,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/15/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/15/state/buttonevent",
+					"operator": "eq",
+					"value": "4000"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/3/action",
+					"method": "PUT",
+					"body": {
+						"on": false
+					}
+				},
+				{
+					"address": "/sensors/16/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				}
+			]
+		},
+		"41": {
+			"name": "Dimmer Switch 15 reset timer",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2019-12-26T15:30:42",
+			"lasttriggered": "2020-06-05T17:39:49",
+			"timestriggered": 208,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/15/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/schedules/7",
+					"method": "PUT",
+					"body": {
+						"localtime": "PT00:00:10",
+						"status": "enabled"
+					}
+				}
+			]
+		},
+		"42": {
+			"name": "Dimmer Switch 19 on0",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-10-19T22:39:56",
+			"lasttriggered": "2020-06-04T20:57:22",
+			"timestriggered": 33,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/20/state/status",
+					"operator": "lt",
+					"value": "1"
+				},
+				{
+					"address": "/sensors/19/state/buttonevent",
+					"operator": "eq",
+					"value": "1000"
+				},
+				{
+					"address": "/sensors/19/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"scene": "t2GRPycrVjfo-8Y"
+					}
+				},
+				{
+					"address": "/sensors/20/state",
+					"method": "PUT",
+					"body": {
+						"status": 1
+					}
+				}
+			]
+		},
+		"43": {
+			"name": "Dimmer Switch 19 on1",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-10-19T22:39:56",
+			"lasttriggered": "2020-06-03T21:25:20",
+			"timestriggered": 20,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/20/state/status",
+					"operator": "eq",
+					"value": "1"
+				},
+				{
+					"address": "/sensors/19/state/buttonevent",
+					"operator": "eq",
+					"value": "1000"
+				},
+				{
+					"address": "/sensors/19/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"scene": "DeXgPUZJwvUJNLe"
+					}
+				},
+				{
+					"address": "/sensors/20/state",
+					"method": "PUT",
+					"body": {
+						"status": 2
+					}
+				}
+			]
+		},
+		"44": {
+			"name": "Dimmer Switch 19 on2",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-10-19T22:39:56",
+			"lasttriggered": "2020-06-02T20:28:38",
+			"timestriggered": 13,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/20/state/status",
+					"operator": "eq",
+					"value": "2"
+				},
+				{
+					"address": "/sensors/19/state/buttonevent",
+					"operator": "eq",
+					"value": "1000"
+				},
+				{
+					"address": "/sensors/19/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"scene": "0DqBbAHvf3Xif9c"
+					}
+				},
+				{
+					"address": "/sensors/20/state",
+					"method": "PUT",
+					"body": {
+						"status": 3
+					}
+				}
+			]
+		},
+		"45": {
+			"name": "Dimmer Switch 19 on3",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-10-19T22:39:56",
+			"lasttriggered": "2020-05-24T13:08:17",
+			"timestriggered": 1,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/20/state/status",
+					"operator": "eq",
+					"value": "3"
+				},
+				{
+					"address": "/sensors/19/state/buttonevent",
+					"operator": "eq",
+					"value": "1000"
+				},
+				{
+					"address": "/sensors/19/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"on": true
+					}
+				},
+				{
+					"address": "/sensors/20/state",
+					"method": "PUT",
+					"body": {
+						"status": 4
+					}
+				}
+			]
+		},
+		"46": {
+			"name": "Dimmer Switch 19 on4",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-10-19T22:39:56",
+			"lasttriggered": "2020-05-24T13:08:18",
+			"timestriggered": 1,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/20/state/status",
+					"operator": "gt",
+					"value": "3"
+				},
+				{
+					"address": "/sensors/19/state/buttonevent",
+					"operator": "eq",
+					"value": "1000"
+				},
+				{
+					"address": "/sensors/19/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"on": true
+					}
+				},
+				{
+					"address": "/sensors/20/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				}
+			]
+		},
+		"47": {
+			"name": "Dimmer 19.3 Lights",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-10-19T22:39:56",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/19/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/19/state/buttonevent",
+					"operator": "eq",
+					"value": "3000"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 9,
+						"bri_inc": -30
+					}
+				}
+			]
+		},
+		"48": {
+			"name": "Dimmer 19.3 Lights",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-10-19T22:39:56",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/19/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/19/state/buttonevent",
+					"operator": "eq",
+					"value": "3001"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 9,
+						"bri_inc": -56
+					}
+				}
+			]
+		},
+		"49": {
+			"name": "Dimmer 19.3 Lights",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-10-19T22:39:56",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/19/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/19/state/buttonevent",
+					"operator": "eq",
+					"value": "3003"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"bri_inc": 0
+					}
+				}
+			]
+		},
+		"50": {
+			"name": "Dimmer 19.2 Lights",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-10-19T22:39:56",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/19/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/19/state/buttonevent",
+					"operator": "eq",
+					"value": "2000"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 9,
+						"bri_inc": 30
+					}
+				}
+			]
+		},
+		"51": {
+			"name": "Dimmer 19.2 Lights",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-10-19T22:39:56",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/19/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/19/state/buttonevent",
+					"operator": "eq",
+					"value": "2001"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 9,
+						"bri_inc": 56
+					}
+				}
+			]
+		},
+		"52": {
+			"name": "Dimmer 19.2 Lights",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-10-19T22:39:56",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/19/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/19/state/buttonevent",
+					"operator": "eq",
+					"value": "2003"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"bri_inc": 0
+					}
+				}
+			]
+		},
+		"53": {
+			"name": "Dimmer 19.4 Lights",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-10-19T22:39:56",
+			"lasttriggered": "2020-06-03T20:17:49",
+			"timestriggered": 18,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/19/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/19/state/buttonevent",
+					"operator": "eq",
+					"value": "4000"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"on": false
+					}
+				},
+				{
+					"address": "/sensors/20/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				}
+			]
+		},
+		"54": {
+			"name": "Dimmer Switch 19 reset timer",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-10-19T22:39:56",
+			"lasttriggered": "2020-06-04T20:57:22",
+			"timestriggered": 173,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/19/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/schedules/6",
+					"method": "PUT",
+					"body": {
+						"localtime": "PT00:00:10",
+						"status": "enabled"
+					}
+				}
+			]
+		},
+		"55": {
+			"name": "Wake up 2.end",
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"created": "2020-03-16T22:19:45",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/12/state/flag",
+					"operator": "eq",
+					"value": "true"
+				},
+				{
+					"address": "/sensors/12/state/flag",
+					"operator": "ddx",
+					"value": "PT01:16:00"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/5/action",
+					"method": "PUT",
+					"body": {
+						"on": false
+					}
+				},
+				{
+					"address": "/sensors/12/state",
+					"method": "PUT",
+					"body": {
+						"flag": false
+					}
+				}
+			]
+		},
+		"56": {
+			"name": "Routine 5.start",
+			"owner": "418a2291-637f-40b8-959d-71717fe413f0",
+			"created": "2019-01-29T21:34:54",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/22/state/flag",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/22/state/flag",
+					"operator": "eq",
+					"value": "true"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"scene": "rNEAE6gOCHlckSj"
+					}
+				}
+			]
+		},
+		"57": {
+			"name": "Routine 5.end",
+			"owner": "418a2291-637f-40b8-959d-71717fe413f0",
+			"created": "2019-01-29T21:34:54",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/22/state/flag",
+					"operator": "eq",
+					"value": "true"
+				},
+				{
+					"address": "/sensors/22/state/flag",
+					"operator": "ddx",
+					"value": "PT01:30:00"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/4/action",
+					"method": "PUT",
+					"body": {
+						"on": false
+					}
+				},
+				{
+					"address": "/sensors/22/state",
+					"method": "PUT",
+					"body": {
+						"flag": false
+					}
+				}
+			]
+		},
+		"58": {
+			"name": "19:",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "20"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/28/state/status",
+					"operator": "eq",
+					"value": "1"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/28/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				},
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"scene": "Bd3rOpS3z01ZYZf"
+					}
+				}
+			]
+		},
+		"59": {
+			"name": "20:",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "16"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "ddx",
+					"value": "PT00:00:01"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/28/state",
+					"method": "PUT",
+					"body": {
+						"status": 2
+					}
+				},
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 30,
+						"bri_inc": -254
+					}
+				}
+			]
+		},
+		"60": {
+			"name": "20:",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "20"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/28/state/status",
+					"operator": "eq",
+					"value": "2"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/28/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				},
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 0,
+						"bri_inc": 0
+					}
+				}
+			]
+		},
+		"61": {
+			"name": "21:",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "21"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/28/state/status",
+					"operator": "eq",
+					"value": "3"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/28/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				},
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"scene": "uHBpuWFc6URZApK"
+					}
+				}
+			]
+		},
+		"62": {
+			"name": "22:",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "21"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/28/state/status",
+					"operator": "eq",
+					"value": "4"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/28/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				},
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"on": false
+					}
+				}
+			]
+		},
+		"63": {
+			"name": "23:",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "23"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/27/state/status",
+					"operator": "eq",
+					"value": "1"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/27/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				},
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"scene": "AXTfbA9YaC40U0T"
+					}
+				}
+			]
+		},
+		"64": {
+			"name": "24:",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "19"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "ddx",
+					"value": "PT00:00:01"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/27/state",
+					"method": "PUT",
+					"body": {
+						"status": 2
+					}
+				},
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 30,
+						"bri_inc": 254
+					}
+				}
+			]
+		},
+		"65": {
+			"name": "24:",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "23"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/27/state/status",
+					"operator": "eq",
+					"value": "2"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/27/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				},
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"transitiontime": 0,
+						"bri_inc": 0
+					}
+				}
+			]
+		},
+		"66": {
+			"name": "25:",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "22"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/27/state/status",
+					"operator": "eq",
+					"value": "3"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/27/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				},
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"scene": "i6uz9yeXckKMdjC"
+					}
+				}
+			]
+		},
+		"67": {
+			"name": "26:",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "22"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/27/state/status",
+					"operator": "eq",
+					"value": "4"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/27/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				},
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"on": false
+					}
+				}
+			]
+		},
+		"68": {
+			"name": "Rocker Support Press Top",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "19"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/27/state",
+					"method": "PUT",
+					"body": {
+						"status": 1
+					}
+				}
+			]
+		},
+		"69": {
+			"name": "Rocker Support Press Bottom",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "18"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/27/state",
+					"method": "PUT",
+					"body": {
+						"status": 3
+					}
+				}
+			]
+		},
+		"70": {
+			"name": "Rocker Support Press Top",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "16"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/28/state",
+					"method": "PUT",
+					"body": {
+						"status": 1
+					}
+				}
+			]
+		},
+		"71": {
+			"name": "Rocker Support Press Bottom",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "17"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/28/state",
+					"method": "PUT",
+					"body": {
+						"status": 3
+					}
+				}
+			]
+		},
+		"72": {
+			"name": "Rocker Support Hold Bottom",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "18"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "ddx",
+					"value": "PT00:00:01"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/27/state",
+					"method": "PUT",
+					"body": {
+						"status": 4
+					}
+				}
+			]
+		},
+		"73": {
+			"name": "Rocker Support Hold Bottom",
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"created": "2019-05-24T18:48:23",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/23/state/buttonevent",
+					"operator": "eq",
+					"value": "17"
+				},
+				{
+					"address": "/sensors/23/state/lastupdated",
+					"operator": "ddx",
+					"value": "PT00:00:01"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/28/state",
+					"method": "PUT",
+					"body": {
+						"status": 4
+					}
+				}
+			]
+		}
+	},
+	"sensors": {
+		"1": {
+			"state": {
+				"daylight": true,
+				"lastupdated": "2020-06-05T03:50:00"
+			},
+			"config": {
+				"on": true,
+				"configured": true,
+				"sunriseoffset": 30,
+				"sunsetoffset": -30
+			},
+			"name": "Daylight",
+			"type": "Daylight",
+			"modelid": "PHDL00",
+			"manufacturername": "Signify Netherlands B.V.",
+			"swversion": "1.0"
+		},
+		"2": {
+			"state": {
+				"buttonevent": 16,
+				"lastupdated": "2019-11-28T19:23:07"
+			},
+			"swupdate": {
+				"state": "notupdatable",
+				"lastinstall": null
+			},
+			"config": {
+				"on": true
+			},
+			"name": "Hue Tap 1",
+			"type": "ZGPSwitch",
+			"modelid": "ZGPSWITCH",
+			"manufacturername": "Signify Netherlands B.V.",
+			"productname": "Hue tap switch",
+			"diversityid": "d8cde5d5-0eef-4b95-b0f0-71ddd2952af4",
+			"uniqueid": "00:00:00:00:00:42:7d:b6-f2",
+			"capabilities": {
+				"certified": true,
+				"primary": true,
+				"inputs": [
+					{
+						"repeatintervals": [],
+						"events": [
+							{
+								"buttonevent": 34,
+								"eventtype": "initial_press"
+							}
+						]
+					},
+					{
+						"repeatintervals": [],
+						"events": [
+							{
+								"buttonevent": 16,
+								"eventtype": "initial_press"
+							}
+						]
+					},
+					{
+						"repeatintervals": [],
+						"events": [
+							{
+								"buttonevent": 17,
+								"eventtype": "initial_press"
+							}
+						]
+					},
+					{
+						"repeatintervals": [],
+						"events": [
+							{
+								"buttonevent": 18,
+								"eventtype": "initial_press"
+							}
+						]
+					}
+				]
+			}
+		},
+		"5": {
+			"state": {
+				"presence": false,
+				"lastupdated": "2019-04-03T17:31:00"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "HomeAway",
+			"type": "CLIPPresence",
+			"modelid": "HOMEAWAY",
+			"manufacturername": "Aa3Ew464F6JcHZV4U7xT61OiEAIUJAdb",
+			"swversion": "A_1",
+			"uniqueid": "L_01_3F7Iz",
+			"recycle": false
+		},
+		"6": {
+			"state": {
+				"presence": false,
+				"lastupdated": "2019-04-03T17:31:00"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "iPhone",
+			"type": "Geofence",
+			"modelid": "HA_GEOFENCE",
+			"manufacturername": "Aa3Ew464F6JcHZV4U7xT61OiEAIUJAdb",
+			"swversion": "A_1",
+			"uniqueid": "L_02_lYQqO",
+			"recycle": false
+		},
+		"8": {
+			"state": {
+				"flag": false,
+				"lastupdated": "2019-04-03T17:31:00"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "Aufwachen 1",
+			"type": "CLIPGenericFlag",
+			"modelid": "WAKEUP",
+			"manufacturername": "Aa3Ew464F6JcHZV4U7xT61OiEAIUJAdb",
+			"swversion": "A_1",
+			"uniqueid": "L_04_zhe57",
+			"recycle": false
+		},
+		"9": {
+			"state": {
+				"presence": false,
+				"lastupdated": "2019-04-03T17:31:00"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "iPhone",
+			"type": "Geofence",
+			"modelid": "HA_GEOFENCE",
+			"manufacturername": "Aa3Ew464F6JcHZV4U7xT61OiEAIUJAdb",
+			"swversion": "A_1",
+			"uniqueid": "L_02_wEixW",
+			"recycle": false
+		},
+		"10": {
+			"state": {
+				"presence": false,
+				"lastupdated": "2019-04-03T17:31:00"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "iPhone",
+			"type": "Geofence",
+			"modelid": "HA_GEOFENCE",
+			"manufacturername": "Aa3Ew464F6JcHZV4U7xT61OiEAIUJAdb",
+			"swversion": "A_1",
+			"uniqueid": "L_02_eWvZW",
+			"recycle": false
+		},
+		"11": {
+			"state": {
+				"flag": false,
+				"lastupdated": "2019-04-27T21:16:00"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "Go to sleep",
+			"type": "CLIPGenericFlag",
+			"modelid": "GOTOSLEEP",
+			"manufacturername": "Aa3Ew464F6JcHZV4U7xT61OiEAIUJAdb",
+			"swversion": "A_1",
+			"uniqueid": "L_05_hpbv5",
+			"recycle": true
+		},
+		"12": {
+			"state": {
+				"flag": false,
+				"lastupdated": "2020-03-26T07:00:00"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "Aufwachen 2",
+			"type": "CLIPGenericFlag",
+			"modelid": "WAKEUP",
+			"manufacturername": "Aa3Ew464F6JcHZV4U7xT61OiEAIUJAdb",
+			"swversion": "A_1",
+			"uniqueid": "L_04_nbxAL",
+			"recycle": false
+		},
+		"13": {
+			"state": {
+				"buttonevent": 4002,
+				"lastupdated": "2020-06-04T21:28:03"
+			},
+			"swupdate": {
+				"state": "noupdates",
+				"lastinstall": "2019-10-09T11:07:59"
+			},
+			"config": {
+				"on": true,
+				"battery": 91,
+				"reachable": true,
+				"pending": []
+			},
+			"name": "Living Switch",
+			"type": "ZLLSwitch",
+			"modelid": "RWL021",
+			"manufacturername": "Signify Netherlands B.V.",
+			"productname": "Hue dimmer switch",
+			"diversityid": "73bbabea-3420-499a-9856-46bf437e119b",
+			"swversion": "6.1.1.28573",
+			"uniqueid": "00:17:88:01:10:39:c7:3b-02-fc00",
+			"capabilities": {
+				"certified": true,
+				"primary": true,
+				"inputs": [
+					{
+						"repeatintervals": [
+							800
+						],
+						"events": [
+							{
+								"buttonevent": 1000,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 1001,
+								"eventtype": "repeat"
+							},
+							{
+								"buttonevent": 1002,
+								"eventtype": "short_release"
+							},
+							{
+								"buttonevent": 1003,
+								"eventtype": "long_release"
+							}
+						]
+					},
+					{
+						"repeatintervals": [
+							800
+						],
+						"events": [
+							{
+								"buttonevent": 2000,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 2001,
+								"eventtype": "repeat"
+							},
+							{
+								"buttonevent": 2002,
+								"eventtype": "short_release"
+							},
+							{
+								"buttonevent": 2003,
+								"eventtype": "long_release"
+							}
+						]
+					},
+					{
+						"repeatintervals": [
+							800
+						],
+						"events": [
+							{
+								"buttonevent": 3000,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 3001,
+								"eventtype": "repeat"
+							},
+							{
+								"buttonevent": 3002,
+								"eventtype": "short_release"
+							},
+							{
+								"buttonevent": 3003,
+								"eventtype": "long_release"
+							}
+						]
+					},
+					{
+						"repeatintervals": [
+							800
+						],
+						"events": [
+							{
+								"buttonevent": 4000,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 4001,
+								"eventtype": "repeat"
+							},
+							{
+								"buttonevent": 4002,
+								"eventtype": "short_release"
+							},
+							{
+								"buttonevent": 4003,
+								"eventtype": "long_release"
+							}
+						]
+					}
+				]
+			}
+		},
+		"14": {
+			"state": {
+				"status": 0,
+				"lastupdated": "2020-06-04T21:28:13"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "Dimmer Switch 13 SceneCycle",
+			"type": "CLIPGenericStatus",
+			"modelid": "PHWA01",
+			"manufacturername": "Philips",
+			"swversion": "1.0",
+			"uniqueid": "WA0001",
+			"recycle": true
+		},
+		"15": {
+			"state": {
+				"buttonevent": 1002,
+				"lastupdated": "2020-06-05T17:39:49"
+			},
+			"swupdate": {
+				"state": "noupdates",
+				"lastinstall": "2019-10-09T11:15:36"
+			},
+			"config": {
+				"on": true,
+				"battery": 54,
+				"reachable": true,
+				"pending": []
+			},
+			"name": "Kitchen Switch",
+			"type": "ZLLSwitch",
+			"modelid": "RWL021",
+			"manufacturername": "Signify Netherlands B.V.",
+			"productname": "Hue dimmer switch",
+			"diversityid": "73bbabea-3420-499a-9856-46bf437e119b",
+			"swversion": "6.1.1.28573",
+			"uniqueid": "00:17:88:01:02:0d:17:4f-02-fc00",
+			"capabilities": {
+				"certified": true,
+				"primary": true,
+				"inputs": [
+					{
+						"repeatintervals": [
+							800
+						],
+						"events": [
+							{
+								"buttonevent": 1000,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 1001,
+								"eventtype": "repeat"
+							},
+							{
+								"buttonevent": 1002,
+								"eventtype": "short_release"
+							},
+							{
+								"buttonevent": 1003,
+								"eventtype": "long_release"
+							}
+						]
+					},
+					{
+						"repeatintervals": [
+							800
+						],
+						"events": [
+							{
+								"buttonevent": 2000,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 2001,
+								"eventtype": "repeat"
+							},
+							{
+								"buttonevent": 2002,
+								"eventtype": "short_release"
+							},
+							{
+								"buttonevent": 2003,
+								"eventtype": "long_release"
+							}
+						]
+					},
+					{
+						"repeatintervals": [
+							800
+						],
+						"events": [
+							{
+								"buttonevent": 3000,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 3001,
+								"eventtype": "repeat"
+							},
+							{
+								"buttonevent": 3002,
+								"eventtype": "short_release"
+							},
+							{
+								"buttonevent": 3003,
+								"eventtype": "long_release"
+							}
+						]
+					},
+					{
+						"repeatintervals": [
+							800
+						],
+						"events": [
+							{
+								"buttonevent": 4000,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 4001,
+								"eventtype": "repeat"
+							},
+							{
+								"buttonevent": 4002,
+								"eventtype": "short_release"
+							},
+							{
+								"buttonevent": 4003,
+								"eventtype": "long_release"
+							}
+						]
+					}
+				]
+			}
+		},
+		"16": {
+			"state": {
+				"status": 0,
+				"lastupdated": "2020-06-05T17:39:59"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "Dimmer Switch 15 SceneCycle",
+			"type": "CLIPGenericStatus",
+			"modelid": "PHWA01",
+			"manufacturername": "Philips",
+			"swversion": "1.0",
+			"uniqueid": "WA0001",
+			"recycle": true
+		},
+		"19": {
+			"state": {
+				"buttonevent": 1002,
+				"lastupdated": "2020-06-04T20:57:22"
+			},
+			"swupdate": {
+				"state": "noupdates",
+				"lastinstall": "2019-10-24T11:29:00"
+			},
+			"config": {
+				"on": true,
+				"battery": 100,
+				"reachable": true,
+				"pending": []
+			},
+			"name": "Bed Switch",
+			"type": "ZLLSwitch",
+			"modelid": "RWL021",
+			"manufacturername": "Signify Netherlands B.V.",
+			"productname": "Hue dimmer switch",
+			"diversityid": "73bbabea-3420-499a-9856-46bf437e119b",
+			"swversion": "6.1.1.28573",
+			"uniqueid": "00:17:88:01:02:0d:dc:b7-02-fc00",
+			"capabilities": {
+				"certified": true,
+				"primary": true,
+				"inputs": [
+					{
+						"repeatintervals": [
+							800
+						],
+						"events": [
+							{
+								"buttonevent": 1000,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 1001,
+								"eventtype": "repeat"
+							},
+							{
+								"buttonevent": 1002,
+								"eventtype": "short_release"
+							},
+							{
+								"buttonevent": 1003,
+								"eventtype": "long_release"
+							}
+						]
+					},
+					{
+						"repeatintervals": [
+							800
+						],
+						"events": [
+							{
+								"buttonevent": 2000,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 2001,
+								"eventtype": "repeat"
+							},
+							{
+								"buttonevent": 2002,
+								"eventtype": "short_release"
+							},
+							{
+								"buttonevent": 2003,
+								"eventtype": "long_release"
+							}
+						]
+					},
+					{
+						"repeatintervals": [
+							800
+						],
+						"events": [
+							{
+								"buttonevent": 3000,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 3001,
+								"eventtype": "repeat"
+							},
+							{
+								"buttonevent": 3002,
+								"eventtype": "short_release"
+							},
+							{
+								"buttonevent": 3003,
+								"eventtype": "long_release"
+							}
+						]
+					},
+					{
+						"repeatintervals": [
+							800
+						],
+						"events": [
+							{
+								"buttonevent": 4000,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 4001,
+								"eventtype": "repeat"
+							},
+							{
+								"buttonevent": 4002,
+								"eventtype": "short_release"
+							},
+							{
+								"buttonevent": 4003,
+								"eventtype": "long_release"
+							}
+						]
+					}
+				]
+			}
+		},
+		"20": {
+			"state": {
+				"status": 0,
+				"lastupdated": "2020-06-04T20:57:32"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "Dimmer Switch 19 SceneCycle",
+			"type": "CLIPGenericStatus",
+			"modelid": "PHWA01",
+			"manufacturername": "Philips",
+			"swversion": "1.0",
+			"uniqueid": "WA0001",
+			"recycle": true
+		},
+		"22": {
+			"state": {
+				"flag": false,
+				"lastupdated": "2019-04-03T06:30:00"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "Goto Bed",
+			"type": "CLIPGenericFlag",
+			"modelid": "PHA_CTRL_START",
+			"manufacturername": "Philips",
+			"swversion": "1.0",
+			"uniqueid": "tyvkarzDOS71",
+			"recycle": true
+		},
+		"23": {
+			"state": {
+				"buttonevent": 23,
+				"lastupdated": "2019-06-28T17:24:15"
+			},
+			"swupdate": {
+				"state": "notupdatable",
+				"lastinstall": null
+			},
+			"config": {
+				"on": true
+			},
+			"name": "Living Wall Switch",
+			"type": "ZGPSwitch",
+			"modelid": "FOHSWITCH",
+			"manufacturername": "PhilipsFoH",
+			"productname": "Friends of Hue Switch",
+			"diversityid": "ded6468f-6b26-4a75-9582-f2b52d36a5a3",
+			"uniqueid": "00:00:00:00:01:70:95:43-f2",
+			"capabilities": {
+				"certified": true,
+				"primary": true,
+				"inputs": [
+					{
+						"repeatintervals": [],
+						"events": [
+							{
+								"buttonevent": 16,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 20,
+								"eventtype": "short_release"
+							}
+						]
+					},
+					{
+						"repeatintervals": [],
+						"events": [
+							{
+								"buttonevent": 17,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 21,
+								"eventtype": "short_release"
+							}
+						]
+					},
+					{
+						"repeatintervals": [],
+						"events": [
+							{
+								"buttonevent": 19,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 23,
+								"eventtype": "short_release"
+							}
+						]
+					},
+					{
+						"repeatintervals": [],
+						"events": [
+							{
+								"buttonevent": 18,
+								"eventtype": "initial_press"
+							},
+							{
+								"buttonevent": 22,
+								"eventtype": "short_release"
+							}
+						]
+					}
+				]
+			}
+		},
+		"27": {
+			"state": {
+				"status": 0,
+				"lastupdated": "2019-06-28T17:24:15"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "Rocker support",
+			"type": "CLIPGenericStatus",
+			"modelid": "HUELABSENUM",
+			"manufacturername": "Philips",
+			"swversion": "1.0",
+			"uniqueid": "075a-17bb-4fc5-a102",
+			"recycle": true
+		},
+		"28": {
+			"state": {
+				"status": 0,
+				"lastupdated": "2019-06-28T17:24:05"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "Rocker support",
+			"type": "CLIPGenericStatus",
+			"modelid": "HUELABSENUM",
+			"manufacturername": "Philips",
+			"swversion": "1.0",
+			"uniqueid": "0d3a-15e8-4bc4-9100",
+			"recycle": true
+		}
+	},
+	"resourcelinks": {
+		"1595": {
+			"name": "Wake up 2",
+			"description": "Wake up 6 behavior",
+			"type": "Link",
+			"classid": 20101,
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"links": [
+				"/sensors/12",
+				"/schedules/2",
+				"/schedules/3",
+				"/groups/4",
+				"/groups/5",
+				"/rules/24",
+				"/rules/55",
+				"/scenes/lMYpcDRdAuCXtij",
+				"/scenes/vPABBrgDogSzqjt"
+			]
+		},
+		"1683": {
+			"name": "Hue dimmer switch 1",
+			"description": "Hue dimmer switch 1 behavior",
+			"type": "Link",
+			"classid": 10011,
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"links": [
+				"/sensors/13",
+				"/sensors/14",
+				"/schedules/1",
+				"/groups/2",
+				"/rules/5",
+				"/rules/6",
+				"/rules/7",
+				"/rules/8",
+				"/rules/9",
+				"/rules/10",
+				"/rules/11",
+				"/rules/12",
+				"/rules/13",
+				"/rules/14",
+				"/rules/15",
+				"/rules/16",
+				"/rules/17",
+				"/scenes/5Vr2jVdI3p6qylj",
+				"/scenes/AXTfbA9YaC40U0T",
+				"/scenes/NQxn1cPbs229W7T",
+				"/scenes/i6uz9yeXckKMdjC",
+				"/scenes/yoeUpDhC7MBiODk"
+			]
+		},
+		"3828": {
+			"name": "Bed Switch",
+			"description": "Hue dimmer switch 1 behavior",
+			"type": "Link",
+			"classid": 10011,
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"links": [
+				"/sensors/19",
+				"/sensors/20",
+				"/schedules/6",
+				"/groups/4",
+				"/rules/42",
+				"/rules/43",
+				"/rules/44",
+				"/rules/45",
+				"/rules/46",
+				"/rules/47",
+				"/rules/48",
+				"/rules/49",
+				"/rules/50",
+				"/rules/51",
+				"/rules/52",
+				"/rules/53",
+				"/rules/54",
+				"/scenes/0DqBbAHvf3Xif9c",
+				"/scenes/DeXgPUZJwvUJNLe",
+				"/scenes/t2GRPycrVjfo-8Y"
+			]
+		},
+		"13032": {
+			"name": "Routine 5",
+			"description": "Routine 5 behavior",
+			"type": "Link",
+			"classid": 20130,
+			"owner": "418a2291-637f-40b8-959d-71717fe413f0",
+			"recycle": false,
+			"links": [
+				"/sensors/22",
+				"/schedules/5",
+				"/groups/4",
+				"/rules/56",
+				"/rules/57",
+				"/scenes/rNEAE6gOCHlckSj"
+			]
+		},
+		"18634": {
+			"name": "Schlafen gehen 1",
+			"description": "Go to sleep behaviour",
+			"type": "Link",
+			"classid": 20010,
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"links": [
+				"/sensors/11",
+				"/schedules/4",
+				"/groups/2",
+				"/groups/3",
+				"/rules/27",
+				"/rules/28",
+				"/scenes/28fedgiLBtQsIZ-",
+				"/scenes/DEJjs6vpOTxFId0"
+			]
+		},
+		"27226": {
+			"name": "Kitchen Switch",
+			"description": "Hue dimmer switch 1 behavior",
+			"type": "Link",
+			"classid": 10011,
+			"owner": "624d598a-5c39-4c17-9cfd-e82139a357be",
+			"recycle": false,
+			"links": [
+				"/sensors/15",
+				"/sensors/16",
+				"/schedules/7",
+				"/groups/3",
+				"/rules/29",
+				"/rules/30",
+				"/rules/31",
+				"/rules/32",
+				"/rules/33",
+				"/rules/34",
+				"/rules/35",
+				"/rules/36",
+				"/rules/37",
+				"/rules/38",
+				"/rules/39",
+				"/rules/40",
+				"/rules/41",
+				"/scenes/K6WLKBUmp47THdu",
+				"/scenes/csMUPeA6t5FIVb5",
+				"/scenes/dlp4YTCjYG42qkR",
+				"/scenes/sPBbGtQ0nZjVnSN",
+				"/scenes/tkixv4jP0mhXVKZ"
+			]
+		},
+		"53151": {
+			"name": "Living Wall Switch",
+			"description": "Living Wall Switch behavior",
+			"type": "Link",
+			"classid": 10050,
+			"owner": "d4990c01-32d8-409b-9309-157424a994b2",
+			"recycle": false,
+			"links": [
+				"/rules/73",
+				"/rules/72",
+				"/rules/71",
+				"/rules/70",
+				"/rules/69",
+				"/rules/68",
+				"/rules/67",
+				"/rules/66",
+				"/scenes/i6uz9yeXckKMdjC",
+				"/rules/65",
+				"/rules/64",
+				"/rules/63",
+				"/scenes/AXTfbA9YaC40U0T",
+				"/rules/62",
+				"/rules/61",
+				"/scenes/uHBpuWFc6URZApK",
+				"/rules/60",
+				"/rules/59",
+				"/rules/58",
+				"/sensors/23",
+				"/scenes/Bd3rOpS3z01ZYZf",
+				"/groups/2",
+				"/sensors/28",
+				"/sensors/27"
+			]
+		}
+	}
+}
