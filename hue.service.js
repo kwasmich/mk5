@@ -2,9 +2,16 @@
 
 class HueService {
     constructor(IP_ADDRESS, USER) {
-        this.url = "http://" + IP_ADDRESS + "/api/" + USER + "/";
+        this.ip = IP_ADDRESS;
+        this.user = USER;
         Object.seal(this);
     }
+
+
+    get url() {
+        return `http://${this.ip}/api/${this.user}/`;
+    }
+
 
     query(TYPE, PATH, DATA) {
         const promise = (resolve, reject) => {

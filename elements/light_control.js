@@ -1,53 +1,9 @@
 "use strict";
 
-import Observable from "../util/observable.js"
+import HTMLCustomElement from "../html_custom_element.js";
 import Hue from "../hue.js";
+import Observable from "../util/observable.js";
 
-
-
-function loadHTML(PATH) {
-    const promise = (resolve, reject) => {
-        let loadHandler, xhr;
-        
-        loadHandler = (EVENT) => {
-            if (EVENT.currentTarget.status === 200) {
-                const response = EVENT.currentTarget.responseText;
-                resolve(response);
-            } else {
-                reject(EVENT.currentTarget);
-            }
-        };
-        
-        xhr = new XMLHttpRequest();
-        xhr.onload = loadHandler;
-        xhr.open("GET", PATH, true);
-        xhr.send();
-    };
-    
-    return new Promise(promise);
-}
-
-
-
-loadHTML("elements/light_control.html").then((html) => {
-    const temp = document.createElement("template");
-    const domParser = new DOMParser();
-    const doc = domParser.parseFromString(`<html><body>${html}</body></html>`, "text/html");
-    const newElements = doc.body.children;
-    // const newElements = document.importNode(doc.body, true).children;
-    
-    const link = document.createElement("LINK");
-    link.rel = "stylesheet";
-    link.type = "text/css";
-    link.href = "elements/light_control.css";
-    temp.content.appendChild(link);
-    
-    for (const node of [...newElements]) {
-        temp.content.appendChild(node);
-    }
-    
-    template.value = temp;
-});
 
 
 const template = new Observable();
@@ -55,10 +11,10 @@ const priv = Symbol("private");
 
 
 
-class LightControlElement extends HTMLElement {
+class LightControlElement extends HTMLCustomElement {
     constructor() {
-        super();
-        this[priv] = this[priv] || {}
+        super(template, "elements/light_control");
+        this[priv] = this[priv] || {};
         this[priv].light = undefined;
         this[priv].lightObj = {};
         this[priv].shadowRoot = this.attachShadow({mode: 'closed'});

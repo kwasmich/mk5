@@ -1,9 +1,10 @@
 "use strict";
 
-import "./util/security.js"
-import "./elements/light_control.js"
+import "./elements/hue_setup.js";
+import "./elements/light_control.js";
+import Hue from "./hue.js";
+import "./util/security.js";
 
-import Hue from "./hue.js"
 
 
 class Basic {
