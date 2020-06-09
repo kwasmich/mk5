@@ -14,6 +14,7 @@ export function loadJSON(URL) {
 
         xhr = new XMLHttpRequest();
         xhr.onload = loadHandler;
+        xhr.onerror = reject;
         xhr.open("GET", URL, true);
         xhr.send();
     };

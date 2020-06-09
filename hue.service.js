@@ -9,11 +9,18 @@ class HueService {
 
 
     get url() {
-        return `http://${this.ip}/api/${this.user}/`;
+        return [
+            "http:/",
+            this.ip,
+            "api",
+            this.user
+        ];
+        // return `http://${this.ip}/api/${this.user}/`;
     }
 
 
     query(TYPE, PATH, DATA) {
+        const url = [...this.url, PATH].filter((seg) => !!seg).join("/");
         const promise = (resolve, reject) => {
             let loadHandler, xhr;
 
@@ -29,7 +36,8 @@ class HueService {
 
             xhr = new XMLHttpRequest();
             xhr.onload = loadHandler;
-            xhr.open(TYPE, this.url + PATH, true);
+            xhr.onerror = reject;
+            xhr.open(TYPE, url, true);
             xhr.send(DATA);
         };
 

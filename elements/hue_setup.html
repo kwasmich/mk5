@@ -1,9 +1,21 @@
 <h1>hue setup</h1>
-<label for="hue_ip">IP</label>
-<input id="hue_ip" value="kwasi-hue.local"/>
-<button id="discover">discover</button>
-<br />
-<label for="hue_user">user</label>
-<input id="hue_user" value="qwer" />
-<button id="test">test</button>
-<button id="register">register</button>
+
+<div id="hue_ip_grp" class="hidden">
+    <p>Could not find network address of hue bridge.</p>
+    <label for="hue_ip">IP</label>
+    <input id="hue_ip" value="kwasi-hue.local"/>
+    <button id="hue_ip_verify">verify</button>
+</div>
+
+<div class="hidden">
+    <button id="discover">discover</button>
+    <label for="hue_user">user</label>
+    <input id="hue_user" value="qwer" />
+    <button id="test">test</button>
+    <button id="register">register</button>
+</div>
+
+<div class="hidden">
+    <label for="progress">blaub</label>
+    <progress id="progress" value="0" max="100"></progress>
+</div>

@@ -13,6 +13,7 @@ function loadHTML(PATH) {
         
         xhr = new XMLHttpRequest();
         xhr.onload = loadHandler;
+        xhr.onerror = reject;
         xhr.open("GET", PATH, true);
         xhr.send();
     };

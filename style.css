@@ -33,3 +33,7 @@ body {
 p {
     color: red;
 }
+
+.hidden {
+    outline: 2px solid lime;
+}
