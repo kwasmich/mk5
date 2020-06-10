@@ -10,7 +10,8 @@ body {
     /* display: flex;
     height: 100%;
     margin: 0; */
-    color: blue;
+    /* color: blue; */
+    font-family: sans-serif;
 }
 
 
@@ -30,10 +31,6 @@ body {
 } */
 
 
-p {
-    color: red;
-}
-
 .hidden {
-    outline: 2px solid lime;
+    display: none;
 }

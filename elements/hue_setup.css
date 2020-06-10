@@ -1,4 +1,8 @@
+@import "../style.css";
+
 :host {
+    /* all: initial;
+    contain: content; */
     display: block;
     border: 1px solid green;
 }
@@ -7,7 +11,3 @@ progress {
     width: 100%;
 }
 
-.hidden {
-    display: none;
-    outline: 2px solid lime;
-}
