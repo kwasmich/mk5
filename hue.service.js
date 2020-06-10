@@ -1,8 +1,8 @@
 "use strict";
 
 class HueService {
-    constructor(IP_ADDRESS, USER) {
-        this.ip = IP_ADDRESS;
+    constructor(ADDRESS, USER) {
+        this.address = ADDRESS;
         this.user = USER;
         Object.seal(this);
     }
@@ -11,11 +11,11 @@ class HueService {
     get url() {
         return [
             "http:/",
-            this.ip,
+            this.address,
             "api",
             this.user
         ];
-        // return `http://${this.ip}/api/${this.user}/`;
+        // return `http://${this.address}/api/${this.user}/`;
     }
 
 
