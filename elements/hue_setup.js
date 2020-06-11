@@ -124,15 +124,17 @@ class HueSetupElement extends HTMLCustomElement {
             userValid = false;
         }
 
-        if (!userValid) {
-            console.log("user invalid");
+        while (!userValid) {
             try {
-                 await this._promptUserForUserName();
-                reachable = true;
+                await this._promptUserForUserName();
+                userValid = true;
             } catch {
-                console.log("user failed");
-                reachable = false;
+                userValid = false;
             }
+        }
+
+        if (reachable && userValid) {
+            this._dispatchEvent("success"); 
         }
     }
 
@@ -302,6 +304,13 @@ class HueSetupElement extends HTMLCustomElement {
         console.log("unregister");
         const userName = localStorage.getItem(HUE_BRIDGE_USER_NAME);
         HueService.query("DELETE", ["config", "whitelist", userName], undefined).then(console.log, console.error);
+    }
+
+
+    _dispatchEvent(message) {
+        const evt = document.createEvent("Event");
+        evt.initEvent(message, false, true);
+        this.dispatchEvent(evt);
     }
 }
 

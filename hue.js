@@ -11,7 +11,7 @@ class Hue {
         this.lights = new Observable();
         this.groups = new Observable();
         Object.seal(this);
-        this.init();
+        // this.init();
     }
     
     async init() {

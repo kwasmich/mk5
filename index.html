@@ -2,26 +2,103 @@
 <html>
     <head>
         <link href="style.css" rel="stylesheet" />
-        <!-- <script src="hue.js"></script> -->
-        <!-- <script src="main.legacy.js"></script> -->
         <script src="main.js" type="module"></script>
-        <!-- <script src="hue.js" type="module"></script> -->
     </head>
     <body>
         <mk-hue-setup></mk-hue-setup>
+        <mk-hue-main></mk-hue-main>
 
-        <!--h1>Hello World!</h1>
-        <flag-icon country="nl"></flag-icon-->
-        <!-- <mk-include src="map.xml" /> -->
-        
-        <label for="group">group</label>
-        <select id="group">
-            <option>Loading…</option>
-        </select>
-        <label for="group">light</label>
-        <select id="light">
-            <option>Loading…</option>
-        </select>
-        <mk-light-control></mk-light-control>
+        <!-- <template id="login-form-template">
+            <style>
+              :host {
+                color: #333333;
+                font: 16px Arial, sans-serif;
+              }
+          
+              p {
+                margin: 0;
+              }
+          
+              p + p {
+                margin-top: 20px;
+              }
+          
+              a {
+                color: #1f66e5;
+              }
+          
+              label {
+                display: block;
+                margin-bottom: 5px;
+              }
+          
+              input[type="text"],
+              input[type="password"] {
+                background-color: #eaeaea;
+                border: 1px solid grey;
+                border-radius: 4px;
+                box-sizing: border-box;
+                color: inherit;
+                font: inherit;
+                padding: 10px 10px;
+                width: 100%;
+              }
+          
+              input[type="submit"] {
+                font: 16px/1.6 Arial, sans-serif;
+                color: white;
+                background: cornflowerblue;
+                border: 1px solid #1f66e5;
+                border-radius: 4px;
+                padding: 10px 10px;
+                width: 100%;
+              }
+          
+              .container {
+                max-width: 300px;
+                padding: 50px;
+                border: 1px solid grey;
+              }
+          
+              .footnote {
+                text-align: center;
+              }
+            </style>
+          
+            <div class="container">
+              <form action="#">
+                <p>
+                  <label for="username">User Name</label>
+                  <input type="text" id="username" name="username">
+                </p>
+                <p>
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="password">
+                </p>
+                <p>
+                  <input type="submit" value="Login">
+                </p>
+                <p class="footnote">Not registered? <a href="#">Create an account</a></p>
+              </form>
+            </div>
+          </template>
+          
+          <script>
+            const doc = (document._currentScript || document.currentScript).ownerDocument;
+            const template = doc.querySelector('#login-form-template');
+          
+            customElements.define('login-form', class extends HTMLElement {
+              constructor() {
+                super();
+          
+                const root = this.attachShadow({mode: 'closed'});
+                const temp = document.importNode(template.content, true);
+          
+                root.appendChild(temp);
+              }
+            });
+          </script>
+
+          <login-form></login-form> -->
     </body>
 </html>
