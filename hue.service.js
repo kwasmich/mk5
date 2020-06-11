@@ -11,7 +11,7 @@ class HueService {
     get url() {
         return [
             "http:/",
-            this.address,
+            this.address || "localhost",
             "api",
             this.user
         ];
@@ -20,7 +20,7 @@ class HueService {
 
 
     query(TYPE, PATH, DATA) {
-        const url = [...this.url, PATH].filter((seg) => !!seg).join("/");
+        const url = [...this.url, ...PATH].filter((seg) => !!seg).join("/");
         const promise = (resolve, reject) => {
             let loadHandler, xhr;
 
@@ -46,4 +46,5 @@ class HueService {
 }
 
 
-export default new HueService("kwasi-hue.local", "kwasihueremote");
+export default new HueService();
+// export default new HueService("kwasi-hue.local", "kwasihueremote");

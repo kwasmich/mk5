@@ -15,12 +15,12 @@ class Hue {
     }
     
     async init() {
-        const lights = await HueService.query("GET", "lights", null);
-        const groups = await HueService.query("GET", "groups", null);
+        const lights = await HueService.query("GET", ["lights"], null);
+        const groups = await HueService.query("GET", ["groups"], null);
         
         // const [lights, groups] = await Promise.all([
-        //     HueService.query("GET", "lights", null),
-        //     HueService.query("GET", "groups", null)
+        //     HueService.query("GET", ["lights"], null),
+        //     HueService.query("GET", ["groups"], null)
         // ]);
         
         for (const light in lights) {

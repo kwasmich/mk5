@@ -7,39 +7,19 @@ import { loadJSON } from "../util/helper.js";
 
 
 
-
-const template = new Observable();
-const priv = Symbol("private");
-
-const IDLE = "idle";
 const HUE_BRIDGE_NAME = "hue_bridge_name";
 const HUE_BRIDGE_ADDRESS = "hue_bridge_address";
 const HUE_BRIDGE_USER_NAME = "hue_bridge_user_name";
-const HUE_BRIDGE_DISCOVERY = "hue_bridge_discovery";
-const HUE_BRIDGE_DISCOVERY_FAILED = "hue_bridge_discovery_failed";
-const HUE_BRIDGE_DISCOVERY_SUCCESS = "hue_bridge_discovery_success";
 const HUE_DEVICE_TYPE = "de.kwasi-ich.hue";
 
 
 
+const template = new Observable();
+const priv = Symbol("private");
+
+
+
 class HueSetupElement extends HTMLCustomElement {
-    constructor() {
-        super(template, "elements/hue_setup");
-        this[priv] = this[priv] || {};
-        this[priv].shadowRoot = this.attachShadow({mode: 'closed'});
-        Object.seal(this);
-        template.subscribe((value) => value && this._init(value));
-    }
-    
-    
-    static get observedAttributes() {
-        return [];
-    }
-    attributeChangedCallback(name, oldValue, newValue) {}
-    connectedCallback() {}
-    _updateRendering() {}
-    
-    
     /** @type {HTMLDivElement} */
     get ipGroup() {
         return this[priv].shadowRoot.getElementById("hue_ip_grp");
@@ -53,11 +33,6 @@ class HueSetupElement extends HTMLCustomElement {
     /** @type {HTMLButtonElement} */
     get ipVerifyButton() {
         return this[priv].shadowRoot.getElementById("hue_ip_verify");
-    }
-    
-    /** @type {HTMLButtonElement} */
-    get discoverButton() {
-        return this[priv].shadowRoot.getElementById("discover");
     }
 
     /** @type {HTMLDivElement} */
@@ -74,90 +49,44 @@ class HueSetupElement extends HTMLCustomElement {
     get progressBar() {
         return this[priv].shadowRoot.getElementById("progress");
     }
+
+    /** @type {HTMLButtonElement} */
+    get unregisterButton() {
+        return this[priv].shadowRoot.getElementById("hue_unregister");
+    }
+    
+
+    constructor() {
+        super(template, "elements/hue_setup");
+        this[priv] = this[priv] || {};
+        this[priv].shadowRoot = this.attachShadow({mode: 'closed'});
+        Object.seal(this);
+        template.subscribe((value) => value && this._init(value));
+    }
+
+
+    static get observedAttributes() {
+        return [];
+    }
+    adoptedCallback() {}
+    attributeChangedCallback(name, oldValue, newValue) {}
+    connectedCallback() {}
+    disconnectedCallback() {}
+    // formAssociatedCallback() {}
+    // formDisabledCallback() {}
+    // formResetCallback() {}
+    // formStateRestoreCallback() {}
+    
     
     
     _init() {
         const content = template.value.content.cloneNode(true);
         this[priv].shadowRoot.appendChild(content);
-        
-        this.discoverButton.onclick = () => this._onDiscoverClick();
-        // this.testButton.onclick = () => this._onTestClick();
-        // this.registerButton.onclick = () => this._onRegisterClick();
-        // this.registerButton.disabled = true;
 
-        // this.ipInput.classList.add("hidden");
-        // this.userInput.classList.add("hidden");
-
+        this.unregisterButton.onclick = () => this._unregister();
         this._init2();
     }
     
-    
-    async _onDiscoverClick() {
-        const btn = this.discoverButton;
-        btn.disabled = true;
-        btn.textContent = "discovering…";
-        
-        try {
-            const result = await loadJSON("https://discovery.meethue.com");
-
-            if (Array.isArray(result) && result.length === 1) {
-                this.ipInput.value = result[0].internalipaddress;
-            }
-        } finally {
-            btn.disabled = false;
-            btn.textContent = "discover";
-        }
-    }
-
-
-    async _onTestClick() {
-        const btn = this.testButton;
-        btn.disabled = true;
-        btn.textContent = "testing…";
-        HueService.address = this.ipInput.value;
-        HueService.user = this.userInput.value;
-
-        try {
-            const result = await HueService.query("GET", undefined, undefined);
-            
-            if (Array.isArray(result) && result.length === 1 && result[0].hasOwnProperty("error")) {
-                console.error(result[0].error);
-                this.registerButton.disabled = false;
-            } else {
-                console.info("success");
-            }
-        } finally {
-            btn.disabled = false;
-            btn.textContent = "test";
-        }
-    }
-
-
-    async _onRegisterClick() {
-        const btn = this.registerButton;
-        btn.disabled = true;
-        btn.textContent = "registering…";
-        HueService.address = this.ipInput.value;
-        HueService.user = undefined;
-
-        const payload = {
-            devicetype: this.userInput.value
-        };
-
-        try {
-            const result = await HueService.query("POST", undefined, JSON.stringify(payload));
-            
-            if (Array.isArray(result) && result.length === 1 && result[0].hasOwnProperty("error")) {
-                console.error(result[0].error);
-            } else {
-                console.info("success");
-            }
-        } finally {
-            btn.disabled = false;
-            btn.textContent = "register";
-        }
-    }
-
 
     async _init2() {
         let reachable = false;
@@ -205,24 +134,6 @@ class HueSetupElement extends HTMLCustomElement {
                 reachable = false;
             }
         }
-
-        
-        // } catch (e) {
-        //     console.error(e);
-        // }
-        // this._testHueBridgeReachability()
-        // .then(
-        //     console.log,
-        //     () => this._discoverHueBridge()
-        //     .then(
-        //         () => this._testHueBridgeReachability()
-        //         .then(
-        //             console.log,
-        //             console.error
-        //         ),
-        //         console.error
-        //     )
-        // )
     }
 
 
@@ -240,11 +151,11 @@ class HueSetupElement extends HTMLCustomElement {
                 return Promise.resolve();
             };
         
-            const failed = () => Promise.reject(1);
+            const failed = () => Promise.reject();
 
-            return HueService.query("GET", "config", undefined).then(success, failed);
+            return HueService.query("GET", ["config"], undefined).then(success, failed);
         } else {
-            return Promise.reject(2)
+            return Promise.reject()
         }
     }
 
@@ -256,7 +167,7 @@ class HueSetupElement extends HTMLCustomElement {
             console.log("_discoverHueBridge.success");
 
             if (!Array.isArray(result)) {
-                return Promise.reject(HUE_BRIDGE_DISCOVERY_FAILED);
+                return Promise.reject();
             }
 
             if (result > 1) {
@@ -264,10 +175,10 @@ class HueSetupElement extends HTMLCustomElement {
             }
 
             localStorage.setItem(HUE_BRIDGE_ADDRESS, result[0].internalipaddress);
-            return Promise.resolve(HUE_BRIDGE_DISCOVERY_SUCCESS);
+            return Promise.resolve();
         };
     
-        const failed = () => Promise.reject(HUE_BRIDGE_DISCOVERY_FAILED);
+        const failed = () => Promise.reject();
         return loadJSON("https://discovery.meethue.com").then(success, failed);
     }
 
@@ -314,14 +225,14 @@ class HueSetupElement extends HTMLCustomElement {
                     localStorage.setItem(HUE_BRIDGE_USER_NAME, userName);
                     return Promise.resolve();
                 } else {
-                    return Promise.reject(4);
+                    return Promise.reject();
                 }
             };
         
-            const failed = () => Promise.reject(1);
-            return HueService.query("GET", "config", undefined).then(success, failed);
+            const failed = () => Promise.reject();
+            return HueService.query("GET", ["config"], undefined).then(success, failed);
         } else {
-            return Promise.reject(3)
+            return Promise.reject()
         }
     }
 
@@ -366,7 +277,7 @@ class HueSetupElement extends HTMLCustomElement {
                     this.progressBar.value = deltaT / 30000;
 
                     try {
-                        const result = await HueService.query("POST", undefined, JSON.stringify(payload));
+                        const result = await HueService.query("POST", [], JSON.stringify(payload));
 
                         if (result[0].success && result[0].success.username) {
                             clearTimeout(timeout);
@@ -384,6 +295,13 @@ class HueSetupElement extends HTMLCustomElement {
         };
 
         return new Promise(promise);
+    }
+
+
+    _unregister() {
+        console.log("unregister");
+        const userName = localStorage.getItem(HUE_BRIDGE_USER_NAME);
+        HueService.query("DELETE", ["config", "whitelist", userName], undefined).then(console.log, console.error);
     }
 }
 

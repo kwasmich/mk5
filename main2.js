@@ -227,7 +227,7 @@ function callback(DATA) {
 
 
 function timer() {
-    g_hue.query("GET", "lights", null, callback);
+    g_hue.query("GET", ["lights"], null, callback);
 }
 
 
