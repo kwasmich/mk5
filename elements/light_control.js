@@ -30,6 +30,9 @@ class LightControlElement extends HTMLCustomElement {
     static get observedAttributes() {
         return ["light"];
     }
+
+    
+    adoptedCallback() {}
     
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -42,6 +45,13 @@ class LightControlElement extends HTMLCustomElement {
     connectedCallback() {
         this._updateRendering();
     }
+
+
+    disconnectedCallback() {}
+    // formAssociatedCallback() {}
+    // formDisabledCallback() {}
+    // formResetCallback() {}
+    // formStateRestoreCallback() {}
     
     
     get light() {
