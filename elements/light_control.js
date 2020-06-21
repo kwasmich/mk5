@@ -70,8 +70,11 @@ class LightControlElement extends HTMLCustomElement {
         const inputs = this[priv].shadowRoot.querySelectorAll("input");
         
         for (const input of inputs) {
-            input.onchange = (event) => this._updateLight(event);
+            input.onchange = (e) => this._onInputChange(e);
         }
+
+        const xy = this[priv].shadowRoot.querySelector("mk-cie-picker");
+        xy.onchange = (e) => this._onXYChange(e);
     }
     
     
@@ -91,10 +94,19 @@ class LightControlElement extends HTMLCustomElement {
         hue.value = l.state.hue;
         const sat = this[priv].shadowRoot.querySelector("input[name=sat]");
         sat.value = l.state.sat;
+        const xy = this[priv].shadowRoot.querySelector("mk-cie-picker");
+        console.log(l, l.capabilities, l.capabilities.control, l.capabilities.control.colorgamut);
+        xy.gamut = l.capabilities.control.colorgamut;
+        xy.value = l.state.xy;
+        const lct = l.capabilities.control.ct;
+        const ct = this[priv].shadowRoot.querySelector("input[name=ct]");
+        ct.min = lct ? lct.min : 153;
+        ct.max = lct ? lct.max : 500;
+        ct.value = l.state.ct;
     }
     
     
-    _updateLight(event) {
+    _onInputChange(event) {
         const attribute = event.target.name;
         const light = this[priv].lightObj[this[priv].light];
         
@@ -106,6 +118,14 @@ class LightControlElement extends HTMLCustomElement {
             default:
                 light[attribute] = +event.target.value;
         }
+    }
+
+
+    _onXYChange(event) {
+        const light = this[priv].lightObj[this[priv].light];
+        const { x, y } = event.target.value;
+        light.xy = [x, y];
+        console.log([x, y]);
     }
 }
 

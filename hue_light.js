@@ -31,6 +31,11 @@ export default class HueLight extends Object {
     set sat(newValue) {
         this._setValue("sat", newValue);
     }
+
+
+    set xy(newValue) {
+        this._setValue("xy", newValue);
+    }
     
 
     set ct(newValue) {

@@ -1,5 +1,6 @@
 "use strict";
 
+import "./elements/cie_picker.js";
 import "./elements/hue_main.js";
 import "./elements/hue_setup.js";
 import "./elements/light_control.js";
