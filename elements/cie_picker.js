@@ -20,7 +20,7 @@ class CIEPickerElement extends HTMLCustomElement {
 
 
     set gamut(newValue) {
-        this[priv].gamut = newValue || [[0, 0], [0, 0], [0, 0]];
+        this[priv].gamut = newValue ?? [[0, 0], [0, 0], [0, 0]];
         this._updateSVG();
     }
 
@@ -36,14 +36,14 @@ class CIEPickerElement extends HTMLCustomElement {
             newValue = { x, y };
         }
 
-        this[priv].value = newValue || [0, 0];
+        this[priv].value = newValue ?? [0, 0];
         this._updateSVG();
     }
 
 
     constructor() {
         super(template, "elements/cie_picker");
-        this[priv] = this[priv] || {};
+        this[priv] = this[priv] ?? {};
         this[priv].shadowRoot = this.attachShadow({mode: 'closed'});
         this[priv].gamut = [[0, 0], [0, 0], [0, 0]];
         this[priv].value = { x:0, y:0 };
@@ -66,17 +66,18 @@ class CIEPickerElement extends HTMLCustomElement {
         const image = this[priv].image;
         image.onclick = (e) => this._onClick(e);
         image.onmousedown = (e) => this._onMouseDown(e);
-        document.onmouseup = (e) => this._onMouseUp(e);
     }
 
 
     _onMouseDown(event) {
+        document.onmouseup = (e) => this._onMouseUp(e);
         this[priv].image.onmousemove = (e) => this._onClick(e);
         this._onClick(event);
     }
 
 
     _onMouseUp(event) {
+        document.onmouseup = undefined;
         this[priv].image.onmousemove = undefined;
         const evt = document.createEvent("Event");
         evt.initEvent("change", false, true);

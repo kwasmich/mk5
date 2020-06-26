@@ -44,7 +44,7 @@ export default class HueLight extends Object {
 
 
     init(lightID) {
-        this[priv] = this[priv] || {};
+        this[priv] = this[priv] ?? {};
         this[priv].lightID = lightID;
         Object.seal(this);
     }

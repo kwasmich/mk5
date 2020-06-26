@@ -9,9 +9,11 @@ class HueService {
 
 
     get url() {
+        const address = this.address ?? "localhost";
+
         return [
             "http:/",
-            this.address || "localhost",
+            address,
             "api",
             this.user
         ];

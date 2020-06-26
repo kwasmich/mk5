@@ -14,7 +14,7 @@ const priv = Symbol("private");
 class LightControlElement extends HTMLCustomElement {
     constructor() {
         super(template, "elements/light_control");
-        this[priv] = this[priv] || {};
+        this[priv] = this[priv] ?? {};
         this[priv].light = undefined;
         this[priv].lightObj = {};
         this[priv].shadowRoot = this.attachShadow({mode: 'closed'});

@@ -28,7 +28,7 @@ class HueMainElement extends HTMLCustomElement {
         this.selectedLight = undefined;
         this.groupsSubscription = undefined;
         this.lightsSubscription = undefined;
-        this[priv] = this[priv] || {};
+        this[priv] = this[priv] ?? {};
         this[priv].shadowRoot = this.attachShadow({mode: 'closed'});
         Object.seal(this);
 
@@ -100,7 +100,7 @@ class HueMainElement extends HTMLCustomElement {
 
 
     _updateLights(groupID) {
-        const groupObj = this.groupsObj && this.groupsObj[groupID];
+        const groupObj = this.groupsObj?.[groupID];
 
         while (this.selectLight.length) {
             this.selectLight.remove(0);

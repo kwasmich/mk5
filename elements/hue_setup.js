@@ -58,7 +58,7 @@ class HueSetupElement extends HTMLCustomElement {
 
     constructor() {
         super(template, "elements/hue_setup");
-        this[priv] = this[priv] || {};
+        this[priv] = this[priv] ?? {};
         this[priv].shadowRoot = this.attachShadow({mode: 'closed'});
         Object.seal(this);
         template.subscribe((value) => value && this._init(value));
@@ -155,7 +155,7 @@ class HueSetupElement extends HTMLCustomElement {
         
             const failed = () => Promise.reject();
 
-            return HueService.query("GET", ["config"], undefined).then(success, failed);
+            return HueService.query("GET", ["config"], null).then(success, failed);
         } else {
             return Promise.reject()
         }
@@ -232,7 +232,7 @@ class HueSetupElement extends HTMLCustomElement {
             };
         
             const failed = () => Promise.reject();
-            return HueService.query("GET", ["config"], undefined).then(success, failed);
+            return HueService.query("GET", ["config"], null).then(success, failed);
         } else {
             return Promise.reject()
         }
@@ -281,7 +281,7 @@ class HueSetupElement extends HTMLCustomElement {
                     try {
                         const result = await HueService.query("POST", [], JSON.stringify(payload));
 
-                        if (result[0].success && result[0].success.username) {
+                        if (result[0].success?.username) {
                             clearTimeout(timeout);
                             timeUp();
                             success(result);
@@ -303,7 +303,7 @@ class HueSetupElement extends HTMLCustomElement {
     _unregister() {
         console.log("unregister");
         const userName = localStorage.getItem(HUE_BRIDGE_USER_NAME);
-        HueService.query("DELETE", ["config", "whitelist", userName], undefined).then(console.log, console.error);
+        HueService.query("DELETE", ["config", "whitelist", userName], null).then(console.log, console.error);
     }
 
 

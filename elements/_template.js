@@ -16,7 +16,7 @@ class MyElement extends HTMLCustomElement {
 
     constructor() {
         super(template, "elements/_template");
-        this[priv] = this[priv] || {};
+        this[priv] = this[priv] ?? {};
         this[priv].shadowRoot = this.attachShadow({mode: 'closed'});
         Object.seal(this);
 
