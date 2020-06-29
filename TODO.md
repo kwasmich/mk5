@@ -18,3 +18,13 @@ a ?? "default" // nullish coalescing operator
 a &&= b // and assignment operator
 a ||= b // or assignment operator
 a ??= b // nullish assignment operator
+
+
+HTTP
+----
+[Cache-Control](https://tools.ietf.org/html/rfc7234)
+
+
+Safari
+------
+https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW1
