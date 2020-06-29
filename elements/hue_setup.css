@@ -1,4 +1,4 @@
-@import "../style.css";
+@import "/style.css";
 
 :host {
     /* all: initial;
@@ -11,3 +11,21 @@ progress {
     width: 100%;
 }
 
+
+/* .a32 {
+    width: 32px;
+    height: 32px;
+    background-color: lime;
+}
+
+.a48 {
+    width: 48px;
+    height: 48px;
+    background-color: yellow;
+}
+
+.a64 {
+    width: 64px;
+    height: 64px;
+    background-color: magenta;
+} */
