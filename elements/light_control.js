@@ -75,6 +75,15 @@ class LightControlElement extends HTMLCustomElement {
 
         const xy = this[priv].shadowRoot.querySelector("mk-cie-picker");
         xy.onchange = (e) => this._onXYChange(e);
+
+        const effectColorloop = this[priv].shadowRoot.querySelector("#effectColorloop");
+        const effectNone = this[priv].shadowRoot.querySelector("#effectNone");
+        effectColorloop.onclick = () => {
+            this[priv].lightObj[this[priv].light].effect = "colorloop";
+        };
+        effectNone.onclick = () => {
+            this[priv].lightObj[this[priv].light].effect = "none";
+        };
     }
     
     

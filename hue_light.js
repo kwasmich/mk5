@@ -43,6 +43,12 @@ export default class HueLight extends Object {
     }
 
 
+    set effect(newValue) {
+        console.log("effect");
+        this._setValue("effect", newValue);
+    }
+
+
     init(lightID) {
         this[priv] = this[priv] ?? {};
         this[priv].lightID = lightID;
