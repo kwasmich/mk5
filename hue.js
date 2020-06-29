@@ -1,8 +1,8 @@
 "use strict";
 
-import HueService from "./hue.service.js"
-import Observable from "./util/observable.js"
-import HueLight from "./hue_light.js"
+import HueService from "/hue.service.js"
+import Observable from "/util/observable.js"
+import HueLight from "/hue_light.js"
 
 
 
@@ -13,6 +13,10 @@ class Hue {
         Object.seal(this);
         // this.init();
     }
+
+    // init() {
+    //     setInterval(() => this._init(), 5000);
+    // }
     
     async init() {
         const lights = await HueService.query("GET", ["lights"], null);

@@ -1,11 +1,11 @@
 "use strict";
 
-import "./elements/cie_picker.js";
-import "./elements/hue_main.js";
-import "./elements/hue_setup.js";
-import "./elements/light_control.js";
-import Hue from "./hue.js";
-import "./util/security.js";
+import "/elements/cie_picker.js";
+import "/elements/hue_main.js";
+import "/elements/hue_setup.js";
+import "/elements/light_control.js";
+import Hue from "/hue.js";
+import "/util/security.js";
 
 
 
@@ -29,3 +29,5 @@ class Main {
 
 export default new Main();
 
+window.onfocus = (e) => console.log(e);
+window.onblur = (e) => console.log(e);

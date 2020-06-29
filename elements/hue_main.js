@@ -1,6 +1,6 @@
-import HTMLCustomElement from "../html_custom_element.js";
-import Hue from "../hue.js";
-import Observable from "../util/observable.js";
+import HTMLCustomElement from "/html_custom_element.js";
+import Hue from "/hue.js";
+import Observable from "/util/observable.js";
 
 
 

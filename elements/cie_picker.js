@@ -1,5 +1,5 @@
-import HTMLCustomElement from "../html_custom_element.js";
-import Observable from "../util/observable.js";
+import HTMLCustomElement from "/html_custom_element.js";
+import Observable from "/util/observable.js";
 
 
 

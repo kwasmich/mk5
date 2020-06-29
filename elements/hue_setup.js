@@ -1,9 +1,9 @@
 "use strict";
 
-import HTMLCustomElement from "../html_custom_element.js";
-import HueService from "../hue.service.js";
-import Observable from "../util/observable.js";
-import { loadJSON } from "../util/helper.js";
+import HTMLCustomElement from "/html_custom_element.js";
+import HueService from "/hue.service.js";
+import Observable from "/util/observable.js";
+import { loadJSON } from "/util/helper.js";
 
 
 
@@ -134,7 +134,7 @@ class HueSetupElement extends HTMLCustomElement {
         }
 
         if (reachable && userValid) {
-            this._dispatchEvent("success"); 
+            this._dispatchEvent("success");
         }
     }
 

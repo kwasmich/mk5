@@ -1,4 +1,4 @@
-import HueService from "./hue.service.js"
+import HueService from "/hue.service.js"
 
 
 
