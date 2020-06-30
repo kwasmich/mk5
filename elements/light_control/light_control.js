@@ -13,7 +13,7 @@ const priv = Symbol("private");
 
 class LightControlElement extends HTMLCustomElement {
     constructor() {
-        super(template, "elements/light_control");
+        super(template, import.meta);
         this[priv] = this[priv] ?? {};
         this[priv].light = undefined;
         this[priv].lightObj = {};
@@ -139,4 +139,4 @@ class LightControlElement extends HTMLCustomElement {
 }
 
 
-window.customElements.define("mk-light-control", LightControlElement);
+customElements.define("mk-light-control", LightControlElement);

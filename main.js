@@ -1,9 +1,9 @@
 "use strict";
 
-import "/elements/cie_picker.js";
-import "/elements/hue_main.js";
-import "/elements/hue_setup.js";
-import "/elements/light_control.js";
+import "/elements/cie_picker/cie_picker.js";
+import "/elements/hue_main/hue_main.js";
+import "/elements/hue_setup/hue_setup.js";
+import "/elements/light_control/light_control.js";
 import Hue from "/hue.js";
 import "/util/security.js";
 

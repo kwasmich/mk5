@@ -57,7 +57,7 @@ class HueSetupElement extends HTMLCustomElement {
     
 
     constructor() {
-        super(template, "elements/hue_setup");
+        super(template, import.meta);
         this[priv] = this[priv] ?? {};
         this[priv].shadowRoot = this.attachShadow({mode: 'closed'});
         Object.seal(this);
@@ -315,4 +315,4 @@ class HueSetupElement extends HTMLCustomElement {
 }
 
 
-window.customElements.define("mk-hue-setup", HueSetupElement);
+customElements.define("mk-hue-setup", HueSetupElement);

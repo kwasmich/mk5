@@ -42,7 +42,7 @@ class CIEPickerElement extends HTMLCustomElement {
 
 
     constructor() {
-        super(template, "elements/cie_picker");
+        super(template, import.meta);
         this[priv] = this[priv] ?? {};
         this[priv].shadowRoot = this.attachShadow({mode: 'closed'});
         this[priv].gamut = [[0, 0], [0, 0], [0, 0]];
@@ -98,7 +98,7 @@ class CIEPickerElement extends HTMLCustomElement {
         this._updateSVG();
     }
 
-    
+
     _updateSVG() {
         const value = this[priv].shadowRoot.querySelector("#value");
         value.cx.baseVal.value = this.value.x * 1000;

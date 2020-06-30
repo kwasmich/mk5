@@ -14,5 +14,5 @@ if (__extensions_innerHTMLDescriptor !== undefined) {
 
 const __extensions_eval = "eval";
 
-window.unsafeEval = window[__extensions_eval];
-window[__extensions_eval] = undefined;
+globalThis.unsafeEval = globalThis[__extensions_eval];
+globalThis[__extensions_eval] = undefined;

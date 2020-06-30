@@ -24,8 +24,10 @@ function loadHTML(PATH) {
 
 
 export default class HTMLCustomElement extends HTMLElement {
-    constructor(template, path) {
+    constructor(template, { url }) {
         super();
+
+        const path = url.replace(".js", "");
 
         loadHTML(`${path}.html`).then((html) => {
             const temp = document.createElement("template");

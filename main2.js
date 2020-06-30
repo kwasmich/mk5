@@ -29,7 +29,7 @@ function embed(ELEMENT, INDEX, ARRAY) {
             newElement = div.firstElementChild;
             ELEMENT.parentNode.replaceChild(newElement, ELEMENT);
         } else {
-            window.console.error("The file to be included could not be loaded.", url);
+            console.error("The file to be included could not be loaded.", url);
         }
     };
 

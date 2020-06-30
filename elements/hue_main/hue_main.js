@@ -16,7 +16,7 @@ class HueMainElement extends HTMLCustomElement {
 
 
     constructor() {
-        super(template, "elements/hue_main");
+        super(template, import.meta);
 
         /** @type {HTMLSelectElement} */
         this.selectGroup = undefined;
