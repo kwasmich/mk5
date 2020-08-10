@@ -1,4 +1,6 @@
 :root {
+    color-scheme: light dark;
+    
     /* primary colors */
     --shadow-color: #000;
     --midground-color: #AAA;
@@ -20,6 +22,26 @@
     color: var(--shadow-color);
 }
 
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --shadow-color: #FFF;
+        --midground-color: #AAA;
+        --highlight-color: #000;
+        --accent-color: #68B;
+    
+        /* derived colors */
+        --background-color: #7C7C7C;
+        --foreground-color: #DADADA;
+        --accent-background-color: #496289;
+        --accent-faint-color: #8D9AB3;
+        --accent-foreground-color: #C6CFE0;
+        --shadow-highlight-color: #BCBCBC; /* do not use */
+    
+        -webkit-text-size-adjust: none;
+    }
+}
 
 
 

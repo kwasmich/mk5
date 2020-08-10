@@ -15,6 +15,7 @@ class Main {
         this.main = document.querySelector("mk-hue-main");
         Object.seal(this);
 
+        this._initService();
         this.setup.addEventListener("success", () => this._init());
     }
 
@@ -23,11 +24,29 @@ class Main {
         Hue.init();
         this.main._init();
     }
+
+
+    _initService() {
+        if ('serviceWorker' in navigator) {
+            const successHandler = (/* @type ServiceWorkerRegistration */ sw) => {
+                // registration worked!
+                console.log(sw);
+            };
+
+            const errorHandler = (err) => {
+                // registration failed :(
+                console.error(err);
+            }
+
+            navigator.serviceWorker.register('/worker.service.js', { scope: '/' })
+                .then(successHandler, errorHandler);
+        }
+    }
 }
 
 
 
 export default new Main();
 
-window.onfocus = (e) => console.log(e);
-window.onblur = (e) => console.log(e);
+// window.onfocus = (e) => console.log(e);
+// window.onblur = (e) => console.log(e);

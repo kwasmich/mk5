@@ -1,0 +1,1 @@
+function fetchHandler(event: FetchEvent);
