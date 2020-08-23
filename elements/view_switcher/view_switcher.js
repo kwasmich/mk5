@@ -24,9 +24,9 @@ class ViewSwticher extends HTMLCustomElement {
         if (!s_template) {
             s_template = new Observable();
             super._load(s_template, this[priv].shadowRoot, import.meta);
+        } else {
+            s_template.subscribe((value) => value && super._init(value, this[priv].shadowRoot));
         }
-
-        s_template.subscribe((value) => value && super._init(value, this[priv].shadowRoot));
     }
 
 

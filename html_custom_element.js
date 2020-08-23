@@ -17,11 +17,12 @@ export default class HTMLCustomElement extends HTMLElement {
         const temp = document.createElement("TEMPLATE");
         const domParser = new DOMParser();
 
-        loadHTML(`${path}.html`).then((html) => {
+        const templatePromise = loadHTML(`${path}.html`).then((html) => {
             const doc = domParser.parseFromString(`<html><body>${html}</body></html>`, "text/html");
             const newElements = doc.body.childNodes;
             temp.content.append(...newElements);
             template.value = temp;
+            return Promise.resolve(temp);
         });
 
         const link = document.createElement("LINK");
@@ -29,7 +30,10 @@ export default class HTMLCustomElement extends HTMLElement {
         link.type = "text/css";
         link.href = `${path}.css`;
         temp.content.append(link);
-        shadowRoot.appendChild(link.cloneNode());
+
+        const copyLink = link.cloneNode();
+        copyLink.onload = () => templatePromise.then((tmpl) => this._init(tmpl, shadowRoot));
+        shadowRoot.appendChild(copyLink);
     }
 
 
@@ -39,11 +43,11 @@ export default class HTMLCustomElement extends HTMLElement {
 
         if (shadowRoot.hasChildNodes()) {
             content.removeChild(content.childNodes[0]);
-            shadowRoot.childNodes[0].onload = appendContent;
+            appendContent();
         } else {
             const link = content.childNodes[0];
-            shadowRoot.appendChild(link);
             link.onload = appendContent;
+            shadowRoot.appendChild(link);
         }
     }
 }
