@@ -1,25 +1,4 @@
-function loadHTML(PATH) {
-    const promise = (resolve, reject) => {
-        let loadHandler, xhr;
-        
-        loadHandler = (EVENT) => {
-            if (EVENT.currentTarget.status === 200) {
-                const response = EVENT.currentTarget.responseText;
-                resolve(response);
-            } else {
-                reject(EVENT.currentTarget);
-            }
-        };
-
-        xhr = new XMLHttpRequest();
-        xhr.onload = loadHandler;
-        xhr.onerror = reject;
-        xhr.open("GET", PATH, true);
-        xhr.send();
-    };
-    
-    return new Promise(promise);
-}
+import { loadHTML } from "/util/helper.js";
 
 
 
@@ -28,11 +7,12 @@ const priv = Symbol("private");
 
 
 export default class HTMLCustomElement extends HTMLElement {
-    constructor(template, { url }) {
+    constructor() {
         super();
+    }
 
-        console.log(template.value);
 
+    _load(template, { url }) {
         const path = url.replace(".js", "");
 
         loadHTML(`${path}.html`).then((html) => {
@@ -46,13 +26,16 @@ export default class HTMLCustomElement extends HTMLElement {
             link.rel = "stylesheet";
             link.type = "text/css";
             link.href = `${path}.css`;
-            temp.content.appendChild(link);
-            
-            for (const node of [...newElements]) {
-                temp.content.appendChild(node);
-            }
-
+            temp.content.append(link, ...newElements);
             template.value = temp;
         });
+    }
+
+
+    _init(template, shadowRoot) {
+        const content = template.content.cloneNode(true);
+        const link = content.childNodes[0];
+        shadowRoot.appendChild(link);
+        link.onload = () => shadowRoot.appendChild(content);
     }
 }

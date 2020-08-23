@@ -1,4 +1,4 @@
-// import "/elements/view_switcher/view_switcher.js";
+import "/elements/view_switcher/view_switcher.js";
 import "/util/security.js";
 
 
@@ -40,5 +40,5 @@ export default new Main();
 // window.onfocus = (e) => console.log(e);
 // window.onblur = (e) => console.log(e);
 
-customElements.whenDefined("mk-view-switcher").then(() => console.log("mk-view-switcher defined"));
-setTimeout(() => import("/elements/view_switcher/view_switcher.js"), 2000);
+// customElements.whenDefined("mk-view-switcher").then(() => console.log("mk-view-switcher defined"));
+// setTimeout(() => import("/elements/view_switcher/view_switcher.js"), 2000);

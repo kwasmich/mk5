@@ -3,7 +3,7 @@ import Observable from "/util/observable.js";
 
 
 
-const template = new Observable();
+let s_template;
 const priv = Symbol("private");
 
 
@@ -15,12 +15,18 @@ class MyElement extends HTMLCustomElement {
 
 
     constructor() {
-        super(template, import.meta);
+        super();
+
+        if (!s_template) {
+            s_template = new Observable();
+            super._init(s_template, import.meta);
+        }
+        
         this[priv] = this[priv] ?? {};
         this[priv].shadowRoot = this.attachShadow({mode: "closed"});
         Object.seal(this);
 
-        template.subscribe((value) => value && this._init(value));
+        s_template.subscribe((value) => value && this._init(value));
     }
 
 
@@ -30,9 +36,11 @@ class MyElement extends HTMLCustomElement {
     disconnectedCallback() {}
 
 
-    _init() {
-        const content = template.value.content.cloneNode(true);
-        this[priv].shadowRoot.appendChild(content);
+    _init(template) {
+        const content = template.content.cloneNode(true);
+        const link = content.childNodes[0];
+        this[priv].shadowRoot.appendChild(link);
+        link.onload = () => this[priv].shadowRoot.appendChild(content);
     }
 }
 

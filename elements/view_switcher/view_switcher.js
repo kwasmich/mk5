@@ -3,7 +3,7 @@ import Observable from "/util/observable.js";
 
 
 
-const template = new Observable();
+let s_template;
 const priv = Symbol("private");
 
 
@@ -15,12 +15,18 @@ class ViewSwticher extends HTMLCustomElement {
 
 
     constructor() {
-        super(template, import.meta);
+        super();
+
         this[priv] = this[priv] ?? {};
-        this[priv].shadowRoot = this.attachShadow({mode: "closed"});
+        this[priv].shadowRoot = this.attachShadow({ mode: "closed" });
         Object.seal(this);
 
-        template.subscribe((value) => value && this._init(value));
+        if (!s_template) {
+            s_template = new Observable();
+            super._load(s_template, import.meta);
+        }
+
+        s_template.subscribe((value) => value && super._init(value, this[priv].shadowRoot));
     }
 
 
@@ -28,12 +34,6 @@ class ViewSwticher extends HTMLCustomElement {
     attributeChangedCallback(name, oldValue, newValue) {}
     connectedCallback() {}
     disconnectedCallback() {}
-
-
-    _init() {
-        const content = template.value.content.cloneNode(true);
-        this[priv].shadowRoot.appendChild(content);
-    }
 }
 
 
