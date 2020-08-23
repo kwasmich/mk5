@@ -17,16 +17,16 @@ class MyElement extends HTMLCustomElement {
     constructor() {
         super();
 
+        this[priv] = this[priv] ?? {};
+        this[priv].shadowRoot = this.attachShadow({ mode: "closed" });
+        Object.seal(this);
+        
         if (!s_template) {
             s_template = new Observable();
-            super._init(s_template, import.meta);
+            super._load(s_template, this[priv].shadowRoot, import.meta);
         }
-        
-        this[priv] = this[priv] ?? {};
-        this[priv].shadowRoot = this.attachShadow({mode: "closed"});
-        Object.seal(this);
 
-        s_template.subscribe((value) => value && this._init(value));
+        s_template.subscribe((value) => value && super._init(value, this[priv].shadowRoot));
     }
 
 
@@ -34,14 +34,6 @@ class MyElement extends HTMLCustomElement {
     attributeChangedCallback(name, oldValue, newValue) {}
     connectedCallback() {}
     disconnectedCallback() {}
-
-
-    _init(template) {
-        const content = template.content.cloneNode(true);
-        const link = content.childNodes[0];
-        this[priv].shadowRoot.appendChild(link);
-        link.onload = () => this[priv].shadowRoot.appendChild(content);
-    }
 }
 
 

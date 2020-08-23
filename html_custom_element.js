@@ -12,30 +12,38 @@ export default class HTMLCustomElement extends HTMLElement {
     }
 
 
-    _load(template, { url }) {
+    _load(template, shadowRoot, { url }) {
         const path = url.replace(".js", "");
+        const temp = document.createElement("TEMPLATE");
+        const domParser = new DOMParser();
 
         loadHTML(`${path}.html`).then((html) => {
-            const temp = document.createElement("TEMPLATE");
-            const domParser = new DOMParser();
             const doc = domParser.parseFromString(`<html><body>${html}</body></html>`, "text/html");
             const newElements = doc.body.childNodes;
-            // const newElements = document.importNode(doc.body, true).children;
-            
-            const link = document.createElement("LINK");
-            link.rel = "stylesheet";
-            link.type = "text/css";
-            link.href = `${path}.css`;
-            temp.content.append(link, ...newElements);
+            temp.content.append(...newElements);
             template.value = temp;
         });
+
+        const link = document.createElement("LINK");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = `${path}.css`;
+        temp.content.append(link);
+        shadowRoot.appendChild(link.cloneNode());
     }
 
 
     _init(template, shadowRoot) {
         const content = template.content.cloneNode(true);
-        const link = content.childNodes[0];
-        shadowRoot.appendChild(link);
-        link.onload = () => shadowRoot.appendChild(content);
+        const appendContent = () => shadowRoot.appendChild(content);
+
+        if (shadowRoot.hasChildNodes()) {
+            content.removeChild(content.childNodes[0]);
+            shadowRoot.childNodes[0].onload = appendContent;
+        } else {
+            const link = content.childNodes[0];
+            shadowRoot.appendChild(link);
+            link.onload = appendContent;
+        }
     }
 }
