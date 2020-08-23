@@ -29,7 +29,7 @@ class HueMainElement extends HTMLCustomElement {
         this.groupsSubscription = undefined;
         this.lightsSubscription = undefined;
         this[priv] = this[priv] ?? {};
-        this[priv].shadowRoot = this.attachShadow({mode: 'closed'});
+        this[priv].shadowRoot = this.attachShadow({mode: "closed"});
         Object.seal(this);
 
         //template.subscribe((value) => value && this._init(value));
@@ -80,7 +80,7 @@ class HueMainElement extends HTMLCustomElement {
             this.selectGroup.remove(0);
         }
 
-        const option = document.createElement("option");
+        const option = document.createElement("OPTION");
         option.text = "Alle";
         this.selectGroup.add(option);
 
@@ -88,7 +88,7 @@ class HueMainElement extends HTMLCustomElement {
             const group = groupsObj[grp];
 
             if (group.type === "Room") {
-                const option = document.createElement("option");
+                const option = document.createElement("OPTION");
                 option.value = grp;
                 option.text = group.name;
                 this.selectGroup.add(option);
@@ -109,7 +109,7 @@ class HueMainElement extends HTMLCustomElement {
         for (const lght in this.lightsObj) {
             if (!groupObj || groupObj.lights.includes(lght)) {
                 const light = this.lightsObj[lght];
-                const option = document.createElement("option");
+                const option = document.createElement("OPTION");
                 option.value = lght;
                 option.text = light.name;
                 this.selectLight.add(option);
@@ -125,4 +125,4 @@ class HueMainElement extends HTMLCustomElement {
 }
 
 
-customElements.define('mk-hue-main', HueMainElement);
+customElements.define("mk-hue-main", HueMainElement);

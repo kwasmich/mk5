@@ -1,5 +1,3 @@
-"use strict";
-
 import HTMLCustomElement from "/html_custom_element.js";
 import Hue from "/hue.js";
 import Observable from "/util/observable.js";
@@ -17,7 +15,7 @@ class LightControlElement extends HTMLCustomElement {
         this[priv] = this[priv] ?? {};
         this[priv].light = undefined;
         this[priv].lightObj = {};
-        this[priv].shadowRoot = this.attachShadow({mode: 'closed'});
+        this[priv].shadowRoot = this.attachShadow({mode: "closed"});
         Object.seal(this);
         template.subscribe((value) => value && this._init(value));
         Hue.lights.subscribe((value) => {

@@ -1,5 +1,3 @@
-"use strict";
-
 import HTMLCustomElement from "/html_custom_element.js";
 import HueService from "/hue.service.js";
 import Observable from "/util/observable.js";
@@ -59,7 +57,7 @@ class HueSetupElement extends HTMLCustomElement {
     constructor() {
         super(template, import.meta);
         this[priv] = this[priv] ?? {};
-        this[priv].shadowRoot = this.attachShadow({mode: 'closed'});
+        this[priv].shadowRoot = this.attachShadow({mode: "closed"});
         Object.seal(this);
         template.subscribe((value) => value && this._init(value));
     }

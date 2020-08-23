@@ -44,6 +44,10 @@
 }
 
 
+/* custom elements that not have been loaded */
+:not(:defined) {
+    display: none;
+}
 
 /* html {
     background-color: #000;

@@ -8,7 +8,7 @@ const priv = Symbol("private");
 
 
 
-class MyElement extends HTMLCustomElement {
+class ViewSwticher extends HTMLCustomElement {
     static get observedAttributes() {
         return [];
     }
@@ -37,4 +37,4 @@ class MyElement extends HTMLCustomElement {
 }
 
 
-customElements.define("my-element", MyElement);
+customElements.define("mk-view-switcher", ViewSwticher);
