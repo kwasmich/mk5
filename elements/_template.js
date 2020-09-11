@@ -18,7 +18,7 @@ class MyElement extends HTMLCustomElement {
         super();
 
         this[priv] = this[priv] ?? {};
-        this[priv].shadowRoot = this.attachShadow({ mode: "closed" });
+        this[priv].shadowRoot = this.attachShadow({ mode: "closed" });  // perfectly locked. open would grant access via $0.shadowRoot
         Object.seal(this);
         
         if (!s_template) {

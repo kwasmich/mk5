@@ -13,11 +13,30 @@ DOM
 
 JavaScript
 ----------
-a?.b   a?.[0]   a?.() // optional chaining
-a ?? "default" // nullish coalescing operator
-a &&= b // and assignment operator
-a ||= b // or assignment operator
-a ??= b // nullish assignment operator
+`a?.b   a?.[0]   a?.()` // optional chaining
+`a ?? "default"` // nullish coalescing operator
+`a &&= b` // and assignment operator
+`a ||= b` // or assignment operator
+`a ??= b` // nullish assignment operator
+
+```
+class Clazz {
+    prop = 123;             // property definition not supported by Safari
+    static sprop = "abc";   // static property definition not supported by Safari
+}
+```
+use
+```
+Clazz.sprop = "abc";
+```
+instead
+
+Decorators are currently NOT supported :(
+```
+@abc
+@deco("somethin")
+class x {}
+```
 
 
 HTTP

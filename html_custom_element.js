@@ -1,4 +1,5 @@
 import { loadHTML } from "/util/helper.js";
+import Observable from "/util/observable.js";
 
 
 
@@ -7,12 +8,25 @@ const priv = Symbol("private");
 
 
 export default class HTMLCustomElement extends HTMLElement {
-    constructor() {
-        super();
+    constructor(...args) {
+        const self = super(args);
+        return self;
     }
 
 
-    _load(template, shadowRoot, { url }) {
+    _init(shadowRoot) {
+        if (!this.constructor.template) {
+            this.constructor.template = new Observable();
+            this._load(shadowRoot);
+        } else {
+            this.constructor.template.subscribe((value) => value && this._init2(shadowRoot));
+        }
+    }
+
+
+    _load(shadowRoot) {
+        const template = this.constructor.template;
+        const url = this.constructor.metaURL;
         const path = url.replace(".js", "");
         const temp = document.createElement("TEMPLATE");
         const domParser = new DOMParser();
@@ -32,14 +46,18 @@ export default class HTMLCustomElement extends HTMLElement {
         temp.content.append(link);
 
         const copyLink = link.cloneNode();
-        copyLink.onload = () => templatePromise.then((tmpl) => this._init(tmpl, shadowRoot));
+        copyLink.onload = () => templatePromise.then((tmpl) => this._init2(shadowRoot));
         shadowRoot.appendChild(copyLink);
     }
 
 
-    _init(template, shadowRoot) {
-        const content = template.content.cloneNode(true);
-        const appendContent = () => shadowRoot.appendChild(content);
+    _init2(shadowRoot) {
+        const template = this.constructor.template;
+        const content = template.value.content.cloneNode(true);
+        const appendContent = () => {
+            shadowRoot.appendChild(content);
+            this.onInit();
+        }
 
         if (shadowRoot.hasChildNodes()) {
             content.removeChild(content.childNodes[0]);
@@ -50,4 +68,7 @@ export default class HTMLCustomElement extends HTMLElement {
             shadowRoot.appendChild(link);
         }
     }
+
+
+    onInit() {}
 }

@@ -18,13 +18,15 @@
   <body>
     <button>toggle</button>
     <mk-view-switcher>
-      <div>hello</div>
-      <div>world</div>
+        <div>hello</div>
+        <div>world</div>
     </mk-view-switcher>
 
     <mk-view-switcher>
-      <div>hello2</div>
-      <div>world2</div>
+      <div slot="tab">hello1</div>
+      <div slot="content">world1</div>
+      <div slot="tab">hello2</div>
+      <div slot="content">world2</div>
     </mk-view-switcher>
 
     <!-- <template id="login-form-template">

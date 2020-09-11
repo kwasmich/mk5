@@ -12,7 +12,15 @@ class Main {
     }
 
 
-    _init() { }
+    _init() {
+        const button = document.getElementsByTagName("BUTTON")[0];
+        const viewSwitcher = document.getElementsByTagName("MK-VIEW-SWITCHER")[1];
+
+        button.onclick = () => {
+            const index = +viewSwitcher.viewIndex;
+            viewSwitcher.viewIndex = (index + 1) % 2;
+        }
+    }
 
 
     _initService() {
