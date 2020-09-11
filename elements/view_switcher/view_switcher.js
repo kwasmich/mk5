@@ -1,4 +1,4 @@
-import HTMLCustomElement from "/html_custom_element.js";
+import UIView from "/base/ui-view.js";
 
 
 
@@ -6,7 +6,7 @@ const priv = Symbol("private");
 
 
 
-class ViewSwticher extends HTMLCustomElement {
+class UIViewSwticher extends UIView {
     // static template;
     // static metaURL = import.meta.url;
 
@@ -48,6 +48,7 @@ class ViewSwticher extends HTMLCustomElement {
 
     adoptedCallback() {}
 
+
     attributeChangedCallback(name, oldValue, newValue) {
         console.log(name, oldValue, newValue);
         const views = this[priv].views;
@@ -64,13 +65,13 @@ class ViewSwticher extends HTMLCustomElement {
         }
     }
     
-    connectedCallback() {}
-    disconnectedCallback() {}
+    // connectedCallback() {}
+    // disconnectedCallback() {}
 }
 
 
-ViewSwticher.template = null;
-ViewSwticher.metaURL = import.meta.url;
+UIViewSwticher.template = null;
+UIViewSwticher.metaURL = import.meta.url;
 
 
-customElements.define("mk-view-switcher", ViewSwticher);
+customElements.define("ui-view-switcher", UIViewSwticher);

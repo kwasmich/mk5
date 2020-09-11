@@ -3,14 +3,40 @@ import Observable from "/util/observable.js";
 
 
 
-const priv = Symbol("private");
+export default class UIView extends HTMLElement {
+    static get observedAttributes() {
+        return [];
+    }
 
 
-
-export default class HTMLCustomElement extends HTMLElement {
     constructor(...args) {
         const self = super(args);
         return self;
+    }
+
+
+    adoptedCallback() {
+        console.warn("adoptedCallback not implemented", this.constructor.name);
+    }
+
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        console.warn("attributeChangedCallback not implemented", name, oldValue, newValue, this.constructor.name);
+    }
+    
+    
+    connectedCallback() {
+        console.warn("connectedCallback not implemented", this.constructor.name);
+    }
+
+
+    disconnectedCallback() {
+        console.warn("disconnectedCallback not implemented", this.constructor.name);
+    }
+
+
+    onInit() {
+        console.warn("onInit not implemented", this.constructor.name);
     }
 
 
@@ -68,7 +94,4 @@ export default class HTMLCustomElement extends HTMLElement {
             shadowRoot.appendChild(link);
         }
     }
-
-
-    onInit() {}
 }
