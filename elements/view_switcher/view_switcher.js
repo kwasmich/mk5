@@ -50,7 +50,6 @@ class UIViewSwticher extends UIView {
 
 
     attributeChangedCallback(name, oldValue, newValue) {
-        console.log(name, oldValue, newValue);
         const views = this[priv].views;
         const newView = views[newValue];
 
@@ -70,8 +69,11 @@ class UIViewSwticher extends UIView {
 }
 
 
-UIViewSwticher.template = null;
+
+UIViewSwticher.templatePromise = null;
 UIViewSwticher.metaURL = import.meta.url;
+Object.seal(UIViewSwticher);
+
 
 
 customElements.define("ui-view-switcher", UIViewSwticher);

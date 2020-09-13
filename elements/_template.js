@@ -1,32 +1,27 @@
-import HTMLCustomElement from "/html_custom_element.js";
-import Observable from "/util/observable.js";
+import UIView from "/base/ui-view.js";
 
 
 
-let s_template;
 const priv = Symbol("private");
 
 
 
-class MyElement extends HTMLCustomElement {
+class MyElement extends UIView {
     static get observedAttributes() {
         return [];
     }
 
 
     constructor() {
-        super();
+        const self = super(args);
 
         this[priv] = this[priv] ?? {};
-        this[priv].shadowRoot = this.attachShadow({ mode: "closed" });  // perfectly locked. open would grant access via $0.shadowRoot
+        this[priv].shadowRoot = this.attachShadow({ mode: "closed" });
         Object.seal(this);
-        
-        if (!s_template) {
-            s_template = new Observable();
-            super._load(s_template, this[priv].shadowRoot, import.meta);
-        }
+        Object.seal(this[priv]);
 
-        s_template.subscribe((value) => value && super._init(value, this[priv].shadowRoot));
+        this._init(this[priv].shadowRoot);
+        return self;
     }
 
 
@@ -35,6 +30,13 @@ class MyElement extends HTMLCustomElement {
     connectedCallback() {}
     disconnectedCallback() {}
 }
+
+
+
+MyElement.templatePromise = null;
+MyElement.metaURL = import.meta.url;
+Object.seal(MyElement);
+
 
 
 customElements.define("my-element", MyElement);

@@ -1,5 +1,33 @@
 import { loadHTML } from "/util/helper.js";
-import Observable from "/util/observable.js";
+
+
+const domParser = new DOMParser();
+
+
+function fetchHTML(path) {
+    return loadHTML(`${path}.html`).then((html) => {
+        const doc = domParser.parseFromString(`<html><body>${html}</body></html>`, "text/html");
+        const newElements = doc.body.childNodes;
+        const templateElement = document.createElement("TEMPLATE");
+        templateElement.content.append(...newElements);
+        return Promise.resolve(templateElement);
+    });
+}
+
+
+
+function fetchCSS(path, shadowRoot) {
+    const cssPromise = (resolve, reject) => {
+        const link = document.createElement("LINK");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = `${path}.css`;
+        link.onload = () => resolve();
+        shadowRoot.appendChild(link);
+    }
+
+    return new Promise(cssPromise);
+}
 
 
 
@@ -41,57 +69,22 @@ export default class UIView extends HTMLElement {
 
 
     _init(shadowRoot) {
-        if (!this.constructor.template) {
-            this.constructor.template = new Observable();
-            this._load(shadowRoot);
-        } else {
-            this.constructor.template.subscribe((value) => value && this._init2(shadowRoot));
-        }
-    }
-
-
-    _load(shadowRoot) {
-        const template = this.constructor.template;
         const url = this.constructor.metaURL;
         const path = url.replace(".js", "");
-        const temp = document.createElement("TEMPLATE");
-        const domParser = new DOMParser();
 
-        const templatePromise = loadHTML(`${path}.html`).then((html) => {
-            const doc = domParser.parseFromString(`<html><body>${html}</body></html>`, "text/html");
-            const newElements = doc.body.childNodes;
-            temp.content.append(...newElements);
-            template.value = temp;
-            return Promise.resolve(temp);
-        });
-
-        const link = document.createElement("LINK");
-        link.rel = "stylesheet";
-        link.type = "text/css";
-        link.href = `${path}.css`;
-        temp.content.append(link);
-
-        const copyLink = link.cloneNode();
-        copyLink.onload = () => templatePromise.then((tmpl) => this._init2(shadowRoot));
-        shadowRoot.appendChild(copyLink);
-    }
-
-
-    _init2(shadowRoot) {
-        const template = this.constructor.template;
-        const content = template.value.content.cloneNode(true);
-        const appendContent = () => {
+        const compose = ([templateElement]) => {
+            const content = templateElement.content.cloneNode(true);
             shadowRoot.appendChild(content);
             this.onInit();
+        };
+
+        if (!this.constructor.templatePromise) {
+            this.constructor.templatePromise = fetchHTML(path);
         }
 
-        if (shadowRoot.hasChildNodes()) {
-            content.removeChild(content.childNodes[0]);
-            appendContent();
-        } else {
-            const link = content.childNodes[0];
-            link.onload = appendContent;
-            shadowRoot.appendChild(link);
-        }
+        const promises = [];
+        promises.push(this.constructor.templatePromise);
+        promises.push(fetchCSS(path, shadowRoot));
+        Promise.all(promises).then(compose);
     }
 }
