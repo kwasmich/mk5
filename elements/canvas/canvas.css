@@ -1,0 +1,17 @@
+:host {
+    display: block;
+}
+
+canvas {
+    background-color: white;
+    width: 256px;
+    height: 256px;
+}
+
+div {
+    display: flex;
+}
+
+div > * {
+    flex: 0 0 auto;
+}

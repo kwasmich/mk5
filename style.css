@@ -56,14 +56,23 @@
 } */
 
 
+html {
+    position: fixed;
+}
+
+
+html,
 body {
     /* cursor: none; */
-    /* display: flex;
-    height: 100%;*/
-    
+    /* display: flex; */
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
     margin: 0;
     /* color: blue; */
 }
+
 
 button {
     background-color: var(--accent-color);

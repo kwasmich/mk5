@@ -16,15 +16,11 @@
     <script src="/main.js" type="module"></script>
   </head>
   <body>
+    
     <button>toggle</button>
     <ui-view-switcher>
-        <div>hello</div>
-        <div>world</div>
-    </ui-view-switcher>
-
-    <ui-view-switcher>
       <div slot="tab">hello1</div>
-      <div slot="content">world1</div>
+      <ui-canvas slot="content"></ui-canvas>
       <div slot="tab">hello2</div>
       <div slot="content">world2</div>
     </ui-view-switcher>

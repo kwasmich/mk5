@@ -22,7 +22,8 @@ function fetchCSS(path, shadowRoot) {
         link.rel = "stylesheet";
         link.type = "text/css";
         link.href = `${path}.css`;
-        link.onload = () => resolve();
+        link.onload = resolve;
+        link.onerror = reject;
         shadowRoot.appendChild(link);
     }
 

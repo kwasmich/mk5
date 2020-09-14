@@ -1,3 +1,4 @@
+import "/elements/canvas/canvas.js";
 import "/elements/view_switcher/view_switcher.js";
 import "/util/security.js";
 
@@ -14,7 +15,7 @@ class Main {
 
     _init() {
         const button = document.getElementsByTagName("BUTTON")[0];
-        const viewSwitcher = document.getElementsByTagName("MK-VIEW-SWITCHER")[1];
+        const viewSwitcher = document.getElementsByTagName("UI-VIEW-SWITCHER")[0];
 
         button.onclick = () => {
             const index = +viewSwitcher.viewIndex;
