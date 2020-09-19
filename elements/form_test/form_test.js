@@ -6,7 +6,7 @@ const priv = Symbol("private");
 
 
 
-class MyElement extends UIView {
+class FormTestView extends UIView {
     static get observedAttributes() {
         return [];
     }
@@ -33,10 +33,10 @@ class MyElement extends UIView {
 
 
 
-MyElement.templatePromise = null;
-MyElement.metaURL = import.meta.url;
-Object.seal(MyElement);
+FormTestView.templatePromise = null;
+FormTestView.metaURL = import.meta.url;
+Object.seal(FormTestView);
 
 
 
-customElements.define("my-element", MyElement);
+customElements.define("ui-form-test", FormTestView);

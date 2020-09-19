@@ -1,5 +1,6 @@
 import "/elements/canvas/canvas.js";
 import "/elements/view_switcher/view_switcher.js";
+import "/elements/form_test/form_test.js";
 import "/util/security.js";
 
 

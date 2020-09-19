@@ -7,13 +7,46 @@
     --highlight-color: #FFF;
     --accent-color: #68B;
 
-    /* derived colors */
+    /* derived colors 1/2 */
     --background-color: #7C7C7C;
     --foreground-color: #DADADA;
     --accent-background-color: #496289;
     --accent-faint-color: #8D9AB3;
     --accent-foreground-color: #C6CFE0;
     --shadow-highlight-color: #BCBCBC; /* do not use */
+
+    /*             
+    0
+    170
+    255
+    102 136 187
+     */
+
+    --A: #000;
+    --AAAB: #5B5B5B;
+    --AB: #7C7C7C;
+    --BBBA: #959595;
+    --B: #AAA;
+    --BBBC: #C4C4C4;
+    --BC: #DADADA;
+    --CCCB: #EDEDED;
+    --C: #FFF;
+
+    --D: #68B;
+    --AD: #496289;
+    --AAAD: #364864;
+    --BD: #8D9AB3;
+    --BBBD: #9CA2AE;
+    --CD: #C6CFE0;
+    --CCCD: #E4E8F0;
+    --DDDA: #5977A4;
+    --DDDB: #7B91B7;
+    --DDDC: #9EAFCF;
+
+    /* derived colors 1:1 */
+    --AAAC: #888; /* do not use */
+    --AC: #BCBCBC; /* do not use */
+    --CCCA: #E0E0E0; /* do not use */
 
     -webkit-text-size-adjust: none;
 
@@ -75,10 +108,24 @@ body {
 
 
 button {
-    background-color: var(--accent-color);
+    background-color: var(--midground-color);
     border: 1px solid var(--shadow-color);
     border-top-color: var(--highlight-color);
     border-left-color: var(--highlight-color);
+    color: var(--shadow-color);
+}
+
+button:active {
+    background-color: var(--accent-color);
+    border: 1px solid var(--shadow-color);
+    border-bottom-color: var(--highlight-color);
+    border-right-color: var(--highlight-color);
+    color: var(--shadow-color);
+}
+
+button:disabled {
+    background-color: var(--accent-color);
+    color: var(--shadow-color);
 }
 
 
@@ -103,3 +150,55 @@ button {
 }
 
 
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    box-sizing: border-box;
+    width: 64px;
+    height: 80px;
+    padding: 0;
+}
+
+td:nth-child(2n) {
+    width: 16px;
+}
+
+td:nth-child(4n+3) {
+    width: 32px;
+}
+
+tr:nth-child(2n) td {
+    height: 20px;
+}
+
+tr:nth-child(4n + 3) td {
+    height: 40px;
+}
+
+.a { background-color: var(--A); }
+.b { background-color: var(--B); }
+.c { background-color: var(--C); }
+.d { background-color: var(--D); }
+
+.ab { background-color: var(--AB); }
+.ac { background-color: var(--AC); }
+.ad { background-color: var(--AD); }
+.bc { background-color: var(--BC); }
+.bd { background-color: var(--BD); }
+.cd { background-color: var(--CD); }
+
+.aaab { background-color: var(--AAAB); }
+.aaac { background-color: var(--AAAC); }
+.aaad { background-color: var(--AAAD); }
+.bbba { background-color: var(--BBBA); }
+.bbbc { background-color: var(--BBBC); }
+.bbbd { background-color: var(--BBBD); }
+.ccca { background-color: var(--CCCA); }
+.cccb { background-color: var(--CCCB); }
+.cccd { background-color: var(--CCCD); }
+.ddda { background-color: var(--DDDA); }
+.dddb { background-color: var(--DDDB); }
+.dddc { background-color: var(--DDDC); }
