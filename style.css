@@ -1,27 +1,7 @@
 :root {
     color-scheme: light dark;
     
-    /* primary colors */
-    --shadow-color: #000;
-    --midground-color: #AAA;
-    --highlight-color: #FFF;
-    --accent-color: #68B;
-
-    /* derived colors 1/2 */
-    --background-color: #7C7C7C;
-    --foreground-color: #DADADA;
-    --accent-background-color: #496289;
-    --accent-faint-color: #8D9AB3;
-    --accent-foreground-color: #C6CFE0;
-    --shadow-highlight-color: #BCBCBC; /* do not use */
-
-    /*             
-    0
-    170
-    255
-    102 136 187
-     */
-
+    /* grays */
     --A: #000;
     --AAAB: #5B5B5B;
     --AB: #7C7C7C;
@@ -31,7 +11,11 @@
     --BC: #DADADA;
     --CCCB: #EDEDED;
     --C: #FFF;
+    --CCCA: #E0E0E0;
+    --AC: #BCBCBC;
+    --AAAC: #888;
 
+    /* blues */
     --D: #68B;
     --AD: #496289;
     --AAAD: #364864;
@@ -43,10 +27,29 @@
     --DDDB: #7B91B7;
     --DDDC: #9EAFCF;
 
-    /* derived colors 1:1 */
-    --AAAC: #888; /* do not use */
-    --AC: #BCBCBC; /* do not use */
-    --CCCA: #E0E0E0; /* do not use */
+    /* primary colors */
+    --shadow-color: var(--A);
+    --midground-color: var(--B);
+    --highlight-color: var(--C);
+    --accent-color: var(--D);
+
+    /* derived colors 1/2 */
+    --background-color: var(--AB);
+    --foreground-color: var(--AC);
+    --accent-background-color: var(--AD);
+    --accent-faint-color: var(--BD);
+    --accent-foreground-color: var(--CD);
+    --shadow-highlight-color: var(--AC);
+
+    /*             
+    0
+    170
+    255
+    102 136 187
+     */
+
+
+
 
     -webkit-text-size-adjust: none;
 
@@ -70,7 +73,7 @@
         --accent-background-color: #496289;
         --accent-faint-color: #8D9AB3;
         --accent-foreground-color: #C6CFE0;
-        --shadow-highlight-color: #BCBCBC; /* do not use */
+        --shadow-highlight-color: #BCBCBC;
     
         -webkit-text-size-adjust: none;
     }
@@ -124,7 +127,10 @@ button:active {
 }
 
 button:disabled {
-    background-color: var(--accent-color);
+    background-color: var(--BBBA);
+    border: 1px solid var(--shadow-color);
+    border-top-color: var(--CCCA);
+    border-left-color: var(--CCCA);
     color: var(--shadow-color);
 }
 
