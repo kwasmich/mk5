@@ -1,6 +1,7 @@
 import "/elements/canvas/canvas.js";
 import "/elements/view_switcher/view_switcher.js";
 import "/elements/form_test/form_test.js";
+import "/elements/list_test/list_test.js";
 import "/util/security.js";
 
 
@@ -10,7 +11,7 @@ class Main {
         Object.seal(this);
 
         //this._initService();
-        this._init();
+        //this._init();
     }
 
 
