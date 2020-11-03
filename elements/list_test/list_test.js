@@ -68,6 +68,7 @@ class ListTestView extends UIView {
             elements.push(element);
             root.appendChild(element);
             element.tabIndex = -1;
+            element.onclick = (mouseEvent) => this._onClick(mouseEvent);
         }
     }
 
@@ -76,11 +77,13 @@ class ListTestView extends UIView {
         // console.log(focusEvent);
         // console.log(this[priv].shadowRoot.firstElementChild);
         this[priv].shadowRoot.firstElementChild.nextElementSibling?.focus();
+        this.tabIndex = -1;
     }
 
 
     _onBlur(focusEvent) {
         // console.log(focusEvent);
+        this.tabIndex = 0;
     }
 
 
@@ -104,6 +107,12 @@ class ListTestView extends UIView {
 
             default:
         }
+    }
+
+    
+    _onClick(mouseEvent) {
+        mouseEvent.currentTarget?.classList.toggle("selected");
+        mouseEvent.currentTarget?.focus();
     }
 }
 
