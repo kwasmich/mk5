@@ -76,7 +76,7 @@ class ListTestView extends UIView {
     _onFocus(focusEvent) {
         // console.log(focusEvent);
         // console.log(this[priv].shadowRoot.firstElementChild);
-        this[priv].shadowRoot.firstElementChild.nextElementSibling?.focus();
+        // this[priv].shadowRoot.firstElementChild.nextElementSibling?.focus();
         this.tabIndex = -1;
     }
 
@@ -89,14 +89,19 @@ class ListTestView extends UIView {
 
     _onKeyboardDown(keyboardEvent) {
         const currentNode = this[priv].shadowRoot.querySelector(":focus");
+        
+        if (!currentNode) {
+            this[priv].shadowRoot.querySelector(":not(link)")?.focus();
+            return;
+        }
 
         switch (keyboardEvent.code) {
             case "ArrowUp":
-                currentNode?.previousSibling?.focus();
+                currentNode?.previousElementSibling?.focus();
                 break;
             
             case "ArrowDown":
-                currentNode?.nextSibling?.focus();
+                currentNode?.nextElementSibling?.focus();
                 break;
 
             case "Enter":
