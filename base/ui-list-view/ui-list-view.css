@@ -1,0 +1,20 @@
+@import "/style.css";
+
+:host {
+    display: block;
+}
+
+li:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: -4px;
+}
+
+.selected {
+    background-color: var(--accent-color);
+    color: var(--highlight-color);
+}
+
+.selected:focus {
+    outline: 2px solid var(--highlight-color);
+    outline-offset: -4px;
+}

@@ -19,13 +19,6 @@
     <title>MK5</title>
   </head>
   <body>
-    <button>before</button>
-    <ui-list-test>
-      <template>
-        <div><b>xxx</b> ListItem</div>
-      </template>
-    </ui-list-test>
-    <button>after</button>
     <!--table>
         <tr>
           <td class="a"></td>
@@ -65,13 +58,20 @@
           <td class="d"></td>
         </tr>
     </table>
-    <ui-form-test></ui-form-test>
+    -->
+    <!-- <ui-form-test></ui-form-test> -->
     <button>toggle</button>
     <ui-view-switcher>
       <div slot="tab">hello1</div>
       <ui-canvas slot="content"></ui-canvas>
       <div slot="tab">hello2</div>
       <div slot="content">world2</div>
+      <div slot="tab">list</div>
+      <div slot="content">
+        <button>before</button>
+        <list-test></list-test>
+        <button>after</button>
+      </div>
     </ui-view-switcher>
 
     <!-- <template id="login-form-template">
