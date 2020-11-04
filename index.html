@@ -59,18 +59,28 @@
         </tr>
     </table>
     -->
-    <!-- <ui-form-test></ui-form-test> -->
+<!-- <ui-v-stack>
+  <ui-spacer></ui-spacer>
+  <div>a</div>
+  <ui-spacer></ui-spacer>
+  <div>b</div>
+  <ui-spacer></ui-spacer>
+</ui-v-stack> -->
     <button>toggle</button>
     <ui-view-switcher>
-      <div slot="tab">hello1</div>
+      <li slot="tab">hello1</li>
       <ui-canvas slot="content"></ui-canvas>
-      <div slot="tab">hello2</div>
+      <li slot="tab">hello2</li>
       <div slot="content">world2</div>
-      <div slot="tab">list</div>
+      <li slot="tab">list</li>
       <div slot="content">
         <button>before</button>
         <list-test></list-test>
         <button>after</button>
+      </div>
+      <li slot="tab">form</li>
+      <div slot="content">
+        <ui-form-test></ui-form-test>
       </div>
     </ui-view-switcher>
 

@@ -208,3 +208,21 @@ tr:nth-child(4n + 3) td {
 .ddda { background-color: var(--DDDA); }
 .dddb { background-color: var(--DDDB); }
 .dddc { background-color: var(--DDDC); }
+
+
+ui-h-stack {
+    display: flex;
+    width: 100%;
+}
+
+ui-v-stack {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+ui-h-stack > ui-spacer,
+ui-v-stack > ui-spacer {
+    flex: 1 1 1px;
+}
+

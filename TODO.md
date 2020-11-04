@@ -47,3 +47,38 @@ HTTP
 Safari
 ------
 https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW1
+
+
+
+List
+    Sections
+    Hierarchy
+
+NavigationView
+
+PopOver
+
+LazyHStack
+LazyVStack
+LazyList
+ScrollView ?
+LazyVGrid
+LazyHGrid
+
+
+Localization
+
+Serialize/Deserialize
+Routing
+StateRestoration
+
+
+State <- source of truth
+    ^- Binding
+
+ObservableObject
+    @Published
+    objectWillChange
+@ObservedObject
+@StateObject
+@EnvironmentObject

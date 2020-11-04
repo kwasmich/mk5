@@ -3,6 +3,7 @@ import "/elements/view_switcher/view_switcher.js";
 import "/elements/form_test/form_test.js";
 import "/elements/list_test/list_test.js";
 import "/base/ui-list-view/ui-list-view.js";
+import "/base/ui.js";
 import "/util/security.js";
 
 
@@ -22,7 +23,7 @@ class Main {
 
         button.onclick = () => {
             const index = +viewSwitcher.viewIndex;
-            viewSwitcher.viewIndex = (index + 1) % 3;
+            viewSwitcher.viewIndex = (index + 1) % 4;
         }
     }
 
