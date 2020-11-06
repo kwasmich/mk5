@@ -31,6 +31,9 @@ class UINavigationView extends UIView {
     disconnectedCallback() {}
 
 
+
+
+
     pushView(view) {
         this.appendChild(view);
         view.setAttribute("slot", "secondary");
@@ -40,15 +43,55 @@ class UINavigationView extends UIView {
 
     popView() {
         const slot = this[priv].shadowRoot.querySelector("slot[name=secondary]");
-        const view = slot.assignedElements()[0];
-        const previousView = view.previousElementSibling;
+        const currentView = slot.assignedElements()[0];
+        const previousView = currentView.previousElementSibling;
 
-        if (view.previousElementSibling && !previousView.hasAttribute("slot")) {
+        if (previousView && !previousView.hasAttribute("slot")) {
             previousView.setAttribute("slot", "secondary");
-            this.removeChild(view);
+            this.removeChild(currentView);
+            return previousView;
         } else {
             console.warn("nothing to pop!");
+            return currentView;
         }
+    }
+
+
+    popToView(view) {
+        const slot = this[priv].shadowRoot.querySelector("slot[name=secondary]");
+        let currentView = slot.assignedElements()[0];
+
+        if ([...this.children].includes(view)) {
+            view.setAttribute("slot", "secondary");
+
+            while (view.nextElementSibling) {
+                this.removeChild(view.nextElementSibling);
+            }
+
+            return view;
+        } else {
+            console.warn("view not included!");
+            return currentView;
+        }
+    }
+
+
+    popToRootView() {
+        const slot = this[priv].shadowRoot.querySelector("slot[name=secondary]");
+        const currentView = slot.assignedElements()[0];
+        let view = currentView;
+
+        while (view.previousElementSibling && !view.previousElementSibling.hasAttribute("slot")) {
+            view = view.previousElementSibling;
+        }
+
+        view.setAttribute("slot", "secondary");
+
+        while (view.nextElementSibling) {
+            this.removeChild(view.nextElementSibling);
+        }
+
+        return view;
     }
 }
 
