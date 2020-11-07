@@ -6,7 +6,7 @@ const priv = Symbol("private");
 
 
 
-class DummyB extends UIView {
+export default class DummyB extends UIView {
     static get observedAttributes() {
         return [];
     }

@@ -6,9 +6,16 @@ const priv = Symbol("private");
 
 
 
-class UINavigationView extends UIView {
+export default class UINavigationView extends UIView {
     static get observedAttributes() {
         return [];
+    }
+
+
+    get _currentView() {
+        const slot = this[priv].shadowRoot.querySelector("slot[name=secondary]");
+        const currentView = slot.assignedElements()[0];
+        return currentView;
     }
 
 
@@ -31,9 +38,6 @@ class UINavigationView extends UIView {
     disconnectedCallback() {}
 
 
-
-
-
     pushView(view) {
         this.appendChild(view);
         view.setAttribute("slot", "secondary");
@@ -42,8 +46,7 @@ class UINavigationView extends UIView {
 
 
     popView() {
-        const slot = this[priv].shadowRoot.querySelector("slot[name=secondary]");
-        const currentView = slot.assignedElements()[0];
+        const currentView = this._currentView;
         const previousView = currentView.previousElementSibling;
 
         if (previousView && !previousView.hasAttribute("slot")) {
@@ -58,8 +61,7 @@ class UINavigationView extends UIView {
 
 
     popToView(view) {
-        const slot = this[priv].shadowRoot.querySelector("slot[name=secondary]");
-        let currentView = slot.assignedElements()[0];
+        let currentView = this._currentView;
 
         if ([...this.children].includes(view)) {
             view.setAttribute("slot", "secondary");
@@ -77,21 +79,19 @@ class UINavigationView extends UIView {
 
 
     popToRootView() {
-        const slot = this[priv].shadowRoot.querySelector("slot[name=secondary]");
-        const currentView = slot.assignedElements()[0];
-        let view = currentView;
+        let currentView = this._currentView;
 
-        while (view.previousElementSibling && !view.previousElementSibling.hasAttribute("slot")) {
-            view = view.previousElementSibling;
+        while (currentView.previousElementSibling && !currentView.previousElementSibling.hasAttribute("slot")) {
+            currentView = currentView.previousElementSibling;
         }
 
-        view.setAttribute("slot", "secondary");
+        currentView.setAttribute("slot", "secondary");
 
-        while (view.nextElementSibling) {
-            this.removeChild(view.nextElementSibling);
+        while (currentView.nextElementSibling) {
+            this.removeChild(currentView.nextElementSibling);
         }
 
-        return view;
+        return currentView;
     }
 }
 

@@ -6,7 +6,7 @@ const priv = Symbol("private");
 
 
 
-class UIViewSwticher extends UIView {
+export default class UIViewSwticher extends UIView {
     // static template;
     // static metaURL = import.meta.url;
 

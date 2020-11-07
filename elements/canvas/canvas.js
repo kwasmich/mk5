@@ -25,7 +25,7 @@ class AVRConstant {
 
 
 
-class UICanvas extends UIView {
+export default class UICanvas extends UIView {
     constructor(...args) {
         const self = super(args);
 

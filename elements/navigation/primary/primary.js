@@ -1,4 +1,7 @@
 import UIView from "/base/ui-view.js";
+import DummyA from "../dummy_a/dummy_a.js";
+import DummyB from "../dummy_b/dummy_b.js";
+import DummyC from "../dummy_c/dummy_c.js";
 
 
 
@@ -6,7 +9,7 @@ const priv = Symbol("private");
 
 
 
-class PrimaryView extends UIView {
+export default class PrimaryView extends UIView {
     static get observedAttributes() {
         return [];
     }
@@ -48,7 +51,6 @@ class PrimaryView extends UIView {
 
 
     disconnectedCallback() {
-        console.log("disconnect");
         this[priv].shadowRoot.getElementById("a").removeEventListener("click", this._onClick);
         this[priv].shadowRoot.getElementById("b").removeEventListener("click", this._onClick);
         this[priv].shadowRoot.getElementById("c").removeEventListener("click", this._onClick);
@@ -68,19 +70,20 @@ class PrimaryView extends UIView {
 
 
     _onClick(mouseEvent) {
-        console.log(this, mouseEvent);
-
         switch (mouseEvent.currentTarget.textContent) {
             case "A":
-                this.parentNode.pushView(new (customElements.get("dummy-a"))());
+                this.parentNode.popToRootView();
+                this.parentNode.pushView(new DummyA());
                 break;
 
             case "B":
-                this.parentNode.pushView(new (customElements.get("dummy-b"))());
+                this.parentNode.popToRootView();
+                this.parentNode.pushView(new DummyB());
                 break;
 
             case "C":
-                this.parentNode.pushView(new (customElements.get("dummy-c"))());
+                this.parentNode.popToRootView();
+                this.parentNode.pushView(new DummyC());
                 break;
 
             default:

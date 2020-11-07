@@ -1,4 +1,4 @@
-class UIHStack extends HTMLElement {
+export class UIHStack extends HTMLElement {
     static get observedAttributes() {
         return [];
     }
@@ -22,7 +22,7 @@ Object.seal(UIHStack);
 
 
 
-class UIVStack extends HTMLElement {
+export class UIVStack extends HTMLElement {
     static get observedAttributes() {
         return [];
     }
@@ -46,7 +46,7 @@ Object.seal(UIVStack);
 
 
 
-class UISpacer extends HTMLElement {
+export class UISpacer extends HTMLElement {
     static get observedAttributes() {
         return [];
     }
