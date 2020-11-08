@@ -1,4 +1,5 @@
 :host {
     background-color: skyblue;
-    font-size: 40px;
+    display: flex;
+    /* font-size: 40px; */
 }
