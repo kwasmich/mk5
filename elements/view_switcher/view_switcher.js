@@ -1,4 +1,4 @@
-import UIView from "/base/ui-view.js";
+import { UIView } from "/base/ui-view.js";
 
 
 
@@ -6,7 +6,7 @@ const priv = Symbol("private");
 
 
 
-export default class UIViewSwticher extends UIView {
+export class UIViewSwticher extends UIView {
     // static template;
     // static metaURL = import.meta.url;
 

@@ -1,4 +1,4 @@
-import UIView from "/base/ui-view.js";
+import { UIView } from "/base/ui-view.js";
 
 
 
@@ -6,7 +6,7 @@ const priv = Symbol("private");
 
 
 
-export default class UIListView extends UIView {
+export class UIListView extends UIView {
     static get observedAttributes() {
         return [];
     }

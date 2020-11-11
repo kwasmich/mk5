@@ -58,6 +58,9 @@ NavigationView
 
 PopOver
 
+HStack
+VStack
+ZStack
 LazyHStack
 LazyVStack
 LazyList

@@ -1,4 +1,4 @@
-export default class Observable {
+export class Observable {
     constructor() {
         this._value = undefined;
         this._observer = new Set();

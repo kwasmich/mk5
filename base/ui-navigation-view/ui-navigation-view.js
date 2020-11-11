@@ -1,4 +1,4 @@
-import UIView from "/base/ui-view.js";
+import { UIView } from "/base/ui-view.js";
 
 
 
@@ -14,7 +14,7 @@ const SLOT = {
 }
 
 
-export default class UINavigationView extends UIView {
+export class UINavigationView extends UIView {
     static get observedAttributes() {
         return [];
     }

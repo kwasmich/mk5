@@ -32,7 +32,7 @@ function fetchCSS(path, shadowRoot) {
 
 
 
-export default class UIView extends HTMLElement {
+export class UIView extends HTMLElement {
     static get observedAttributes() {
         return [];
     }

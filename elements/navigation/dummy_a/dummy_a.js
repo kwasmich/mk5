@@ -1,13 +1,12 @@
-import UIView from "/base/ui-view.js";
-import DummyB from "../dummy_b/dummy_b.js";
-import DummyC from "../dummy_c/dummy_c.js";
+import { UIView } from "/base/ui-view.js";
+import { DummyB, DummyC } from "../index.js";
 
 
 const priv = Symbol("private");
 
 
 
-export default class DummyA extends UIView {
+export class DummyA extends UIView {
     static get observedAttributes() {
         return [];
     }

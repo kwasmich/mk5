@@ -1,4 +1,4 @@
-import UIView from "/base/ui-view.js";
+import { UIView } from "/base/ui-view.js";
 import { loadText } from "/util/helper.js";
 
 
@@ -25,7 +25,7 @@ class AVRConstant {
 
 
 
-export default class UICanvas extends UIView {
+export class UICanvas extends UIView {
     constructor(...args) {
         const self = super(args);
 
