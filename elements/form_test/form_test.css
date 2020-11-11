@@ -4,5 +4,19 @@
     display: block;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
 }
+
+dl {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    gap: 8px 40px;
+    width: fit-content;
+}
+
+dd {
+    margin: 0;
+}
+

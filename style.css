@@ -56,6 +56,9 @@
     font-family: sans-serif;
     background-color: var(--midground-color);
     color: var(--shadow-color);
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 
@@ -91,6 +94,11 @@
     height: 100%;
 } */
 
+/* * {
+    cursor: default;
+    user-select: none;
+} */
+
 
 html {
     position: fixed;
@@ -99,7 +107,6 @@ html {
 
 html,
 body {
-    /* cursor: none; */
     /* display: flex; */
     width: 100vw;
     height: 100vh;
