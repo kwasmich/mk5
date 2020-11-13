@@ -14,7 +14,7 @@ class Main {
         Object.seal(this);
 
         //this._initService();
-        // this._init();
+        this._init();
     }
 
 

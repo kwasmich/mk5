@@ -1,0 +1,6 @@
+@import "/style.css";
+
+:host {
+    display: inline-block;
+    border: 1px solid red;
+}

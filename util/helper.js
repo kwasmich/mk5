@@ -89,7 +89,7 @@ export function loadHTML(PATH) {
 
 
 
-export function loadJSON(URL) {
+export function loadJSON(PATH) {
     return fetch(PATH).then(response => response.json());
     const promise = (resolve, reject) => {
         let loadHandler, xhr;
@@ -107,7 +107,7 @@ export function loadJSON(URL) {
         xhr = new XMLHttpRequest();
         xhr.onload = loadHandler;
         xhr.onerror = reject;
-        xhr.open("GET", URL, true);
+        xhr.open("GET", PATH, true);
         xhr.send();
     };
 
