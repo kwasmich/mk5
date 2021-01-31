@@ -1,0 +1,32 @@
+@import "/style.css";
+
+:host {
+    display: flex;
+    background-color: red;
+    margin: 2px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+img {
+    flex: 0 0 auto;
+    margin-inline-end: 12px;
+}
+
+div {
+    flex: 1 1 1px;
+    display: flex;
+}
+
+span {
+    flex: 1 1 1px;
+}
+
+input[type=checkbox] {
+    flex: 0 0 auto;
+}
+
+div.col {
+    flex-direction: column;
+}
+

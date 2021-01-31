@@ -3,9 +3,12 @@
 import "./elements/cie_picker/cie_picker.js";
 import "./elements/hue_main/hue_main.js";
 import "./elements/hue_setup/hue_setup.js";
+import "./elements/hue-room-list/hue-room-list.js";
+import "./elements/hue-room-list-item/hue-room-list-item.js";
 import "./elements/light_control/light_control.js";
 import Hue from "/hue/hue.js";
 import "/util/security.js";
+import "/base/ui-list-view/ui-list-view.js";
 
 
 
@@ -21,6 +24,7 @@ class Main {
 
 
     _init() {
+        this.setup.parentElement.removeChild(this.setup);
         Hue.init();
         // this.main._init();
     }

@@ -43,7 +43,6 @@ export class UIListView extends UIView {
 
     onInit() {
         this._updateList();
-        this.listData = [1, 2, 3, 4, 5];
     }
 
 
@@ -67,6 +66,7 @@ export class UIListView extends UIView {
             const element = this[priv].template.content.firstElementChild.cloneNode(true);
             elements.push(element);
             root.appendChild(element);
+            element.item = item;
             element.tabIndex = -1;
             element.onclick = (mouseEvent) => this._onClick(mouseEvent);
         }

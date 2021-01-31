@@ -1,8 +1,9 @@
 "use strict";
 
-import HueService from "/hue/hue.service.js"
-import { Observable } from "/util/observable.js"
-import HueLight from "/hue/hue_light.js"
+import HueService from "/hue/hue.service.js";
+import { Observable } from "/util/observable.js";
+import HueLight from "/hue/hue_light.js";
+import HueGroup from "/hue/hue-group.js";
 
 
 
@@ -30,6 +31,11 @@ class Hue {
         for (const light in lights) {
             Object.setPrototypeOf(lights[light], HueLight.prototype);
             lights[light].init(+light);
+        }
+
+        for (const group in groups) {
+            Object.setPrototypeOf(groups[group], HueGroup.prototype);
+            groups[group].init(+group);
         }
         
         this.lights.value = lights;

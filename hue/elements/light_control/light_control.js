@@ -2,11 +2,9 @@
 
 import { UIView } from "/base/ui-view.js";
 import Hue from "/hue/hue.js";
-import { Observable } from "/util/observable.js";
 
 
 
-const template = new Observable();
 const priv = Symbol("private");
 
 
