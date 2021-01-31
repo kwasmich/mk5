@@ -1,52 +1,9 @@
 import { UIView } from "/base/ui-view.js";
+import { ct2rgb, IconMap, xy2rgb } from "/hue/hue-utils.js";
 
 
 
 const priv = Symbol("private");
-
-const IconMap = {
-    "Attic":        "/hue/assets/HueIconPack2019/roomsAttic.svg",
-    "Balcony":      "/hue/assets/HueIconPack2019/roomsBalcony.svg",
-    "Barbecue":     "/hue/assets/HueIconPack2019/.svg",
-    "Bathroom":     "/hue/assets/HueIconPack2019/roomsBathroom.svg",
-    "Bedroom":      "/hue/assets/HueIconPack2019/roomsBedroom.svg",
-    "Carport":      "/hue/assets/HueIconPack2019/roomsCarport.svg",
-    "Closet":       "/hue/assets/HueIconPack2019/roomsCloset.svg",
-    "Computer":     "/hue/assets/HueIconPack2019/roomsComputer.svg",
-    "Dining":       "/hue/assets/HueIconPack2019/roomsDining.svg",
-    "Downstairs":   "/hue/assets/HueIconPack2019/.svg",
-    "Driveway":     "/hue/assets/HueIconPack2019/roomsDriveway.svg",
-    "Front door":   "/hue/assets/HueIconPack2019/roomsFrontdoor.svg",
-    "Garage":       "/hue/assets/HueIconPack2019/roomsGarage.svg",
-    "Garden":       "/hue/assets/HueIconPack2019/.svg",
-    "Guest room":   "/hue/assets/HueIconPack2019/roomsGuestroom.svg",
-    "Gym":          "/hue/assets/HueIconPack2019/roomsGym.svg",
-    "Hallway":      "/hue/assets/HueIconPack2019/roomsHallway.svg",
-    "Home":         "/hue/assets/HueIconPack2019/.svg",
-    "Kids bedroom": "/hue/assets/HueIconPack2019/roomsKidsbedroom.svg",
-    "Kitchen":      "/hue/assets/HueIconPack2019/roomsKitchen.svg",
-    "Laundry room": "/hue/assets/HueIconPack2019/roomsLaundryroom.svg",
-    "Living room":  "/hue/assets/HueIconPack2019/roomsLiving.svg",
-    "Lounge":       "/hue/assets/HueIconPack2019/roomsLounge.svg",
-    "Man cave":     "/hue/assets/HueIconPack2019/roomsMancave.svg",
-    "Music":        "/hue/assets/HueIconPack2019/otherMusic.svg",
-    "Nursery":      "/hue/assets/HueIconPack2019/roomsNursery.svg",
-    "Office":       "/hue/assets/HueIconPack2019/roomsOffice.svg",
-    "Other":        "/hue/assets/HueIconPack2019/roomsOther.svg",
-    "Pool":         "/hue/assets/HueIconPack2019/roomsPool.svg",
-    "Porch":        "/hue/assets/HueIconPack2019/roomsPorch.svg",
-    "Reading":      "/hue/assets/HueIconPack2019/.svg",
-    "Recreation":   "/hue/assets/HueIconPack2019/roomsRecreation.svg",
-    "Staircase":    "/hue/assets/HueIconPack2019/roomsStaircase.svg",
-    "Storage":      "/hue/assets/HueIconPack2019/roomsStorage.svg",
-    "Studio":       "/hue/assets/HueIconPack2019/roomsStudio.svg",
-    "Terrace":      "/hue/assets/HueIconPack2019/roomsTerrace.svg",
-    "Toilet":       "/hue/assets/HueIconPack2019/roomsToilet.svg",
-    "Top floor":    "/hue/assets/HueIconPack2019/.svg",
-    "TV":           "/hue/assets/HueIconPack2019/.svg",
-    "Upstairs":     "/hue/assets/HueIconPack2019/.svg",
-};
-Object.seal(IconMap);
 
 
 
@@ -105,10 +62,40 @@ export class HueRoomListItem extends UIView {
 
     _updateView() {
         if (this[priv].initialized) {
+            const { on, bri, ct, hue, sat, xy, colormode } = this[priv].room.action
             this[priv].icon.src = IconMap[this[priv].room.class];
             this[priv].name.textContent = this[priv].room.name;
-            this[priv].on.checked = this[priv].room.action.on;
-            this[priv].bri.value = this[priv].room.action.bri;
+            this[priv].on.checked = on;
+            this[priv].bri.value = bri;
+
+            if (on) {
+                switch (colormode) {
+                    case "xy":
+                        {
+                            const [x, y] = xy;
+                            const color = xy2rgb(x, y, 254);
+                            console.log(color);
+                            this.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+                        }
+                        break;
+
+                    case "ct":
+                        {
+                            const color = ct2rgb(ct);
+                            console.log(color);
+                            this.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+                        }
+                        break;
+
+                    case "hs":
+                        {
+                            this.style.backgroundColor = "lime";
+                        }
+                        break;
+                }
+            } else {
+                this.style.backgroundColor = "#444";
+            }
         }
     }
 
