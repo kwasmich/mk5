@@ -1,3 +1,4 @@
+import Hue from "/hue/hue.js";
 import HueService from "/hue/hue.service.js";
 
 
@@ -14,7 +15,6 @@ export default class HueGroup extends Object {
 
 
     set on(newValue) {
-        console.log("on");
         this._setValue("on", newValue);
     }
 
@@ -51,7 +51,6 @@ export default class HueGroup extends Object {
 
 
     init(lightID) {
-        console.log(lightID, this);
         this[priv] = this[priv] ?? {};
         this[priv].lightID = lightID;
         Object.seal(this);
@@ -69,5 +68,6 @@ export default class HueGroup extends Object {
 
     _setState(state) {
         HueService.query("PUT", ["groups", this[priv].lightID, "action"], JSON.stringify(state));
+        Hue.update();
     }
 }

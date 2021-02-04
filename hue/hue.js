@@ -9,17 +9,27 @@ import HueGroup from "/hue/hue-group.js";
 
 class Hue {
     constructor() {
+        this.interval = undefined;
         this.lights = new Observable();
         this.groups = new Observable();
         Object.seal(this);
         // this.init();
     }
 
-    // init() {
-    //     setInterval(() => this._init(), 5000);
-    // }
+
+    init() {
+        this.update();
+    }
     
-    async init() {
+
+    update() {
+        clearInterval(this.interval);
+        this._init();
+        this.interval = setInterval(() => this._init(), 30000);
+    }
+
+
+    async _init() {
         const lights = await HueService.query("GET", ["lights"], null);
         const groups = await HueService.query("GET", ["groups"], null);
         

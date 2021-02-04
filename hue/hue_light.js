@@ -1,4 +1,5 @@
-import HueService from "/hue/hue.service.js"
+import Hue from "/hue/hue.js";
+import HueService from "/hue/hue.service.js";
 
 
 
@@ -68,5 +69,6 @@ export default class HueLight extends Object {
 
     _setState(state) {
         HueService.query("PUT", ["lights", this[priv].lightID, "state"], JSON.stringify(state));
+        Hue.update();
     }
 }
