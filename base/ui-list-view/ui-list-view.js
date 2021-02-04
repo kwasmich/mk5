@@ -4,11 +4,24 @@ import { UIView } from "/base/ui-view.js";
 
 const priv = Symbol("private");
 
+const SELECT_ATTR = "selectable";
+const SELECT_NONE = "none";
+const SELECT_SINGLE = "single";
+const SELECT_MULTI = "multi";
+const SELECT_CLASS = "selected";
 
 
 export class UIListView extends UIView {
     static get observedAttributes() {
-        return [];
+        return [SELECT_ATTR];
+    }
+
+    get isSelectable() {
+        return this.getAttribute(SELECT_ATTR) ?? SELECT_NONE;
+    }
+
+    set isSelectable(val) {
+        this.setAttribute(SELECT_ATTR, val);
     }
 
     get listData() {
@@ -107,7 +120,7 @@ export class UIListView extends UIView {
             case "Enter":
             case "NumpadEnter":
             case "Space":
-                currentNode?.classList.toggle("selected");
+                this._select(currentNode);
                 break;
 
             default:
@@ -116,8 +129,23 @@ export class UIListView extends UIView {
 
     
     _onClick(mouseEvent) {
-        mouseEvent.currentTarget?.classList.toggle("selected");
+        this._select(mouseEvent.currentTarget);
         mouseEvent.currentTarget?.focus();
+    }
+
+
+    _select(element) {
+        if ([SELECT_NONE, SELECT_SINGLE].includes(this.isSelectable)) {
+            const elements = this[priv].listElements;
+        
+            for (const element of elements) {
+                element.classList.remove(SELECT_CLASS);
+            }
+        }
+
+        if ([SELECT_SINGLE, SELECT_MULTI].includes(this.isSelectable)) {
+            element?.classList.toggle(SELECT_CLASS);
+        }
     }
 }
 
