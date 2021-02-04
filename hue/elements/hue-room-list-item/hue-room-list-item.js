@@ -48,6 +48,8 @@ export class HueRoomListItem extends UIView {
 
 
     onInit() {
+        // this.onclick = (mouseEvent) => this._onClick(mouseEvent);
+
         const sr = this[priv].shadowRoot;
         this[priv].icon = sr.querySelector("img");
         this[priv].name = sr.querySelector("span");
@@ -61,20 +63,20 @@ export class HueRoomListItem extends UIView {
 
 
     _updateView() {
-        if (this[priv].initialized) {
+        if (this[priv].initialized && this[priv].room?.action) {
             const { on, bri, ct, hue, sat, xy, colormode } = this[priv].room.action
             this[priv].icon.src = IconMap[this[priv].room.class];
             this[priv].name.textContent = this[priv].room.name;
-            this[priv].on.checked = on;
+            this[priv].on.checked = this[priv].room.state.any_on; // on
             this[priv].bri.value = bri;
 
-            if (on) {
+            if (this[priv].room.state.any_on) {
                 switch (colormode) {
                     case "xy":
                         {
                             const [x, y] = xy;
                             const color = xy2rgb(x, y, 254);
-                            console.log(color);
+                            // console.log(color);
                             this.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
                         }
                         break;
@@ -82,7 +84,7 @@ export class HueRoomListItem extends UIView {
                     case "ct":
                         {
                             const color = ct2rgb(ct);
-                            console.log(color);
+                            // console.log(color);
                             this.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
                         }
                         break;
@@ -101,6 +103,8 @@ export class HueRoomListItem extends UIView {
 
 
     _onInputChange(event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
         const attribute = event.target.name;
         const light = this[priv].room;
         
@@ -113,6 +117,11 @@ export class HueRoomListItem extends UIView {
                 light[attribute] = +event.target.value;
         }
     }
+
+
+    // _onClick(mouseEvent) {
+    //     console.log(mouseEvent);
+    // }
 }
 
 
