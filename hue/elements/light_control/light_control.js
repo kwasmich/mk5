@@ -104,7 +104,7 @@ class LightControlElement extends UIView {
         const sat = this[priv].shadowRoot.querySelector("input[name=sat]");
         sat.value = l.state.sat;
         const xy = this[priv].shadowRoot.querySelector("mk-cie-picker");
-        console.log(l, l.capabilities, l.capabilities.control, l.capabilities.control.colorgamut);
+        // console.log(l, l.capabilities, l.capabilities.control, l.capabilities.control.colorgamut);
         xy.gamut = l.capabilities.control.colorgamut;
         xy.value = l.state.xy;
         const lct = l.capabilities.control.ct;

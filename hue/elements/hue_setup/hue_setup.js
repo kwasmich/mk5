@@ -133,7 +133,7 @@ class HueSetupElement extends UIView {
 
 
     _testHueBridgeReachability() {
-        console.log("_testHueBridgeReachability");
+        // console.log("_testHueBridgeReachability");
         const address = localStorage.getItem(HUE_BRIDGE_ADDRESS);
 
         if (address) {
@@ -141,7 +141,7 @@ class HueSetupElement extends UIView {
             HueService.user = undefined;
 
             const success = (result) => {
-                console.log("_testHueBridgeReachability.success");
+                // console.log("_testHueBridgeReachability.success");
                 localStorage.setItem(HUE_BRIDGE_NAME, result.name);
                 return Promise.resolve();
             };
@@ -156,17 +156,17 @@ class HueSetupElement extends UIView {
 
 
     _discoverHueBridge() {
-        console.log("_discoverHueBridge");
+        // console.log("_discoverHueBridge");
 
         const success = (result) => {
-            console.log("_discoverHueBridge.success");
+            // console.log("_discoverHueBridge.success");
 
             if (!Array.isArray(result)) {
                 return Promise.reject();
             }
 
             if (result > 1) {
-                console.log("found multiple hue bridges! - picking the first…");
+                // console.log("found multiple hue bridges! - picking the first…");
             }
 
             localStorage.setItem(HUE_BRIDGE_ADDRESS, result[0].internalipaddress);
@@ -179,7 +179,7 @@ class HueSetupElement extends UIView {
 
 
     _promptUserForHueBridgeAddress() {
-        console.log("_promptUserForHueBridgeAddress");
+        // console.log("_promptUserForHueBridgeAddress");
         const promise = (resolve, reject) => {
             this.ipGroup.classList.remove("hidden");
 
@@ -207,14 +207,14 @@ class HueSetupElement extends UIView {
 
 
     _testUserValid() {
-        console.log("_testUserValid");
+        // console.log("_testUserValid");
         const userName = localStorage.getItem(HUE_BRIDGE_USER_NAME);
 
         if (userName) {
             HueService.user = userName;
 
             const success = (result) => {
-                console.log("_testUserValid.success");
+                // console.log("_testUserValid.success");
 
                 if (result.whitelist) {
                     localStorage.setItem(HUE_BRIDGE_USER_NAME, userName);
@@ -233,12 +233,12 @@ class HueSetupElement extends UIView {
 
 
     _promptUserForUserName() {
-        console.log("_promptUserForUserName");
+        // console.log("_promptUserForUserName");
         const promise = (resolve, reject) => {
             this.userGroup.classList.remove("hidden");
 
             const success = (result) => {
-                console.log("_promptUserForUserName.success");
+                // console.log("_promptUserForUserName.success");
                 const username = result[0].success.username;
                 localStorage.setItem(HUE_BRIDGE_USER_NAME, username);
                 this.userGroup.classList.add("hidden");
@@ -246,7 +246,7 @@ class HueSetupElement extends UIView {
             };
 
             const failed = () => {
-                console.log("_promptUserForUserName.failed");
+                // console.log("_promptUserForUserName.failed");
                 reject();
             };
 
@@ -261,7 +261,7 @@ class HueSetupElement extends UIView {
 
                 const timeUp = () => {
                     clearInterval(interval);
-                    console.log("time up");
+                    // console.log("time up");
                     this.progressBar.value = 0;
                     this.registerButton.disabled = false;
                     failed();
@@ -280,7 +280,7 @@ class HueSetupElement extends UIView {
                             success(result);
                         }
                     } catch {
-                        console.log(123);
+                        // console.log(123);
                     }
                 };
 
@@ -294,7 +294,7 @@ class HueSetupElement extends UIView {
 
 
     _unregister() {
-        console.log("unregister");
+        // console.log("unregister");
         const userName = localStorage.getItem(HUE_BRIDGE_USER_NAME);
         HueService.query("DELETE", ["config", "whitelist", userName], null).then(console.log, console.error);
     }

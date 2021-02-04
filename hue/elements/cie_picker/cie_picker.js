@@ -105,7 +105,7 @@ class CIEPickerElement extends UIView {
 
         const g = this.gamut.map(([x, y]) => [x * 1000, y * 1000]);
         const gamut = this[priv].shadowRoot.querySelector("#gamut");
-        console.log(g); // M675,322 L409,518 L167,400 Z
+        // console.log(g); // M675,322 L409,518 L167,400 Z
         gamut.setAttribute("d", `M${g[0].join(",")} L${g[1].join(",")} L${g[2].join(",")} Z`);
     }
 }
