@@ -65,7 +65,11 @@ export class HueRoomListItem extends UIView {
     _updateView() {
         if (this[priv].initialized && this[priv].room?.action) {
             const { on, bri, ct, hue, sat, xy, colormode } = this[priv].room.action
-            this[priv].icon.src = IconMap[this[priv].room.class];
+            
+            if (this[priv].icon.src !== window.origin + IconMap[this[priv].room.class]) {
+                this[priv].icon.src = IconMap[this[priv].room.class];
+            }
+
             this[priv].name.textContent = this[priv].room.name;
             this[priv].on.checked = this[priv].room.state.any_on; // on
             this[priv].bri.value = bri;

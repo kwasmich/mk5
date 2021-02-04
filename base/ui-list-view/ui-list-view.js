@@ -68,21 +68,20 @@ export class UIListView extends UIView {
     _updateList() {
         const root = this[priv].shadowRoot;
         const elements = this[priv].listElements;
-        
-        for (const element of elements) {
-            root.removeChild(element);
+
+        while (elements.length > this[priv].listData.length) {
+            root.removeChild(elements.pop());
         }
 
-        elements.length = 0;
-
-        for (const item of this[priv].listData) {
+        while (elements.length < this[priv].listData.length) {
             const element = this[priv].template.content.firstElementChild.cloneNode(true);
             elements.push(element);
             root.appendChild(element);
-            element.item = item;
             element.tabIndex = -1;
             element.onclick = (mouseEvent) => this._onClick(mouseEvent);
         }
+        
+        this[priv].listData.forEach((item, idx) => elements[idx].item = item);
     }
 
 
