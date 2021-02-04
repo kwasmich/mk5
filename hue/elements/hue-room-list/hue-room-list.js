@@ -46,10 +46,6 @@ export class HueRoomList extends UIView {
             const group = groupsObj[grp];
 
             if (group.type === "Room") {
-                const room = {
-                    ...group,
-                    index: +grp
-                };
                 rooms.push(group);
             }
         }

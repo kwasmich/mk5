@@ -11,6 +11,8 @@
 img {
     flex: 0 0 auto;
     margin-inline-end: 12px;
+    width: 32px;
+    height: 32px;
 }
 
 div {
