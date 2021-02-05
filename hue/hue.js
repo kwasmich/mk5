@@ -19,24 +19,26 @@ class Hue {
 
     init() {
         this.update();
+        document.onvisibilitychange = () => this.update();
     }
     
 
     update() {
         clearInterval(this.interval);
+
         this._init();
-        this.interval = setInterval(() => this._init(), 30000);
+
+        if (document.visibilityState === "visible") {
+            this.interval = setInterval(() => this._init(), 30000);
+        }
     }
 
 
     async _init() {
-        const lights = await HueService.query("GET", ["lights"], null);
-        const groups = await HueService.query("GET", ["groups"], null);
-        
-        // const [lights, groups] = await Promise.all([
-        //     HueService.query("GET", ["lights"], null),
-        //     HueService.query("GET", ["groups"], null)
-        // ]);
+        const [lights, groups] = await Promise.all([
+            HueService.query("GET", ["lights"], null),
+            HueService.query("GET", ["groups"], null)
+        ]);
         
         for (const light in lights) {
             Object.setPrototypeOf(lights[light], HueLight.prototype);

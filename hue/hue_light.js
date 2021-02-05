@@ -67,8 +67,8 @@ export default class HueLight extends Object {
     }
 
 
-    _setState(state) {
-        HueService.query("PUT", ["lights", this[priv].lightID, "state"], JSON.stringify(state));
+    async _setState(state) {
+        await HueService.query("PUT", ["lights", this[priv].lightID, "state"], JSON.stringify(state));
         Hue.update();
     }
 }

@@ -66,8 +66,8 @@ export default class HueGroup extends Object {
         }
     }
 
-    _setState(state) {
-        HueService.query("PUT", ["groups", this[priv].lightID, "action"], JSON.stringify(state));
+    async _setState(state) {
+        await HueService.query("PUT", ["groups", this[priv].lightID, "action"], JSON.stringify(state));
         Hue.update();
     }
 }
