@@ -1,5 +1,3 @@
-"use strict";
-
 class HueService {
     constructor(ADDRESS, USER) {
         this.address = ADDRESS;

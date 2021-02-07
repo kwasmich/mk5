@@ -1,5 +1,3 @@
-"use strict";
-
 import { UIView } from "/base/ui-view.js";
 import Hue from "/hue/hue.js";
 

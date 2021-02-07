@@ -85,7 +85,21 @@
 
 /* custom elements that not have been loaded */
 :not(:defined) {
-    display: none;
+    /* display: none; */
+    background-color: #0ff4;
+    display: block;
+    outline: 10px solid #f008;
+    outline-offset: -5px;
+}
+
+:not(:defined)::before {
+    content: "Missing";
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 /* html {

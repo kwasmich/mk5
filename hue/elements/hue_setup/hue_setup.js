@@ -1,5 +1,3 @@
-"use strict";
-
 import { UIView } from "/base/ui-view.js";
 import HueService from "/hue/hue.service.js";
 import { loadJSON } from "/util/helper.js";

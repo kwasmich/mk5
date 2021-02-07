@@ -1,4 +1,5 @@
 import Hue from "/hue/hue.js";
+import HueLight from "/hue/hue_light.js";
 import HueService from "/hue/hue.service.js";
 
 
@@ -7,52 +8,52 @@ const priv = Symbol("private");
 
 
 
-export default class HueGroup extends Object {
-    constructor() {
-        super();
-        this.init(-1);
-    }
+export default class HueGroup extends HueLight {
+    // constructor() {
+    //     super();
+    //     this.init(-1);
+    // }
 
 
-    set on(newValue) {
-        this._setValue("on", newValue);
-    }
+    // set on(newValue) {
+    //     this._setValue("on", newValue);
+    // }
 
 
-    set bri(newValue) {
-        this._setValue("bri", newValue);
-    }
+    // set bri(newValue) {
+    //     this._setValue("bri", newValue);
+    // }
 
 
-    set hue(newValue) {
-        this._setValue("hue", newValue);
-    }
+    // set hue(newValue) {
+    //     this._setValue("hue", newValue);
+    // }
 
 
-    set sat(newValue) {
-        this._setValue("sat", newValue);
-    }
+    // set sat(newValue) {
+    //     this._setValue("sat", newValue);
+    // }
 
 
-    set xy(newValue) {
-        this._setValue("xy", newValue);
-    }
+    // set xy(newValue) {
+    //     this._setValue("xy", newValue);
+    // }
     
 
-    set ct(newValue) {
-        this._setValue("ct", newValue);
-    }
+    // set ct(newValue) {
+    //     this._setValue("ct", newValue);
+    // }
 
 
-    set effect(newValue) {
-        console.log("effect");
-        this._setValue("effect", newValue);
-    }
+    // set effect(newValue) {
+    //     console.log("effect");
+    //     this._setValue("effect", newValue);
+    // }
 
 
-    init(lightID) {
+    init(groupID) {
         this[priv] = this[priv] ?? {};
-        this[priv].lightID = lightID;
+        this[priv].groupID = groupID;
         Object.seal(this);
     }
 
@@ -67,7 +68,7 @@ export default class HueGroup extends Object {
     }
 
     async _setState(state) {
-        await HueService.query("PUT", ["groups", this[priv].lightID, "action"], JSON.stringify(state));
+        await HueService.query("PUT", ["groups", this[priv].groupID, "action"], JSON.stringify(state));
         Hue.update();
     }
 }

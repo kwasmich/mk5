@@ -1,9 +1,7 @@
-"use strict";
-
-import HueService from "/hue/hue.service.js";
-import { Observable } from "/util/observable.js";
-import HueLight from "/hue/hue_light.js";
 import HueGroup from "/hue/hue-group.js";
+import HueService from "/hue/hue.service.js";
+import HueLight from "/hue/hue_light.js";
+import { Observable } from "/util/observable.js";
 
 
 
