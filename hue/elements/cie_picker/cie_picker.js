@@ -78,8 +78,7 @@ class CIEPickerElement extends UIView {
     _onMouseUp(event) {
         document.onmouseup = undefined;
         this[priv].image.onmousemove = undefined;
-        const evt = document.createEvent("Event");
-        evt.initEvent("change", false, true);
+        const evt = new Event("change");
         this.dispatchEvent(evt);
         // console.log(this.value);
     }

@@ -51,6 +51,11 @@ export default class HueGroup extends HueLight {
     // }
 
 
+    get groupID() {
+        return this[priv].groupID
+    }
+
+
     init(groupID) {
         this[priv] = this[priv] ?? {};
         this[priv].groupID = groupID;

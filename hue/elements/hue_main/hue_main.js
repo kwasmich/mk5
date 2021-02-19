@@ -115,8 +115,7 @@ class HueMainElement extends UIView {
 
         this.selectLight.selectedIndex = this.selectLight.length - 1;
 
-        const evt = document.createEvent("Event");
-        evt.initEvent("change", false, true);
+        const evt = new Event("change");
         this.selectLight.dispatchEvent(evt);
     }
 }

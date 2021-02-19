@@ -4,17 +4,17 @@
     display: block;
 }
 
-li:focus {
+:host > :focus {
     outline: 2px solid var(--accent-color);
     outline-offset: -4px;
 }
 
-.selected {
-    background-color: var(--accent-color);
+:host > .selected {
+    background-color: var(--accent-color) !important;
     color: var(--highlight-color);
 }
 
-.selected:focus {
+:host > .selected:focus {
     outline: 2px solid var(--highlight-color);
     outline-offset: -4px;
 }

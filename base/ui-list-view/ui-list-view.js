@@ -16,11 +16,11 @@ export class UIListView extends UIView {
         return [SELECT_ATTR];
     }
 
-    get isSelectable() {
+    get selectMode() {
         return this.getAttribute(SELECT_ATTR) ?? SELECT_NONE;
     }
 
-    set isSelectable(val) {
+    set selectMode(val) {
         this.setAttribute(SELECT_ATTR, val);
     }
 
@@ -33,11 +33,16 @@ export class UIListView extends UIView {
         this._updateList();
     }
 
+    // set clickHandler(val) {
+    //     this[priv]
+    // }
+
 
     constructor(...args) {
         const self = super(args);
 
         this[priv] = this[priv] ?? {};
+        // this[priv].clickHandler = undefined;
         this[priv].listData = [];
         this[priv].listElements = [];
         this[priv].shadowRoot = this.attachShadow({ mode: "closed" });
@@ -128,23 +133,33 @@ export class UIListView extends UIView {
 
     
     _onClick(mouseEvent) {
-        this._select(mouseEvent.currentTarget);
+        console.log(mouseEvent);
+        const toggle = mouseEvent.metaKey;
+        this._select(mouseEvent.currentTarget, toggle);
         mouseEvent.currentTarget?.focus();
     }
 
 
-    _select(element) {
-        if ([SELECT_NONE, SELECT_SINGLE].includes(this.isSelectable)) {
-            const elements = this[priv].listElements;
+    _select(element, toggle) {
+        if ([SELECT_NONE, SELECT_SINGLE].includes(this.selectMode)) {
+            const elements = this[priv].listElements.filter((e) => e !== element);
         
             for (const element of elements) {
                 element.classList.remove(SELECT_CLASS);
             }
         }
 
-        if ([SELECT_SINGLE, SELECT_MULTI].includes(this.isSelectable)) {
-            element?.classList.toggle(SELECT_CLASS);
+        if ([SELECT_SINGLE, SELECT_MULTI].includes(this.selectMode)) {
+            if (toggle) {
+                element?.classList.toggle(SELECT_CLASS);
+            } else {
+                element?.classList.add(SELECT_CLASS);
+            }
         }
+
+        const detail = this[priv].listElements.filter((e) => e.classList.contains(SELECT_CLASS)).map((e) => e.item);
+        const evt = new CustomEvent("selectionChanged", { detail });
+        this.dispatchEvent(evt);
     }
 }
 

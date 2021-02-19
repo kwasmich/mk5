@@ -1,5 +1,6 @@
 import { UIView } from "/base/ui-view.js";
 import Hue from "/hue/hue.js";
+import { HueRoomDetail } from "/hue/elements/hue-room-detail/hue-room-detail.js";
 
 
 
@@ -36,6 +37,9 @@ export class HueRoomList extends UIView {
     onInit() {
         this[priv].groupsSubscription  = (value) => this._updateGroups(value);
         Hue.groups.subscribe(this[priv].groupsSubscription);
+
+        const listView = this[priv].shadowRoot.querySelector("ui-list-view");
+        listView.addEventListener("selectionChanged", (customEvent) => this._onSelectRoom(customEvent));
     }
 
 
@@ -52,6 +56,17 @@ export class HueRoomList extends UIView {
 
         const listView = this[priv].shadowRoot.querySelector("ui-list-view");
         listView.listData = rooms;
+    }
+
+
+    _onSelectRoom(customEvent) {
+        const hueGroups = customEvent.detail;
+        console.log(hueGroups);
+        this.parentNode.popToRootView();
+
+        if (hueGroups.length === 1) {
+            this.parentNode.pushView(new HueRoomDetail(hueGroups[0]));
+        }
     }
 }
 

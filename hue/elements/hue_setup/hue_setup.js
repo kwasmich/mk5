@@ -299,8 +299,7 @@ class HueSetupElement extends UIView {
 
 
     _dispatchEvent(message) {
-        const evt = document.createEvent("Event");
-        evt.initEvent(message, false, true);
+        const evt = new Event(message);
         this.dispatchEvent(evt);
     }
 }
