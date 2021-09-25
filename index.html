@@ -66,7 +66,21 @@
   <div>b</div>
   <ui-spacer></ui-spacer>
 </ui-v-stack> -->
-    <button>toggle</button>
+
+<ui-tab-view>
+  <li slot="tab">tab1</li>
+  <div slot="content">Tab 1</div>
+  <li slot="tab">tab2</li>
+  <div slot="content">Tab 2</div>
+  <li slot="tab">tab3</li>
+  <div slot="content">Tab 3</div>
+  <li slot="tab">tab4</li>
+  <div slot="content">Tab 4</div>
+  <li slot="tab">tab5</li>
+  <div slot="content">Tab 5</div>
+</ui-tab-view>
+
+    <!-- <button>toggle</button>
     <ui-view-switcher>
       <li slot="tab">hello1</li>
       <ui-canvas slot="content"></ui-canvas>
@@ -82,7 +96,7 @@
       <div slot="content">
         <ui-form-test></ui-form-test>
       </div>
-    </ui-view-switcher>
+    </ui-view-switcher> -->
 
     <!-- <template id="login-form-template">
               <style>

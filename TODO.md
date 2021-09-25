@@ -20,6 +20,15 @@ JavaScript
 `a ??= b` // nullish assignment operator
 
 ```
+!!! UPDATE !!!!!!!!!!!!!!!
+Safari 14.1.2 supports
+- property definition
+- static property definition
+- private properties
+
+but not private class methods :(
+!!!!!!!!!!!!!!!!!!!!!
+
 class Clazz {
     prop = 123;             // property definition not supported by Safari
     static sprop = "abc";   // static property definition not supported by Safari
