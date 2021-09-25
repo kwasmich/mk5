@@ -248,3 +248,7 @@ ui-v-stack > ui-spacer {
     flex: 1 1 1px;
 }
 
+.ui-scroll-view {
+    flex: 1 1 1px;
+    overflow-y: scroll;
+}
