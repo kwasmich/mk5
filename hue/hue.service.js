@@ -40,7 +40,7 @@ class HueService {
             xhr.open(TYPE, url, true);
             xhr.send(DATA);
 
-            setTimeout(() => reject('timeout'), 5000);
+            setTimeout(() => reject("timeout"), 5000);
         };
 
         return new Promise(promise);

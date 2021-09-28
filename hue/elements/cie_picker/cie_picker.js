@@ -42,7 +42,7 @@ class CIEPickerElement extends UIView {
     constructor() {
         const self = super();
         this[priv] = this[priv] ?? {};
-        this[priv].shadowRoot = this.attachShadow({mode: 'closed'});
+        this[priv].shadowRoot = this.attachShadow({mode: "closed"});
         this[priv].gamut = [[0, 0], [0, 0], [0, 0]];
         this[priv].image = undefined;
         this[priv].value = { x:0, y:0 };
@@ -115,4 +115,4 @@ CIEPickerElement.metaURL = import.meta.url;
 Object.seal(CIEPickerElement);
 
 
-customElements.define('mk-cie-picker', CIEPickerElement);
+customElements.define("mk-cie-picker", CIEPickerElement);

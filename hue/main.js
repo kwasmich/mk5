@@ -34,7 +34,7 @@ class Main {
 
 
     _initService() {
-        if ('serviceWorker' in navigator) {
+        if ("serviceWorker" in navigator) {
             const successHandler = (/* @type ServiceWorkerRegistration */ sw) => {
                 // registration worked!
                 console.log(sw);
@@ -45,7 +45,7 @@ class Main {
                 console.error(err);
             }
 
-            navigator.serviceWorker.register('/worker.service.js', { scope: '/' })
+            navigator.serviceWorker.register("/worker.service.js", { scope: "/" })
                 .then(successHandler, errorHandler);
         }
     }

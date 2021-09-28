@@ -13,7 +13,7 @@ class LightControlElement extends UIView {
         this[priv] = this[priv] ?? {};
         this[priv].light = undefined;
         this[priv].lightObj = {};
-        this[priv].shadowRoot = this.attachShadow({mode: 'closed'});
+        this[priv].shadowRoot = this.attachShadow({mode: "closed"});
         Object.seal(this);
         Object.seal(this[priv]);
 

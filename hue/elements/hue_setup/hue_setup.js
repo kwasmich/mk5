@@ -55,7 +55,7 @@ class HueSetupElement extends UIView {
     constructor() {
         const self = super();
         this[priv] = this[priv] ?? {};
-        this[priv].shadowRoot = this.attachShadow({mode: 'closed'});
+        this[priv].shadowRoot = this.attachShadow({mode: "closed"});
         Object.seal(this);
         Object.seal(this[priv]);
 
