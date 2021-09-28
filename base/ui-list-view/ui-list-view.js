@@ -1,4 +1,4 @@
-import { UIView } from "/base/ui-view.js";
+import { UIView } from "/base/ui-view2.js";
 
 
 
@@ -16,6 +16,12 @@ export class UIListView extends UIView {
         return [SELECT_ATTR];
     }
 
+    // #clickHandler = undefined;
+    #listData = [];
+    #listElements = [];
+    #shadowRoot = this.attachShadow({ mode: "closed" });
+    #template = this.querySelector("TEMPLATE");
+
     get selectMode() {
         return this.getAttribute(SELECT_ATTR) ?? SELECT_NONE;
     }
@@ -25,11 +31,11 @@ export class UIListView extends UIView {
     }
 
     get listData() {
-        return this[priv].listData
+        return this.#listData
     }
 
     set listData(val) {
-        this[priv].listData = val ?? [];
+        this.#listData = val ?? [];
         this._updateList();
     }
 
@@ -40,17 +46,11 @@ export class UIListView extends UIView {
 
     constructor(...args) {
         const self = super(args);
-
-        this[priv] = this[priv] ?? {};
-        // this[priv].clickHandler = undefined;
-        this[priv].listData = [];
-        this[priv].listElements = [];
-        this[priv].shadowRoot = this.attachShadow({ mode: "closed" });
-        this[priv].template = this.querySelector("TEMPLATE");
         Object.seal(this);
-        Object.seal(this[priv]);
 
-        this._init(this[priv].shadowRoot);
+        this._init(this.#shadowRoot);
+        this.onInit();
+        
         this.tabIndex = 0;
         this.onfocus = (focusEvent) => this._onFocus(focusEvent);
         this.onblur = (focusEvent) => this._onBlur(focusEvent);
@@ -70,30 +70,38 @@ export class UIListView extends UIView {
     disconnectedCallback() {}
 
 
-    _updateList() {
-        const root = this[priv].shadowRoot;
-        const elements = this[priv].listElements;
+    async _updateList() {
+        const root = this.#shadowRoot;
+        const elements = this.#listElements;
 
-        while (elements.length > this[priv].listData.length) {
+        while (elements.length > this.#listData.length) {
             root.removeChild(elements.pop());
         }
 
-        while (elements.length < this[priv].listData.length) {
-            const element = this[priv].template.content.firstElementChild.cloneNode(true);
+        while (elements.length < this.#listData.length) {
+            const element = this.#template.content.firstElementChild.cloneNode(true);
             elements.push(element);
             root.appendChild(element);
             element.tabIndex = -1;
             element.onclick = (mouseEvent) => this._onClick(mouseEvent);
         }
         
-        this[priv].listData.forEach((item, idx) => elements[idx].item = item);
+        const undefElements = this.#shadowRoot.querySelectorAll(":not(:defined)");
+        
+        if (undefElements.length > 0) {
+            const undef = [...new Set([...undefElements].map((e) => e.localName))];
+            const promises = undef.map((u) => customElements.whenDefined(u));
+            await Promise.all(promises);
+        }
+
+        this.#listData.forEach((item, idx) => elements[idx].item = item);
     }
 
 
     _onFocus(focusEvent) {
         // console.log(focusEvent);
-        // console.log(this[priv].shadowRoot.firstElementChild);
-        // this[priv].shadowRoot.firstElementChild.nextElementSibling?.focus();
+        // console.log(this.#shadowRoot.firstElementChild);
+        // this.#shadowRoot.firstElementChild.nextElementSibling?.focus();
         this.tabIndex = -1;
     }
 
@@ -105,25 +113,31 @@ export class UIListView extends UIView {
 
 
     _onKeyboardDown(keyboardEvent) {
-        const currentNode = this[priv].shadowRoot.querySelector(":focus");
+        const currentNode = this.#shadowRoot.querySelector(":focus");
         
         if (!currentNode) {
-            this[priv].shadowRoot.querySelector(":not(link)")?.focus();
+            this.#shadowRoot.querySelector(":not(link)")?.focus();
             return;
         }
 
         switch (keyboardEvent.code) {
             case "ArrowUp":
+                keyboardEvent.preventDefault();
                 currentNode?.previousElementSibling?.focus();
+                currentNode?.previousElementSibling?.scrollIntoViewIfNeeded();
                 break;
             
             case "ArrowDown":
+                keyboardEvent.preventDefault();
                 currentNode?.nextElementSibling?.focus();
+                currentNode?.nextElementSibling?.scrollIntoViewIfNeeded();
                 break;
 
             case "Enter":
             case "NumpadEnter":
             case "Space":
+                keyboardEvent.preventDefault();
+                currentNode?.scrollIntoViewIfNeeded();
                 this._select(currentNode);
                 break;
 
@@ -142,7 +156,7 @@ export class UIListView extends UIView {
 
     _select(element, toggle) {
         if ([SELECT_NONE, SELECT_SINGLE].includes(this.selectMode)) {
-            const elements = this[priv].listElements.filter((e) => e !== element);
+            const elements = this.#listElements.filter((e) => e !== element);
         
             for (const element of elements) {
                 element.classList.remove(SELECT_CLASS);
@@ -157,7 +171,7 @@ export class UIListView extends UIView {
             }
         }
 
-        const detail = this[priv].listElements.filter((e) => e.classList.contains(SELECT_CLASS)).map((e) => e.item);
+        const detail = this.#listElements.filter((e) => e.classList.contains(SELECT_CLASS)).map((e) => e.item);
         const evt = new CustomEvent("selectionChanged", { detail });
         this.dispatchEvent(evt);
     }
@@ -165,10 +179,4 @@ export class UIListView extends UIView {
 
 
 
-UIListView.templatePromise = null;
-UIListView.metaURL = import.meta.url;
-Object.seal(UIListView);
-
-
-
-customElements.define("ui-list-view", UIListView);
+UIView.define("ui-list-view", UIListView, import.meta.url);

@@ -2,13 +2,23 @@ import { UIView } from "/base/ui-view2.js";
 
 
 
-export class ListTestView extends UIView {
+export class ListItemTest extends UIView {
     static get observedAttributes() {
         return [];
     }
 
 
     #shadowRoot = this.attachShadow({ mode: "closed" });
+    #data = "xxx";
+
+    get item() {
+        return this.#data
+    }
+
+    set item(val) {
+        this.#data = val ?? "-";
+        this._updateView();
+    }
 
 
     constructor(...args) {
@@ -16,7 +26,6 @@ export class ListTestView extends UIView {
         Object.seal(this);
 
         this._init(this.#shadowRoot);
-        this._onInit();
         return self;
     }
 
@@ -27,18 +36,11 @@ export class ListTestView extends UIView {
     disconnectedCallback() {}
 
 
-    _onInit() {
-        const listView = this.#shadowRoot.querySelector("ui-list-view");
-        listView.addEventListener("selectionChanged", (customEvent) => this._onSelectionChanged(customEvent));
-        listView.listData = [...Array(50)].map((val, idx) => idx);
-    }
-
-
-    _onSelectionChanged(customEvent) {
-        console.log(customEvent);
+    _updateView() {
+        this.#shadowRoot.appendChild(document.createTextNode(this.#data));
     }
 }
 
 
 
-UIView.define("list-test", ListTestView, import.meta.url);
+UIView.define("list-item-test", ListItemTest, import.meta.url);
