@@ -1,0 +1,9 @@
+:host {
+    flex: 1 1 1px;
+    display: flex;
+}
+
+.ui-scroll-view {
+    flex: 1 1 1px;
+    overflow-y: scroll;
+}

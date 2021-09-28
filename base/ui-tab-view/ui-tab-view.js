@@ -3,14 +3,14 @@ import { UIView } from "/base/ui-view2.js";
 
 
 export class UITabView extends UIView {
-    #shadowRoot = this.attachShadow({ mode: "closed" });
-    #views = [];
-    #viewIndex = 0;
-
-
     static get observedAttributes() {
         return [];
     }
+
+
+    #shadowRoot = this.attachShadow({ mode: "closed" });
+    #views = [];
+    #viewIndex = 0;
 
 
     constructor(...args) {
@@ -60,4 +60,4 @@ export class UITabView extends UIView {
 
 
 
-UIView.define('ui-tab-view', UITabView, import.meta.url);
+UIView.define("ui-tab-view", UITabView, import.meta.url);
