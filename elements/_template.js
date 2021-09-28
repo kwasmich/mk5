@@ -1,8 +1,4 @@
-import { UIView } from "/base/ui-view.js";
-
-
-
-const priv = Symbol("private");
+import { UIView } from "/base/ui-view2.js";
 
 
 
@@ -12,15 +8,14 @@ export class MyElement extends UIView {
     }
 
 
+    #shadowRoot = this.attachShadow({ mode: "closed" });
+
+
     constructor(...args) {
         const self = super(args);
-
-        this[priv] = this[priv] ?? {};
-        this[priv].shadowRoot = this.attachShadow({ mode: "closed" });
         Object.seal(this);
-        Object.seal(this[priv]);
 
-        this._init(this[priv].shadowRoot);
+        this._init(this.#shadowRoot);
         return self;
     }
 
@@ -33,10 +28,4 @@ export class MyElement extends UIView {
 
 
 
-MyElement.templatePromise = null;
-MyElement.metaURL = import.meta.url;
-Object.seal(MyElement);
-
-
-
-customElements.define("my-element", MyElement);
+UIView.define("my-element", MyElement, import.meta.url);
