@@ -40,10 +40,19 @@ export class UIView extends HTMLElement {
             fetchCSS(path)
         ];
 
-        const define = ([html, css, ...args]) => {
+        const define = async ([html, css, ...args]) => {
             elementClass.htmlTemplate = html;
             elementClass.cssTemplate = css;
             Object.seal(elementClass);
+            
+            const undefElements = html.content.querySelectorAll(":not(:defined)");
+        
+            if (undefElements.length > 0) {
+                const undef = [...new Set([...undefElements].map((e) => e.localName))];
+                const promises = undef.map((u) => customElements.whenDefined(u));
+                await Promise.all(promises);
+            }
+
             customElements.define(tagName, elementClass);
         }
 
