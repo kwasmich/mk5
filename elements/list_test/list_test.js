@@ -1,4 +1,5 @@
 import { UIView } from "/base/ui-view2.js";
+import "./list-item-test/list-item-test.js";
 
 
 
@@ -28,7 +29,7 @@ export class ListTestView extends UIView {
 
 
     _onInit() {
-        const listView = this.#shadowRoot.querySelector("ui-list-view");
+        const listView = this.#shadowRoot.querySelector("ui-list-view");    
         listView.addEventListener("selectionChanged", (customEvent) => this._onSelectionChanged(customEvent));
         listView.listData = [...Array(50)].map((val, idx) => idx);
     }

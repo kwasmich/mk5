@@ -82,16 +82,9 @@ export class UIListView extends UIView {
             const element = this.#template.content.firstElementChild.cloneNode(true);
             elements.push(element);
             root.appendChild(element);
+            customElements.upgrade(element);
             element.tabIndex = -1;
             element.onclick = (mouseEvent) => this._onClick(mouseEvent);
-        }
-        
-        const undefElements = this.#shadowRoot.querySelectorAll(":not(:defined)");
-        
-        if (undefElements.length > 0) {
-            const undef = [...new Set([...undefElements].map((e) => e.localName))];
-            const promises = undef.map((u) => customElements.whenDefined(u));
-            await Promise.all(promises);
         }
 
         this.#listData.forEach((item, idx) => elements[idx].item = item);
