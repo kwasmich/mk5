@@ -26,11 +26,7 @@ div {
     overflow: hidden;
 }
 
-::slotted(li) {
-    display: inline-block;
-    padding: 0 12px;
-}
-
-::slotted(*) {
-    /* background-color: lime; */
+nav > ::slotted(*:focus) {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 0px;
 }

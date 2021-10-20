@@ -36,12 +36,13 @@ export class UITabView extends UIView {
         const tabSlot = this.#shadowRoot.querySelector("slot[name=tab]");
         const tabs = tabSlot.assignedElements();
 
-        tabs.forEach((tab, index) => {
-            tab.onclick = () => {
-                this.#viewIndex = index;
-                this.updateViews();
-            }
-        });
+        tabSlot.onclick = (mouseEvent) => {
+            const index = tabs.indexOf(mouseEvent.target);
+            this.#viewIndex = index;
+            this.updateViews();
+        };
+
+        tabs.forEach((tab, index) => tab.tabIndex = 0);
 
         this.updateViews();
     }
