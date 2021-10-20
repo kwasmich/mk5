@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "paths": {
+            "/*": [
+                "./*"
+            ]
+        },
+        "module": "ESNext",
+        "target": "ESNext"
+    }
+}
