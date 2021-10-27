@@ -1,4 +1,4 @@
-import { loadHTML } from "/util/helper.js";
+import { loadHTML, loadText } from "/util/helper.js";
 
 
 
@@ -19,14 +19,7 @@ function fetchHTML(path) {
 
 
 function fetchCSS(path) {
-    const link = document.createElement("LINK");
-    link.rel = "stylesheet";
-    link.type = "text/css";
-    link.href = `${path}.css`;
-
-    const templateElement = document.createElement("TEMPLATE");
-    templateElement.content.append(link);
-    return Promise.resolve(templateElement);
+    return loadText(`${path}.css`);
 }
 
 
@@ -41,6 +34,9 @@ export class UIView extends HTMLElement {
         ];
 
         const define = async ([html, css, ...args]) => {
+            const style = document.createElement("STYLE");
+            style.textContent = css;
+            html.content.insertBefore(style, html.content.firstChild);
             elementClass.htmlTemplate = html;
             elementClass.cssTemplate = css;
             Object.seal(elementClass);
@@ -50,12 +46,6 @@ export class UIView extends HTMLElement {
             for (const element of undefElements) {
                 customElements.upgrade(element);
             }
-
-            // if (undefElements.length > 0) {
-            //     const undef = [...new Set([...undefElements].map((e) => e.localName))];
-            //     const promises = undef.map((u) => customElements.whenDefined(u));
-            //     await Promise.all(promises);
-            // }
 
             customElements.define(tagName, elementClass);
         }
@@ -96,8 +86,6 @@ export class UIView extends HTMLElement {
 
 
     _init(shadowRoot) {
-        const link = this.constructor.cssTemplate.content.cloneNode(true);
-        shadowRoot.appendChild(link);
         const content = this.constructor.htmlTemplate.content.cloneNode(true);
         shadowRoot.appendChild(content);
 
