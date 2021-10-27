@@ -2,13 +2,12 @@ import { UIView } from "/base/ui-view2.js";
 
 
 
-const priv = Symbol("private");
-
 const SELECT_ATTR = "selectable";
 const SELECT_NONE = "none";
 const SELECT_SINGLE = "single";
 const SELECT_MULTI = "multi";
 const SELECT_CLASS = "selected";
+
 
 
 export class UIListView extends UIView {
