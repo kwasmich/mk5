@@ -1,8 +1,7 @@
-import { UIView } from "/base/ui-view.js";
+import { UIView } from "/base/ui-view2.js";
 
 
 
-const priv = Symbol("private");
 const mediaQuery = window.matchMedia("screen and (max-width : 640px)");
 const DEFAULT_NAVIGATION_STYLE = "default";
 const STACK_NAVIGATION_STYLE = "stack";
@@ -14,19 +13,24 @@ const SLOT = {
 }
 
 
+
 export class UINavigationView extends UIView {
     static get observedAttributes() {
         return [];
     }
 
 
+    #shadowRoot = this.attachShadow({ mode: "closed" });
+    #navigationViewStyle = DOUBLE_COLUMN_NAVIGATION_STYLE;
+
+
     get _currentSlotName() {
-        return SLOT[this[priv].navigationViewStyle];
+        return SLOT[this.#navigationViewStyle];
     }
 
 
     get _currentView() {
-        const slot = this[priv].shadowRoot.querySelector(`slot[name=${this._currentSlotName}]`);
+        const slot = this.#shadowRoot.querySelector(`slot[name=${this._currentSlotName}]`);
         const currentView = slot.assignedElements()[0];
         return currentView;
     }
@@ -34,24 +38,17 @@ export class UINavigationView extends UIView {
 
     constructor(...args) {
         const self = super(args);
-
-        this[priv] = this[priv] ?? {};
-        this[priv].navigationViewStyle = DOUBLE_COLUMN_NAVIGATION_STYLE;
-        this[priv].shadowRoot = this.attachShadow({ mode: "closed" });
-
         this._onMediaQuery = this._onMediaQuery.bind(this);
-
         Object.seal(this);
-        Object.seal(this[priv]);
 
-        this._init(this[priv].shadowRoot);
+        this._init(this.#shadowRoot);
         return self;
     }
 
 
     adoptedCallback() {}
     attributeChangedCallback(name, oldValue, newValue) {}
-    
+
 
     connectedCallback() {
         mediaQuery.addListener(this._onMediaQuery);
@@ -61,11 +58,6 @@ export class UINavigationView extends UIView {
     
     disconnectedCallback() {
         mediaQuery.removeListener(this._onMediaQuery);
-    }
-
-
-    onInit() {
-        console.log("onInit");
     }
 
 
@@ -127,12 +119,12 @@ export class UINavigationView extends UIView {
 
 
     _onMediaQuery(mediaQueryListEvent) {
-        this[priv].navigationViewStyle = mediaQueryListEvent.matches ? STACK_NAVIGATION_STYLE : DOUBLE_COLUMN_NAVIGATION_STYLE;
-        console.log(this[priv].navigationViewStyle);
+        this.#navigationViewStyle = mediaQueryListEvent.matches ? STACK_NAVIGATION_STYLE : DOUBLE_COLUMN_NAVIGATION_STYLE;
+        console.log(this.#navigationViewStyle);
         const primary = this.querySelector("[slot=primary]");
         const secondary = this.querySelector("[slot=secondary]");
 
-        if (this[priv].navigationViewStyle === STACK_NAVIGATION_STYLE) {
+        if (this.#navigationViewStyle === STACK_NAVIGATION_STYLE) {
             if (secondary.previousElementSibling === primary) {
                 this.insertBefore(secondary, this.firstElementChild);
             } else if (primary.nextElementSibling) {
@@ -143,7 +135,7 @@ export class UINavigationView extends UIView {
             }
         }
 
-        if (this[priv].navigationViewStyle === DOUBLE_COLUMN_NAVIGATION_STYLE) {
+        if (this.#navigationViewStyle === DOUBLE_COLUMN_NAVIGATION_STYLE) {
             if (primary.previousElementSibling === secondary) {
                 this.appendChild(secondary);
             } else if (secondary.nextElementSibling) {
@@ -158,10 +150,4 @@ export class UINavigationView extends UIView {
 
 
 
-UINavigationView.templatePromise = null;
-UINavigationView.metaURL = import.meta.url;
-Object.seal(UINavigationView);
-
-
-
-customElements.define("ui-navigation-view", UINavigationView);
+UIView.define("ui-navigation-view", UINavigationView, import.meta.url);
