@@ -1,8 +1,6 @@
-import { UIView } from "/base/ui-view.js";
+import { UIView } from "/base/ui-view2.js";
 import { loadText } from "/util/helper.js";
 
-
-const priv = Symbol("private");
 
 
 class AVROP {
@@ -12,6 +10,7 @@ class AVROP {
         this.op = op;
     }
 }
+
 
 
 class AVRConstant {
@@ -25,45 +24,52 @@ class AVRConstant {
 
 
 
-export class UICanvas extends UIView {
+export class MyCanvas extends UIView {
+    static get observedAttributes() {
+        return [];
+    }
+
+
+    #shadowRoot = this.attachShadow({ mode: "closed" });
+    #ctx = undefined;
+    #select = undefined;
+    #opMap = undefined;
+
+
     constructor(...args) {
         const self = super(args);
-
-        this[priv] = this[priv] ?? {};
-        this[priv].ctx = undefined;
-        this[priv].select = undefined;
-        this[priv].input = undefined;
-        this[priv].opMap = undefined;
-        this[priv].shadowRoot = this.attachShadow({ mode: "closed" });
         Object.seal(this);
-        Object.seal(this[priv]);
 
-        this._init(this[priv].shadowRoot);
+        this._init(this.#shadowRoot);
+        this._onInit();
+
         return self;
     }
 
 
-    async onInit() {
-        super.onInit();
+    adoptedCallback() {}
+    attributeChangedCallback(name, oldValue, newValue) {}
+    connectedCallback() {}
+    disconnectedCallback() {}
 
+    async _onInit() {
         console.log("inited");
-        const ctx = this[priv].shadowRoot.querySelector("CANVAS").getContext("2d");
+        const ctx = this.#shadowRoot.querySelector("CANVAS").getContext("2d");
         window.ctx2d = ctx;
-        this[priv].ctx = ctx;
+        this.#ctx = ctx;
         ctx.canvas.width = 256;
         ctx.canvas.height = 256;
 
-        console.log(this[priv].canvas);
+        console.log(this.#ctx.canvas);
 
         const input = await loadText("/elements/canvas/avr.txt");
-        this[priv].input = input;
         const mnemonics = input.split("\n");
         const parser = /([0-9a-f]{2}) ([0-9a-f]{2})(?: [0-9a-f]{2} [0-9a-f]{2})?\t([^\t\n]+)(?:$|\t(.*))/;
         const registerParser = /r(\d+)/;
 
         const ops = new Set();
         const opMap = new Map();
-        this[priv].opMap = opMap;
+        this.#opMap = opMap;
 
         for (const mnemonic of mnemonics) {
             const [y16, x16, op, args] = parser.exec(mnemonic).slice(1);
@@ -89,25 +95,24 @@ export class UICanvas extends UIView {
         }
 
         const opList = [...ops].sort();
-        this[priv].select = this[priv].shadowRoot.querySelector("SELECT");
+        this.#select = this.#shadowRoot.querySelector("SELECT");
 
         for (const op of opList) {
             const newOption = document.createElement("OPTION");
             newOption.textContent = op;
-            this[priv].select.add(newOption);
+            this.#select.add(newOption);
         }
 
-        this[priv].select.onchange = () => this.draw();
-        this[priv].select.selectedIndex = 0;
-        this.draw();
+        this.#select.onchange = () => this._draw();
+        this.#select.selectedIndex = 0;
+        this._draw();
     }
 
-
-    async draw() {
-        const selectedOp = this[priv].select.value;
-        const ctx = this[priv].ctx;
+    async _draw() {
+        const selectedOp = this.#select.value;
+        const ctx = this.#ctx;
         const img = ctx.createImageData(256, 256);
-        const opMap = this[priv].opMap;
+        const opMap = this.#opMap;
 
         for (const { x, y, op, args } of opMap.get(selectedOp)) {
             img.data[(y * 256 + x) * 4 + 0] = 0;
@@ -122,10 +127,4 @@ export class UICanvas extends UIView {
 
 
 
-UICanvas.templatePromise = null;
-UICanvas.metaURL = import.meta.url;
-Object.seal(UICanvas);
-
-
-
-customElements.define("ui-canvas", UICanvas);
+UIView.define("my-canvas", MyCanvas, import.meta.url);
