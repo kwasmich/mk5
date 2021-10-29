@@ -1,26 +1,21 @@
-import { UIView } from "/base/ui-view.js";
+import { UIView } from "/base/ui-view2.js";
 
 
 
-const priv = Symbol("private");
-
-
-
-export class FormTestView extends UIView {
+export class MyForm extends UIView {
     static get observedAttributes() {
         return [];
     }
 
 
+    #shadowRoot = this.attachShadow({ mode: "closed" });
+
+
     constructor(...args) {
         const self = super(args);
-
-        this[priv] = this[priv] ?? {};
-        this[priv].shadowRoot = this.attachShadow({ mode: "closed" });
         Object.seal(this);
-        Object.seal(this[priv]);
 
-        this._init(this[priv].shadowRoot);
+        this._init(this.#shadowRoot);
         return self;
     }
 
@@ -33,13 +28,8 @@ export class FormTestView extends UIView {
 
 
 
-FormTestView.templatePromise = null;
-FormTestView.metaURL = import.meta.url;
-Object.seal(FormTestView);
+UIView.define("my-form", MyForm, import.meta.url);
 
-
-
-customElements.define("ui-form-test", FormTestView);
 
 
 
@@ -63,3 +53,4 @@ class FancyButton extends HTMLElement {
   }
   
   customElements.define("fancy-button", FancyButton, {extends: "button"});
+  
