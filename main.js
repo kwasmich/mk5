@@ -7,7 +7,6 @@ import "/elements/form_test/form_test.js";
 import "/elements/list_test/list_test.js";
 import "/elements/tab_test/tab_test.js";
 import "/elements/navigation_test/navigation_test.js";
-import "/elements/view_switcher/view_switcher.js";
 import "/util/security.js";
 
 
@@ -17,18 +16,6 @@ class Main {
         Object.seal(this);
 
         //this._initService();
-        this._init();
-    }
-
-
-    _init() {
-        // const button = document.getElementsByTagName("BUTTON")[0];
-        // const viewSwitcher = document.getElementsByTagName("UI-VIEW-SWITCHER")[0];
-
-        // button.onclick = () => {
-        //     const index = +viewSwitcher.viewIndex;
-        //     viewSwitcher.viewIndex = (index + 1) % 4;
-        // }
     }
 
 
