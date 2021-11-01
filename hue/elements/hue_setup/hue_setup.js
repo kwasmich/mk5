@@ -1,4 +1,4 @@
-import { UIView } from "/base/ui-view.js";
+import { UIView } from "/base/ui-view2.js";
 import HueService from "/hue/hue.service.js";
 import { loadJSON } from "/util/helper.js";
 
@@ -11,62 +11,61 @@ const HUE_DEVICE_TYPE = "de.kwasi-ich.hue";
 
 
 
-const priv = Symbol("private");
-
-
-
 class HueSetupElement extends UIView {
+    static get observedAttributes() {
+        return [];
+    }
+
+
+    #shadowRoot = this.attachShadow({mode: "closed"});
+
+
     /** @type {HTMLDivElement} */
     get ipGroup() {
-        return this[priv].shadowRoot.getElementById("hue_ip_grp");
+        return this.#shadowRoot.getElementById("hue_ip_grp");
     }
 
     /** @type {HTMLInputElement} */
     get ipInput() {
-        return this[priv].shadowRoot.getElementById("hue_ip");
+        return this.#shadowRoot.getElementById("hue_ip");
     }
 
     /** @type {HTMLButtonElement} */
     get ipVerifyButton() {
-        return this[priv].shadowRoot.getElementById("hue_ip_verify");
+        return this.#shadowRoot.getElementById("hue_ip_verify");
     }
 
     /** @type {HTMLDivElement} */
     get userGroup() {
-        return this[priv].shadowRoot.getElementById("hue_user_grp");
+        return this.#shadowRoot.getElementById("hue_user_grp");
     }
 
     /** @type {HTMLButtonElement} */
     get registerButton() {
-        return this[priv].shadowRoot.getElementById("hue_register");
+        return this.#shadowRoot.getElementById("hue_register");
     }
     
     /** @type {HTMLProgressElement} */
     get progressBar() {
-        return this[priv].shadowRoot.getElementById("progress");
+        return this.#shadowRoot.getElementById("progress");
     }
 
     /** @type {HTMLButtonElement} */
     get unregisterButton() {
-        return this[priv].shadowRoot.getElementById("hue_unregister");
+        return this.#shadowRoot.getElementById("hue_unregister");
     }
     
 
-    constructor() {
-        const self = super();
-        this[priv] = this[priv] ?? {};
-        this[priv].shadowRoot = this.attachShadow({mode: "closed"});
+    constructor(...args) {
+        const self = super(args);
         Object.seal(this);
-        Object.seal(this[priv]);
 
-        this._init(this[priv].shadowRoot);
+        this._init(this.#shadowRoot);
+        this.onInit();
         return self;
     }
 
 
-    static get observedAttributes() {
-        return [];
-    }
     adoptedCallback() {}
     attributeChangedCallback(name, oldValue, newValue) {}
     connectedCallback() {}
@@ -305,9 +304,5 @@ class HueSetupElement extends UIView {
 }
 
 
-HueSetupElement.templatePromise = null;
-HueSetupElement.metaURL = import.meta.url;
-Object.seal(HueSetupElement);
 
-
-customElements.define("mk-hue-setup", HueSetupElement);
+UIView.define("mk-hue-setup", HueSetupElement, import.meta.url);

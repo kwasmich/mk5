@@ -1,9 +1,6 @@
-import { UIView } from "/base/ui-view.js";
+import { UIView } from "/base/ui-view2.js";
 import { ct2rgb, IconMap, xy2rgb } from "/hue/hue-utils.js";
 
-
-
-const priv = Symbol("private");
 
 
 
@@ -12,29 +9,31 @@ export class HueSceneListItem extends UIView {
         return [];
     }
 
+
+    #shadowRoot = this.attachShadow({ mode: "closed" });
+    #initialized = false;
+    #scene = {};
+    #icon = undefined;
+    #name = undefined;
+
+
     get item() {
-        return this[priv].scene
+        return this.#scene
     }
+    
 
     set item(val) {
-        this[priv].scene = val ?? {};
+        this.#scene = val ?? {};
         this._updateView();
     }
 
 
     constructor(...args) {
         const self = super(args);
-
-        this[priv] = this[priv] ?? {};
-        this[priv].initialized = false;
-        this[priv].scene = {};
-        this[priv].icon = undefined;
-        this[priv].name = undefined;
-        this[priv].shadowRoot = this.attachShadow({ mode: "closed" });
         Object.seal(this);
-        Object.seal(this[priv]);
 
-        this._init(this[priv].shadowRoot);
+        this._init(this.#shadowRoot);
+        this.onInit();
         return self;
     }
 
@@ -48,38 +47,32 @@ export class HueSceneListItem extends UIView {
     onInit() {
         this.onclick = (mouseEvent) => this._onClick(mouseEvent);
 
-        const sr = this[priv].shadowRoot;
-        this[priv].icon = sr.querySelector("img");
-        this[priv].name = sr.querySelector("span");
-        this[priv].initialized = true;
+        const sr = this.#shadowRoot;
+        this.#icon = sr.querySelector("img");
+        this.#name = sr.querySelector("span");
+        this.#initialized = true;
         this._updateView();
     }
 
 
     _updateView() {
-        if (this[priv].initialized) {
-            const { name } = this[priv].scene;
-            const iconPath = this[priv].scene.imagePath;
+        if (this.#initialized) {
+            const { name } = this.#scene;
+            const iconPath = this.#scene.imagePath;
             
-            if (this[priv].icon.src !== window.origin + iconPath) {
-                this[priv].icon.src = iconPath;
+            if (this.#icon.src !== window.origin + iconPath) {
+                this.#icon.src = iconPath;
             }
 
-            this[priv].name.textContent = name;
+            this.#name.textContent = name;
         }
     }
 
     _onClick(mouseEvent) {
-        this[priv].scene.apply();
+        this.#scene.apply();
     }
 }
 
 
 
-HueSceneListItem.templatePromise = null;
-HueSceneListItem.metaURL = import.meta.url;
-Object.seal(HueSceneListItem);
-
-
-
-customElements.define("hue-scene-list-item", HueSceneListItem);
+UIView.define("hue-scene-list-item", HueSceneListItem, import.meta.url);

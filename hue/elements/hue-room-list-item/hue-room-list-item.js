@@ -1,9 +1,5 @@
-import { UIView } from "/base/ui-view.js";
+import { UIView } from "/base/ui-view2.js";
 import { ct2rgb, IconMap, xy2rgb } from "/hue/hue-utils.js";
-
-
-
-const priv = Symbol("private");
 
 
 
@@ -12,31 +8,33 @@ export class HueRoomListItem extends UIView {
         return [];
     }
 
+
+    #shadowRoot = this.attachShadow({ mode: "closed" });
+    #initialized = false;
+    #room = {};
+    #icon = undefined;
+    #name = undefined;
+    #on = undefined;
+    #bri = undefined;
+
+
     get item() {
-        return this[priv].room
+        return this.#room
     }
 
+
     set item(val) {
-        this[priv].room = val ?? {};
+        this.#room = val ?? {};
         this._updateView();
     }
 
 
     constructor(...args) {
         const self = super(args);
-
-        this[priv] = this[priv] ?? {};
-        this[priv].initialized = false;
-        this[priv].room = {};
-        this[priv].icon = undefined;
-        this[priv].name = undefined;
-        this[priv].on = undefined;
-        this[priv].bri = undefined;
-        this[priv].shadowRoot = this.attachShadow({ mode: "closed" });
         Object.seal(this);
-        Object.seal(this[priv]);
 
-        this._init(this[priv].shadowRoot);
+        this._init(this.#shadowRoot);
+        this.onInit();
         return self;
     }
 
@@ -50,31 +48,31 @@ export class HueRoomListItem extends UIView {
     onInit() {
         // this.onclick = (mouseEvent) => this._onClick(mouseEvent);
 
-        const sr = this[priv].shadowRoot;
-        this[priv].icon = sr.querySelector("img");
-        this[priv].name = sr.querySelector("span");
-        this[priv].on = sr.querySelector("input[type=checkbox]");
-        this[priv].on.onchange = (e) => this._onInputChange(e);
-        this[priv].bri = sr.querySelector("input[type=range]");
-        this[priv].bri .onchange = (e) => this._onInputChange(e);
-        this[priv].initialized = true;
+        const sr = this.#shadowRoot;
+        this.#icon = sr.querySelector("img");
+        this.#name = sr.querySelector("span");
+        this.#on = sr.querySelector("input[type=checkbox]");
+        this.#on.onchange = (e) => this._onInputChange(e);
+        this.#bri = sr.querySelector("input[type=range]");
+        this.#bri .onchange = (e) => this._onInputChange(e);
+        this.#initialized = true;
         this._updateView();
     }
 
 
     _updateView() {
-        if (this[priv].initialized && this[priv].room?.action) {
-            const { on, bri, ct, hue, sat, xy, colormode } = this[priv].room.action
+        if (this.#initialized && this.#room?.action) {
+            const { on, bri, ct, hue, sat, xy, colormode } = this.#room.action
             
-            if (this[priv].icon.src !== window.origin + IconMap[this[priv].room.class]) {
-                this[priv].icon.src = IconMap[this[priv].room.class];
+            if (this.#icon.src !== window.origin + IconMap[this.#room.class]) {
+                this.#icon.src = IconMap[this.#room.class];
             }
 
-            this[priv].name.textContent = this[priv].room.name;
-            this[priv].on.checked = this[priv].room.state.any_on; // on
-            this[priv].bri.value = bri;
+            this.#name.textContent = this.#room.name;
+            this.#on.checked = this.#room.state.any_on; // on
+            this.#bri.value = bri;
 
-            if (this[priv].room.state.any_on) {
+            if (this.#room.state.any_on) {
                 switch (colormode) {
                     case "xy":
                         {
@@ -110,7 +108,7 @@ export class HueRoomListItem extends UIView {
         event.preventDefault();
         event.stopImmediatePropagation();
         const attribute = event.target.name;
-        const light = this[priv].room;
+        const light = this.#room;
         
         switch (event.target.type) {
             case "checkbox":
@@ -130,10 +128,4 @@ export class HueRoomListItem extends UIView {
 
 
 
-HueRoomListItem.templatePromise = null;
-HueRoomListItem.metaURL = import.meta.url;
-Object.seal(HueRoomListItem);
-
-
-
-customElements.define("hue-room-list-item", HueRoomListItem);
+UIView.define("hue-room-list-item", HueRoomListItem, import.meta.url);

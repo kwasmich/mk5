@@ -1,9 +1,5 @@
-import { UIView } from "/base/ui-view.js";
+import { UIView } from "/base/ui-view2.js";
 import Hue from "/hue/hue.js";
-
-
-
-const priv = Symbol("private");
 
 
 
@@ -13,25 +9,27 @@ class HueMainElement extends UIView {
     }
 
 
-    constructor() {
-        const self = super();
+    #shadowRoot = this.attachShadow({mode: "closed"});
 
-        /** @type {HTMLSelectElement} */
-        this.selectGroup = undefined;
-        /** @type {HTMLSelectElement} */
-        this.selectLight = undefined;
-        this.groupsObj = undefined;
-        this.lightsObj = undefined;
-        this.selectedGroup = undefined;
-        this.selectedLight = undefined;
-        this.groupsSubscription = undefined;
-        this.lightsSubscription = undefined;
-        this[priv] = this[priv] ?? {};
-        this[priv].shadowRoot = this.attachShadow({mode: 'closed'});
+    /** @type {HTMLSelectElement} */
+    selectGroup = undefined;
+    /** @type {HTMLSelectElement} */
+    selectLight = undefined;
+
+    groupsObj = undefined;
+    lightsObj = undefined;
+    selectedGroup = undefined;
+    selectedLight = undefined;
+    groupsSubscription = undefined;
+    lightsSubscription = undefined;
+
+
+    constructor(...args) {
+        const self = super(args);
         Object.seal(this);
-        Object.seal(this[priv]);
 
-        this._init(this[priv].shadowRoot);
+        this._init(this.#shadowRoot);
+        this.onInit();
         return self;
     }
 
@@ -43,14 +41,14 @@ class HueMainElement extends UIView {
 
 
     onInit() {
-        const lightControl = this[priv].shadowRoot.querySelector("mk-light-control");
+        const lightControl = this.#shadowRoot.querySelector("mk-light-control");
         
-        this.selectGroup = this[priv].shadowRoot.querySelector("select#group");
+        this.selectGroup = this.#shadowRoot.querySelector("select#group");
         this.selectGroup.onchange = (e) => {
             const groupID = e.target.value;
             this._updateLights(groupID);
         };
-        this.selectLight = this[priv].shadowRoot.querySelector("select#light");
+        this.selectLight = this.#shadowRoot.querySelector("select#light");
         this.selectLight.onchange = (e) => {
             // console.log(e);
             const light = e.target.value;
@@ -121,9 +119,5 @@ class HueMainElement extends UIView {
 }
 
 
-HueMainElement.templatePromise = null;
-HueMainElement.metaURL = import.meta.url;
-Object.seal(HueMainElement);
 
-
-customElements.define('mk-hue-main', HueMainElement);
+UIView.define("mk-hue-main", HueMainElement, import.meta.url);

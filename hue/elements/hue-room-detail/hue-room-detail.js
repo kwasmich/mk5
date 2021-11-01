@@ -1,8 +1,4 @@
-import { UIView } from "/base/ui-view.js";
-
-
-
-const priv = Symbol("private");
+import { UIView } from "/base/ui-view2.js";
 
 
 
@@ -12,16 +8,18 @@ export class HueRoomDetail extends UIView {
     }
 
 
+    #shadowRoot = this.attachShadow({ mode: "closed" });
+    #hueGroup = undefined;
+
+
     constructor(hueGroup, ...args) {
         const self = super(args);
-
-        this[priv] = this[priv] ?? {};
-        this[priv].hueGroup = hueGroup;
-        this[priv].shadowRoot = this.attachShadow({ mode: "closed" });
         Object.seal(this);
-        Object.seal(this[priv]);
 
-        this._init(this[priv].shadowRoot);
+        this.#hueGroup = hueGroup;
+
+        this._init(this.#shadowRoot);
+        this.onInit();
         return self;
     }
 
@@ -33,17 +31,13 @@ export class HueRoomDetail extends UIView {
 
 
     onInit() {
-        const sceneList = this[priv].shadowRoot.querySelector("hue-scene-list");
-        sceneList.hueGroup = this[priv].hueGroup;
+        const backButton = this.#shadowRoot.querySelector("button");
+        backButton.onclick = () => this.parentNode.popToRootView();
+        const sceneList = this.#shadowRoot.querySelector("hue-scene-list");
+        sceneList.hueGroup = this.#hueGroup;
     }
 }
 
 
 
-HueRoomDetail.templatePromise = null;
-HueRoomDetail.metaURL = import.meta.url;
-Object.seal(HueRoomDetail);
-
-
-
-customElements.define("hue-room-detail", HueRoomDetail);
+UIView.define("hue-room-detail", HueRoomDetail, import.meta.url);

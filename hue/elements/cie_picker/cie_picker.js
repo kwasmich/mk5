@@ -1,8 +1,4 @@
-import { UIView } from "/base/ui-view.js";
-
-
-
-const priv = Symbol("private");
+import { UIView } from "/base/ui-view2.js";
 
 
 
@@ -12,19 +8,25 @@ class CIEPickerElement extends UIView {
     }
 
 
+    #shadowRoot = this.attachShadow({mode: "closed"});
+    #gamut = [[0, 0], [0, 0], [0, 0]];
+    #image = undefined;
+    #value = { x:0, y:0 };
+
+
     get gamut() {
-        return this[priv].gamut;
+        return this.#gamut;
     }
 
 
     set gamut(newValue) {
-        this[priv].gamut = newValue ?? [[0, 0], [0, 0], [0, 0]];
+        this.#gamut = newValue ?? [[0, 0], [0, 0], [0, 0]];
         this._updateSVG();
     }
 
 
     get value() {
-        return this[priv].value;
+        return this.#value;
     }
 
 
@@ -34,22 +36,17 @@ class CIEPickerElement extends UIView {
             newValue = { x, y };
         }
 
-        this[priv].value = newValue ?? [0, 0];
+        this.#value = newValue ?? [0, 0];
         this._updateSVG();
     }
 
 
-    constructor() {
-        const self = super();
-        this[priv] = this[priv] ?? {};
-        this[priv].shadowRoot = this.attachShadow({mode: "closed"});
-        this[priv].gamut = [[0, 0], [0, 0], [0, 0]];
-        this[priv].image = undefined;
-        this[priv].value = { x:0, y:0 };
+    constructor(...args) {
+        const self = super(args);
         Object.seal(this);
-        Object.seal(this[priv]);
 
-        this._init(this[priv].shadowRoot);
+        this._init(this.#shadowRoot);
+        this.onInit();
         return self;
     }
 
@@ -61,23 +58,25 @@ class CIEPickerElement extends UIView {
 
 
     onInit() {
-        this[priv].image = this[priv].shadowRoot.querySelector("svg");
-        const image = this[priv].image;
+        this.#image = this.#shadowRoot.querySelector("svg");
+        const image = this.#image;
         image.onclick = (e) => this._onClick(e);
         image.onmousedown = (e) => this._onMouseDown(e);
     }
 
 
     _onMouseDown(event) {
+        console.log(event);
         document.onmouseup = (e) => this._onMouseUp(e);
-        this[priv].image.onmousemove = (e) => this._onClick(e);
+        this.#image.onmousemove = (e) => this._onClick(e);
         this._onClick(event);
     }
 
 
     _onMouseUp(event) {
+        console.log(event);
         document.onmouseup = undefined;
-        this[priv].image.onmousemove = undefined;
+        this.#image.onmousemove = undefined;
         const evt = new Event("change");
         this.dispatchEvent(evt);
         // console.log(this.value);
@@ -85,7 +84,7 @@ class CIEPickerElement extends UIView {
 
 
     _onClick(event) {
-        const image = this[priv].image;
+        const image = this.#image;
         // console.log(event.currentTarget);
         // console.log(event.offsetX);
         // console.log(image.clientWidth);
@@ -98,21 +97,17 @@ class CIEPickerElement extends UIView {
 
 
     _updateSVG() {
-        const value = this[priv].shadowRoot.querySelector("#value");
+        const value = this.#shadowRoot.querySelector("#value");
         value.cx.baseVal.value = this.value.x * 1000;
         value.cy.baseVal.value = this.value.y * 1000;
 
         const g = this.gamut.map(([x, y]) => [x * 1000, y * 1000]);
-        const gamut = this[priv].shadowRoot.querySelector("#gamut");
+        const gamut = this.#shadowRoot.querySelector("#gamut");
         // console.log(g); // M675,322 L409,518 L167,400 Z
         gamut.setAttribute("d", `M${g[0].join(",")} L${g[1].join(",")} L${g[2].join(",")} Z`);
     }
 }
 
 
-CIEPickerElement.templatePromise = null;
-CIEPickerElement.metaURL = import.meta.url;
-Object.seal(CIEPickerElement);
 
-
-customElements.define("mk-cie-picker", CIEPickerElement);
+UIView.define("mk-cie-picker", CIEPickerElement, import.meta.url);

@@ -1,9 +1,5 @@
-import { UIView } from "/base/ui-view.js";
+import { UIView } from "/base/ui-view2.js";
 import Hue from "/hue/hue.js";
-
-
-
-const priv = Symbol("private");
 
 
 
@@ -12,29 +8,32 @@ export class HueSceneList extends UIView {
         return [];
     }
 
+
+    #shadowRoot = this.attachShadow({ mode: "closed" });
+    #hueGroup = undefined;
+    #scenes = [];
+    #scenesSubscription = undefined;
+
+
     get hueGroup() {
-        return this[priv].hueGroup;
+        return this.#hueGroup;
     }
 
+
     set hueGroup(val) {
-        this[priv].hueGroup = val;
+        this.#hueGroup = val;
         this._updateList();
     }
 
 
     constructor(hueGroup, ...args) {
-        console.log(hueGroup, args);
         const self = super(args);
-
-        this[priv] = this[priv] ?? {};
-        this[priv].hueGroup = hueGroup;
-        this[priv].scenes = [];
-        this[priv].scenesSubscription = undefined;
-        this[priv].shadowRoot = this.attachShadow({ mode: "closed" });
         Object.seal(this);
-        Object.seal(this[priv]);
 
-        this._init(this[priv].shadowRoot);
+        this.#hueGroup = hueGroup;
+
+        this._init(this.#shadowRoot);
+        this.onInit();
         return self;
     }
 
@@ -46,8 +45,8 @@ export class HueSceneList extends UIView {
     
 
     onInit() {
-        this[priv].scenesSubscription = (value) => this._updateScenes(value);
-        Hue.scenes.subscribe(this[priv].scenesSubscription);
+        this.#scenesSubscription = (value) => this._updateScenes(value);
+        Hue.scenes.subscribe(this.#scenesSubscription);
     }
 
 
@@ -65,29 +64,19 @@ export class HueSceneList extends UIView {
 
         scenes = scenes.filter((scn) => scn.type === "GroupScene");
         scenes = scenes.filter((scn) => scn.recycle === false);
-        this[priv].scenes = scenes;
-        console.log(this[priv].scenes);
+        this.#scenes = scenes;
 
         this._updateList();
     }
 
 
     _updateList() {
-        console.log(this[priv].scenes);
-        console.log(this[priv].hueGroup);
-        const scenes = this[priv].scenes.filter((scn) => scn.group === this[priv].hueGroup?.groupID);
-        console.log(scenes);
-        const listView = this[priv].shadowRoot.querySelector("ui-list-view");
+        const scenes = this.#scenes.filter((scn) => scn.group === this.#hueGroup?.groupID);
+        const listView = this.#shadowRoot.querySelector("ui-list-view");
         listView && (listView.listData = scenes);
     }
 }
 
 
 
-HueSceneList.templatePromise = null;
-HueSceneList.metaURL = import.meta.url;
-Object.seal(HueSceneList);
-
-
-
-customElements.define("hue-scene-list", HueSceneList);
+UIView.define("hue-scene-list", HueSceneList, import.meta.url);

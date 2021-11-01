@@ -22,7 +22,7 @@ class Hue {
         document.onvisibilitychange = () => this.update();
         const scenes = await HueService.query("GET", ["scenes"], null);
         const x = Object.keys(scenes).map((k) => ({ key: k, value: scenes[k]}));
-        console.log(x.filter((x) => x.value.group === "6"));
+        // console.log(x.filter((x) => x.value.group === "6"));
 
         for (const scene in scenes) {
             Object.setPrototypeOf(scenes[scene], HueScene.prototype);

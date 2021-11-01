@@ -29,13 +29,14 @@ fancy-button {
 
 
 export class FancyButton extends HTMLElement {
-    constructor() {
-        super(); // always call super() first in the constructor.
+    constructor(...args) {
+        const self = super(args); // always call super() first in the constructor.
         this._drawRipple = this._drawRipple.bind(this);
 
         const style = document.createElement("STYLE");
         style.textContent = css;
         this.appendChild(style);
+        return self;
     }
 
     adoptedCallback() {}

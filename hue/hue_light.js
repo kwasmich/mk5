@@ -8,9 +8,10 @@ const priv = Symbol("private");
 
 
 export default class HueLight extends Object {
-    constructor() {
-        super();
+    constructor(...args) {
+        const self = super(args);
         this.init(-1);
+        return self;
     }
 
 

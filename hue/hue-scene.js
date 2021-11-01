@@ -14,9 +14,10 @@ export default class HueScene extends Object {
     }
 
 
-    constructor() {
-        super();
+    constructor(...args) {
+        const self = super(args);
         this.init("");
+        return self;
     }
 
 
