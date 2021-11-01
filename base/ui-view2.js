@@ -47,6 +47,12 @@ export class UIView extends HTMLElement {
                 customElements.upgrade(element);
             }
 
+            if (undefElements.length > 0) {
+                const undef = [...new Set([...undefElements].map((e) => e.localName))];
+                const promises = undef.map((u) => customElements.whenDefined(u));
+                await Promise.all(promises);
+            }
+
             customElements.define(tagName, elementClass);
         }
 
