@@ -1,5 +1,4 @@
 import { UIView } from "/base/ui-view.js";
-// import { UIListView } from "/base/ui-list-view/ui-list-view.js";
 import { HueRoomDetail } from "/hue/elements/hue-room-detail/hue-room-detail.js";
 import Hue from "/hue/hue.js";
 
@@ -13,6 +12,7 @@ export class HueRoomList extends UIView {
 
     #shadowRoot = this.attachShadow({ mode: "closed" });
     #groupsSubscription = undefined;
+    #detailView = undefined;
 
 
     constructor(...args) {
@@ -31,12 +31,14 @@ export class HueRoomList extends UIView {
     disconnectedCallback() {}
     
 
-    onInit() {
+    async onInit() {
+        await customElements.whenDefined("hue-room-detail");                    // Custom Elements that are only instantiated in JS need to be defined first
+        this.#detailView = new HueRoomDetail();
+
         this.#groupsSubscription  = (value) => this._updateGroups(value);
         Hue.groups.subscribe(this.#groupsSubscription);
 
         const listView = this.#shadowRoot.querySelector("ui-list-view");
-        // console.log(listView instanceof UIListView);
         listView.addEventListener("selectionChanged", (customEvent) => this._onSelectRoom(customEvent));
     }
 
@@ -59,11 +61,14 @@ export class HueRoomList extends UIView {
 
     _onSelectRoom(customEvent) {
         const hueGroups = customEvent.detail;
-        this.parentNode.popToRootView();
+        const currentView = this.parentNode._currentView;
 
-        if (hueGroups.length === 1) {
-            this.parentNode.pushView(new HueRoomDetail(hueGroups[0]));
+        if (!(currentView instanceof HueRoomDetail)) {
+            this.parentNode.popToRootView();
+            this.parentNode.pushView(this.#detailView);
         }
+
+        this.#detailView.hueGroup = hueGroups[0];
     }
 }
 

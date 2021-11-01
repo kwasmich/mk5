@@ -73,7 +73,7 @@ export class HueSceneList extends UIView {
     _updateList() {
         const scenes = this.#scenes.filter((scn) => scn.group === this.#hueGroup?.groupID);
         const listView = this.#shadowRoot.querySelector("ui-list-view");
-        listView && (listView.listData = scenes);
+        listView.listData = scenes;
     }
 }
 

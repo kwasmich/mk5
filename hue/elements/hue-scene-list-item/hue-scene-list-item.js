@@ -45,7 +45,8 @@ export class HueSceneListItem extends UIView {
 
 
     onInit() {
-        this.onclick = (mouseEvent) => this._onClick(mouseEvent);
+        // this.onclick = (mouseEvent) => this._onClick(mouseEvent);            // FIX ME: this is conflicting with UIListView
+        this.addEventListener("click", (mouseEvent) => this._onClick(mouseEvent));
 
         const sr = this.#shadowRoot;
         this.#icon = sr.querySelector("img");
