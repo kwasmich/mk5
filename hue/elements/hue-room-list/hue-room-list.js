@@ -1,4 +1,4 @@
-import { UIView } from "/base/ui-view2.js";
+import { UIView } from "/base/ui-view.js";
 // import { UIListView } from "/base/ui-list-view/ui-list-view.js";
 import { HueRoomDetail } from "/hue/elements/hue-room-detail/hue-room-detail.js";
 import Hue from "/hue/hue.js";

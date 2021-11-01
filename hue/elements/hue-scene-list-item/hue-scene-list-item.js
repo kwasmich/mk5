@@ -1,4 +1,4 @@
-import { UIView } from "/base/ui-view2.js";
+import { UIView } from "/base/ui-view.js";
 import { ct2rgb, IconMap, xy2rgb } from "/hue/hue-utils.js";
 
 

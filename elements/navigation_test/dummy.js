@@ -1,4 +1,4 @@
-import { UIView } from "/base/ui-view2.js";
+import { UIView } from "/base/ui-view.js";
 import { DummyA, DummyB, DummyC } from "./index.js"; // one layer of indirection breaks circular dependency - somehow
 // import { DummyA } from "./dummy_a/dummy_a.js";
 // import { DummyB } from "./dummy_b/dummy_b.js";
