@@ -38,7 +38,6 @@ export class UIView extends HTMLElement {
             style.textContent = css;
             html.content.insertBefore(style, html.content.firstChild);
             elementClass.htmlTemplate = html;
-            elementClass.cssTemplate = css;
             Object.seal(elementClass);
             
             const undefElements = html.content.querySelectorAll(":not(:defined)");
@@ -67,6 +66,7 @@ export class UIView extends HTMLElement {
 
     constructor(...args) {
         const self = super(args);
+        console.debug(`new ${self.constructor.name}`);
         return self;
     }
 
@@ -91,8 +91,13 @@ export class UIView extends HTMLElement {
     }
 
 
+    toString() {
+        return `${this.constructor.name} derived from UIView`;
+    }
+
+
     _init(shadowRoot) {
-        const content = this.constructor.htmlTemplate.content.cloneNode(true);
+        const content = shadowRoot.ownerDocument.importNode(this.constructor.htmlTemplate.content, true);
         shadowRoot.appendChild(content);
 
         const undefElements = shadowRoot.querySelectorAll(":not(:defined)");

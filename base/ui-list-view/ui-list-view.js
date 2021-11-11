@@ -108,7 +108,7 @@ export class UIListView extends UIView {
         const currentNode = this.#shadowRoot.querySelector(":focus");
         
         if (!currentNode) {
-            this.#shadowRoot.querySelector(":not(link)")?.focus();
+            this.#shadowRoot.querySelector(":not(link, style)")?.focus();
             return;
         }
 
