@@ -67,7 +67,7 @@ class CIEPickerElement extends UIView {
 
     _onMouseDown(event) {
         console.log(event);
-        document.onmouseup = (e) => this._onMouseUp(e);
+        this.#shadowRoot.ownerDocument.onmouseup = (e) => this._onMouseUp(e);
         this.#image.onmousemove = (e) => this._onClick(e);
         this._onClick(event);
     }
@@ -75,7 +75,7 @@ class CIEPickerElement extends UIView {
 
     _onMouseUp(event) {
         console.log(event);
-        document.onmouseup = undefined;
+        this.#shadowRoot.ownerDocument.onmouseup = undefined;
         this.#image.onmousemove = undefined;
         const evt = new Event("change");
         this.dispatchEvent(evt);

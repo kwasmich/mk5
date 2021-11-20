@@ -75,7 +75,7 @@ class HueMainElement extends UIView {
             this.selectGroup.remove(0);
         }
 
-        const option = document.createElement("option");
+        const option = this.#shadowRoot.ownerDocument.createElement("option");
         option.text = "Alle";
         this.selectGroup.add(option);
 
@@ -83,7 +83,7 @@ class HueMainElement extends UIView {
             const group = groupsObj[grp];
 
             if (group.type === "Room") {
-                const option = document.createElement("option");
+                const option = this.#shadowRoot.ownerDocument.createElement("option");
                 option.value = grp;
                 option.text = group.name;
                 this.selectGroup.add(option);
@@ -104,7 +104,7 @@ class HueMainElement extends UIView {
         for (const lght in this.lightsObj) {
             if (!groupObj || groupObj.lights.includes(lght)) {
                 const light = this.lightsObj[lght];
-                const option = document.createElement("option");
+                const option = this.#shadowRoot.ownerDocument.createElement("option");
                 option.value = lght;
                 option.text = light.name;
                 this.selectLight.add(option);
