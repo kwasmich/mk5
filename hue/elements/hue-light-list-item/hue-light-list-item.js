@@ -1,5 +1,5 @@
 import { UIView } from "/base/ui-view.js";
-import { ct2rgb, IconMap, xy2rgb } from "/hue/hue-utils.js";
+import { ct2rgb, LightIconMap, xy2rgb } from "/hue/hue-utils.js";
 
 
 
@@ -66,8 +66,8 @@ export class HueLightListItem extends UIView {
         if (this.#initialized && this.#light) {
             const { on, bri, ct, hue, sat, xy, colormode, reachable } = this.#light.state
             
-            if (this.#icon.src !== window.origin + IconMap[this.#light.class]) {
-                this.#icon.src = IconMap[this.#light.class];
+            if (this.#icon.src !== window.origin + LightIconMap[this.#light.modelid]) {
+                this.#icon.src = LightIconMap[this.#light.modelid];
             }
 
             this.#name.textContent = this.#light.name;

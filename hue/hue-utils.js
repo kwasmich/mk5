@@ -44,6 +44,23 @@ Object.seal(_IconMap);
 
 export const IconMap = _IconMap;
 
+const _LightIconMap = {
+    "LCT001": "/hue/assets/HueIconPack2019/bulbsSultan.svg",
+    "LCT003": "/hue/assets/HueIconPack2019/bulbsSpot.svg",
+    "LCT012": "/hue/assets/HueIconPack2019/bulbCandle.svg",
+    "LLC012": "/hue/assets/HueIconPack2019/heroesBloom.svg",
+    "LLC020": "/hue/assets/HueIconPack2019/heroesHuego.svg",
+    "LWL001": "/hue/assets/HueIconPack2019/devicesPlug.svg",
+    "RGBW Lighting": "/hue/assets/HueIconPack2019/bulbsClassic.svg",
+    "TS0505B": "/hue/assets/HueIconPack2019/archetypesCeilingSquare.svg",
+    "ZBT-ColorTemperature": "/hue/assets/HueIconPack2019/bulbsClassic.svg",
+    "ZBT-ExtendedColor": "/hue/assets/HueIconPack2019/bulbsClassic.svg",
+};
+
+Object.seal(_LightIconMap);
+
+export const LightIconMap = _LightIconMap;
+
 const _ImageMap = {
     "undefined": "Fassenacht",
     "732ff1d9-76a7-4630-aad0-c8acc499bb0b": "Hell",
