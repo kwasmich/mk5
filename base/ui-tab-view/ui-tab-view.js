@@ -13,6 +13,11 @@ export class UITabView extends UIView {
     #viewIndex = 0;
 
 
+    get views() {
+        return [...this.#views];
+    }
+
+
     constructor(...args) {
         const self = super(args);
         Object.seal(this);

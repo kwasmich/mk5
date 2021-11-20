@@ -5,6 +5,15 @@
     overflow: hidden;
 }
 
+:host(.bottom-tab) nav {
+    order: 2;
+    z-index: 0;
+}
+
+:host(.bottom-tab) div {
+    order: 1;
+}
+
 nav {
     display: flex;
     flex: 0 0 auto;
@@ -23,6 +32,7 @@ nav {
 div {
     display: flex;
     flex: 1 1 1px;
+    flex-direction: column;
     overflow: hidden;
 }
 
