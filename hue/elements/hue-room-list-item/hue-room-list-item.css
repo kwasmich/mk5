@@ -6,6 +6,7 @@
     margin: 2px;
     padding: 8px;
     border-radius: 4px;
+    transition: background-color 500ms ease-in-out;
 }
 
 img {

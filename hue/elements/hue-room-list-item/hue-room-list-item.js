@@ -54,7 +54,7 @@ export class HueRoomListItem extends UIView {
         this.#on = sr.querySelector("input[type=checkbox]");
         this.#on.onchange = (e) => this._onInputChange(e);
         this.#bri = sr.querySelector("input[type=range]");
-        this.#bri .onchange = (e) => this._onInputChange(e);
+        this.#bri.onchange = (e) => this._onInputChange(e);
         this.#initialized = true;
         this._updateView();
     }
@@ -77,7 +77,7 @@ export class HueRoomListItem extends UIView {
                     case "xy":
                         {
                             const [x, y] = xy;
-                            const color = xy2rgb(x, y, 254);
+                            const color = xy2rgb(x, y, 64 + bri / 255 * 191);
                             // console.log(color);
                             this.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
                         }
