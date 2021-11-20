@@ -25,8 +25,8 @@ nav {
 
     /* BUG: Safari */
     /* border-block: 1px solid var(--background-color); */
-    border-top: 1px solid var(--background-color);
-    border-bottom: 1px solid var(--background-color);
+    border-block-start: 1px solid var(--background-color);
+    border-block-end: 1px solid var(--background-color);
 }
 
 div {
