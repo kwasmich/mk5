@@ -20,6 +20,7 @@ export class UIListView extends UIView {
     #listElements = [];
     #shadowRoot = this.attachShadow({ mode: "closed" });
     #template = this.querySelector("TEMPLATE");
+    #cache = [];
 
     get selectMode() {
         return this.getAttribute(SELECT_ATTR) ?? SELECT_NONE;
@@ -74,16 +75,18 @@ export class UIListView extends UIView {
         const elements = this.#listElements;
 
         while (elements.length > this.#listData.length) {
-            root.removeChild(elements.pop());
+            const element = elements.pop();
+            element.remove();
+            this.#cache.push(element);
         }
 
         while (elements.length < this.#listData.length) {
-            const element = this.#template.content.firstElementChild.cloneNode(true);
+            const element = this.#cache.pop() ?? this.#template.content.firstElementChild.cloneNode(true);
+            element.tabIndex = -1;
+            element.onclick = (mouseEvent) => this._onClick(mouseEvent);
             elements.push(element);
             root.appendChild(element);
             customElements.upgrade(element);
-            element.tabIndex = -1;
-            element.onclick = (mouseEvent) => this._onClick(mouseEvent);
         }
 
         this.#listData.forEach((item, idx) => elements[idx].item = item);
@@ -139,7 +142,7 @@ export class UIListView extends UIView {
 
     
     _onClick(mouseEvent) {
-        console.log(mouseEvent);
+        // console.log(mouseEvent);
         const toggle = mouseEvent.metaKey;
         this._select(mouseEvent.currentTarget, toggle);
         mouseEvent.currentTarget?.focus();
