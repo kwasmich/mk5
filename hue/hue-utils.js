@@ -51,7 +51,7 @@ const _LightIconMap = {
     "LLC012": "/hue/assets/HueIconPack2019/heroesBloom.svg",
     "LLC020": "/hue/assets/HueIconPack2019/heroesHuego.svg",
     "LWL001": "/hue/assets/HueIconPack2019/devicesPlug.svg",
-    "RGBW Lighting": "/hue/assets/HueIconPack2019/bulbsClassic.svg",
+    "RGBW Lighting": "/hue/assets/HueIconPack2019/heroesLightstrip.svg",
     "TS0505B": "/hue/assets/HueIconPack2019/archetypesCeilingSquare.svg",
     "ZBT-ColorTemperature": "/hue/assets/HueIconPack2019/bulbsClassic.svg",
     "ZBT-ExtendedColor": "/hue/assets/HueIconPack2019/bulbsClassic.svg",
