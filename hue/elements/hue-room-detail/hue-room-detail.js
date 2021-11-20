@@ -23,6 +23,10 @@ export class HueRoomDetail extends UIView {
 
 
     set hueGroup(val) {
+        if (this.#hueGroup !== val) {
+            this._clearRoom();
+        }
+
         this.#hueGroup = val;
         this.#hueGroups = [val];
         this._updateRoom();
@@ -58,6 +62,14 @@ export class HueRoomDetail extends UIView {
 
         this._updateRoom();
         this._updateList();
+    }
+
+
+    _clearRoom() {
+        const roomListItem = this.#shadowRoot.querySelector("hue-room-list-item");
+        const nextSibling = roomListItem.nextElementSibling;
+        roomListItem.remove();
+        this.#shadowRoot.insertBefore(roomListItem, nextSibling);
     }
 
 

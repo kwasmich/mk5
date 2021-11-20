@@ -21,6 +21,10 @@ export class HueLightList extends UIView {
 
 
     set hueGroup(val) {
+        if (this.#hueGroup !== val) {
+            this._clearList();
+        }
+
         this.#hueGroup = val;
         this._updateList();
     }
@@ -53,6 +57,12 @@ export class HueLightList extends UIView {
     _updateLights(lightsObj) {
         this.#lights = Object.values(lightsObj ?? {});
         this._updateList();
+    }
+
+
+    _clearList() {
+        const listView = this.#shadowRoot.querySelector("ui-list-view");
+        listView.listData = [];
     }
 
 
