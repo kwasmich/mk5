@@ -1,3 +1,10 @@
-<button>back</button>
-<hue-scene-list></hue-scene-list>
-End
+<div>
+    <button>back</button>
+</div>
+<hue-room-list-item></hue-room-list-item>
+<ui-tab-view class="bottom-tab">
+    <div slot="tab">Scenes</div>
+    <hue-scene-list slot="content"></hue-scene-list>
+    <div slot="tab">Lights</div>
+    <hue-light-list slot="content"></hue-light-list>
+</ui-tab-view>
