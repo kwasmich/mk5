@@ -37,7 +37,7 @@ export class ListItemTest extends UIView {
 
 
     _updateView() {
-        this.#shadowRoot.appendChild(document.createTextNode(this.#data));
+        this.#shadowRoot.appendChild(this.#shadowRoot.ownerDocument.createTextNode(this.#data));
     }
 }
 

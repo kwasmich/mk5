@@ -98,7 +98,7 @@ export class MyCanvas extends UIView {
         this.#select = this.#shadowRoot.querySelector("SELECT");
 
         for (const op of opList) {
-            const newOption = document.createElement("OPTION");
+            const newOption = this.#shadowRoot.ownerDocument.createElement("OPTION");
             newOption.textContent = op;
             this.#select.add(newOption);
         }
