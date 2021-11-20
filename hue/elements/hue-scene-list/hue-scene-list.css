@@ -1,6 +1,7 @@
 @import "/style.css";
 
 :host {
-    display: block;
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
