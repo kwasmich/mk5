@@ -1,7 +1,9 @@
 @import "/style.css";
 
 :host {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
 }
 
 :host > :focus {
