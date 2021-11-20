@@ -1,0 +1,41 @@
+@import "/style.css";
+
+:host {
+    display: flex;
+    background-color: gray;
+    margin: 2px;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 500ms ease-in-out;
+}
+
+:host(.unreachable) {
+    outline: 3px dotted red;
+    outline-offset: -3px;
+}
+
+img {
+    flex: 0 0 auto;
+    margin-inline-end: 12px;
+    width: 32px;
+    height: 32px;
+}
+
+div {
+    flex: 1 1 1px;
+    display: flex;
+}
+
+span {
+    flex: 1 1 1px;
+    /* text-shadow: 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white; */
+}
+
+input[type=checkbox] {
+    flex: 0 0 auto;
+}
+
+div.col {
+    flex-direction: column;
+}
+
