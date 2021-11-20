@@ -47,6 +47,19 @@ Decorators are currently NOT supported :(
 class x {}
 ```
 
+```
+new CustomEvent("eventName", {
+    detail: {}, // payload
+    bubbles: true, // let the parent custom element receie the event
+    composed: true // continue to all parents until root
+})
+```
+
+```
+<HTMLElement>.clone(true) // use when the element is being inserted into the same DOM
+<document>.importNode(<HTMLElement>, true) // use when document and HTMLElement are part of different DOMs
+```
+
 
 HTTP
 ----
