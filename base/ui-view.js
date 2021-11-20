@@ -30,13 +30,17 @@ export class UIView extends HTMLElement {
 
         const promises = [
             fetchHTML(path),
-            fetchCSS(path)
+            fetchCSS(path),
+            fetchCSS("/style")
         ];
 
-        const define = async ([html, css, ...args]) => {
+        const define = async ([html, css, css1, ...args]) => {
             const style = document.createElement("STYLE");
             style.textContent = css;
             html.content.insertBefore(style, html.content.firstChild);
+            const style1 = document.createElement("STYLE");
+            style1.textContent = css1;
+            html.content.insertBefore(style1, html.content.firstChild);
             elementClass.htmlTemplate = html;
             Object.seal(elementClass);
             
