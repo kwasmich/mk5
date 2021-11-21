@@ -73,22 +73,22 @@ export class HueLightListItem extends UIView {
             this.#name.textContent = this.#light.name;
             this.#on.checked = on;
             this.#bri.value = bri;
+            // this.#on.disabled = !reachable;
+            // this.#bri.disabled = !reachable;
 
-            if (on) {
+            if (on && reachable) {
                 switch (colormode) {
                     case "xy":
                         {
                             const [x, y] = xy;
                             const color = xy2rgb(x, y, 64 + bri / 255 * 191);
-                            // console.log(color);
                             this.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
                         }
                         break;
 
                     case "ct":
                         {
-                            const color = ct2rgb(ct);
-                            // console.log(color);
+                            const color = ct2rgb(ct); 
                             this.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
                         }
                         break;
@@ -98,6 +98,12 @@ export class HueLightListItem extends UIView {
                             this.style.backgroundColor = "lime";
                         }
                         break;
+
+                    default:
+                        {
+                            const color = 64 + bri / 255 * 191;
+                            this.style.backgroundColor = `rgb(${color}, ${color}, ${color})`;
+                        }
                 }
             } else {
                 this.style.backgroundColor = "#444";

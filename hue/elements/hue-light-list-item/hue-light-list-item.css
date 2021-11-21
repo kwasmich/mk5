@@ -12,6 +12,7 @@
 :host(.unreachable) {
     outline: 3px dotted red;
     outline-offset: -3px;
+    opacity: 0.5;
 }
 
 img {
