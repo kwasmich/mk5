@@ -65,7 +65,7 @@ export default class HueGroup extends HueLight {
 
 
     _setValue(property, newValue) {
-        if (this.action.on || property === "on") {
+        if (this.state.any_on || property === "on") {
             this.action[property] = newValue;
             const action = {};
             action[property] = newValue
