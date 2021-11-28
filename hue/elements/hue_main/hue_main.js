@@ -1,3 +1,4 @@
+import "../hue-primary/hue-primary.js";
 import "../hue-no-detail/hue-no-detail.js";
 import { UIView } from "/base/ui-view.js";
 import Hue from "/hue/hue.js";
@@ -10,7 +11,7 @@ class HueMainElement extends UIView {
     }
 
 
-    #shadowRoot = this.attachShadow({mode: "closed"});
+    #shadowRoot = this.attachShadow({ mode: "closed" });
 
     /** @type {HTMLSelectElement} */
     selectGroup = undefined;

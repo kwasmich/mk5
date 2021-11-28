@@ -8,7 +8,7 @@ class CIEPickerElement extends UIView {
     }
 
 
-    #shadowRoot = this.attachShadow({mode: "closed"});
+    #shadowRoot = this.attachShadow({ mode: "closed" });
     #gamut = [[0, 0], [0, 0], [0, 0]];
     #image = undefined;
     #value = { x:0, y:0 };

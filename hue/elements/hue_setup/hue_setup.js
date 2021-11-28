@@ -17,7 +17,7 @@ class HueSetupElement extends UIView {
     }
 
 
-    #shadowRoot = this.attachShadow({mode: "closed"});
+    #shadowRoot = this.attachShadow({ mode: "closed" });
 
 
     /** @type {HTMLDivElement} */
