@@ -2,7 +2,6 @@ import "./elements/cie_picker/cie_picker.js";
 import "./elements/hue-room-detail/hue-room-detail.js";
 import "./elements/hue-room-list-item/hue-room-list-item.js";
 import "./elements/hue-room-list/hue-room-list.js";
-import "./elements/hue-room-no-detail/hue-room-no-detail.js";
 import "./elements/hue_main/hue_main.js";
 import "./elements/hue_setup/hue_setup.js";
 import "./elements/light_control/light_control.js";

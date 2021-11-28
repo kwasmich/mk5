@@ -1,3 +1,4 @@
+import "../hue-no-detail/hue-no-detail.js";
 import { UIView } from "/base/ui-view.js";
 import Hue from "/hue/hue.js";
 
