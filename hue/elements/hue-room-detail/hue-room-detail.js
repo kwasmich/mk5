@@ -45,16 +45,22 @@ export class HueRoomDetail extends UIView {
 
     adoptedCallback() {}
     attributeChangedCallback(name, oldValue, newValue) {}
-    connectedCallback() {}
-    disconnectedCallback() {}
+
+
+    connectedCallback() {
+        const navigationView = this.closest("ui-navigation-view");
+        const backButton = this.#shadowRoot.querySelector("button");
+        backButton.onclick = () => navigationView.popToRootView();
+    }
+    
+    
+    disconnectedCallback() {
+        const backButton = this.#shadowRoot.querySelector("button");
+        backButton.onclick = undefined;
+    }
 
 
     onInit() {
-        const backButton = this.#shadowRoot.querySelector("button");
-        const navigationView = this.closest("ui-navigation-view");
-        
-        backButton.onclick = () => navigationView.popToRootView();
-
         this.#groupsSubscription  = (value) => {
             this.#hueGroups = Object.values(value ?? {});
             this._updateRoom();
