@@ -1,4 +1,3 @@
-import "../hue-light-list-item/hue-light-list-item.js";
 import "../hue-light-list/hue-light-list.js";
 import "../hue-scene-list-item/hue-scene-list-item.js";
 import "../hue-scene-list/hue-scene-list.js";
@@ -52,7 +51,9 @@ export class HueRoomDetail extends UIView {
 
     onInit() {
         const backButton = this.#shadowRoot.querySelector("button");
-        backButton.onclick = () => this.parentNode.popToRootView();
+        const navigationView = this.closest("ui-navigation-view");
+        
+        backButton.onclick = () => navigationView.popToRootView();
 
         this.#groupsSubscription  = (value) => {
             this.#hueGroups = Object.values(value ?? {});

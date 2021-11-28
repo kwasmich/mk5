@@ -9,6 +9,7 @@ import "/base/ui-list-view/ui-list-view.js";
 import "/base/ui-navigation-view/ui-navigation-view.js";
 import "/base/ui-tab-view/ui-tab-view.js";
 import Hue from "/hue/hue.js";
+import "/util/custom_element_helper.js";
 import "/util/security.js";
 
 

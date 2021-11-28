@@ -61,11 +61,12 @@ export class HueRoomList extends UIView {
 
     _onSelectRoom(customEvent) {
         const hueGroups = customEvent.detail;
-        const currentView = this.parentNode._currentView;
+        const navigationView = this.closest("ui-navigation-view");
+        const currentView = navigationView._currentView;
 
         if (!(currentView instanceof HueRoomDetail)) {
-            this.parentNode.popToRootView();
-            this.parentNode.pushView(this.#detailView);
+            navigationView.popToRootView();
+            navigationView.pushView(this.#detailView);
         }
 
         this.#detailView.hueGroup = hueGroups[0];

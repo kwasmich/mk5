@@ -45,21 +45,23 @@ export class Dummy extends UIView {
 
 
     _onClick(mouseEvent) {
+        const navigationView = this.closest("ui-navigation-view");
+
         switch (mouseEvent.currentTarget.textContent) {
             case "A":
-                this.parentNode.pushView(new DummyA());
+                navigationView.pushView(new DummyA());
                 break;
 
             case "B":
-                this.parentNode.pushView(new DummyB());
+                navigationView.pushView(new DummyB());
                 break;
 
             case "C":
-                this.parentNode.pushView(new DummyC());
+                navigationView.pushView(new DummyC());
                 break;
 
             default:
-                this.parentNode.popView();
+                navigationView.popView();
                 break;
         }
     }

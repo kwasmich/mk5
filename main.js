@@ -5,8 +5,9 @@ import "/base/ui.js";
 import "/elements/canvas/canvas.js";
 import "/elements/form_test/form_test.js";
 import "/elements/list_test/list_test.js";
-import "/elements/tab_test/tab_test.js";
 import "/elements/navigation_test/navigation_test.js";
+import "/elements/tab_test/tab_test.js";
+import "/util/custom_element_helper.js";
 import "/util/security.js";
 
 
