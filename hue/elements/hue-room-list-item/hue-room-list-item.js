@@ -83,7 +83,7 @@ export class HueRoomListItem extends UIView {
             }
 
             this.#name.textContent = this.#room.name;
-            this.#on.checked = this.#room.state.any_on; // on
+            this.#on.checked = this.#room.state.any_on;
             this.#bri.value = bri;
 
             const lights = this.#room.lights.sort((a,b) => +a - +b).map((l) => this.#lights[l]);
@@ -94,12 +94,12 @@ export class HueRoomListItem extends UIView {
             }
 
             if (colors.length === 1) {
-                this.style.background = undefined;
+                this.style.background = "";
                 this.style.backgroundColor = colors.join();
             } else if (colors.length > 1) {
-                this.style.background = `linear-gradient(90deg, ${colors.join()})`;
+                this.style.background = `linear-gradient(to right bottom, ${colors.join()})`;
             } else {
-                this.style.background = undefined;
+                this.style.background = "";
                 this.style.backgroundColor = "#444";
             }
         }

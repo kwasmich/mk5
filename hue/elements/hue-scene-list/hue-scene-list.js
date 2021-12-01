@@ -60,12 +60,7 @@ export class HueSceneList extends UIView {
             scenes.push(scene);
         }
 
-        // console.log(JSON.stringify(map));
-
-        scenes = scenes.filter((scn) => scn.type === "GroupScene");
-        scenes = scenes.filter((scn) => scn.recycle === false);
         this.#scenes = scenes;
-
         this._updateList();
     }
 

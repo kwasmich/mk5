@@ -21,10 +21,17 @@ class Hue {
         this.update();
         document.onvisibilitychange = () => this.update();
         const scenes = await HueService.query("GET", ["scenes"], null);
-        const x = Object.keys(scenes).map((k) => ({ key: k, value: scenes[k]}));
-        // console.log(x.filter((x) => x.value.group === "6"));
+        let sceneList = Object.keys(scenes).map((k) => ({ key: k, value: scenes[k]}));
+        sceneList = sceneList.filter((scn) => scn.value.type === "GroupScene");
+        sceneList = sceneList.filter((scn) => scn.value.recycle === false);
+        const sceneKeys = sceneList.map((scn) => scn.key);
+        const noImage = sceneList.filter((scn) => !scn.value.image)
+        const noImageKeys = noImage.map((scn) => scn.key);
+        const extendedScenes = await Promise.all(noImageKeys.map((k) => HueService.query("GET", ["scenes", k], null)));
 
-        for (const scene in scenes) {
+        noImageKeys.forEach((key, idx) => scenes[key] = extendedScenes[idx]);
+
+        for (const scene of sceneKeys) {
             Object.setPrototypeOf(scenes[scene], HueScene.prototype);
             scenes[scene].init(scene);
         }
