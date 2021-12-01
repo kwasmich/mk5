@@ -1,5 +1,6 @@
 import Hue from "/hue/hue.js";
 import HueService from "/hue/hue.service.js";
+import { ct2rgb, xy2rgb } from "/hue/hue-utils.js";
 
 
 
@@ -53,6 +54,45 @@ export default class HueLight extends Object {
 
     get id() {
         return this[priv].lightID;
+    }
+
+    
+    get color() {
+        const { on, bri, ct, hue, sat, xy, colormode, reachable } = this.state;
+    
+        if (on && reachable) {
+            switch (colormode) {
+                case "xy":
+                    {
+                        const [x, y] = xy;
+                        const color = xy2rgb(x, y, 64 + bri / 255 * 191);
+                        return `rgb(${color.r}, ${color.g}, ${color.b})`;
+                    }
+    
+                case "ct":
+                    {
+                        const factor = (127 * 254 + bri * 127) / 254 / 254;
+                        const color = ct2rgb(ct);
+                        color.r *= factor;
+                        color.g *= factor;
+                        color.b *= factor;
+                        return `rgb(${color.r}, ${color.g}, ${color.b})`;
+                    }
+    
+                case "hs":
+                    {
+                        return "lime";
+                    }
+    
+                default:
+                    {
+                        const color = 127 + bri * 127 / 254;
+                        return `rgb(${color}, ${color}, ${color})`;
+                    }
+            }
+        } else {
+            return "";
+        }
     }
 
 

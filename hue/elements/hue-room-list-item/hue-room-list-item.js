@@ -1,41 +1,8 @@
 import { UIView } from "/base/ui-view.js";
-import { ct2rgb, IconMap, xy2rgb } from "/hue/hue-utils.js";
+import { IconMap } from "/hue/hue-utils.js";
 import Hue from "/hue/hue.js";
 
 
-function color(state) {
-    const { on, bri, ct, hue, sat, xy, colormode, reachable } = state;
-
-    if (on && reachable) {
-        switch (colormode) {
-            case "xy":
-                {
-                    const [x, y] = xy;
-                    const color = xy2rgb(x, y, 64 + bri / 255 * 191);
-                    return `rgb(${color.r}, ${color.g}, ${color.b})`;
-                }
-
-            case "ct":
-                {
-                    const color = ct2rgb(ct); 
-                    return `rgb(${color.r}, ${color.g}, ${color.b})`;
-                }
-
-            case "hs":
-                {
-                    return "lime";
-                }
-
-            default:
-                {
-                    const color = 64 + bri / 255 * 191;
-                    return `rgb(${color}, ${color}, ${color})`;
-                }
-        }
-    } else {
-        return "";
-    }
-}
 
 
 
@@ -119,40 +86,8 @@ export class HueRoomListItem extends UIView {
             this.#on.checked = this.#room.state.any_on; // on
             this.#bri.value = bri;
 
-            // if (on) { //(this.#room.state.any_on) {
-            //     switch (colormode) {
-            //         case "xy":
-            //             {
-            //                 const [x, y] = xy;
-            //                 const color = xy2rgb(x, y, 64 + bri / 255 * 191);
-            //                 // console.log(color);
-            //                 this.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
-            //             }
-            //             break;
-
-            //         case "ct":
-            //             {
-            //                 const color = ct2rgb(ct);
-            //                 // console.log(color);
-            //                 this.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
-            //             }
-            //             break;
-
-            //         case "hs":
-            //             {
-            //                 this.style.backgroundColor = "lime";
-            //             }
-            //             break;
-            //     }
-            // } else {
-            //     this.style.backgroundColor = "#444";
-            // }
-
-            // console.log(this.#room);
-            // console.log(this.#lights);
-
             const lights = this.#room.lights.sort((a,b) => +a - +b).map((l) => this.#lights[l]);
-            const colors = lights.map((l) => color(l.state)).filter((s) => !!s);
+            const colors = lights.map((l) => l.color).filter((s) => !!s);
 
             while (colors.length < lights.length) {
                 colors.push("#444");
