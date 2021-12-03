@@ -6,7 +6,147 @@ const SVG_NS = "http://www.w3.org/2000/svg";
 
 
 function doit() {
-    fetch("rushmore.tri").then((resp) => resp.arrayBuffer()).then(buffer => render(buffer));
+    // fetch("rushmore.tri").then((resp) => resp.arrayBuffer()).then(buffer => render(buffer));
+    const img = new Image();
+    img.src = "rushmore.jpg";
+    img.onload = () => compute(img);
+}
+
+
+function drawDot(ctx, canvas, [x, y]) {
+    const radius = 3;
+
+    ctx.beginPath();
+    ctx.arc(x * canvas.width, y * canvas.height, radius, 0, 2 * Math.PI, false);
+    ctx.fillStyle = 'lime';
+    ctx.fill();
+}
+
+
+function clamp(a, min, max) {
+    return Math.max(Math.min(a, max), min);
+}
+
+
+function rndVertex() {
+    const r = Math.sqrt(Math.random()) * Math.sqrt(2);
+    const phi = Math.random() * Math.PI * 2;
+    const x = r * Math.cos(phi) * 0.5 + 0.5;
+    const y = r * Math.sin(phi) * 0.5 + 0.5;
+    return [clamp(x, 0, 1), clamp(y, 0, 1)];
+}
+
+
+function compute(img) {
+    const canvas = document.querySelector("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#088";
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+    ctx.drawImage(img, 0, 0);
+
+    const pixel = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const strideX = 4;
+    const strideY = strideX * canvas.width;
+
+    let vertices = [[0, 0], [1, 0], [0, 1], [1, 1]];
+    let prevError = Number.MAX_SAFE_INTEGER;
+
+    for (let i = 0; i < 1156; i++) {
+        vertices.push(rndVertex());
+    }
+
+    const swapLen = 3; // vertices.length/200;
+    const jitterLen = vertices.length/50;
+
+    const retry = () => {
+        const prev = [...vertices];
+
+        for (let i = 0; i < swapLen; i++) {
+            const idx = 4 + Math.floor(Math.random() * (vertices.length - 4));
+            vertices[idx] = rndVertex();
+        }
+
+        for (let i = 0; i < jitterLen; i++) {
+            const idx = 4 + Math.floor(Math.random() * (vertices.length - 4));
+            vertices[idx][0] = clamp(vertices[idx][0] + (Math.random() * 2 - 1) / 200, 0, 1);
+            vertices[idx][1] = clamp(vertices[idx][1] + (Math.random() * 2 - 1) / 200, 0, 1);
+        }
+
+        // console.time('delaunay');
+        const delaunay = Delaunator.from(vertices);
+        // console.timeEnd('delaunay');
+        
+        // console.time('render');
+        const triangles = delaunay.triangles;
+        // let error = 0;
+    
+        for (let i = 0; i < triangles.length; i += 3) {
+            const p0 = [vertices[triangles[i+0]][0] * (canvas.width - 1), vertices[triangles[i+0]][1] * (canvas.height - 1)];
+            const p1 = [vertices[triangles[i+1]][0] * (canvas.width - 1), vertices[triangles[i+1]][1] * (canvas.height - 1)];
+            const p2 = [vertices[triangles[i+2]][0] * (canvas.width - 1), vertices[triangles[i+2]][1] * (canvas.height - 1)];
+            const px = [(p0[0] + p1[0] + p2[0]) / 3, (p0[1] + p1[1] + p2[1]) / 3];
+            // const pixel = ctx.getImageData(px[0], px[1], 1, 1);
+            const coords = [p0, p1, p2, px];
+            const cLen = coords.length;
+
+            const color = coords.reduce((acc, p) => {
+                const x = Math.floor(p[0]);
+                const y = Math.floor(p[1]);
+                const index = x * strideX + y * strideY;
+                const data = pixel.data.slice(index, index + 4);
+                return [acc[0] + data[0], acc[1] + data[1], acc[2] + data[2], acc[3] + data[3]];
+            }, [0, 0, 0, 0])
+
+            // error += coords.reduce((acc, p) => {
+            //     const x = Math.floor(p[0]);
+            //     const y = Math.floor(p[1]);
+            //     const index = x * strideX + y * strideY;
+            //     const data = pixel.data.slice(index, index + 4);
+            //     const dr = Math.abs(data[0] - color[0]);
+            //     const dg = Math.abs(data[1] - color[1]);
+            //     const db = Math.abs(data[2] - color[2]);
+
+            //     return acc + dr + dg + db;
+            // }, 0)
+            
+            
+            const rgba = `rgba(${color[0] / cLen}, ${color[1] / cLen}, ${color[2] / cLen}, ${color[3] / cLen / 255})`;
+            ctx.fillStyle = rgba;
+            ctx.strokeStyle = rgba;
+            // ctx.fillStyle = "#f0f";
+            ctx.beginPath();
+            ctx.moveTo(...p0);
+            ctx.lineTo(...p1);
+            ctx.lineTo(...p2);
+            ctx.closePath();
+            ctx.stroke();
+            ctx.fill();
+        }
+        // console.timeEnd('render');
+    
+        // console.time('eval');
+        const evaluate = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const error = pixel.data.reduce((acc, p, idx) => acc + Math.abs(p - evaluate.data[idx]) * Math.abs(p - evaluate.data[idx]), 0);
+        // console.timeEnd('eval');
+
+        if (error > prevError) {
+            vertices = [...prev];
+        } else {
+            prevError = error;
+            console.log(error);
+        }
+
+        // for (const v of vertices) {
+        //     drawDot(ctx, canvas, v);
+        // }
+
+        setTimeout(requestAnimationFrame, 1000, retry);
+        // requestAnimationFrame(retry);
+    }
+
+    requestAnimationFrame(retry);
 }
 
 
@@ -191,16 +331,16 @@ function parseData(data) {
         }
     }
 
-    let width = data.getUint16(0, true);
-    let height = data.getUint16(2, true);
-    triangles.forEach((tri) => tri.triangle = tri.triangle.map((y) => {
-        // console.log(...y);
-        // y[0] = Math.floor(y[0] * 256 / width);
-        // y[1] = Math.floor(y[1] * 256 / height);
-        // console.log(...y);
-        return [Math.floor(y[0] * 256 / width) * width / 256, Math.floor(y[1] * 256 / height) * height / 256];
-    }));
-    triangles.forEach((tri) => console.log(tri));
+    // let width = data.getUint16(0, true);
+    // let height = data.getUint16(2, true);
+    // triangles.forEach((tri) => tri.triangle = tri.triangle.map((y) => {
+    //     // console.log(...y);
+    //     // y[0] = Math.floor(y[0] * 256 / width);
+    //     // y[1] = Math.floor(y[1] * 256 / height);
+    //     // console.log(...y);
+    //     return [Math.floor(y[0] * 256 / width) * width / 256, Math.floor(y[1] * 256 / height) * height / 256];
+    // }));
+    // triangles.forEach((tri) => console.log(tri));
     return triangles;
 }
 
