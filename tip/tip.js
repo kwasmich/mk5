@@ -47,7 +47,7 @@ const mutate = (popEl, mutated) => {
 
     for (let i = 4; i < popEl.vertices.length; i++) {
         if (Math.random() < rate) {
-            const old = [...vertices[i]];
+            // const old = [...vertices[i]];
             popEl.vertices[i][0] += normalRandom() * amount * 0.5;
             popEl.vertices[i][1] += normalRandom() * amount * 0.5;
             constrainVertex(popEl.vertices[i]);
