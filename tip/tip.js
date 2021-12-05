@@ -41,108 +41,32 @@ function normalRandom() {
 }
 
 
-const mutator = (vertices, mutated) => {
+const mutate = (popEl, mutated) => {
     const rate = 0.01;
     const amount = 0.3;
 
-    for (let i = 0; i < vertices.length; i++) {
+    for (let i = 4; i < popEl.vertices.length; i++) {
         if (Math.random() < rate) {
-            // const old = [...vertices[i]];
-            vertices[i][0] += normalRandom() * amount * 0.5;
-            vertices[i][1] += normalRandom() * amount * 0.5;
-            constrainVertex(vertices[i]);
+            const old = [...vertices[i]];
+            popEl.vertices[i][0] += normalRandom() * amount * 0.5;
+            popEl.vertices[i][1] += normalRandom() * amount * 0.5;
+            constrainVertex(popEl.vertices[i]);
             // mutated({ old, new: vertices[i], index: i });
         }
+
+        if (Math.random() < rate * rate) {
+            popEl.vertices[i] = rndVertex();
+        }
+
+        // if (Math.random() < rate) {
+        //     popEl.vertices[i][0] = clamp(popEl.vertices[i][0] + (Math.random() * 2 - 1) / 200, 0, 1);
+        //     popEl.vertices[i][1] = clamp(popEl.vertices[i][1] + (Math.random() * 2 - 1) / 200, 0, 1);
+        // }
     }
+
+    popEl.error = undefined;
+    popEl.triangles = undefined;
 };
-
-
-// class GeneticAlgorithm {
-//     newPointGroup = undefined;
-//     size = undefined;
-//     cutoff = undefined;
-//     evaluator = undefined;
-//     mutator = undefined;
-//     population = [];
-//     newPopulation = [];
-//     best = undefined;
-//     fitnesses = undefined;
-//     mutations = undefined;
-//     beneficialMutations = undefined;
-
-//     constructor(newPointGroup, size, cutoff, evaluator, mutator) {
-//         this.newPointGroup = newPointGroup;
-//         this.size = size;
-        
-//         for (let i = 0; i < size; i++) {
-//             const vertices = newPointGroup();
-//             this.population.push(vertices);
-//             this.newPopulation.push(JSON.parse(JSON.stringify(vertices)));  // this is a deep copy
-//         }
-        
-//         this.best = JSON.parse(JSON.stringify(this.population[0]));
-//         this.evaluator = evaluator;
-//         this.fitnesses = new Array(size);
-//         this.mutations = new Array(size);
-//         this.beneficialMutations = new Array(cutoff);
-//         this.mutator = mutator;
-//         this.cutoff = cutoff;
-
-//         this.calculateFitnesses();
-//         this.updateFitnesses();
-
-//         return this;
-//     }
-
-//     calculateFitnesses() {
-//         ch := make(chan FitnessData, len(g.population)) // Buffered channel for performance
-    
-//         for i := 0; i < len(g.population)-g.cutoff; i++ {
-//             i := i
-//             p := g.population[i]
-//             e := g.evaluator.Get(i)
-//             // Workers calculate the fitness of each member
-//             ants.Submit(
-//                 func() {
-//                     fit := e.Calculate(fitness.PointsData{
-//                         Points:    p,
-//                         Mutations: g.mutations[i],
-//                     })
-//                     ch <- FitnessData{
-//                         I:       i,
-//                         Fitness: fit,
-//                     }
-//                 },
-//             )
-//             g.fitnesses[i].I = i // Assign an index to each fitness so it can be found after being sorted
-//         }
-    
-//         g.evaluator.Prepare()
-    
-//         done := 0
-//         for d := range ch {
-//             g.fitnesses[d.I].Fitness = d.Fitness
-//             g.evaluator.Update(d.I)
-    
-//             // If the new fitness of a member is higher than its base, that means its mutations were beneficial
-//             if d.Fitness > g.fitnesses[g.getBase(d.I)].Fitness {
-//                 g.setBeneficial(d.I)
-//             }
-    
-//             done++
-//             if done == len(g.population)-g.cutoff { // Wait till all the fitnesses are calculated
-//                 close(ch)
-//             }
-//         }
-    
-//     }
-// }
-
-
-
-// const algo = new GeneticAlgorithm(pointFactory, 400, 5, undefined, mutator);
-
-
 
 
 function doit() {
@@ -153,8 +77,9 @@ function doit() {
 }
 
 
-function drawDot(ctx, canvas, [x, y]) {
+function drawDot(canvas, [x, y]) {
     const radius = 3;
+    const ctx = canvas.getContext("2d",);
 
     ctx.beginPath();
     ctx.arc(x * canvas.width, y * canvas.height, radius, 0, 2 * Math.PI, false);
@@ -168,38 +93,55 @@ function clamp(a, min, max) {
 }
 
 
+function clonePopEl(popEl) {
+    const vertices = popEl.vertices.map((v) => [...v]);
+    const triangles = Uint32Array.from(popEl.triangles);
+    const error = popEl.error;
+    return { vertices, triangles, error };
+}
+
 
 function compute(img) {
-    const backBuffer = document.createElement("canvas");
-    backBuffer.width = img.width;
-    backBuffer.height = img.height;
-    const canvas = document.querySelector("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#088";
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
-    ctx.drawImage(img, 0, 0);
-
-    const srcPixel = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const strideX = 4;
-    const strideY = strideX * canvas.width;
-
-    let vertices = [[0, 0], [1, 0], [0, 1], [1, 1]];
+    const backBuffer = document.querySelector("canvas#back");
+    // const backBuffer = document.createElement("canvas"); // pretty slow: new OffscreenCanvas(img.width / 8, img.height / 8);
+    backBuffer.width = img.width / 8;
+    backBuffer.height = img.height / 8;
+    const ctxBack = backBuffer.getContext("2d", { willReadFrequently: true });
+    const frontBuffer = document.querySelector("canvas#front");
+    frontBuffer.width = img.width;
+    frontBuffer.height = img.height;
+    const ctxFront = frontBuffer.getContext("2d");
+    ctxBack.fillStyle = "#088";
+    ctxBack.fillRect(0, 0, backBuffer.width, backBuffer.height)
+    // ctxBack.filter("blur(8px)");
+    ctxBack.imageSmoothingQuality = "high";
+    ctxBack.drawImage(img, 0, 0, backBuffer.width, backBuffer.height);
+    const srcPixel = ctxBack.getImageData(0, 0, backBuffer.width, backBuffer.height);
     
-    for (let i = 0; i < 1156; i++) {
-        vertices.push(rndVertex());
-    }
+    const strideX = 4;
+    const strideY = strideX * backBuffer.width;
+    const POPULATION_SIZE = 400;
+    const CUT_OFF = 5;  // 5 elements of the first population always survive without mutation
+
+    const newPopulationElement = () => {
+        const vertices = [[0, 0], [1, 0], [0, 1], [1, 1]];
+    
+        for (let i = 0; i < 1156; i++) {
+            vertices.push(rndVertex());
+        }
+
+        return { vertices, triangles: undefined, error: undefined };
+    };
+
+    let population = [...Array(POPULATION_SIZE)].map(() => newPopulationElement());
     
     let prevError = Number.MAX_SAFE_INTEGER;
 
-    const render = (canvas, triangles) => {
-        const ctx = canvas.getContext("2d");
-
+    const render = (ctx, canvas, {triangles, vertices}) => {
         for (let i = 0; i < triangles.length; i += 3) {
-            const p0 = [vertices[triangles[i+0]][0] * (canvas.width - 1), vertices[triangles[i+0]][1] * (canvas.height - 1)];
-            const p1 = [vertices[triangles[i+1]][0] * (canvas.width - 1), vertices[triangles[i+1]][1] * (canvas.height - 1)];
-            const p2 = [vertices[triangles[i+2]][0] * (canvas.width - 1), vertices[triangles[i+2]][1] * (canvas.height - 1)];
+            const p0 = [vertices[triangles[i+0]][0] * (backBuffer.width - 1), vertices[triangles[i+0]][1] * (backBuffer.height - 1)];
+            const p1 = [vertices[triangles[i+1]][0] * (backBuffer.width - 1), vertices[triangles[i+1]][1] * (backBuffer.height - 1)];
+            const p2 = [vertices[triangles[i+2]][0] * (backBuffer.width - 1), vertices[triangles[i+2]][1] * (backBuffer.height - 1)];
             const px = [(p0[0] + p1[0] + p2[0]) / 3, (p0[1] + p1[1] + p2[1]) / 3];
             const p01 = [(p0[0] + p1[0]) / 2, (p0[1] + p1[1]) / 2];
             const p02 = [(p0[0] + p2[0]) / 2, (p0[1] + p2[1]) / 2];
@@ -215,21 +157,25 @@ function compute(img) {
                 return [acc[0] + data[0], acc[1] + data[1], acc[2] + data[2], acc[3] + data[3]];
             }, [0, 0, 0, 0]);
             
+            const v0 = [vertices[triangles[i+0]][0] * (canvas.width - 1), vertices[triangles[i+0]][1] * (canvas.height - 1)];
+            const v1 = [vertices[triangles[i+1]][0] * (canvas.width - 1), vertices[triangles[i+1]][1] * (canvas.height - 1)];
+            const v2 = [vertices[triangles[i+2]][0] * (canvas.width - 1), vertices[triangles[i+2]][1] * (canvas.height - 1)];
+
             const rgba = `rgba(${color[0] / cLen}, ${color[1] / cLen}, ${color[2] / cLen}, ${color[3] / cLen / 255})`;
             ctx.fillStyle = rgba;
             ctx.strokeStyle = rgba;
             // ctx.fillStyle = "#f0f";
             ctx.beginPath();
-            ctx.moveTo(...p0);
-            ctx.lineTo(...p1);
-            ctx.lineTo(...p2);
+            ctx.moveTo(...v0);
+            ctx.lineTo(...v1);
+            ctx.lineTo(...v2);
             ctx.closePath();
             ctx.stroke();
             ctx.fill();
         }
     }
 
-    const error1 = (triangles) => {
+    const error1 = ({vertices, triangles}, canvas) => {
         let error = 0;
     
         for (let i = 0; i < triangles.length; i += 3) {
@@ -265,47 +211,76 @@ function compute(img) {
         return error;
     }
 
-    const error2 = (triangles) => {
-        render(backBuffer, triangles);
-        const ctx = backBuffer.getContext("2d");
+    const error2 = (ctx, popEl) => {
+        render(ctx, backBuffer, popEl);
         const evaluate = ctx.getImageData(0, 0, backBuffer.width, backBuffer.height);
         const error = srcPixel.data.reduce((acc, p, idx) => acc + Math.abs(p - evaluate.data[idx]) * Math.abs(p - evaluate.data[idx]), 0);
         return error;
     }
 
+    const calculateError = () => {
+        for (const p of population) {
+            if (!p.triangles) {
+                const delaunay = Delaunator.from(p.vertices);
+                const triangles = delaunay.triangles;
+                p.triangles = triangles;
+            }
+
+            p.error = error2(ctxBack, p, backBuffer);
+        }
+    };
+
+    const newGeneration = () => {
+        let i = 0;
+
+        for (i = 0; i < CUT_OFF; i++) {
+            newPopulation[i] = clonePopEl(population[i]);
+        }
+
+        while (i < POPULATION_SIZE) {
+            for (let j = 0; j < CUT_OFF && i < POPULATION_SIZE; j++) {
+                newPopulation[i] = clonePopEl(population[j]);
+                mutate(newPopulation[i]);
+                i++;
+            }
+        }
+
+        const tmp = population;
+        population = newPopulation;
+        newPopulation = tmp;
+    };
+
+    console.time("error");
+    calculateError();
+    console.timeEnd("error");
+    let newPopulation = [];
+    population.sort((a, b) => a.error - b.error);
+    let best = clonePopEl(population[0]);
+
+    render(ctxFront, frontBuffer, best);
+
+    // for (const v of best.vertices) {
+    //     drawDot(frontBuffer, v);
+    // }
+
     const retry = () => {
-        // console.time('iteration');
-        const prev = JSON.parse(JSON.stringify(vertices));
+        console.time('iteration');
 
-        // vertices = [[0, 0], [1, 0], [0, 1], [1, 1]];
-    
-        // for (let i = 0; i < 1156; i++) {
-        //     vertices.push(rndVertex());
+        newGeneration();
+        calculateError();
+
+        population.sort((a, b) => a.error - b.error);
+        best = clonePopEl(population[0]);
+
+        render(ctxFront, frontBuffer, best);
+
+        // for (const v of best.vertices) {
+        //     drawDot(ctx, canvas, v);
         // }
-
-        mutator(vertices.slice(4), () => undefined);
-
-        const delaunay = Delaunator.from(vertices);
-        const triangles = delaunay.triangles;
-    
-        const error = error2(triangles);
-
-        if (error > prevError) {
-            vertices = [...prev];
-        } else {
-            prevError = error;
-            console.log(error);
-        }
-
-        render(canvas, triangles);
-
-        for (const v of vertices) {
-            drawDot(ctx, canvas, v);
-        }
 
         // setTimeout(requestAnimationFrame, 1000, retry);
         requestAnimationFrame(retry);
-        // console.timeEnd('iteration');
+        console.timeEnd('iteration');
     }
 
     requestAnimationFrame(retry);
