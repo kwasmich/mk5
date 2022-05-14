@@ -23,7 +23,29 @@ export class MyForm extends UIView {
 
     adoptedCallback() {}
     attributeChangedCallback(name, oldValue, newValue) {}
-    connectedCallback() {}
+    connectedCallback() {
+        // const style = document.styleSheets[0];
+        // const target = this.#shadowRoot.styleSheets[0]
+        // console.log("connected");
+        // console.log(target);
+        // console.log(style);
+        // let count = 0;
+
+        // for (let rule of style.cssRules) {
+        //     target.insertRule(rule.cssText, count++);
+        // }
+
+        // target.insertRule("button { border: 1px solid white; }", count++);
+
+        // const r = document.styleSheets[0].cssRules.item(6);
+        // const rule = r.cssText;
+        // console.log(r);
+        // const styleElement = this.#shadowRoot.querySelector("style");
+        // styleElement.textContent += rule;
+
+        // console.log(target);
+
+    }
     disconnectedCallback() {}
 }
 
