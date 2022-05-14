@@ -70,10 +70,10 @@ const mutate = (popEl, mutated) => {
 
 
 function doit() {
-    // fetch("rushmore.tri").then((resp) => resp.arrayBuffer()).then(buffer => render(buffer));
-    const img = new Image();
-    img.src = "rushmore.jpg";
-    img.onload = () => compute(img);
+    fetch("rushmore.tri").then((resp) => resp.arrayBuffer()).then(buffer => render(buffer));
+    // const img = new Image();
+    // img.src = "rushmore.jpg";
+    // img.onload = () => compute(img);
 }
 
 
