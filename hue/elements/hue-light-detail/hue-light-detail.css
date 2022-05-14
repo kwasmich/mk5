@@ -1,0 +1,12 @@
+@import "/style.css";
+
+:host {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+mk-cie-picker {
+    display: block;
+    width: 240px;
+}

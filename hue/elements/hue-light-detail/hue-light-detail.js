@@ -1,28 +1,32 @@
+import "../hue-light-list-item/hue-light-list-item.js";
 import { UIView } from "/base/ui-view.js";
 import Hue from "/hue/hue.js";
 
 
 
-
-
-class LightControlElement extends UIView {
+export class HueLightDetail extends UIView {
     static get observedAttributes() {
-        return ["light"];
+        return [];
     }
 
 
-    #light = undefined;
-    #lightObj = {};
     #shadowRoot = this.attachShadow({ mode: "closed" });
+    #light = undefined;
 
 
     get light() {
         return this.#light;
     }
-    
-    
-    set light(v) {
-        this.setAttribute("light", v);
+
+
+    set light(val) {
+        // if (this.#light !== val) {
+        //     this._clearLight();
+        // }
+
+        this.#light = val;
+        this._updateLight();
+        this._updateRendering();
     }
 
 
@@ -31,41 +35,20 @@ class LightControlElement extends UIView {
         Object.seal(this);
 
         this._init(this.#shadowRoot);
-        this.onInit();
+        // this.onInit();
         return self;
     }
-    
-    
 
 
-    
     adoptedCallback() {}
-    
+    attributeChangedCallback(name, oldValue, newValue) {}
 
-    attributeChangedCallback(name, oldValue, newValue) {
-        // name will always be "name" due to observedAttributes
-        this.#light = newValue;
-        this._updateRendering();
-    }
-    
-    
+
     connectedCallback() {
-        this._updateRendering();
-    }
+        const navigationView = this.closest("ui-navigation-view");
+        const backButton = this.#shadowRoot.querySelector("button");
+        backButton.onclick = () => navigationView.popToRootView();
 
-
-    disconnectedCallback() {}
-    // formAssociatedCallback() {}
-    // formDisabledCallback() {}
-    // formResetCallback() {}
-    // formStateRestoreCallback() {}
-        
-    
-    onInit() {
-        Hue.lights.subscribe((value) => {
-            this.#lightObj = value ?? {};
-            this._updateRendering();
-        });
 
         const inputs = this.#shadowRoot.querySelectorAll("input");
         
@@ -79,21 +62,32 @@ class LightControlElement extends UIView {
         const effectColorloop = this.#shadowRoot.querySelector("#effectColorloop");
         const effectNone = this.#shadowRoot.querySelector("#effectNone");
         effectColorloop.onclick = () => {
-            this.#lightObj[this.#light].effect = "colorloop";
+            this.#light.effect = "colorloop";
         };
         effectNone.onclick = () => {
-            this.#lightObj[this.#light].effect = "none";
+            this.#light.effect = "none";
         };
     }
     
     
+    disconnectedCallback() {
+        const backButton = this.#shadowRoot.querySelector("button");
+        backButton.onclick = undefined;
+    }
+
+
+    _updateLight() {
+        const lightListItem = this.#shadowRoot.querySelector("hue-light-list-item");
+        lightListItem.item = this.#light;
+    }
+
     _updateRendering() {
         const p = this.#shadowRoot.querySelector("p");
         if (!p) return;
-        const l = this.#lightObj[this.#light];
+        const l = this.#light;
         if (!l) return;
         
-        p.textContent = this.#light;
+        p.textContent = this.#light.id;
         
         const on = this.#shadowRoot.querySelector("input[name=on]");
         on.checked = l.state.on;
@@ -117,7 +111,7 @@ class LightControlElement extends UIView {
     
     _onInputChange(event) {
         const attribute = event.target.name;
-        const light = this.#lightObj[this.#light];
+        const light = this.#light;
         
         switch (event.target.type) {
             case "checkbox":
@@ -131,7 +125,7 @@ class LightControlElement extends UIView {
 
 
     _onXYChange(event) {
-        const light = this.#lightObj[this.#light];
+        const light = this.#light;
         const { x, y } = event.target.value;
         light.xy = [x, y];
         console.log([x, y]);
@@ -140,4 +134,4 @@ class LightControlElement extends UIView {
 
 
 
-UIView.define("mk-light-control", LightControlElement, import.meta.url);
+UIView.define("hue-light-detail", HueLightDetail, import.meta.url);

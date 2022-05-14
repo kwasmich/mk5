@@ -4,7 +4,6 @@ import "./elements/hue-room-list-item/hue-room-list-item.js";
 import "./elements/hue-room-list/hue-room-list.js";
 import "./elements/hue_main/hue_main.js";
 import "./elements/hue_setup/hue_setup.js";
-import "./elements/light_control/light_control.js";
 import "/base/ui-list-view/ui-list-view.js";
 import "/base/ui-navigation-view/ui-navigation-view.js";
 import "/base/ui-tab-view/ui-tab-view.js";

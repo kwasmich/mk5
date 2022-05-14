@@ -1,5 +1,6 @@
 import "../hue-light-list-item/hue-light-list-item.js";
 import { UIView } from "/base/ui-view.js";
+import { HueLightDetail } from "/hue/elements/hue-light-detail/hue-light-detail.js";
 import Hue from "/hue/hue.js";
 
 
@@ -14,6 +15,7 @@ export class HueLightList extends UIView {
     #hueGroup = undefined;
     #lights = [];
     #lightsSubscription = undefined;
+    #detailView = undefined;
 
 
     get hueGroup() {
@@ -49,9 +51,15 @@ export class HueLightList extends UIView {
     disconnectedCallback() {}
     
 
-    onInit() {
+    async onInit() {
+        await customElements.whenDefined("hue-light-detail");                    // Custom Elements that are only instantiated in JS need to be defined first
+        this.#detailView = new HueLightDetail();
+
         this.#lightsSubscription = (value) => this._updateLights(value);
         Hue.lights.subscribe(this.#lightsSubscription);
+
+        const listView = this.#shadowRoot.querySelector("ui-list-view");
+        listView.addEventListener("selectionChanged", (customEvent) => this._onSelectLight(customEvent));
     }
 
 
@@ -71,6 +79,20 @@ export class HueLightList extends UIView {
         const lights = this.#lights.filter((l) => this.#hueGroup?.lights.includes(l.id));
         const listView = this.#shadowRoot.querySelector("ui-list-view");
         listView.listData = lights;
+    }
+
+
+    _onSelectLight(customEvent) {
+        const selectedLights = customEvent.detail;
+        const navigationView = this.closest("ui-navigation-view");
+        const currentView = navigationView._currentView;
+
+        if (!(currentView instanceof HueLightDetail)) {
+            navigationView.popToRootView();
+            navigationView.pushView(this.#detailView);
+        }
+
+        this.#detailView.light = selectedLights[0];
     }
 }
 

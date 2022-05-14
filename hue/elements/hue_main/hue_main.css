@@ -1,5 +1,12 @@
 @import "/style.css";
 
+:host {
+    flex: 1 1 1px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
 ui-navigation-view {
-    height: 50vh;
+    flex: 1 1 1px;
 }

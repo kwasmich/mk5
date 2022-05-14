@@ -60,7 +60,7 @@ export class HueRoomList extends UIView {
 
 
     _onSelectRoom(customEvent) {
-        const hueGroups = customEvent.detail;
+        const selectedHueGroups = customEvent.detail;
         const navigationView = this.closest("ui-navigation-view");
         const currentView = navigationView._currentView;
 
@@ -69,7 +69,7 @@ export class HueRoomList extends UIView {
             navigationView.pushView(this.#detailView);
         }
 
-        this.#detailView.hueGroup = hueGroups[0];
+        this.#detailView.hueGroup = selectedHueGroups[0];
     }
 }
 
