@@ -54,9 +54,9 @@ const mutate = (popEl, mutated) => {
             // mutated({ old, new: vertices[i], index: i });
         }
 
-        if (Math.random() < rate * rate) {
-            popEl.vertices[i] = rndVertex();
-        }
+        // if (Math.random() < rate * rate) {
+        //     popEl.vertices[i] = rndVertex();
+        // }
 
         // if (Math.random() < rate) {
         //     popEl.vertices[i][0] = clamp(popEl.vertices[i][0] + (Math.random() * 2 - 1) / 200, 0, 1);
@@ -104,13 +104,15 @@ function clonePopEl(popEl) {
 function compute(img) {
     const backBuffer = document.querySelector("canvas#back");
     // const backBuffer = document.createElement("canvas"); // pretty slow: new OffscreenCanvas(img.width / 8, img.height / 8);
-    backBuffer.width = img.width / 8;
-    backBuffer.height = img.height / 8;
+    backBuffer.width = img.width / 4;
+    backBuffer.height = img.height / 4;
     const ctxBack = backBuffer.getContext("2d", { willReadFrequently: true });
+    // ctxBack.filter = "url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxmaWx0ZXIgaWQ9ImZpbHRlciIgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj48ZmVDb21wb25lbnRUcmFuc2Zlcj48ZmVGdW5jUiB0eXBlPSJpZGVudGl0eSIvPjxmZUZ1bmNHIHR5cGU9ImlkZW50aXR5Ii8+PGZlRnVuY0IgdHlwZT0iaWRlbnRpdHkiLz48ZmVGdW5jQSB0eXBlPSJkaXNjcmV0ZSIgdGFibGVWYWx1ZXM9IjAgMSIvPjwvZmVDb21wb25lbnRUcmFuc2Zlcj48L2ZpbHRlcj48L3N2Zz4=#filter)"; // https://stackoverflow.com/a/68372384/6650545
     const frontBuffer = document.querySelector("canvas#front");
     frontBuffer.width = img.width;
     frontBuffer.height = img.height;
     const ctxFront = frontBuffer.getContext("2d");
+    // ctxFront.filter = "url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxmaWx0ZXIgaWQ9ImZpbHRlciIgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj48ZmVDb21wb25lbnRUcmFuc2Zlcj48ZmVGdW5jUiB0eXBlPSJpZGVudGl0eSIvPjxmZUZ1bmNHIHR5cGU9ImlkZW50aXR5Ii8+PGZlRnVuY0IgdHlwZT0iaWRlbnRpdHkiLz48ZmVGdW5jQSB0eXBlPSJkaXNjcmV0ZSIgdGFibGVWYWx1ZXM9IjAgMSIvPjwvZmVDb21wb25lbnRUcmFuc2Zlcj48L2ZpbHRlcj48L3N2Zz4=#filter)"; // https://stackoverflow.com/a/68372384/6650545
     ctxBack.fillStyle = "#088";
     ctxBack.fillRect(0, 0, backBuffer.width, backBuffer.height)
     // ctxBack.filter("blur(8px)");
@@ -118,10 +120,12 @@ function compute(img) {
     ctxBack.drawImage(img, 0, 0, backBuffer.width, backBuffer.height);
     const srcPixel = ctxBack.getImageData(0, 0, backBuffer.width, backBuffer.height);
     
+
+
     const strideX = 4;
     const strideY = strideX * backBuffer.width;
     const POPULATION_SIZE = 400;
-    const CUT_OFF = 5;  // 5 elements of the first population always survive without mutation
+    const CUT_OFF = 5;  // best 5 elements of the population always survive without mutation
 
     const newPopulationElement = () => {
         const vertices = [[0, 0], [1, 0], [0, 1], [1, 1]];
