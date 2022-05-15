@@ -46,6 +46,12 @@ export default class HueLight extends Object {
     }
 
 
+    set alert(newValue) {
+        console.log("alert");
+        this._setValue("alert", newValue);
+    }
+
+
     set effect(newValue) {
         console.log("effect");
         this._setValue("effect", newValue);
@@ -62,6 +68,7 @@ export default class HueLight extends Object {
     
         if (on && reachable) {
             switch (colormode) {
+                case "hs":
                 case "xy":
                     {
                         const [x, y] = xy;
@@ -79,10 +86,10 @@ export default class HueLight extends Object {
                         return `rgb(${color.r}, ${color.g}, ${color.b})`;
                     }
     
-                case "hs":
-                    {
-                        return "lime";
-                    }
+                // case "hs":
+                //     {
+                //         return "lime";
+                //     }
     
                 default:
                     {

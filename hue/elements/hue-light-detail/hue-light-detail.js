@@ -1,6 +1,5 @@
 import "../hue-light-list-item/hue-light-list-item.js";
 import { UIView } from "/base/ui-view.js";
-import Hue from "/hue/hue.js";
 
 
 
@@ -9,9 +8,23 @@ export class HueLightDetail extends UIView {
         return [];
     }
 
-
     #shadowRoot = this.attachShadow({ mode: "closed" });
+    #initialized = false;
     #light = undefined;
+    #backButton = undefined;
+    #lightListItem = undefined;
+    #name = undefined;
+    #on = undefined;
+    #bri = undefined;
+    #hue = undefined;
+    #sat = undefined;
+    #xy = undefined;
+    #ct = undefined;
+    #alertNoneButton = undefined;
+    #alertSelectButton = undefined;
+    #alertLSelectButton = undefined;
+    #effectNoneButton = undefined;
+    #effectColorloopButton = undefined;
 
 
     get light() {
@@ -20,13 +33,8 @@ export class HueLightDetail extends UIView {
 
 
     set light(val) {
-        // if (this.#light !== val) {
-        //     this._clearLight();
-        // }
-
         this.#light = val;
-        this._updateLight();
-        this._updateRendering();
+        this._updateView();
     }
 
 
@@ -35,7 +43,7 @@ export class HueLightDetail extends UIView {
         Object.seal(this);
 
         this._init(this.#shadowRoot);
-        // this.onInit();
+        this.onInit();
         return self;
     }
 
@@ -46,33 +54,61 @@ export class HueLightDetail extends UIView {
 
     connectedCallback() {
         const navigationView = this.closest("ui-navigation-view");
-        const backButton = this.#shadowRoot.querySelector("button");
-        backButton.onclick = () => navigationView.popToRootView();
+        this.#backButton = this.#shadowRoot.querySelector("button");
+        this.#backButton.onclick = () => navigationView.popView();
 
 
-        const inputs = this.#shadowRoot.querySelectorAll("input");
+        // const inputs = this.#shadowRoot.querySelectorAll("input");
         
-        for (const input of inputs) {
-            input.onchange = (e) => this._onInputChange(e);
-        }
-
-        const xy = this.#shadowRoot.querySelector("mk-cie-picker");
-        xy.onchange = (e) => this._onXYChange(e);
-
-        const effectColorloop = this.#shadowRoot.querySelector("#effectColorloop");
-        const effectNone = this.#shadowRoot.querySelector("#effectNone");
-        effectColorloop.onclick = () => {
-            this.#light.effect = "colorloop";
-        };
-        effectNone.onclick = () => {
-            this.#light.effect = "none";
-        };
+        // for (const input of inputs) {
+        //     input.onchange = (e) => this._onInputChange(e);
+        // }
     }
     
     
     disconnectedCallback() {
-        const backButton = this.#shadowRoot.querySelector("button");
-        backButton.onclick = undefined;
+        this.#backButton.onclick = undefined;
+    }
+
+
+    onInit() {
+        // this.onclick = (mouseEvent) => this._onClick(mouseEvent);            // FIX ME: this is conflicting with UIListView
+        // this.addEventListener("click", (mouseEvent) => this._onClick(mouseEvent));
+
+        const sr = this.#shadowRoot;
+        this.#lightListItem = sr.querySelector("hue-light-list-item");
+        this.#name = sr.querySelector("input#name");
+        this.#on = sr.querySelector("input#on");
+        this.#bri = sr.querySelector("input#bri");
+        this.#hue = sr.querySelector("input#hue");
+        this.#sat = sr.querySelector("input#sat");
+        this.#ct = sr.querySelector("input#ct");
+
+        this.#xy = sr.querySelector("mk-cie-picker");
+
+        this.#alertNoneButton = sr.querySelector("button#alertNone");
+        this.#alertSelectButton = sr.querySelector("button#alertSelect");
+        this.#alertLSelectButton = sr.querySelector("button#alertLSelect");
+        this.#effectNoneButton = sr.querySelector("button#effectNone");
+        this.#effectColorloopButton = sr.querySelector("button#effectColorloop");
+
+
+        this.#on.onchange = (e) => this._onInputChange(e);
+        this.#bri.onchange = (e) => this._onInputChange(e);
+        this.#hue.onchange = (e) => this._onInputChange(e);
+        this.#sat.onchange = (e) => this._onInputChange(e);
+        this.#ct.onchange = (e) => this._onInputChange(e);
+
+        this.#xy.onchange = (e) => this._onXYChange(e);
+        
+        this.#alertNoneButton.onclick = () => this.#light.alert = "none";
+        this.#alertSelectButton.onclick = () => this.#light.alert = "select";
+        this.#alertLSelectButton.onclick = () => this.#light.alert = "lselect";
+        this.#effectNoneButton.onclick = () => this.#light.effect = "none";
+        this.#effectColorloopButton.onclick = () => this.#light.effect = "colorloop";
+        
+        this.#initialized = true;
+        this._updateView();
     }
 
 
@@ -81,31 +117,34 @@ export class HueLightDetail extends UIView {
         lightListItem.item = this.#light;
     }
 
-    _updateRendering() {
-        const p = this.#shadowRoot.querySelector("p");
-        if (!p) return;
+
+    _updateView() {
+        if (!this.#initialized || !this.#light) {
+            return;
+        }
+
+        // const p = this.#shadowRoot.querySelector("p");
+        // if (!p) return;
         const l = this.#light;
         if (!l) return;
+
+        this.#lightListItem.item = this.#light;
         
-        p.textContent = this.#light.id;
-        
-        const on = this.#shadowRoot.querySelector("input[name=on]");
-        on.checked = l.state.on;
-        const bri = this.#shadowRoot.querySelector("input[name=bri]");
-        bri.value = l.state.bri;
-        const hue = this.#shadowRoot.querySelector("input[name=hue]");
-        hue.value = l.state.hue;
-        const sat = this.#shadowRoot.querySelector("input[name=sat]");
-        sat.value = l.state.sat;
-        const xy = this.#shadowRoot.querySelector("mk-cie-picker");
-        // console.log(l, l.capabilities, l.capabilities.control, l.capabilities.control.colorgamut);
-        xy.gamut = l.capabilities.control.colorgamut;
-        xy.value = l.state.xy;
+        // p.textContent = this.#light.id;
+
+        this.#name.value = l.name;
+        this.#on.checked = l.state.on;
+        this.#bri.value = l.state.bri;
+        this.#hue.value = l.state.hue;
+        this.#sat.value = l.state.sat;
+ 
+        this.#xy.gamut = l.capabilities.control.colorgamut;
+        this.#xy.value = l.state.xy;
+ 
         const lct = l.capabilities.control.ct;
-        const ct = this.#shadowRoot.querySelector("input[name=ct]");
-        ct.min = lct ? lct.min : 153;
-        ct.max = lct ? lct.max : 500;
-        ct.value = l.state.ct;
+        this.#ct.min = lct ? lct.min : 153; // TODO: lct?.min ?? 153;
+        this.#ct.max = lct ? lct.max : 500;
+        this.#ct.value = l.state.ct;
     }
     
     

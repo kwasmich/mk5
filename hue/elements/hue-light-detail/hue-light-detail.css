@@ -3,10 +3,24 @@
 :host {
     display: flex;
     flex-direction: column;
+    overflow: none;
+}
+
+:host > div {
+    flex: 0 0 auto;
+}
+
+ul {
+    flex: 1 1 1px;
     overflow: auto;
+    margin: 0;
 }
 
 mk-cie-picker {
     display: block;
     width: 240px;
+}
+
+input[type=range] {
+    width: 170px;
 }
