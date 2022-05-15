@@ -36,11 +36,6 @@ class Main {
                 .then(successHandler, errorHandler);
         }
     }
-
-
-    toString() {
-        return "affe"
-    }
 }
 
 const main = new Main();
@@ -52,31 +47,3 @@ export default main;
 
 // customElements.whenDefined("mk-view-switcher").then(() => console.log("mk-view-switcher defined"));
 // setTimeout(() => import("/elements/view_switcher/view_switcher.js"), 2000);
-
-
-let person = 'Mike';
-let age = 128;
-
-function myTag(...args) {
-    console.log(args);
-    return "hello";
-  let str0 = strings[0]; // "That "
-  let str1 = strings[1]; // " is a "
-  let str2 = strings[2]; // "."
-
-  let ageStr;
-  if (ageExp > 99){
-    ageStr = 'centenarian';
-  } else {
-    ageStr = 'youngster';
-  }
-
-  // We can even return a string built using a template literal
-  return `${str0}${personExp}${str1}${ageStr}${str2}`;
-}
-
-let output = myTag`That ${ person } is a ${ age }.`;
-
-console.log(output);
-
-console.log("" + main);
