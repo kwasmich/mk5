@@ -12,7 +12,7 @@
 }
 
 :host > .selected {
-    background-color: var(--accent-color) !important;
+    background-color: var(--accent-color);
     /* transition: background-color 0s !important; */
     color: var(--highlight-color);
 }
