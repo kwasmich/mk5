@@ -88,7 +88,6 @@ export class HueLightList extends UIView {
         const currentView = navigationView._currentView;
 
         if (!(currentView instanceof HueLightDetail)) {
-            navigationView.popToRootView();
             navigationView.pushView(this.#detailView);
         }
 

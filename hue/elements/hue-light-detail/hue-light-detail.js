@@ -9,6 +9,7 @@ export class HueLightDetail extends UIView {
         return [];
     }
 
+
     #shadowRoot = this.attachShadow({ mode: "closed" });
     #lightsSubscription = undefined;
     #initialized = false;
@@ -22,11 +23,6 @@ export class HueLightDetail extends UIView {
     #sat = undefined;
     #xy = undefined;
     #ct = undefined;
-    #alertNoneButton = undefined;
-    #alertSelectButton = undefined;
-    #alertLSelectButton = undefined;
-    #effectNoneButton = undefined;
-    #effectColorloopButton = undefined;
 
 
     get light() {
@@ -80,37 +76,38 @@ export class HueLightDetail extends UIView {
         this.#lightsSubscription = (value) => this._updateLights(value);
         Hue.lights.subscribe(this.#lightsSubscription);
 
-        const sr = this.#shadowRoot;
-        this.#lightListItem = sr.querySelector("hue-light-list-item");
-        this.#name = sr.querySelector("input#name");
-        this.#on = sr.querySelector("input#on");
-        this.#bri = sr.querySelector("input#bri");
-        this.#hue = sr.querySelector("input#hue");
-        this.#sat = sr.querySelector("input#sat");
-        this.#ct = sr.querySelector("input#ct");
+        this.#lightListItem = this.#shadowRoot.querySelector("hue-light-list-item");
 
-        this.#xy = sr.querySelector("mk-cie-picker");
+        const tabView = this.#shadowRoot.querySelector("ui-tab-view");
+        const [hlsView, xyView, ctView, effectsView, etcView] = tabView.views;
 
-        this.#alertNoneButton = sr.querySelector("button#alertNone");
-        this.#alertSelectButton = sr.querySelector("button#alertSelect");
-        this.#alertLSelectButton = sr.querySelector("button#alertLSelect");
-        this.#effectNoneButton = sr.querySelector("button#effectNone");
-        this.#effectColorloopButton = sr.querySelector("button#effectColorloop");
-
-
-        this.#on.onchange = (e) => this._onInputChange(e);
-        this.#bri.onchange = (e) => this._onInputChange(e);
+        this.#hue = hlsView.querySelector("input#hue");
+        this.#sat = hlsView.querySelector("input#sat");
         this.#hue.onchange = (e) => this._onInputChange(e);
         this.#sat.onchange = (e) => this._onInputChange(e);
-        this.#ct.onchange = (e) => this._onInputChange(e);
 
+        this.#xy = xyView.querySelector("mk-cie-picker");
         this.#xy.onchange = (e) => this._onXYChange(e);
 
-        this.#alertNoneButton.onclick = () => this.#light.alert = "none";
-        this.#alertSelectButton.onclick = () => this.#light.alert = "select";
-        this.#alertLSelectButton.onclick = () => this.#light.alert = "lselect";
-        this.#effectNoneButton.onclick = () => this.#light.effect = "none";
-        this.#effectColorloopButton.onclick = () => this.#light.effect = "colorloop";
+        this.#ct = ctView.querySelector("input#ct");
+        this.#ct.onchange = (e) => this._onInputChange(e);
+
+        const alertNoneButton = effectsView.querySelector("button#alertNone");
+        const alertSelectButton = effectsView.querySelector("button#alertSelect");
+        const alertLSelectButton = effectsView.querySelector("button#alertLSelect");
+        const effectNoneButton = effectsView.querySelector("button#effectNone");
+        const effectColorloopButton = effectsView.querySelector("button#effectColorloop");
+        alertNoneButton.onclick = () => this.#light.alert = "none";
+        alertSelectButton.onclick = () => this.#light.alert = "select";
+        alertLSelectButton.onclick = () => this.#light.alert = "lselect";
+        effectNoneButton.onclick = () => this.#light.effect = "none";
+        effectColorloopButton.onclick = () => this.#light.effect = "colorloop";
+
+        this.#name = etcView.querySelector("input#name");
+        this.#on = etcView.querySelector("input#on");
+        this.#bri = etcView.querySelector("input#bri");
+        this.#on.onchange = (e) => this._onInputChange(e);
+        this.#bri.onchange = (e) => this._onInputChange(e);
 
         this.#initialized = true;
         this._updateView();
