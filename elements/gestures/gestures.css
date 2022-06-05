@@ -1,0 +1,18 @@
+:host {
+    background-image: linear-gradient(blue, lime);
+    display: block;
+    /* position: fixed; */
+
+    width: 50%;
+    height: 50%;
+}
+
+.dot {
+    display: block;
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    transform: translate(-32px, -32px);
+    background-color: red;
+    position: absolute;
+}

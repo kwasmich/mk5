@@ -21,6 +21,7 @@ class Main {
 
         // this._initService();
         this.setup.addEventListener("success", () => this._init());
+        document.body.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
     }
 
 

@@ -3,6 +3,7 @@ import "/base/ui-navigation-view/ui-navigation-view.js";
 import "/base/ui-tab-view/ui-tab-view.js";
 import "/base/ui.js";
 import "/elements/canvas/canvas.js";
+import "/elements/gestures/gestures.js";
 import "/elements/form_test/form_test.js";
 import "/elements/list_test/list_test.js";
 import "/elements/navigation_test/navigation_test.js";
@@ -17,6 +18,8 @@ class Main {
         Object.seal(this);
 
         //this._initService();
+
+        document.body.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
     }
 
 
