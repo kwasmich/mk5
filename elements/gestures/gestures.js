@@ -9,9 +9,9 @@ export class Gestures extends UIView {
 
 
     #shadowRoot = this.attachShadow({ mode: "closed" });
-    #onTouchStart = this._onTouchStart.bind(this);
-    #onTouchMove = this._onTouchMove.bind(this);
-    #onTouchEnd = this._onTouchEnd.bind(this);
+    #onPointerDown = this._onPointerDown.bind(this);
+    #onPointerMove = this._onPointerMove.bind(this);
+    #onPointerUp = this._onPointerUp.bind(this);
 
 
     constructor(...args) {
@@ -28,50 +28,43 @@ export class Gestures extends UIView {
 
 
     connectedCallback() {
-        this.#shadowRoot.ownerDocument.addEventListener("touchstart", this.#onTouchStart);
-        this.#shadowRoot.ownerDocument.addEventListener("touchmove", this.#onTouchMove);
-        this.#shadowRoot.ownerDocument.addEventListener("touchend", this.#onTouchEnd);
-        this.#shadowRoot.ownerDocument.addEventListener("touchcancel", this.#onTouchEnd);
-        this.#shadowRoot.ownerDocument.addEventListener("scroll", (e) => console.log(e));
+        this.#shadowRoot.ownerDocument.addEventListener("pointerdown", this.#onPointerDown);
+        this.#shadowRoot.ownerDocument.addEventListener("pointermove", this.#onPointerMove);
+        this.#shadowRoot.ownerDocument.addEventListener("pointerup", this.#onPointerUp);
+        this.#shadowRoot.ownerDocument.addEventListener("pointercancel", this.#onPointerUp);
     }
 
 
     disconnectedCallback() {
-        this.#shadowRoot.ownerDocument.removeEventListener("touchcancel", this.#onTouchEnd);
-        this.#shadowRoot.ownerDocument.removeEventListener("touchend", this.#onTouchEnd);
-        this.#shadowRoot.ownerDocument.removeEventListener("touchmove", this.#onTouchMove);
-        this.#shadowRoot.ownerDocument.removeEventListener("touchstart", this.#onTouchStart);
+        this.#shadowRoot.ownerDocument.removeEventListener("pointercancel", this.#onPointerUp);
+        this.#shadowRoot.ownerDocument.removeEventListener("pointerup", this.#onPointerUp);
+        this.#shadowRoot.ownerDocument.removeEventListener("pointermove", this.#onPointerMove);
+        this.#shadowRoot.ownerDocument.removeEventListener("pointerdown", this.#onPointerDown);
     }
 
 
-    _onTouchStart(touchEvent) {
-        [...touchEvent.changedTouches].forEach((t) => {
-            const dot = this.#shadowRoot.ownerDocument.createElement("DIV");
-            dot.classList.add("dot");
-            dot.style.left = `${t.pageX}px`;
-            dot.style.top = `${t.pageY}px`;
-            dot.id = t.identifier;
-            this.#shadowRoot.append(dot);
-        })
+    _onPointerDown(pointerEvent) {
+        const dot = this.#shadowRoot.ownerDocument.createElement("DIV");
+        dot.classList.add("dot");
+        dot.style.left = `${pointerEvent.pageX}px`;
+        dot.style.top = `${pointerEvent.pageY}px`;
+        dot.id = pointerEvent.pointerId;
+        this.#shadowRoot.append(dot);
         return false;
     }
 
 
-    _onTouchMove(touchEvent) {
-        [...touchEvent.changedTouches].forEach((t) => {
-            const dot = this.#shadowRoot.getElementById(t.identifier);
-            dot.style.left = `${t.pageX}px`;
-            dot.style.top = `${t.pageY}px`;
-        })
+    _onPointerMove(pointerEvent) {
+        const dot = this.#shadowRoot.getElementById(pointerEvent.pointerId);
+        dot.style.left = `${pointerEvent.pageX}px`;
+        dot.style.top = `${pointerEvent.pageY}px`;
         return false;
     }
 
 
-    _onTouchEnd(touchEvent) {
-        [...touchEvent.changedTouches].forEach((t) => {
-            const dot = this.#shadowRoot.getElementById(t.identifier);
-            dot.remove();
-        })
+    _onPointerUp(pointerEvent) {
+        const dot = this.#shadowRoot.getElementById(pointerEvent.pointerId);
+        dot.remove();
     }
 }
 

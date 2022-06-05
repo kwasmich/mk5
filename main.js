@@ -18,8 +18,6 @@ class Main {
         Object.seal(this);
 
         //this._initService();
-
-        document.body.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
     }
 
 
