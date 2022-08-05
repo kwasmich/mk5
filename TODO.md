@@ -19,26 +19,20 @@ JavaScript
 `a ||= b` // or assignment operator
 `a ??= b` // nullish assignment operator
 
-```
-!!! UPDATE !!!!!!!!!!!!!!!
 Safari 14.1.2 supports
 - property definition
 - static property definition
 - private properties
 
 but not private class methods :(
-!!!!!!!!!!!!!!!!!!!!!
 
+```
 class Clazz {
-    prop = 123;             // property definition not supported by Safari
-    static sprop = "abc";   // static property definition not supported by Safari
+    prop = 123;             // property definition
+    static sprop = "abc";   // static property definition
+    #priv = true            // private property definition
 }
 ```
-use
-```
-Clazz.sprop = "abc";
-```
-instead
 
 Decorators are currently NOT supported :(
 ```
@@ -50,7 +44,7 @@ class x {}
 ```
 new CustomEvent("eventName", {
     detail: {}, // payload
-    bubbles: true, // let the parent custom element receie the event
+    bubbles: true, // let the parent custom element receive the event
     composed: true // continue to all parents until root
 })
 ```
@@ -71,6 +65,11 @@ Safari
 https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW1
 
 
+[WebRTC](https://github.com/JGH153/web-components-webrtc)
+
+
+
+Worker as Threads
 
 List
     Sections
