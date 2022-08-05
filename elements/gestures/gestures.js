@@ -13,6 +13,15 @@ export class Gestures extends UIView {
     #onPointerMove = this._onPointerMove.bind(this);
     #onPointerUp = this._onPointerUp.bind(this);
 
+    #test = /*html*/`
+<nav>
+    <slot name="tab"></slot>
+</nav>
+<div>
+    <slot name="content"></slot>
+</div>
+    `
+
 
     constructor(...args) {
         const self = super(args);
@@ -29,21 +38,35 @@ export class Gestures extends UIView {
 
     connectedCallback() {
         this.#shadowRoot.ownerDocument.addEventListener("pointerdown", this.#onPointerDown);
-        this.#shadowRoot.ownerDocument.addEventListener("pointermove", this.#onPointerMove);
-        this.#shadowRoot.ownerDocument.addEventListener("pointerup", this.#onPointerUp);
-        this.#shadowRoot.ownerDocument.addEventListener("pointercancel", this.#onPointerUp);
+
+        // var request = new XMLHttpRequest();
+        // request.onreadystatechange= function () {
+        //     if (request.readyState == 4) {
+        //         //handle response
+        //     }
+        // }
+        // request.open("POST", "http://192.168.2.161:56789/apps/vr/remote", true);
+        // request.setRequestHeader("Host", "192.168.2.161:56789");
+        // request.send("<remote><key code=1064/></remote>");
+
+        // fetch("http://192.168.2.161:56789/apps/vr/remote", {
+        //     method: "POST",
+        //     body: "<remote><key code=1064/></remote>",
+        //     headers: { "Host": "192.168.2.161:56789" }
+        // })
     }
 
 
     disconnectedCallback() {
-        this.#shadowRoot.ownerDocument.removeEventListener("pointercancel", this.#onPointerUp);
-        this.#shadowRoot.ownerDocument.removeEventListener("pointerup", this.#onPointerUp);
-        this.#shadowRoot.ownerDocument.removeEventListener("pointermove", this.#onPointerMove);
         this.#shadowRoot.ownerDocument.removeEventListener("pointerdown", this.#onPointerDown);
     }
 
 
     _onPointerDown(pointerEvent) {
+        this.#shadowRoot.ownerDocument.addEventListener("pointermove", this.#onPointerMove);
+        this.#shadowRoot.ownerDocument.addEventListener("pointerup", this.#onPointerUp);
+        this.#shadowRoot.ownerDocument.addEventListener("pointercancel", this.#onPointerUp);
+
         const dot = this.#shadowRoot.ownerDocument.createElement("DIV");
         dot.classList.add("dot");
         dot.style.left = `${pointerEvent.pageX}px`;
@@ -63,6 +86,10 @@ export class Gestures extends UIView {
 
 
     _onPointerUp(pointerEvent) {
+        this.#shadowRoot.ownerDocument.removeEventListener("pointercancel", this.#onPointerUp);
+        this.#shadowRoot.ownerDocument.removeEventListener("pointerup", this.#onPointerUp);
+        this.#shadowRoot.ownerDocument.removeEventListener("pointermove", this.#onPointerMove);
+        
         const dot = this.#shadowRoot.getElementById(pointerEvent.pointerId);
         dot.remove();
     }
