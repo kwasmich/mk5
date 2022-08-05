@@ -24,6 +24,15 @@ export class MyForm extends UIView {
     adoptedCallback() {}
     attributeChangedCallback(name, oldValue, newValue) {}
     connectedCallback() {
+        this.#shadowRoot.querySelector("BUTTON").onclick = () => {
+            const ce = new CustomEvent("ChangePage", { detail: {
+                path: "/canvas",
+                component: "my-canvas",
+                title: "Canvas",
+            } });
+            this.dispatchEvent(ce);
+        }
+
         // const style = document.styleSheets[0];
         // const target = this.#shadowRoot.styleSheets[0]
         // console.log("connected");

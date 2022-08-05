@@ -49,7 +49,16 @@ export class MyCanvas extends UIView {
 
     adoptedCallback() {}
     attributeChangedCallback(name, oldValue, newValue) {}
-    connectedCallback() {}
+    connectedCallback() {
+        this.#shadowRoot.querySelector("BUTTON").onclick = () => {
+            const ce = new CustomEvent("ChangePage", { detail: {
+                path: "/form",
+                component: "my-form",
+                title: "Form",
+            } });
+            this.dispatchEvent(ce);
+        }
+    }
     disconnectedCallback() {}
 
     async _onInit() {
