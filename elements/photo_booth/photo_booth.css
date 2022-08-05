@@ -1,0 +1,62 @@
+:host,
+div.fill {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+video {
+    /* outline: 2px solid red;
+    outline-offset: -2px; */
+    transform: scaleX(-1);
+}
+
+canvas {
+    /* outline: 2px solid lime;
+    outline-offset: -4px; */
+}
+
+.hidden {
+    display: none !important;
+}
+
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flash {
+    animation-name: flash;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+#countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 0 0 3vmin black, 0 0 4vmin black, 0 0 5vmin black;
+    font-size: 50vmin;
+}
+
+.count {
+    animation-name: count;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes flash {
+    0% {background-color: white;}
+    25% {background-color: white;}
+    100% {background-color: transparent;}
+}
+
+@keyframes count {
+    0% {transform: scale(3);}
+    100% {transform: scale(0);}
+}
