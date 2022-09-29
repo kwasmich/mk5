@@ -95,3 +95,27 @@ String.replaceAll:
     "affenbande".replaceAll("a", 4); // => "4ffenb4nde";
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# CSS
+@media (hover: hover)       // non-touch
+@media (hover: none)        // touch
+@media (pointer: coarse)    // finger
+@media (pointer: fine)      // mouse or stylus
+
+scroll-behavior: smooth;    // scrollTo and anchors perform a smooth transition
+scroll-padding-*: ;         // define how much is visible around when scrolled
