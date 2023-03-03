@@ -78,6 +78,12 @@ class HueSetupElement extends UIView {
     
     
     async onInit() {
+        const user = globalThis.env?.[HUE_BRIDGE_USER_NAME];
+            
+        if (user) {
+            localStorage.setItem(HUE_BRIDGE_USER_NAME, user);
+        }
+
         this.unregisterButton.onclick = () => this._unregister();
         let reachable = false;
         let userValid = false;
