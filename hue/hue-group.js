@@ -1,5 +1,5 @@
 import Hue from "/hue/hue.js";
-import HueLight from "/hue/hue_light.js";
+import { HueLight } from "/hue/hue_light.js";
 import HueService from "/hue/hue.service.js";
 
 
@@ -8,7 +8,7 @@ const priv = Symbol("private");
 
 
 
-export default class HueGroup extends HueLight {
+export class HueGroup extends HueLight {
     // constructor(...args) {
     //     const self = super(args);
     //     this.init(-1);

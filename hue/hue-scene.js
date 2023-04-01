@@ -1,5 +1,5 @@
 import Hue from "/hue/hue.js";
-import HueLight from "/hue/hue_light.js";
+import { HueLight } from "/hue/hue_light.js";
 import HueService from "/hue/hue.service.js";
 
 
@@ -22,7 +22,7 @@ function colormode(light) {
 
 
 
-export default class HueScene extends Object {
+export class HueScene extends Object {
     get imagePath() {
         return this.image && `/hue/assets/HueImagePack/${this.image}_100.jpeg`
     }

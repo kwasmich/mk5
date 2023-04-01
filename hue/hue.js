@@ -1,7 +1,7 @@
-import HueGroup from "/hue/hue-group.js";
-import HueScene from "/hue/hue-scene.js";
+import { HueGroup } from "/hue/hue-group.js";
+import { HueScene } from "/hue/hue-scene.js";
 import HueService from "/hue/hue.service.js";
-import HueLight from "/hue/hue_light.js";
+import { HueLight } from "/hue/hue_light.js";
 import { Observable } from "/util/observable.js";
 
 

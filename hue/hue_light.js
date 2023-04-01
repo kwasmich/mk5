@@ -8,7 +8,7 @@ const priv = Symbol("private");
 
 
 
-export default class HueLight extends Object {
+export class HueLight extends Object {
     constructor(...args) {
         const self = super(args);
         this.init(-1);
