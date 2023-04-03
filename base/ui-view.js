@@ -25,7 +25,12 @@ function fetchCSS(path) {
 
 
 export class UIView extends HTMLElement {
+    static registry = new Map();
+
+
     static define(tagName, elementClass, url) {
+        this.registry.set(elementClass, tagName);
+
         const path = url.replace(".js", "");
 
         const promises = [

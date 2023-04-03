@@ -3,15 +3,17 @@ import "/base/ui-list-view/ui-list-view.js";
 import "/base/ui-navigation-view/ui-navigation-view.js";
 import "/base/ui-tab-view/ui-tab-view.js";
 import "/base/ui.js";
-import "/elements/canvas/canvas.js";
-import "/elements/form_test/form_test.js";
+
 import "/elements/gestures/gestures.js";
 import "/elements/list_test/list_test.js";
 import "/elements/navigation_test/navigation_test.js";
 import "/elements/tab_test/tab_test.js";
 import "/util/custom_element_helper.js";
 import "/util/security.js";
-import "/elements/photo_booth/photo_booth.js";
+import { UIView } from "/base/ui-view.js";
+import { MyCanvas } from "/elements/canvas/canvas.js";
+import { MyForm } from "/elements/form_test/form_test.js";
+import { PhotoBooth } from "/elements/photo_booth/photo_booth.js";
 
 
 
@@ -56,22 +58,22 @@ export const Pages = Object.freeze({
     // Home: {
     //     path: "/",
     //     component: "home-page",
-    //     title: "Home",
+    //     title: "Launchpad",
     // },
     Canvas: {
         path: "/canvas",
-        component: "my-canvas",
         title: "Canvas",
+        component: UIView.registry.get(MyCanvas),
     },
     Form: {
         path: "/form",
-        component: "my-form",
         title: "Form",
+        component: UIView.registry.get(MyForm),
     },
     PhotoBooth: {
         path: "/photo-booth",
-        component: "photo-booth",
         title: "Photo Booth",
+        component: UIView.registry.get(PhotoBooth),
     },
     // About: {
     //     path: "/about",
