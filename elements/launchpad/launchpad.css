@@ -21,7 +21,7 @@
 
 .zoom {
     transition-property: translate, scale, opacity;
-    transition-duration: 2500ms;
+    transition-duration: 500ms;
     translate: 0 !important;
     scale: 1 !important;
     opacity: 1;
