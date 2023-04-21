@@ -1,4 +1,6 @@
 :host {
+    overflow: auto;
+    background-color: var(--midground-color);
     display: block;
 }
 

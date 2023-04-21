@@ -3,6 +3,12 @@ class Router {
   #currentPage;
   #defaultPage;
 
+
+  get routes() {
+    return this.#pages;
+  }
+
+
   constructor() {
     window.addEventListener("popstate", (event) => {
       console.log(event);
@@ -16,13 +22,14 @@ class Router {
     });
   }
 
+
   setRoutes(pages) {
     if (this.#pages) {
       throw "Routes set twice!";
     }
 
     this.#pages = pages;
-    this.#defaultPage = pages.Home;
+    this.#defaultPage = Object.values(pages)[0];
     this.#currentPage = this.getCurrentPageFromUrl();
     
     history.replaceState(
@@ -34,7 +41,8 @@ class Router {
     this.renderCorrectPage();
   }
 
-  renderCorrectPage() {
+
+  renderCorrectPage(instance) {
     const elementId = "CurrentPage";
     const prevPage = document.getElementById(elementId);
     prevPage?.remove();
@@ -43,7 +51,7 @@ class Router {
     //   document.body.firstChild.remove();
     // }
 
-    const newPage = document.createElement(this.#currentPage.component);
+    const newPage = instance ?? document.createElement(this.#currentPage.component);
     newPage.id = elementId;
     newPage.addEventListener("ChangePage", (event) =>
       this.gotoNewPage(event.detail)
@@ -55,11 +63,12 @@ class Router {
   }
 
 
-  gotoNewPage(newPage) {
+  gotoNewPage(newPage, instance) {
     this.#currentPage = newPage;
     this.addCurrentPageToHistory();
-    this.renderCorrectPage();
+    this.renderCorrectPage(instance);
   }
+
 
   addCurrentPageToHistory() {
     history.pushState(
@@ -69,6 +78,7 @@ class Router {
     );
     console.log(history);
   }
+
 
   getCurrentPageFromUrl() {
     for (const current in this.#pages) {
@@ -82,4 +92,6 @@ class Router {
 }
 
 
-export default new Router();
+const RouterInstance = new Router();
+
+export { RouterInstance as Router };

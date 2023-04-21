@@ -1,4 +1,4 @@
-import Router from "/base/router.js";
+import { Router } from "/base/router.js";
 import "/base/ui-list-view/ui-list-view.js";
 import "/base/ui-navigation-view/ui-navigation-view.js";
 import "/base/ui-tab-view/ui-tab-view.js";
@@ -14,6 +14,7 @@ import { UIView } from "/base/ui-view.js";
 import { MyCanvas } from "/elements/canvas/canvas.js";
 import { MyForm } from "/elements/form_test/form_test.js";
 import { PhotoBooth } from "/elements/photo_booth/photo_booth.js";
+import { Launchpad } from "/elements/launchpad/launchpad.js";
 
 
 
@@ -55,11 +56,11 @@ export default main;
 
 
 export const Pages = Object.freeze({
-    // Home: {
-    //     path: "/",
-    //     component: "home-page",
-    //     title: "Launchpad",
-    // },
+    Launchpad: {
+        path: "/",
+        title: "Launchpad",
+        component: UIView.registry.get(Launchpad),
+    },
     Canvas: {
         path: "/canvas",
         title: "Canvas",

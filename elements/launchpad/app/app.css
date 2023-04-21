@@ -1,0 +1,40 @@
+:host {
+
+}
+
+figure {
+    margin: 0;
+    aspect-ratio: 15/17;
+    display: block;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+
+picture {
+    background-color: maroon;
+    border-radius: 25%;
+    display: flex;
+    width: calc(100% * (56/75));
+    aspect-ratio: 1;
+    align-self: center;
+}
+
+
+img {
+    /* background-color: lime; */
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+
+figcaption {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-self: stretch;
+    text-align: center;
+}
