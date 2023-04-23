@@ -45,6 +45,7 @@ Object.seal(_IconMap);
 export const IconMap = _IconMap;
 
 const _LightIconMap = {
+    "LCA006": "/elements/my_hue/assets/HueIconPack2019/bulbsSultan.svg",
     "LCT001": "/elements/my_hue/assets/HueIconPack2019/bulbsSultan.svg",
     "LCT003": "/elements/my_hue/assets/HueIconPack2019/bulbsSpot.svg",
     "LCT012": "/elements/my_hue/assets/HueIconPack2019/bulbCandle.svg",
