@@ -1,0 +1,11 @@
+{
+    "liveServer.settings.port": 8000,
+    "liveServer.settings.file": "index.html",
+    "liveServer.settings.NoBrowser": true
+    // "liveServer.settings.https": {
+    //     "enable": true,
+    //     "cert": "/Volumes/User SSD/Users/kwasmich/Developer/Web/mk5/.vscode/server.crt",
+    //     "key": "/Volumes/User SSD/Users/kwasmich/Developer/Web/mk5/.vscode/server.key",
+    //     "passphrase": "qwer"
+    // }
+}

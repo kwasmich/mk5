@@ -17,10 +17,12 @@
     inset: 0;
     transform-origin: 0 0;
     overflow: hidden;
+    border-radius: 25%;
 }
 
 .zoom {
-    transition-property: translate, scale, opacity;
+    transition-property: border-radius, opacity, scale, translate;
+    border-radius: 0;
     transition-duration: 500ms;
     translate: 0 !important;
     scale: 1 !important;
