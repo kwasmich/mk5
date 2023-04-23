@@ -2,7 +2,7 @@ import "../hue-light-list/hue-light-list.js";
 import "../hue-room-list-item/hue-room-list-item.js";
 import "../hue-room-list/hue-room-list.js";
 import { UIView } from "/base/ui-view.js";
-import Hue from "/hue/hue.js";
+import Hue from "../../hue.js";
 
 
 export class HuePrimary extends UIView {

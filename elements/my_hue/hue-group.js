@@ -1,6 +1,6 @@
-import Hue from "/hue/hue.js";
-import { HueLight } from "/hue/hue_light.js";
-import HueService from "/hue/hue.service.js";
+import Hue from "./hue.js";
+import { HueLight } from "./hue_light.js";
+import HueService from "./hue.service.js";
 
 
 

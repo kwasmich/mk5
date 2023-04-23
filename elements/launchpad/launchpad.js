@@ -1,6 +1,7 @@
-import { UIView } from "/base/ui-view.js";
-import { App } from "/elements/launchpad/app/app.js";
+import { App } from "./app/app.js";
 import { Router } from "/base/router.js";
+import { UIView } from "/base/ui-view.js";
+
 
 
 export class Launchpad extends UIView {
@@ -34,9 +35,8 @@ export class Launchpad extends UIView {
         const routes = Object.values(Router.routes);
         this.#outlet = this.#shadowRoot.querySelector("div.outlet");
         const routess = routes.filter((r) => r.path !== "/");
-        const routesss = [...routess, ...routess];
 
-        routesss.map((r) => {
+        routess.map((r) => {
             const app = new App(r.title);
             const anchor = document.createElement("A");
             anchor.href = r.path;

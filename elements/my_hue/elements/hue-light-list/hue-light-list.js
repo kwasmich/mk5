@@ -1,7 +1,7 @@
 import "../hue-light-list-item/hue-light-list-item.js";
 import { UIView } from "/base/ui-view.js";
-import { HueLightDetail } from "/hue/elements/hue-light-detail/hue-light-detail.js";
-import Hue from "/hue/hue.js";
+import { HueLightDetail } from "../hue-light-detail/hue-light-detail.js";
+import Hue from "../../hue.js";
 
 
 

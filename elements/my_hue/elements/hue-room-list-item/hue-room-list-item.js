@@ -1,6 +1,6 @@
 import { UIView } from "/base/ui-view.js";
-import { IconMap } from "/hue/hue-utils.js";
-import Hue from "/hue/hue.js";
+import { IconMap } from "../../hue_utils.js";
+import Hue from "../../hue.js";
 
 
 

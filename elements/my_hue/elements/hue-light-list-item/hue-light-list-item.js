@@ -1,5 +1,5 @@
 import { UIView } from "/base/ui-view.js";
-import { LightIconMap } from "/hue/hue-utils.js";
+import { LightIconMap } from "../../hue_utils.js";
 
 
 

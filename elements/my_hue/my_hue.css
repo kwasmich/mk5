@@ -1,0 +1,21 @@
+/* @import "/style.css"; */
+
+:host {
+    background-color: var(--midground-color);
+    display: flex;
+    height: 100%;
+    overflow: auto;
+}
+
+dl {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    gap: 8px 40px;
+    width: fit-content;
+}
+
+dd {
+    margin: 0;
+}

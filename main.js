@@ -1,20 +1,21 @@
 import { Router } from "/base/router.js";
+import { UIView } from "/base/ui-view.js";
 import "/base/ui-list-view/ui-list-view.js";
 import "/base/ui-navigation-view/ui-navigation-view.js";
 import "/base/ui-tab-view/ui-tab-view.js";
 import "/base/ui.js";
-
-import "/elements/gestures/gestures.js";
-import "/elements/list_test/list_test.js";
-import "/elements/navigation_test/navigation_test.js";
-import "/elements/tab_test/tab_test.js";
 import "/util/custom_element_helper.js";
 import "/util/security.js";
-import { UIView } from "/base/ui-view.js";
+
 import { MyCanvas } from "/elements/canvas/canvas.js";
 import { MyForm } from "/elements/form_test/form_test.js";
+import { MyHue } from "/elements/my_hue/my_hue.js";
 import { PhotoBooth } from "/elements/photo_booth/photo_booth.js";
 import { Launchpad } from "/elements/launchpad/launchpad.js";
+import { ListTestView } from "/elements/list_test/list_test.js";
+import { Gestures } from "/elements/gestures/gestures.js";
+import { NavigationTestView } from "/elements/navigation_test/navigation_test.js";
+import { TabTestView } from "/elements/tab_test/tab_test.js";
 
 
 
@@ -71,16 +72,38 @@ export const Pages = Object.freeze({
         title: "Form",
         component: UIView.registry.get(MyForm),
     },
+    Hue: {
+        path: "/hue",
+        title: "Hue",
+        component: UIView.registry.get(MyHue),
+    },
     PhotoBooth: {
         path: "/photo-booth",
         title: "Photo Booth",
         component: UIView.registry.get(PhotoBooth),
     },
-    // About: {
-    //     path: "/about",
-    //     component: "about-page",
-    //     title: "About",
-    // },
+    List: {
+        path: "/list",
+        component: UIView.registry.get(ListTestView),
+        title: "List Test",
+    },
+    Navigation: {
+        path: "/navigation",
+        component: UIView.registry.get(NavigationTestView),
+        title: "Navigation Test",
+    },
+    Tab: {
+        path: "/tab",
+        component: UIView.registry.get(TabTestView),
+        title: "Tab Test",
+    },
+    Gestures: {
+        path: "/gestures",
+        component: UIView.registry.get(Gestures),
+        title: "Gestures",
+    },
 });
+
+
 
 Router.setRoutes(Pages);

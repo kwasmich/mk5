@@ -1,6 +1,6 @@
-import Hue from "/hue/hue.js";
-import HueService from "/hue/hue.service.js";
-import { ct2rgb, xy2rgb } from "/hue/hue-utils.js";
+import Hue from "./hue.js";
+import HueService from "./hue.service.js";
+import { ct2rgb, xy2rgb } from "./hue_utils.js";
 
 
 
