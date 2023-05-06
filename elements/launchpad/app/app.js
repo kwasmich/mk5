@@ -9,15 +9,18 @@ export class App extends UIView {
 
 
     #shadowRoot = this.attachShadow({ mode: "closed" });
+    #icon = undefined
 
 
-    constructor(title, ...args) {
+    constructor(title, iconURL, ...args) {
         const self = super(args);
         Object.seal(this);
 
         this._init(this.#shadowRoot);
-        const tileElement = this.#shadowRoot.querySelector("FIGCAPTION");
-        tileElement.textContent = title;
+        const tilteElement = this.#shadowRoot.querySelector("FIGCAPTION");
+        tilteElement.textContent = title;
+        this.#icon = this.#shadowRoot.querySelector("IMG");
+        this.#icon.src = iconURL;
         return self;
     }
 
@@ -26,6 +29,11 @@ export class App extends UIView {
     attributeChangedCallback(name, oldValue, newValue) {}
     connectedCallback() {}
     disconnectedCallback() {}
+
+    
+    getBoundingClientRect() {
+        return this.#icon.getBoundingClientRect();
+    }
 }
 
 

@@ -14,12 +14,13 @@ figure {
 
 
 picture {
-    background-color: maroon;
+    /* background-color: maroon; */
     border-radius: 25%;
     display: flex;
     width: calc(100% * (56/75));
     aspect-ratio: 1;
     align-self: center;
+    overflow: hidden;
 }
 
 

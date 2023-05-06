@@ -10,7 +10,7 @@
 
 .outlet {
     pointer-events: none;
-    background-color: #000;
+    background-color: #0000;
     box-shadow: 0 0 25px;
     opacity: 0;
     position: absolute;
@@ -18,6 +18,15 @@
     transform-origin: 0 0;
     overflow: hidden;
     border-radius: 25%;
+    /* border-radius: 25cqw; */
+    scale: .25;
+    background-image: url(/apps/hue/icon.png);
+    background-size: 100% 100%;
+    background-position: center;
+}
+
+.outlet * {
+    opacity: 0;
 }
 
 .zoom {
@@ -26,5 +35,11 @@
     transition-duration: 500ms;
     translate: 0 !important;
     scale: 1 !important;
+    opacity: 1;
+}
+
+.zoom * {
+    transition-property: opacity;
+    transition-duration: 500ms;
     opacity: 1;
 }

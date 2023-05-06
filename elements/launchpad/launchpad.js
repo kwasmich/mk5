@@ -37,13 +37,12 @@ export class Launchpad extends UIView {
         const routess = routes.filter((r) => r.path !== "/");
 
         routess.map((r) => {
-            const app = new App(r.title);
+            const app = new App(r.title, r.icon);
             const anchor = document.createElement("A");
             anchor.href = r.path;
             anchor.appendChild(app);
             anchor.onclick = (evt) => {
                 evt.preventDefault();
-
                 const rect = evt.target.getBoundingClientRect();
                 console.log(rect);
                 const scaleX = rect.width / window.innerWidth;
@@ -51,22 +50,22 @@ export class Launchpad extends UIView {
                 console.log({scaleX, scaleY});
                 this.#outlet.style.scale = `${scaleX} ${scaleY}`;
                 this.#outlet.style.translate = `${rect.x}px ${rect.y}px`;
-                this.#outlet.clientWidth; // force recalculating CSS
-                this.#outlet.classList.add("zoom");
-                // setTimeout(() => {this.#outlet.classList.remove("zoom");}, 6000);
-
+                
                 while (this.#outlet.firstChild) {
                     this.#outlet.firstChild.remove();
                 }
-
+                
                 const component = document.createElement(r.component);
-
+                
                 this.#outlet.ontransitionend = () => {
                     this.#outlet.ontransitionend = undefined;
                     Router.gotoNewPage(r, component);
                 };
-
+                
                 this.#outlet.appendChild(component);
+                this.#outlet.clientWidth; // force recalculating CSS
+                this.#outlet.classList.add("zoom");
+                // setTimeout(() => {this.#outlet.classList.remove("zoom");}, 6000);
             };
             this.#shadowRoot.appendChild(anchor);
         });
