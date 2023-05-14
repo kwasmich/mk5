@@ -45,15 +45,31 @@
     </ul>
 
     <div slot="tab">Etc.</div>
-    <ul slot="content">
-        <li>
-            <input id="name" type="string" disabled />name
-        </li>
-        <li>
-            <input id="on" type="checkbox" />on
-        </li>
-        <li>
-            <input id="bri" type="range" min="0" max="254" />bri
-        </li>
-    </ul>
+    <div slot="content">
+        <ul>
+            <li>
+                <input id="name" type="string" disabled />name
+            </li>
+            <li>
+                <input id="on" type="checkbox" />on
+            </li>
+            <li>
+                <input id="bri" type="range" min="0" max="254" />bri
+            </li>
+        </ul>
+        <dl>
+            <dt>type</dt>
+            <dd id="type"></dd>
+            <dt>modelid</dt>
+            <dd id="modelid"></dd>
+            <dt>manufacturername</dt>
+            <dd id="manufacturername"></dd>
+            <dt>productname</dt>
+            <dd id="productname"></dd>
+            <dt>JSON</dt>
+            <dd>
+                <code id="json"></code>
+            </dd>
+        </dl>
+    </div>
 </ui-tab-view>

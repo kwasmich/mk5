@@ -133,6 +133,7 @@ export class HueLightDetail extends UIView {
         this.#name.value = l.name;
         this.#on.checked = l.state.on;
         this.#bri.value = l.state.bri;
+
         this.#hue.value = l.state.hue;
         this.#sat.value = l.state.sat;
 
@@ -143,6 +144,18 @@ export class HueLightDetail extends UIView {
         this.#ct.min = lct ? lct.min : 153; // TODO: lct?.min ?? 153;
         this.#ct.max = lct ? lct.max : 500;
         this.#ct.value = l.state.ct;
+
+
+        const tabView = this.#shadowRoot.querySelector("ui-tab-view");
+        const [hlsView, xyView, ctView, effectsView, etcView] = tabView.views;
+
+        const vals = ["type", "modelid", "manufacturername", "productname"];
+        
+        for (const val of vals) {
+            etcView.querySelector(`#${val}`).textContent = l[val];
+        }
+        
+        etcView.querySelector("#json").textContent = JSON.stringify(l);
     }
 
 

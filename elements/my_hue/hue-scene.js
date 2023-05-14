@@ -24,7 +24,7 @@ function colormode(light) {
 
 export class HueScene extends Object {
     get imagePath() {
-        return this.image && `./assets/HueImagePack/${this.image}_100.jpeg`
+        return this.image && `/elements/my_hue/assets/HueImagePack/${this.image}_100.jpeg`
     }
 
 
