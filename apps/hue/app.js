@@ -26,14 +26,16 @@ export class AppHue extends UIView {
     connectedCallback() {
         console.log("connected");
 
-        if (!this.#app) {
-            this.#app = this._loadApp();
-        } 
-        
-        this.#app.then((app) => {
-            this.parentElement.replaceChild(app, this);
-            app.id = this.id;
-        });
+        if (this.parentElement === document.body) {
+            if (!this.#app) {
+                this.#app = this._loadApp();
+            } 
+            
+            this.#app.then((app) => {
+                this.parentElement.replaceChild(app, this);
+                app.id = this.id;
+            });
+        }
     }
 
     disconnectedCallback() {}

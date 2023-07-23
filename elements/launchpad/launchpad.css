@@ -1,4 +1,6 @@
 :host {
+    --duration: 500ms;
+
     display: grid;
     padding: 9px;
     box-sizing: border-box;
@@ -32,7 +34,7 @@
 .zoom {
     transition-property: border-radius, opacity, scale, translate;
     border-radius: 0;
-    transition-duration: 500ms;
+    transition-duration: var(--duration);
     translate: 0 !important;
     scale: 1 !important;
     opacity: 1;
@@ -40,6 +42,6 @@
 
 .zoom * {
     transition-property: opacity;
-    transition-duration: 500ms;
+    transition-duration: var(--duration);
     opacity: 1;
 }
