@@ -2,3 +2,14 @@
     display: flex;
     flex-direction: column;
 }
+
+hue-room-list-item {
+    margin: 2px;
+}
+
+nav {
+    display: flex;
+    height: 48px;
+    padding: 8px;
+
+}

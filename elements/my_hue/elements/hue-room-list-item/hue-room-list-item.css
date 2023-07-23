@@ -3,7 +3,6 @@
 :host {
     display: flex;
     background-color: red;
-    margin: 2px;
     padding: 8px;
     border-radius: 4px;
     transition: background-color 400ms ease-in-out;

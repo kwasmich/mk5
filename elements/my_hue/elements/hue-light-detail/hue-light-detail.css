@@ -10,6 +10,17 @@
     flex: 0 0 auto;
 }
 
+nav {
+    display: flex;
+    height: 48px;
+    padding: 8px;
+
+}
+
+hue-light-list-item {
+    margin: 2px;
+}
+
 ul {
     flex: 1 1 1px;
     overflow: auto;

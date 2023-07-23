@@ -44,6 +44,8 @@ export class HuePrimary extends UIView {
 
         // console.log(Hue.lights.value);
 
+        const touchLinkButton = this.#shadowRoot.querySelector("nav > button");
+        touchLinkButton.onclick = () => this._onTouchLinkClicked();
     }
 
 
@@ -52,6 +54,11 @@ export class HuePrimary extends UIView {
         const tabView = this.#shadowRoot.querySelector("ui-tab-view");
         const lightList = tabView.views.find((x) => x.tagName.toLowerCase() === "hue-light-list");
         lightList.hueGroup = { lights };
+    }
+
+
+    async _onTouchLinkClicked() {
+        await Hue.touchLink();
     }
 }
 

@@ -90,7 +90,7 @@ LazyVGrid
 LazyHGrid
 
 
-Localization
+Localization - extend String objects
 
 Serialize/Deserialize
 Routing

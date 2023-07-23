@@ -70,6 +70,15 @@ class Hue {
         this.lights.value = lights;
         this.groups.value = groups;
     }
+
+
+    async touchLink() {
+        const payload = {
+            "touchlink": true
+        };
+
+        await HueService.query("PUT", ["config"], JSON.stringify(payload));
+    }
 }
 
 
