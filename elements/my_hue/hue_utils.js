@@ -53,6 +53,7 @@ const _LightIconMap = {
     "LLC020": "/elements/my_hue/assets/HueIconPack2019/heroesHuego.svg",
     "LWA009": "/elements/my_hue/assets/HueIconPack2019/bulbsSultan.svg",
     "LWL001": "/elements/my_hue/assets/HueIconPack2019/devicesPlug.svg",
+    "LWG004": "/elements/my_hue/assets/HueIconPack2019/bulbsSpot.svg",
     "RGBW Lighting": "/elements/my_hue/assets/HueIconPack2019/heroesLightstrip.svg",
     "TS0505B": "/elements/my_hue/assets/HueIconPack2019/archetypesCeilingSquare.svg",
     "ZBT-ColorTemperature": "/elements/my_hue/assets/HueIconPack2019/bulbsClassic.svg",
@@ -62,6 +63,28 @@ const _LightIconMap = {
 Object.seal(_LightIconMap);
 
 export const LightIconMap = _LightIconMap;
+
+const _LightTypeIconMap = {
+    "candlebulb": "/elements/my_hue/assets/HueIconPack2019/bulbCandle.svg",
+    "ceilinground": "/elements/my_hue/assets/HueIconPack2019/archetypesCeilingRound.svg",
+    "ceilingsquare": "/elements/my_hue/assets/HueIconPack2019/archetypesCeilingSquare.svg",
+    "classicbulb": "/elements/my_hue/assets/HueIconPack2019/bulbsClassic.svg",
+    "huebloom": "/elements/my_hue/assets/HueIconPack2019/heroesBloom.svg",
+    "huego": "/elements/my_hue/assets/HueIconPack2019/heroesHuego.svg",
+    "huelightstrip": "/elements/my_hue/assets/HueIconPack2019/heroesLightstrip.svg",
+    "pendantround": "/elements/my_hue/assets/HueIconPack2019/archetypesPendantRound.svg",
+    "plug": "/elements/my_hue/assets/HueIconPack2019/devicesPlug.svg",
+    "spotbulb": "/elements/my_hue/assets/HueIconPack2019/bulbsSpot.svg",
+    "sultanbulb": "/elements/my_hue/assets/HueIconPack2019/bulbsSultan.svg",
+    "tableshade": "/elements/my_hue/assets/HueIconPack2019/archetypesTableShade.svg",
+    "wallspot": "/elements/my_hue/assets/HueIconPack2019/archetypesWallSpot.svg",
+};
+
+Object.seal(_LightTypeIconMap);
+
+export const LightTypeIconMap = _LightTypeIconMap;
+
+
 
 const _ImageMap = {
     "undefined": "Fassenacht",
