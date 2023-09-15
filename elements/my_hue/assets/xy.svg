@@ -2,17 +2,53 @@
 <svg xmlns="http://www.w3.org/2000/svg" 
   xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 750 850" version="1.1">
   <defs>
-    <path id="border" d="m 150,473 c -3,0 -5,-2 -8,-4 -7,-7 -13,-14 -18,-23 -3,-5 -6,-10 -8,-15 -3,-7 -6,-15 -9,-23 C 103,396 99,385 95,373 86,339 77,298 72,264 66,226 61,179 62,141 63,118 65,81 80,60 84,54 91,50 98,49 c 7,-1 14,2 20,4 22,7 42,23 60,37 58,45 109,101 161,153 21,21 41,41 62,62 8,8 16,16 25,24 2,3 4,5 7,8 1,0 1,1 2,2 0,0 1,1 1,1" />
+    <path id="border" d="m 174.707,846.053 c -5.889,0 -9.815,-3.926 -15.704,-7.852 -13.741,-13.741 -25.519,-27.482 -35.334,-45.149 -5.889,-9.815 -11.778,-19.63 -15.704,-29.445 C 102.076,749.866 96.187,734.162 90.298,718.458 82.446,694.902 74.594,673.309 66.742,649.753 49.075,583.011 31.408,502.528 21.593,435.786 9.815,361.192 0,268.931 1.963,194.337 3.926,149.188 7.852,76.557 37.297,35.334 45.149,23.556 58.89,15.704 72.631,13.741 c 13.741,-1.963 27.482,3.926 39.26,7.852 43.186,13.741 82.446,45.149 117.78,72.631 113.854,88.335 213.967,198.263 316.043,300.339 41.223,41.223 80.483,80.483 121.706,121.706 15.704,15.704 31.408,31.408 49.075,47.112 3.926,5.889 7.852,9.815 13.741,15.704 1.963,0 1.963,1.963 3.926,3.926 0,0 1.963,1.963 1.963,1.963" />
     <clipPath id="clipborder">
       <use xlink:href="#border" />
     </clipPath>
+    <style>
+      circle {
+         fill: none;
+         stroke: #ff0000;
+         stroke-width: 1.3;
+      }
+
+      div {
+         height: 850px;
+         background-blend-mode: screen, screen, soft-lightf, screen;
+         background-image:
+         radial-gradient(
+            circle at 45% 60%,
+            #fff8 0%,
+            #fff0 50%
+         ),
+         radial-gradient(
+            circle at 45% 60%,
+            #ffff 0%,
+            #fff0 50%
+         ),
+         conic-gradient(
+            from 101.75deg at 45% 60% in hsl, 
+            hsl(0 100% 50%) 0%, hsl(240 100% 50%) 30.2%, hsl(120 100% 50%) 72.5%, hsl(0 100% 50%) 100%
+         ),
+         conic-gradient(
+            from 101.75deg at 45% 60% in hsl, 
+            hsl(0 100% 50%) 0%, hsl(240 100% 50%) 30.2%, hsl(120 100% 50%) 72.5%, hsl(0 100% 50%) 100%
+         );
+      }
+    </style>
   </defs>
   <rect fill="#444" width="750" height="850" />
-  <g transform="scale(1.963) translate(-61,-42)">
+  <g>
     <use xlink:href="#border" fill="none" stroke-width="4" stroke="#000" />
     <g clip-path="url(#clipborder)">
       <image transform="translate(36,35.8) scale(16)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAcCAIAAAAfs1O6AAAAAXNSR0IArs4c6QAAA7tJREFUeF591cuKHFUYwPH/d+rUpaenZ5JMLkaMuBAJQly5EeJCtz6M+AC+khvxIbIw4AVMAsEQJ5kkM+mpnumu7rqdz65zOHQxgvCnqCqoX38f1XQL+gsALTRQwwYquIRzOIHH3/HkM/gQbsF1uKbMlKljryfvyDpsS9JgtrVIi0UNgCQwzsYywMS7KVhIdci6oaTDxCSIkACgEbpSGkV/raShwPVe9FCIJn48muB1346LM4aLUBwwcF40DdKAP5r4cETHXBSTEZ/5AdMe25F4a8SNZ8T+t6uikoXCgHE0qaEOxyjuUB0vl43FFPJtSu5I4/s1NSZyxBODBiimV7ic8MqjmPVerDEbZAOjYzgJECgIoODAoxEhDlgohSNvd5ysI9dAqMWgCTpeOUOj5Z0jHuYcTpRtRUdaY9eYakgqqAaXyrceMuNliSv7im0Zk5t8co2vpnw67Ska0jVmNcQSWQ2xrdqhCT9+DwZklwiAOGge4h6Qf0xx1x3caPYmyxO7wFx6bumttW/jq2EziD9E0SAmnCOAIt3XmPtbUfM7XX6wKrJylsyPWSAXEMTqKmpxFkAUHDpGFeoPSI6or7v9WV1kl2JKlUXC+Z8sy0Gpfa2vC4UXAqh6IkEckgwZ8wC9w+wmzfV2NblMkrKVsqHsKYXF31THnov1Xuyx9BaIa/pIMT2afm7y2/RHrp1VF+l5I/OVzNect5z3LISLnNVz2gDtilsDeBS8C+I+Qm+i19omnztzNpWzKfN93teUHaWjhDJl/gTHOEtnxyAICio4ua1y4HRSrZN3Be9yTgvOJsy3bsu840x5Ba9n0EdPwVm6BAiKvyP0hla+rc2Bo2jVLFveWN5kbN3TCWcbThtetTwXmELnC2jvxdaAh0KdUAuV3Ktkr8XWjguj7ywnGW+35RwX/NGA8VzrC2IXxSbxInQ7jnO5sSKvMRWUom8TfW35J5VHGW4K5r9fnCj2diCAXmiFmoFbyL0TZhuyFeYSPYVjw++WNwXsg0ACqa8NXRENQMtAr+FCOOX+a/ZW2BI5hWeiT42SCYXSCRpQXwM20MTFDWuGKmEJC+E9vOTWS4pn2F/V/AxPcSRKqmThNxeK/8myFoANrIQS3sJfHL6geEwBFgUUo7tNs/hFAST+URroIPFbV16s4IIw4Bc/cQsOIQcTn1QS9QsKveIEBUaoQBK3rhi6JAzIb3wJRzCFDDUAKEIYE+tLNc7rS8MxZFkCccAXfPOIuzCDHLVxRkXUbxdQoSdOSlwiZv4FiZsWgB+yll0AAAAASUVORK5CYII=" />
     </g>
+  </g>
+  <g clip-path="url(#clipborder)">
+    <foreignObject x="0" y="0" width="100%" height="100%">
+      <div xmlns="http://www.w3.org/1999/xhtml"></div>
+    </foreignObject>
   </g>
   <path id="gamut" transform="translate(0,850) scale(1, -1)" stroke-width="2" stroke="#000" fill="none" d="M675,322 L409,518 L167,40 Z" />
 </svg>

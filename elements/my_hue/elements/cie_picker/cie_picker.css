@@ -4,3 +4,27 @@
     width: 100px;
     height: 100px;
 } */
+
+div {
+  height: 850px;
+  background-blend-mode: screen, screen, soft-lightf, screen;
+  background-image:
+  radial-gradient(
+    circle at 45% 60%,
+    #fff8 0%,
+    #fff0 50%
+  ),
+  radial-gradient(
+    circle at 45% 60%,
+    #ffff 0%,
+    #fff0 50%
+  ),
+  conic-gradient(
+    from 101.75deg at 45% 60% in hsl, 
+    hsl(0 100% 50%) 0%, hsl(240 100% 50%) 30.2%, hsl(120 100% 50%) 72.5%, hsl(0 100% 50%) 100%
+  ),
+  conic-gradient(
+    from 101.75deg at 45% 60% in hsl, 
+    hsl(0 100% 50%) 0%, hsl(240 100% 50%) 30.2%, hsl(120 100% 50%) 72.5%, hsl(0 100% 50%) 100%
+  );
+}
