@@ -37,7 +37,9 @@ export class Launchpad extends UIView {
         const routess = routes.filter((r) => r.path !== "/");
 
         routess.map((r) => {
-            const app = new App(r.title, r.icon);
+            const icon = r.icon ?? "/apps/generic_icon.png";
+            const screen = r.screen ?? "/apps/generic_icon.png";
+            const app = new App(r.title, icon);
             const anchor = document.createElement("A");
             anchor.href = r.path;
             anchor.appendChild(app);
@@ -50,12 +52,14 @@ export class Launchpad extends UIView {
                 console.log({scaleX, scaleY});
                 this.#outlet.style.scale = `${scaleX} ${scaleY}`;
                 this.#outlet.style.translate = `${rect.x}px ${rect.y}px`;
+                this.#outlet.style.backgroundImage = `url("${icon}")`;
                 
                 while (this.#outlet.firstChild) {
                     this.#outlet.firstChild.remove();
                 }
                 
                 const component = document.createElement(r.component);
+                component.style.backgroundImage = `url("${screen}")`;
                 
                 this.#outlet.ontransitionend = () => {
                     this.#outlet.ontransitionend = undefined;

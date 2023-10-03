@@ -22,7 +22,7 @@
     border-radius: 25%;
     /* border-radius: 25cqw; */
     scale: .25;
-    background-image: url(/apps/hue/icon.png);
+    /* background-image: url(/apps/hue/icon.png); */
     background-size: 100% 100%;
     background-position: center;
 }

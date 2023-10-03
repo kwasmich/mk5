@@ -15,7 +15,7 @@ figure {
 
 picture {
     /* background-color: maroon; */
-    border-radius: 25%;
+    border-radius: 22.5%;
     display: flex;
     width: calc(100% * (56/75));
     aspect-ratio: 1;

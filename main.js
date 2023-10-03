@@ -8,7 +8,8 @@ import "/util/custom_element_helper.js";
 import "/util/security.js";
 
 import { Launchpad } from "/elements/launchpad/launchpad.js";
-import { AppHue } from "/apps/hue/app.js";
+import { DefineApp } from "/apps/wrapper/app.js";
+// import { AppHue } from "/apps/hue/app.js";
 // import { MyCanvas } from "/elements/canvas/canvas.js";
 // import { MyForm } from "/elements/form_test/form_test.js";
 // import { MyHue } from "/elements/my_hue/my_hue.js";
@@ -61,52 +62,52 @@ export const Pages = Object.freeze({
     Launchpad: {
         path: "/",
         title: "Launchpad",
-        icon: "/apps/hue/icon.png",
         component: UIView.registry.get(Launchpad),
     },
     Canvas: {
         path: "/canvas",
         title: "Canvas",
-        icon: "/apps/hue/icon.png",
-        component: UIView.registry.get(AppHue),
+        component: UIView.registry.get(DefineApp("/elements/canvas/canvas.js")),
     },
     Form: {
         path: "/form",
         title: "Form",
-        icon: "/apps/hue/icon.png",
-        component: UIView.registry.get(AppHue),
+        component: UIView.registry.get(DefineApp("/elements/form_test/form_test.js")),
     },
     Hue: {
         path: "/hue",
         title: "Hue",
         icon: "/apps/hue/icon.png",
-        component: UIView.registry.get(AppHue),
+        screen: "/apps/hue/screen.png",
+        component: UIView.registry.get(DefineApp("/elements/my_hue/my_hue.js")),
     },
-    // PhotoBooth: {
-    //     path: "/photo-booth",
-    //     title: "Photo Booth",
-    //     component: UIView.registry.get(PhotoBooth),
-    // },
-    // List: {
-    //     path: "/list",
-    //     component: UIView.registry.get(ListTestView),
-    //     title: "List Test",
-    // },
-    // Navigation: {
-    //     path: "/navigation",
-    //     component: UIView.registry.get(NavigationTestView),
-    //     title: "Navigation Test",
-    // },
-    // Tab: {
-    //     path: "/tab",
-    //     component: UIView.registry.get(TabTestView),
-    //     title: "Tab Test",
-    // },
-    // Gestures: {
-    //     path: "/gestures",
-    //     component: UIView.registry.get(Gestures),
-    //     title: "Gestures",
-    // },
+    PhotoBooth: {
+        path: "/photo-booth",
+        title: "Photo Booth",
+        icon: "/apps/Photo Booth Icon.png",
+        screen: "/apps/Photo Booth Screen.png",
+        component: UIView.registry.get(DefineApp("/elements/photo_booth/photo_booth.js")),
+    },
+    List: {
+        path: "/list",
+        title: "List Test",
+        component: UIView.registry.get(DefineApp("/elements/list_test/list_test.js")),
+    },
+    Navigation: {
+        path: "/navigation",
+        title: "Navigation Test",
+        component: UIView.registry.get(DefineApp("/elements/navigation_test/navigation_test.js")),
+    },
+    Tab: {
+        path: "/tab",
+        title: "Tab Test",
+        component: UIView.registry.get(DefineApp("/elements/tab_test/tab_test.js")),
+    },
+    Gestures: {
+        path: "/gestures",
+        title: "Gestures",
+        component: UIView.registry.get(DefineApp("/elements/gestures/gestures.js")),
+    },
 });
 
 
