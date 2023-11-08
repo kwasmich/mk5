@@ -90,7 +90,7 @@ export function loadHTML(PATH) {
 
 
 export function loadJSON(PATH) {
-    return fetch(PATH).then(response => response.json());
+    return fetch(PATH, { mode: "no-cors" }).then(response => response.json());
     const promise = (resolve, reject) => {
         let loadHandler, xhr;
 
