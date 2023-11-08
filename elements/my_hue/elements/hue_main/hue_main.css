@@ -1,5 +1,3 @@
-@import "/style.css";
-
 :host {
     flex: 1 1 1px;
     display: flex;
