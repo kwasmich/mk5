@@ -180,7 +180,7 @@ button:disabled {
 }
 
 
-table {
+/* table {
     border-collapse: collapse;
 }
 
@@ -206,7 +206,7 @@ tr:nth-child(2n) td {
 
 tr:nth-child(4n + 3) td {
     height: 40px;
-}
+} */
 
 .a { background-color: var(--A); }
 .b { background-color: var(--B); }

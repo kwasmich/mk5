@@ -5,11 +5,11 @@ import "/base/ui-navigation-view/ui-navigation-view.js";
 import "/base/ui-tab-view/ui-tab-view.js";
 import "/base/ui.js";
 import "/util/custom_element_helper.js";
+import "/util/promise_extension.js";
 import "/util/security.js";
 
 import { Launchpad } from "/elements/launchpad/launchpad.js";
 import { DefineApp } from "/apps/wrapper/app.js";
-// import { AppHue } from "/apps/hue/app.js";
 // import { MyCanvas } from "/elements/canvas/canvas.js";
 // import { MyForm } from "/elements/form_test/form_test.js";
 // import { MyHue } from "/elements/my_hue/my_hue.js";
@@ -77,8 +77,8 @@ export const Pages = Object.freeze({
     Hue: {
         path: "/hue",
         title: "Hue",
-        icon: "/apps/hue/icon.png",
-        screen: "/apps/hue/screen.png",
+        icon: "/apps/hue_icon.png",
+        screen: "/apps/hue_screen.png",
         component: UIView.registry.get(DefineApp("/elements/my_hue/my_hue.js")),
     },
     PhotoBooth: {
@@ -107,6 +107,11 @@ export const Pages = Object.freeze({
         path: "/gestures",
         title: "Gestures",
         component: UIView.registry.get(DefineApp("/elements/gestures/gestures.js")),
+    },
+    Remote: {
+        path: "/remote",
+        title: "Remote",
+        component: UIView.registry.get(DefineApp("/elements/remote/remote.js")),
     },
 });
 

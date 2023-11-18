@@ -49,6 +49,8 @@ export class UIView extends HTMLElement {
             elementClass.htmlTemplate = html;
             Object.seal(elementClass);
             
+
+            // todo - track progress of missing 
             const undefElements = html.content.querySelectorAll(":not(:defined)");
 
             for (const element of undefElements) {
@@ -57,8 +59,9 @@ export class UIView extends HTMLElement {
 
             if (undefElements.length > 0) {
                 const undef = [...new Set([...undefElements].map((e) => e.localName))];
+                console.log("Waiting for", undef);
                 const promises = undef.map((u) => customElements.whenDefined(u));
-                await Promise.all(promises);
+                await Promise.all(promises, 3000).catch((error) => console.error(`Timeout while waiting for ${undef}`));
             }
 
             customElements.define(tagName, elementClass);

@@ -1,0 +1,8 @@
+/* @import "/style.css"; */
+
+:host {
+    background-color: var(--midground-color);
+    display: block;
+    padding: 30px;
+    overflow: auto;
+}

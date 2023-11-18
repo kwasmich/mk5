@@ -1,9 +1,0 @@
-:host {
-    overflow: auto;
-    background-color: var(--midground-color);
-    display: block;
-    height: 100%;
-    /* background-image: url(/apps/hue/screen.png); */
-    background-size: cover;
-    background-position: center;
-}

@@ -38,22 +38,6 @@ export class Gestures extends UIView {
 
     connectedCallback() {
         this.#shadowRoot.ownerDocument.addEventListener("pointerdown", this.#onPointerDown);
-
-        // var request = new XMLHttpRequest();
-        // request.onreadystatechange= function () {
-        //     if (request.readyState == 4) {
-        //         //handle response
-        //     }
-        // }
-        // request.open("POST", "http://192.168.2.161:56789/apps/vr/remote", true);
-        // request.setRequestHeader("Host", "192.168.2.161:56789");
-        // request.send("<remote><key code=1064/></remote>");
-
-        // fetch("http://192.168.2.161:56789/apps/vr/remote", {
-        //     method: "POST",
-        //     body: "<remote><key code=1064/></remote>",
-        //     headers: { "Host": "192.168.2.161:56789" }
-        // })
     }
 
 
