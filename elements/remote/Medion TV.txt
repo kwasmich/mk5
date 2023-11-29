@@ -1,0 +1,75 @@
+https://knx-user-forum.de/forum/projektforen/edomi/1193337-medion-telefunken-tv-steuern
+
+curl -i -H 'Host: 192.168.2.161:56789' --data '<remote><key code=1012/></remote>' 'http://192.168.2.161:56789/apps/vr/remote'
+
+1000 0
+1001 1
+1002 2
+1003 3
+1004 4
+1005 5
+1006 6
+1007 7
+1008 8
+1009 9
+1010 Back
+1011 Aspect Ratio
+1012 On/Off
+1013 Mute
+1014 Bild Modus
+1015 Lang
+1016 Vol+
+1017 Vol-
+1018 Info
+1019 Down
+1020 Up
+1021 Left
+1022 Right
+1023 
+1024 Stop
+1025 Play
+1026
+1027 Rewind
+1028 Forward
+1029
+1030
+1031 Untertitel
+1032 P+
+1033 P-
+1034 P1 <-> P2
+1035 Stereo Ch1 Ch2
+1036
+1037 Exit
+1038 
+1039
+1040 Favoriten
+1041 
+1042 Ausschalttimer
+1043 Q-Menu
+1044
+1045 TV Liste
+1046 Internet/Apps
+1047 EPG
+1048 Menu
+1049 Pause
+1050 Gelb/Mediathek
+1051 Record
+1052 Blau
+1053 OK
+1054 Grün
+1055 Rot/Mediathek
+1056 Input Quelle
+1057 Media-Browser
+1058 
+1059
+1060 TeleText
+1061
+1062 YouTube
+1063 Empfangsart Alle, Sat, DVB-T, Kabel
+1064 Netflix
+1065 Opera Browser
+1066
+1067 Einstellungen > Einstellungen
+1068 
+1069
+

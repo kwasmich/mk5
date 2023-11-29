@@ -14,6 +14,7 @@ export class MyRemote extends UIView {
 
     #shadowRoot = this.attachShadow({ mode: "closed" });
     #address = undefined;
+    #ports = [56791];
 
 
     constructor(...args) {
@@ -33,17 +34,21 @@ export class MyRemote extends UIView {
 
         input.onchange = (event) => {
             this.#address = event.target.value;
+            this.#findPort();
         }
+
+        this.#findPort();
 
         this.#shadowRoot.querySelector("TABLE").onclick = (event) => {
             if (event.target.tagName === "BUTTON") {
                 const code = event.target.dataset.code;
-                fetch(`http://${this.#address}/apps/vr/remote`, {
+                for (const port of this.#ports)
+                fetch(`http://${this.#address}:${port}/apps/vr/remote`, {
                     mode: "no-cors",
                     method: "POST",
                     body: `<remote><key code=${code}/></remote>`,
-                    headers: { "Host": `${this.#address}` }
-                })
+                    // headers: { "Host": `${this.#address}:${port}` }
+                });
             }
         }
 
@@ -70,7 +75,31 @@ export class MyRemote extends UIView {
 
     }
     disconnectedCallback() {}
+
+
+    async #findPort() {
+        const ports = ['56789', '56790', '56791', '56792', '56793', '56794'];
+        const code = 1051; // record
+        const abortController = new AbortController();
+        const promises = ports.map((p) =>
+            fetch(`http://${this.#address}:${p}/apps/vr/remote`, {
+                mode: "no-cors",
+                method: "POST",
+                body: `<remote><key code=${code}/></remote>`,
+                // headers: { "Host": `${this.#address}:${this.#port}` }
+                signal: abortController.signal
+            }).then((response) => { console.log(response.bodyUsed); return Promise.resolve(p) })
+        );
+        setTimeout(() => abortController.abort(), 100);
+        try {
+            const ports = await Promise.allSettled(promises);
+            const fulfilledPorts = ports.filter((p) => p.status === "fulfilled").map((p) => +p.value);
+            console.log(fulfilledPorts);
+            this.#ports = fulfilledPorts;
+        } catch {}
+    }
 }
+
 
 
 
