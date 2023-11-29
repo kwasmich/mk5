@@ -40,3 +40,8 @@ nav > ::slotted(*:focus) {
     outline: 2px solid var(--accent-color);
     outline-offset: 0px;
 }
+
+nav > ::slotted(*[aria-selected="true"]) {
+    color: white;
+    text-decoration: underline;
+}
