@@ -42,6 +42,6 @@ nav > ::slotted(*:focus) {
 }
 
 nav > ::slotted(*[aria-selected="true"]) {
-    color: white;
+    color: var(--highlight-color);
     text-decoration: underline;
 }

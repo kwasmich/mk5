@@ -57,10 +57,12 @@ export class UITabView extends UIView {
         tabSlot.onkeydown = (keyboardEvent) => {
             switch (keyboardEvent.key) {
                 case "ArrowLeft":
-                    this.#viewIndex = (this.#viewIndex + this.#tabs.length - 1) % this.#tabs.length;
+                    this.#viewIndex = Math.max(0, this.#viewIndex - 1);
+                    // this.#viewIndex = (this.#viewIndex + this.#tabs.length - 1) % this.#tabs.length;
                     break;
                 case "ArrowRight":
-                    this.#viewIndex = (this.#viewIndex + 1) % this.#tabs.length;
+                    this.#viewIndex = Math.min(this.#viewIndex + 1, this.#tabs.length - 1);
+                    // this.#viewIndex = (this.#viewIndex + 1) % this.#tabs.length;
                     break;
                 case "Home":
                     this.#viewIndex = 0;
