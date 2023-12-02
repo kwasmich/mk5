@@ -16,7 +16,7 @@ export class UIListView extends UIView {
     }
 
     // #clickHandler = undefined;
-    #listData = [];
+    #listData = [] ?? new Map();
     #listElements = [];
     #shadowRoot = this.attachShadow({ mode: "closed" });
     #template = this.querySelector("TEMPLATE");
@@ -35,8 +35,9 @@ export class UIListView extends UIView {
     }
 
     set listData(val) {
+        const forceUpdate = Array.isArray(val) !== Array.isArray(this.#listData);
         this.#listData = val ?? [];
-        this._updateList();
+        this._updateList(forceUpdate);
     }
 
     // set clickHandler(val) {
@@ -60,7 +61,7 @@ export class UIListView extends UIView {
 
 
     onInit() {
-        this._updateList();
+        this._updateList(true);
     }
 
 
@@ -70,26 +71,79 @@ export class UIListView extends UIView {
     disconnectedCallback() {}
 
 
-    async _updateList() {
-        const root = this.#shadowRoot;
-        const elements = this.#listElements;
-
-        while (elements.length > this.#listData.length) {
+    _updateListGroup(list, elements, parent) {
+        // remove superfluous elements
+        while (elements.length > list.length) {
             const element = elements.pop();
             element.remove();
             this.#cache.push(element);
         }
 
-        while (elements.length < this.#listData.length) {
-            const element = this.#cache.pop() ?? this.#template.content.firstElementChild.cloneNode(true);
-            element.tabIndex = -1;
-            element.onclick = (mouseEvent) => this._onClick(mouseEvent);
+        // add new elements
+        while (elements.length < list.length) {
+            const fromCache = this.#cache.pop();
+            const element = fromCache ?? this.#template.content.firstElementChild.cloneNode(true);
             elements.push(element);
-            root.appendChild(element);
-            customElements.upgrade(element);
+            parent.appendChild(element);
+            
+            if (!fromCache) {
+                element.tabIndex = -1;
+                element.onclick = (mouseEvent) => this._onClick(mouseEvent);
+                customElements.upgrade(element);
+            }
         }
 
-        this.#listData.forEach((item, idx) => elements[idx].item = item);
+        // update element data
+        list.forEach((item, idx) => elements[idx].item = item);
+    }
+
+
+    _updateList(forceClear = false) {
+        if (forceClear) {
+            this._updateListGroup([], this.#listElements, undefined);
+
+            const sections = [...this.#shadowRoot.querySelectorAll("SECTION")];
+            sections.forEach((s) => s.remove());
+        }
+
+        let listLenght = 0;
+
+        if (this.#listData instanceof Map) {
+            const sections = [...this.#shadowRoot.querySelectorAll("SECTION")];
+
+            // remove superfluous sections
+            while (sections.length > this.#listData.size) {
+                const sectionElement = sections.pop();
+                const listElements = [...sectionElement.querySelectorAll(":not([inert])")];
+                this._updateListGroup([], listElements, undefined);
+                sectionElement.remove();
+            }
+
+            this.#listElements.length = 0; // clear - we are relying on querySelector for sections
+
+            this.#listData.forEach((list, grp, map) => {
+                listLenght += list.length;
+                const reuseSectionElement = sections.pop();
+                const sectionElement = reuseSectionElement ?? this.#shadowRoot.ownerDocument.createElement("SECTION");
+
+                if (!reuseSectionElement) {
+                    const headerElement = this.#shadowRoot.ownerDocument.createElement("HEADER");
+                    headerElement.inert = true;
+                    sectionElement.appendChild(headerElement);
+                }
+
+                sectionElement.querySelector("HEADER").textContent = grp;
+                this.#shadowRoot.appendChild(sectionElement);
+                const listElements = [...sectionElement.querySelectorAll(":not([inert])")];
+                this._updateListGroup(list, listElements, sectionElement);
+                this.#listElements.push(...listElements);
+            });
+        } else {
+            listLenght += this.#listData.length;
+            this._updateListGroup(this.#listData, this.#listElements, this.#shadowRoot);
+        }
+
+        // console.log(`input length: ${listLenght}, output length: ${this.#listElements.length}, cache length: ${this.#cache.length}`);
     }
 
 

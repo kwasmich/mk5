@@ -29,9 +29,42 @@ export class ListTestView extends UIView {
 
 
     _onInit() {
-        const listView = this.#shadowRoot.querySelector("ui-list-view");    
+        const listView = this.#shadowRoot.querySelector("ui-list-view");
         listView.addEventListener("selectionChanged", (customEvent) => this._onSelectionChanged(customEvent));
         listView.listData = [...Array(50)].map((val, idx) => idx);
+
+        // setInterval(() => listView.listData = [...Array(20 + Math.floor(50 * Math.random()))].map((val, idx) => idx), 500);
+
+        const buttonA = this.#shadowRoot.querySelector("button#A");
+        buttonA.onclick = () => listView.listData = [...Array(20 + Math.floor(50 * Math.random()))].map((val, idx) => idx);
+
+        const buttonB = this.#shadowRoot.querySelector("button#B");
+        buttonB.onclick = () => {
+            const probability = 0.7;
+            const data = new Map();
+            data.set("A", Array(1 + Math.floor(10 * Math.random())).fill().map((val, idx) => `A ${idx}`));
+            data.set("B", Array(2 + Math.floor(10 * Math.random())).fill().map((val, idx) => `B ${idx}`));
+            data.set("C", Array(3 + Math.floor(10 * Math.random())).fill().map((val, idx) => `C ${idx}`));
+            
+            if (Math.random() < probability) {
+                data.set("D", Array(5 + Math.floor(10 * Math.random())).fill().map((val, idx) => `D ${idx}`));
+
+                if (Math.random() < probability) {
+                    data.set("E", Array(7 + Math.floor(10 * Math.random())).fill().map((val, idx) => `E ${idx}`));
+
+                    if (Math.random() < probability) {
+                        data.set("F", Array(11 + Math.floor(10 * Math.random())).fill().map((val, idx) => `F ${idx}`));
+
+                        if (Math.random() < probability) {
+                            data.set("G", Array(13 + Math.floor(10 * Math.random())).fill().map((val, idx) => `G ${idx}`));
+                        }
+                    }
+                }
+            }
+
+            listView.listData = data;
+        };
+
     }
 
 
