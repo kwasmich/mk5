@@ -10,6 +10,7 @@ export class ListItemTest extends UIView {
 
     #shadowRoot = this.attachShadow({ mode: "closed" });
     #data = "xxx";
+    #textNode = undefined;
 
     get item() {
         return this.#data
@@ -26,6 +27,7 @@ export class ListItemTest extends UIView {
         Object.seal(this);
 
         this._init(this.#shadowRoot);
+        this._onInit();
         return self;
     }
 
@@ -36,8 +38,14 @@ export class ListItemTest extends UIView {
     disconnectedCallback() {}
 
 
+    _onInit() {
+        this.#textNode = this.#shadowRoot.ownerDocument.createTextNode(this.#data);
+        this.#shadowRoot.append(this.#textNode);
+    }
+
+
     _updateView() {
-        this.#shadowRoot.appendChild(this.#shadowRoot.ownerDocument.createTextNode(this.#data));
+        this.#textNode.textContent = this.#data;
     }
 }
 
