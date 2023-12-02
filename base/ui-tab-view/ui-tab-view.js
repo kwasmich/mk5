@@ -88,10 +88,8 @@ export class UITabView extends UIView {
        
         for (const oldView of this.#views) {
             oldView.remove();
-            // oldView.tabIndex = -1; // not required - is removed from DOM
         }
 
-        newView.tabIndex = 0;
         this.appendChild(newView);
 
         const newTab = this.#tabs[this.#viewIndex];
