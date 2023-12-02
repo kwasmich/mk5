@@ -4,18 +4,18 @@
     overflow: auto;
 }
 
-:host > :focus {
+:host :focus {
     outline: 2px solid var(--accent-color);
     outline-offset: -4px;
 }
 
-:host > .selected {
+:host .selected {
     background-color: var(--accent-color);
     /* transition: background-color 0s !important; */
     color: var(--highlight-color);
 }
 
-:host > .selected:focus {
+:host .selected:focus {
     outline: 2px solid var(--highlight-color);
     outline-offset: -4px;
 }

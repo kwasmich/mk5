@@ -15,12 +15,14 @@ export class UIListView extends UIView {
         return [SELECT_ATTR];
     }
 
+
     // #clickHandler = undefined;
     #listData = [] ?? new Map();
     #listElements = [];
-    #shadowRoot = this.attachShadow({ mode: "closed" });
+    #shadowRoot = this.attachShadow({ mode: "open" });
     #template = this.querySelector("TEMPLATE");
     #cache = [];
+
 
     get selectMode() {
         return this.getAttribute(SELECT_ATTR) ?? SELECT_NONE;
@@ -47,28 +49,36 @@ export class UIListView extends UIView {
 
     constructor(...args) {
         const self = super(args);
+        this._onClick = this._onClick.bind(self);
+        this._onKeyboardDown = this._onKeyboardDown.bind(self);
         Object.seal(this);
 
         this._init(this.#shadowRoot);
         this.onInit();
         
-        this.tabIndex = 0;
-        this.onfocus = (focusEvent) => this._onFocus(focusEvent);
-        this.onblur = (focusEvent) => this._onBlur(focusEvent);
-        this.onkeydown = (keyboardEvent) => this._onKeyboardDown(keyboardEvent);
         return self;
     }
-
-
+    
+    
     onInit() {
         this._updateList(true);
     }
-
-
+    
+    
     adoptedCallback() {}
     attributeChangedCallback(name, oldValue, newValue) {}
-    connectedCallback() {}
-    disconnectedCallback() {}
+    
+    
+    connectedCallback() {
+        this.#shadowRoot.addEventListener("click", this._onClick);
+        this.#shadowRoot.addEventListener("keydown", this._onKeyboardDown);
+    }
+    
+    
+    disconnectedCallback() {
+        this.#shadowRoot.removeEventListener("click", this._onClick);
+        this.#shadowRoot.removeEventListener("keydown", this._onKeyboardDown);
+    }
 
 
     _updateListGroup(list, elements, parent) {
@@ -87,8 +97,6 @@ export class UIListView extends UIView {
             parent.appendChild(element);
             
             if (!fromCache) {
-                element.tabIndex = -1;
-                element.onclick = (mouseEvent) => this._onClick(mouseEvent);
                 customElements.upgrade(element);
             }
         }
@@ -143,63 +151,79 @@ export class UIListView extends UIView {
             this._updateListGroup(this.#listData, this.#listElements, this.#shadowRoot);
         }
 
+        for (const element of this.#listElements) {
+            element.tabIndex = -1;
+        }
+
+        const newCell = this.#listElements[0];
+
+        if (newCell) {
+            newCell.tabIndex = 0;
+        }
+
         // console.log(`input length: ${listLenght}, output length: ${this.#listElements.length}, cache length: ${this.#cache.length}`);
     }
 
 
-    _onFocus(focusEvent) {
-        // console.log(focusEvent);
-        // console.log(this.#shadowRoot.firstElementChild);
-        // this.#shadowRoot.firstElementChild.nextElementSibling?.focus();
-        this.tabIndex = -1;
-    }
-
-
-    _onBlur(focusEvent) {
-        // console.log(focusEvent);
-        this.tabIndex = 0;
-    }
-
-
     _onKeyboardDown(keyboardEvent) {
-        const currentNode = this.#shadowRoot.querySelector(":focus");
-        
-        if (!currentNode) {
-            this.#shadowRoot.querySelector(":not(link, style)")?.focus();
-            return;
-        }
+        const currentFocus = this.#shadowRoot.activeElement;
+        const index = this.#listElements.indexOf(currentFocus);
+        let newIndex;
 
+        console.log(keyboardEvent.code);
+        
         switch (keyboardEvent.code) {
             case "ArrowUp":
-                keyboardEvent.preventDefault();
-                currentNode?.previousElementSibling?.focus();
-                currentNode?.previousElementSibling?.scrollIntoViewIfNeeded();
+                newIndex = Math.max(0, index - 1);
                 break;
-            
+
             case "ArrowDown":
-                keyboardEvent.preventDefault();
-                currentNode?.nextElementSibling?.focus();
-                currentNode?.nextElementSibling?.scrollIntoViewIfNeeded();
+                newIndex = Math.min(index + 1, this.#listElements.length - 1);
+                break;
+
+            case "Home":
+                newIndex = 0;
+                break;
+
+            case "End":
+                newIndex = this.#listElements.length - 1;
                 break;
 
             case "Enter":
             case "NumpadEnter":
             case "Space":
                 keyboardEvent.preventDefault();
-                currentNode?.scrollIntoViewIfNeeded();
-                this._select(currentNode);
-                break;
+                currentFocus.scrollIntoViewIfNeeded();
+                this._select(currentFocus);
+                return;
 
             default:
+                return;
         }
+
+        if (newIndex === index) return;
+
+        keyboardEvent.preventDefault();
+
+        for (const element of this.#listElements) {
+            element.tabIndex = -1;
+        }
+
+        const newCell = this.#listElements[newIndex];
+        newCell.tabIndex = 0;
+        newCell.focus();
+
+        // newCell.scrollIntoViewIfNeeded();
+        // newCell.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+        // setTimeout(() => newCell.focus(), 500);
     }
 
-    
+
     _onClick(mouseEvent) {
         // console.log(mouseEvent);
         const toggle = mouseEvent.metaKey;
-        this._select(mouseEvent.currentTarget, toggle);
-        mouseEvent.currentTarget?.focus();
+        this._select(mouseEvent.target, toggle);
+        mouseEvent.target.focus();
     }
 
 
