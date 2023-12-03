@@ -69,7 +69,7 @@ export class ListTestView extends UIView {
 
 
     _onSelectionChanged(customEvent) {
-        console.log(customEvent);
+        // console.log(customEvent);
     }
 }
 

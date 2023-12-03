@@ -69,7 +69,11 @@ export class HueRoomList extends UIView {
             navigationView.pushView(this.#detailView);
         }
 
-        this.#detailView.hueGroup = selectedHueGroups[0];
+        if (selectedHueGroups.length) {
+            this.#detailView.hueGroup = selectedHueGroups[0];
+        } else {
+            navigationView.popToRootView();
+        }
     }
 }
 

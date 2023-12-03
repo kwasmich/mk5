@@ -25,10 +25,12 @@ export class UIListView extends UIView {
 
 
     get selectMode() {
+        console.assert([SELECT_NONE, SELECT_SINGLE, SELECT_MULTI].includes(this.getAttribute(SELECT_ATTR)));
         return this.getAttribute(SELECT_ATTR) ?? SELECT_NONE;
     }
 
     set selectMode(val) {
+        console.assert([SELECT_NONE, SELECT_SINGLE, SELECT_MULTI].includes(val));
         this.setAttribute(SELECT_ATTR, val);
     }
 
@@ -49,8 +51,8 @@ export class UIListView extends UIView {
 
     constructor(...args) {
         const self = super(args);
-        this._onClick = this._onClick.bind(self);
         this._onKeyboardDown = this._onKeyboardDown.bind(self);
+        this._onMouseDown = this._onMouseDown.bind(self);
         Object.seal(this);
 
         this._init(this.#shadowRoot);
@@ -70,14 +72,14 @@ export class UIListView extends UIView {
     
     
     connectedCallback() {
-        this.#shadowRoot.addEventListener("click", this._onClick);
         this.#shadowRoot.addEventListener("keydown", this._onKeyboardDown);
+        this.#shadowRoot.addEventListener("mousedown", this._onMouseDown);
     }
     
     
     disconnectedCallback() {
-        this.#shadowRoot.removeEventListener("click", this._onClick);
         this.#shadowRoot.removeEventListener("keydown", this._onKeyboardDown);
+        this.#shadowRoot.removeEventListener("mousedown", this._onMouseDown);
     }
 
 
@@ -114,8 +116,6 @@ export class UIListView extends UIView {
             sections.forEach((s) => s.remove());
         }
 
-        let listLenght = 0;
-
         if (this.#listData instanceof Map) {
             const sections = [...this.#shadowRoot.querySelectorAll("SECTION")];
 
@@ -130,7 +130,6 @@ export class UIListView extends UIView {
             this.#listElements.length = 0; // clear - we are relying on querySelector for sections
 
             this.#listData.forEach((list, grp, map) => {
-                listLenght += list.length;
                 const reuseSectionElement = sections.pop();
                 const sectionElement = reuseSectionElement ?? this.#shadowRoot.ownerDocument.createElement("SECTION");
 
@@ -147,7 +146,6 @@ export class UIListView extends UIView {
                 this.#listElements.push(...listElements);
             });
         } else {
-            listLenght += this.#listData.length;
             this._updateListGroup(this.#listData, this.#listElements, this.#shadowRoot);
         }
 
@@ -160,8 +158,6 @@ export class UIListView extends UIView {
         if (newCell) {
             newCell.tabIndex = 0;
         }
-
-        // console.log(`input length: ${listLenght}, output length: ${this.#listElements.length}, cache length: ${this.#cache.length}`);
     }
 
 
@@ -170,8 +166,6 @@ export class UIListView extends UIView {
         const index = this.#listElements.indexOf(currentFocus);
         let newIndex;
 
-        console.log(keyboardEvent.code);
-        
         switch (keyboardEvent.code) {
             case "ArrowUp":
                 newIndex = Math.max(0, index - 1);
@@ -193,8 +187,8 @@ export class UIListView extends UIView {
             case "NumpadEnter":
             case "Space":
                 keyboardEvent.preventDefault();
-                currentFocus.scrollIntoViewIfNeeded();
-                this._select(currentFocus);
+                // currentFocus.scrollIntoViewIfNeeded();
+                this._select(currentFocus, currentFocus, [SELECT_MULTI].includes(this.selectMode), false);
                 return;
 
             default:
@@ -212,35 +206,63 @@ export class UIListView extends UIView {
         const newCell = this.#listElements[newIndex];
         newCell.tabIndex = 0;
         newCell.focus();
-
-        // newCell.scrollIntoViewIfNeeded();
-        // newCell.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
-        // setTimeout(() => newCell.focus(), 500);
     }
 
 
-    _onClick(mouseEvent) {
-        // console.log(mouseEvent);
+    _onMouseDown(mouseEvent) {
+        const currentFocus = this.#shadowRoot.activeElement;
         const toggle = mouseEvent.metaKey;
-        this._select(mouseEvent.target, toggle);
+        const range = mouseEvent.shiftKey;
+        this._select(currentFocus, mouseEvent.target, toggle, range);
         mouseEvent.target.focus();
     }
 
 
-    _select(element, toggle) {
-        if ([SELECT_NONE, SELECT_SINGLE].includes(this.selectMode)) {
-            const elements = this.#listElements.filter((e) => e !== element);
-        
+    _select(fromElement, toElement, toggle, range) {
+        if (this.selectMode === SELECT_NONE) {
+            const elements = this.#listElements;
+            
             for (const element of elements) {
                 element.classList.remove(SELECT_CLASS);
             }
         }
 
-        if ([SELECT_SINGLE, SELECT_MULTI].includes(this.selectMode)) {
+        if (this.selectMode === SELECT_SINGLE) {
+            const elements = this.#listElements.filter((e) => e !== toElement);
+            
+            for (const element of elements) {
+                element.classList.remove(SELECT_CLASS);
+            }
+            
             if (toggle) {
-                element?.classList.toggle(SELECT_CLASS);
+                toElement.classList.toggle(SELECT_CLASS);
             } else {
-                element?.classList.add(SELECT_CLASS);
+                toElement.classList.add(SELECT_CLASS);
+            }
+        }
+
+        if (this.selectMode === SELECT_MULTI) {
+            const fromIndex = this.#listElements.findIndex((l) => l === fromElement);
+
+            if ((toggle && range) || !toggle && (!range || fromIndex === -1)) {
+                const elements = this.#listElements.filter((e) => e !== toElement);
+                
+                for (const element of elements) {
+                    element.classList.remove(SELECT_CLASS);
+                }
+                
+                toElement.classList.add(SELECT_CLASS);
+            } else if (toggle && !range) {
+                toElement.classList.toggle(SELECT_CLASS);
+            } else if (!toggle && range) {
+                const toIndex = this.#listElements.findIndex((l) => l === toElement);
+                const start = Math.min(fromIndex, toIndex);
+                const end = Math.max(fromIndex, toIndex);
+                const elements  = this.#listElements.slice(start, end + 1);
+                
+                for (const element of elements) {
+                    element.classList.add(SELECT_CLASS);
+                }
             }
         }
 
