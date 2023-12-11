@@ -66,8 +66,8 @@ export class HueLightListItem extends UIView {
         if (this.#initialized && this.#light) {
             const { on, bri, ct, hue, sat, xy, colormode, reachable } = this.#light.state
 
-            console.log(this.#light.modelid);
-            console.log(this.#light.config.archetype);
+            // console.log(this.#light.modelid);
+            // console.log(this.#light.config.archetype);
 
             // const icon = LightIconMap[this.#light.modelid];
             const icon = LightTypeIconMap[this.#light.config.archetype];

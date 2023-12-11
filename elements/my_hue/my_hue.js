@@ -42,7 +42,7 @@ export class MyHue extends UIView {
 
 
     onInit() {
-        console.log(this.#setup);
+        // console.log(this.#setup);
         this.#setup.remove();
         Hue.init();
         // this.main._init();

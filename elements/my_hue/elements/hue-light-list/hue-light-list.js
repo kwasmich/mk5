@@ -24,9 +24,7 @@ export class HueLightList extends UIView {
 
 
     set hueGroup(val) {
-        if (this.#hueGroup !== val) {
-            this._clearList();
-        }
+        if (JSON.stringify(this.#hueGroup) === JSON.stringify(val)) return;
 
         this.#hueGroup = val;
         this._updateList();
