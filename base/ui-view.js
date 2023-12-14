@@ -3,6 +3,7 @@ import { loadHTML, loadText } from "/util/helper.js";
 
 
 const domParser = new DOMParser();
+// const cssCache = new Map();
 
 
 
@@ -19,8 +20,23 @@ function fetchHTML(path) {
 
 
 function fetchCSS(path) {
+    // console.log(path);
+
+    // if (cssCache.has(path)) {
+    //     return Promise.resolve(cssCache.get(path));
+    // }
+
     return loadText(`${path}.css`);
+    // .then((result) => {
+    //     console.log(path);
+    //     cssCache.set(path, result);
+    //     return Promise.resolve(cssCache.get(path));
+    // });
 }
+
+
+
+const globalStyle = fetchCSS("/style");
 
 
 
@@ -36,16 +52,21 @@ export class UIView extends HTMLElement {
         const promises = [
             fetchHTML(path),
             fetchCSS(path),
-            fetchCSS("/style")
+            globalStyle
         ];
 
         const define = async ([html, css, css1, ...args]) => {
+            // FUTURE: Supported in Safari 16
+            // remove this:
             const style = document.createElement("STYLE");
             style.textContent = css;
             html.content.insertBefore(style, html.content.firstChild);
             const style1 = document.createElement("STYLE");
             style1.textContent = css1;
             html.content.insertBefore(style1, html.content.firstChild);
+            // add that
+            // elementClass.cssTemplate = css;
+            
             elementClass.htmlTemplate = html;
             Object.seal(elementClass);
             
@@ -109,6 +130,18 @@ export class UIView extends HTMLElement {
 
 
     _init(shadowRoot) {
+        // FUTURE: Supported in Safari 16
+        //
+        // globalStyle.then((gcssString) => {
+        //     const gcss = new CSSStyleSheet();
+        //     gcss.replaceSync(gcssString);
+        //     shadowRoot.adoptedStyleSheets.push(gcss);
+        // });
+
+        // const css = new CSSStyleSheet();
+        // css.replaceSync(this.constructor.cssTemplate);
+        // shadowRoot.adoptedStyleSheets.push(css);
+
         const content = shadowRoot.ownerDocument.importNode(this.constructor.htmlTemplate.content, true);
         shadowRoot.appendChild(content);
 
