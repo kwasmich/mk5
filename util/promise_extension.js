@@ -31,6 +31,5 @@ function __extensions_allFunction(iterable, timeout) {
 
 
 if (__extensions_allDescriptor !== undefined) {
-    Object.defineProperty(Promise, "all",  { ...__extensions_allDescriptor, value: __extensions_allFunction });
+    Object.defineProperty(Promise, "allWithTimeout",  { ...__extensions_allDescriptor, value: __extensions_allFunction });
 }
-
