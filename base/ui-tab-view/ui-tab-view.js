@@ -75,6 +75,7 @@ export class UITabView extends UIView {
             }
 
             this.updateViews();
+            this.#tabs[this.#viewIndex].focus();
         };
 
         tabSlot.parentElement.role = "tablist";
@@ -102,8 +103,8 @@ export class UITabView extends UIView {
 
         newTab.tabIndex = 0;
         newTab.ariaSelected = true;
-        newTab.focus();
     }
+
 
     stuff() {
         this.#viewIndex = (this.#viewIndex + this.#tabs.length - 1) % this.#tabs.length;
