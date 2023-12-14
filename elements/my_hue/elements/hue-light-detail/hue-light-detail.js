@@ -169,7 +169,7 @@ export class HueLightDetail extends UIView {
                 break;
 
             default:
-                light[attribute] = +event.target.value;
+                light[attribute] = event.target.valueAsNumber;
         }
     }
 

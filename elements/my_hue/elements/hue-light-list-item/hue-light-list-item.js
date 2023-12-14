@@ -32,6 +32,7 @@ export class HueLightListItem extends UIView {
 
     constructor(...args) {
         const self = super(args);
+        this._onKeyboardDown = this._onKeyboardDown.bind(self);
         Object.seal(this);
 
         this._init(this.#shadowRoot);
@@ -42,8 +43,16 @@ export class HueLightListItem extends UIView {
 
     adoptedCallback() {}
     attributeChangedCallback(name, oldValue, newValue) {}
-    connectedCallback() {}
-    disconnectedCallback() {}
+
+
+    connectedCallback() {
+        this.addEventListener("keydown", this._onKeyboardDown);
+    }
+
+
+    disconnectedCallback() {
+        this.removeEventListener("keydown", this._onKeyboardDown);
+    }
 
 
     onInit() {
@@ -97,8 +106,43 @@ export class HueLightListItem extends UIView {
             break;
             
             default:
-                light[attribute] = +event.target.value;
+                light[attribute] = event.target.valueAsNumber;
         }
+    }
+
+
+    _onKeyboardDown(keyboardEvent) {
+        // console.log(keyboardEvent);
+        if (keyboardEvent.repeat) return;   // or better debounce?
+
+        const light = this.#light;
+        const attribute = "bri";
+
+        switch (keyboardEvent.code) {
+            case "ArrowLeft":
+                // this.#bri.value = Math.max(0, this.#bri.valueAsNumber - 16);
+                this.#bri.stepDown(24);
+                // this.#bri.click();
+                light[attribute] = this.#bri.valueAsNumber; // FIXME: this is a bit hacky
+                break;
+
+            case "ArrowRight":
+                // this.#bri.value = Math.min(this.#bri.valueAsNumber + 16, 254);
+                this.#bri.stepUp(24);
+                // this.#bri.click();
+                light[attribute] = this.#bri.valueAsNumber; // FIXME: this is a bit hacky
+                break;
+
+            case "Space":
+                this.#on.click();
+                break;
+
+            default:
+                return;
+        }
+
+        keyboardEvent.preventDefault();
+        keyboardEvent.stopPropagation();
     }
 }
 
