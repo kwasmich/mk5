@@ -36,7 +36,8 @@ div {
     overflow: hidden;
 }
 
-nav > ::slotted(*:focus) {
+/* only show focus when keyboard navigated but not clicked */
+nav > ::slotted(*:focus-visible) {
     outline: 2px solid var(--accent-color);
     outline-offset: 0px;
 }
