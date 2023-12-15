@@ -16,7 +16,6 @@ export class UIListView extends UIView {
     }
 
 
-    // #clickHandler = undefined;
     #listData = [] ?? new Map();
     #listElements = [];
     #shadowRoot = this.attachShadow({ mode: "open" });
@@ -44,10 +43,6 @@ export class UIListView extends UIView {
         this._updateList(forceUpdate);
     }
 
-    // set clickHandler(val) {
-    //     this[priv]
-    // }
-
 
     constructor(...args) {
         const self = super(args);
@@ -57,12 +52,15 @@ export class UIListView extends UIView {
 
         this._init(this.#shadowRoot);
         this.onInit();
-        
         return self;
     }
     
     
-    onInit() {
+    async onInit() {
+        // console.log(this.#template.content.firstElementChild.constructor);
+        await customElements.whenDefined(this.#template.content.firstElementChild.tagName.toLowerCase());
+        customElements.upgrade(this.#template.content.firstElementChild);
+        // console.log(this.#template.content.firstElementChild.constructor);
         this._updateList(true);
     }
     
@@ -88,6 +86,7 @@ export class UIListView extends UIView {
         while (elements.length > list.length) {
             const element = elements.pop();
             element.remove();
+            element.classList.remove(SELECT_CLASS);
             this.#cache.push(element);
         }
 
@@ -109,6 +108,10 @@ export class UIListView extends UIView {
 
 
     _updateList(forceClear = false) {
+        const focusElement = !!this.#shadowRoot.activeElement;
+        const oldFocus = this.#listElements.find((e) => e.tabIndex === 0);
+        const oldFocusIndex = this.#listElements.indexOf(oldFocus);
+
         if (forceClear) {
             this._updateListGroup([], this.#listElements, undefined);
 
@@ -149,15 +152,21 @@ export class UIListView extends UIView {
             this._updateListGroup(this.#listData, this.#listElements, this.#shadowRoot);
         }
 
-        for (const element of this.#listElements) {
-            element.tabIndex = -1;
+        let newFocus = undefined; //this.#listElements.find((e) => e.tabIndex === 0);
+        this.#listElements.forEach((e) => e.tabIndex = -1);
+        
+        // if (!newFocus) {
+        if (oldFocusIndex <= 0) {
+            newFocus = this.#listElements[0];
+        } else if (oldFocusIndex >= this.#listElements.length) {
+            newFocus = this.#listElements.at(-1);
+        } else {
+            newFocus = this.#listElements[oldFocusIndex];
         }
+        // }
 
-        const newCell = this.#listElements[0];
-
-        if (newCell) {
-            newCell.tabIndex = 0;
-        }
+        if (newFocus) newFocus.tabIndex = 0;
+        if (focusElement) newFocus.focus();
     }
 
 
@@ -199,9 +208,7 @@ export class UIListView extends UIView {
 
         keyboardEvent.preventDefault();
 
-        for (const element of this.#listElements) {
-            element.tabIndex = -1;
-        }
+        this.#listElements.forEach((e) => e.tabIndex = -1);
 
         const newCell = this.#listElements[newIndex];
         newCell.tabIndex = 0;
@@ -214,25 +221,20 @@ export class UIListView extends UIView {
         const toggle = mouseEvent.metaKey;
         const range = mouseEvent.shiftKey;
         this._select(currentFocus, mouseEvent.target, toggle, range);
-        mouseEvent.target.focus();
+        this.#listElements.forEach((e) => e.tabIndex = -1);
+        mouseEvent.target.tabIndex = 0;
     }
 
 
     _select(fromElement, toElement, toggle, range) {
         if (this.selectMode === SELECT_NONE) {
             const elements = this.#listElements;
-            
-            for (const element of elements) {
-                element.classList.remove(SELECT_CLASS);
-            }
+            elements.forEach((e) => e.classList.remove(SELECT_CLASS));
         }
 
         if (this.selectMode === SELECT_SINGLE) {
             const elements = this.#listElements.filter((e) => e !== toElement);
-            
-            for (const element of elements) {
-                element.classList.remove(SELECT_CLASS);
-            }
+            elements.forEach((e) => e.classList.remove(SELECT_CLASS));
             
             if (toggle) {
                 toElement.classList.toggle(SELECT_CLASS);
@@ -246,10 +248,7 @@ export class UIListView extends UIView {
 
             if ((toggle && range) || !toggle && (!range || fromIndex === -1)) {
                 const elements = this.#listElements.filter((e) => e !== toElement);
-                
-                for (const element of elements) {
-                    element.classList.remove(SELECT_CLASS);
-                }
+                elements.forEach((e) => e.classList.remove(SELECT_CLASS));
                 
                 toElement.classList.add(SELECT_CLASS);
             } else if (toggle && !range) {
@@ -259,10 +258,7 @@ export class UIListView extends UIView {
                 const start = Math.min(fromIndex, toIndex);
                 const end = Math.max(fromIndex, toIndex);
                 const elements  = this.#listElements.slice(start, end + 1);
-                
-                for (const element of elements) {
-                    element.classList.add(SELECT_CLASS);
-                }
+                elements.forEach((e) => e.classList.add(SELECT_CLASS));
             }
         }
 
