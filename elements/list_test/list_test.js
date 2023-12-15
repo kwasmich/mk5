@@ -33,8 +33,6 @@ export class ListTestView extends UIView {
         listView.addEventListener("selectionChanged", (customEvent) => this._onSelectionChanged(customEvent));
         listView.listData = [...Array(50)].map((val, idx) => idx);
 
-        // setInterval(() => listView.listData = [...Array(20 + Math.floor(50 * Math.random()))].map((val, idx) => idx), 500);
-
         const createList = () => listView.listData = [...Array(10 + Math.floor(20 * Math.random()))].map((val, idx) => idx);
         const createGroups = () => {
             const probability = 0.7;
@@ -68,7 +66,7 @@ export class ListTestView extends UIView {
         const buttonB = this.#shadowRoot.querySelector("button#B");
         buttonB.onclick = createGroups;
         
-        setInterval(createList, 10000);
+        // setInterval(createList, 10000);
     }
 
 

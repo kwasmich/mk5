@@ -217,6 +217,13 @@ export class UIListView extends UIView {
 
 
     _onMouseDown(mouseEvent) {
+        if (!this.#listElements.includes(mouseEvent.target)) {
+            mouseEvent.preventDefault();
+            const oldFocus = this.#listElements.find((e) => e.tabIndex === 0);
+            oldFocus.focus();
+            return;
+        }
+
         const currentFocus = this.#shadowRoot.activeElement;
         const toggle = mouseEvent.metaKey;
         const range = mouseEvent.shiftKey;
