@@ -13,6 +13,7 @@ export class HuePrimary extends UIView {
 
     #shadowRoot = this.attachShadow({ mode: "closed" });
     #lightsSubscription = undefined;
+    #groupsSubscription = undefined;
 
 
     constructor(...args) {
@@ -31,20 +32,25 @@ export class HuePrimary extends UIView {
 
     connectedCallback() {
         Hue.lights.subscribe(this.#lightsSubscription);
+        Hue.groups.subscribe(this.#groupsSubscription);
     }
 
 
     disconnectedCallback() {
         Hue.lights.unsubscribe(this.#lightsSubscription);
+        Hue.groups.unsubscribe(this.#groupsSubscription);
     }
 
 
     onInit() {
         this.#lightsSubscription = (value) => this._updateLights(value);
+        this.#groupsSubscription  = (value) => this._updateGroups(value);
 
-        // console.log(Hue.lights.value);
 
-        const touchLinkButton = this.#shadowRoot.querySelector("nav > button");
+        // TODO: make a complete settings page
+        const tabView = this.#shadowRoot.querySelector("ui-tab-view");
+        const root = tabView.views.find((x) => x.tagName.toLowerCase() === "div");
+        const touchLinkButton = root.querySelector("button");
         touchLinkButton.onclick = () => this._onTouchLinkClicked();
     }
 
@@ -53,7 +59,28 @@ export class HuePrimary extends UIView {
         const lights = Object.keys(lightsObj);
         const tabView = this.#shadowRoot.querySelector("ui-tab-view");
         const lightList = tabView.views.find((x) => x.tagName.toLowerCase() === "hue-light-list");
-        lightList.hueGroup = { lights };
+        // lightList.lightIDs = lights;
+    }
+
+
+    _updateGroups(groupsObj) {
+        if (!groupsObj) return;
+
+        const lights = Object.keys(Hue.lights.value);
+        const rooms = Object.values(groupsObj).filter((group) => group.type === "Room");
+        const groups = rooms.reduce((acc, room) => acc.set(room.name, room.lights), new Map());
+        const grupedLights = rooms.flatMap((room) => room.lights);
+        const ungrouped = lights.filter((l) => !grupedLights.includes(l));
+
+        if (ungrouped.length > 0) {
+            groups.set(" Ungrouped ", ungrouped);
+        }
+
+        console.log(groups);
+
+        const tabView = this.#shadowRoot.querySelector("ui-tab-view");
+        const lightList = tabView.views.find((x) => x.tagName.toLowerCase() === "hue-light-list");
+        lightList.lightIDs = groups;
     }
 
 

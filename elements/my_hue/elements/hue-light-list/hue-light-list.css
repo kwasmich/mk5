@@ -3,8 +3,3 @@
     flex-direction: column;
     overflow: hidden;
 }
-
-ui-list-view {
-    gap: 2px;
-    padding: 2px;
-}

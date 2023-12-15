@@ -6,6 +6,11 @@
     padding: 8px;
     border-radius: 4px;
     transition: background-color 400ms ease-in-out;
+    margin: 2px;
+}
+
+:host + :host {
+    margin-top: 0;
 }
 
 :host(.unreachable) {

@@ -12,30 +12,30 @@ export class HueLightList extends UIView {
 
 
     #shadowRoot = this.attachShadow({ mode: "closed" });
-    #hueGroup = undefined;
+    #lightIDs = [] ?? new Map();
     #lights = [];
     #lightsSubscription = undefined;
     #detailView = undefined;
 
 
-    get hueGroup() {
-        return this.#hueGroup;
+    get lightIDs() {
+        return this.#lightIDs;
     }
 
 
-    set hueGroup(val) {
-        if (JSON.stringify(this.#hueGroup) === JSON.stringify(val)) return;
+    set lightIDs(val) {
+        if (JSON.stringify(this.#lightIDs) === JSON.stringify(val)) return;
 
-        this.#hueGroup = val;
+        this.#lightIDs = val ?? [];
         this._updateList();
     }
 
 
-    constructor(hueGroup, ...args) {
+    constructor(lightIDs, ...args) {
         const self = super(args);
         Object.seal(this);
 
-        this.#hueGroup = hueGroup;
+        this.#lightIDs = lightIDs ?? [];
 
         this._init(this.#shadowRoot);
         this.onInit();
@@ -74,8 +74,18 @@ export class HueLightList extends UIView {
 
 
     _updateList() {
-        const lights = this.#lights.filter((l) => this.#hueGroup?.lights.includes(l.id));
         const listView = this.#shadowRoot.querySelector("ui-list-view");
+        
+        if (this.#lightIDs instanceof Map) {
+            const copy = new Map(this.#lightIDs);
+            copy.forEach((val, key) => copy.set(key, val.map((l) => this.#lights.find((li) => li.id === l))));
+            console.log(this.#lightIDs);
+            console.log(copy);
+            listView.listData = copy;
+            return;
+        }
+
+        const lights = this.#lights.filter((l) => this.#lightIDs.includes(l.id));
         listView.listData = lights;
     }
 

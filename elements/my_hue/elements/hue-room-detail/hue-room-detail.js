@@ -92,7 +92,7 @@ export class HueRoomDetail extends UIView {
         const sceneList = tabView.views.find((x) => x.tagName.toLowerCase() === "hue-scene-list")
         sceneList.hueGroup = this.#hueGroup;
         const lightList = tabView.views.find((x) => x.tagName.toLowerCase() === "hue-light-list");
-        lightList.hueGroup = this.#hueGroup;
+        lightList.lightIDs = this.#hueGroup?.lights;
     }
 }
 
