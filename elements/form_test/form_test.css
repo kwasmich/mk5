@@ -7,6 +7,60 @@
     overflow: auto;
 }
 
+
+.serif {
+    font-family: serif;
+}
+
+.sans-serif {
+    font-family: sans-serif;
+}
+
+.monospace {
+    font-family: monospace;
+}
+
+.cursive {
+    font-family: cursive;
+}
+
+.fantasy {
+    font-family: fantasy;
+}
+
+.system-ui {
+    font-family: system-ui;
+}
+
+.ui-serif {
+    font-family: ui-serif;
+}
+
+.ui-sans-serif {
+    font-family: ui-sans-serif;
+}
+
+.ui-monospace {
+    font-family: ui-monospace;
+}
+
+.ui-rounded {
+    font-family: ui-rounded;
+}
+
+.math {
+    font-family: math;
+}
+
+.emoji {
+    font-family: emoji;
+}
+
+.fangsong {
+    font-family: fangsong;
+}
+
+
 dl {
     display: grid;
     grid-template-rows: auto auto;
@@ -19,3 +73,84 @@ dl {
 dd {
     margin: 0;
 }
+
+
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    box-sizing: border-box;
+    width: 64px;
+    height: 80px;
+    padding: 0;
+}
+
+td:nth-child(2n) {
+    width: 16px;
+}
+
+td:nth-child(4n+3) {
+    width: 32px;
+}
+
+tr:nth-child(2n) td {
+    height: 20px;
+}
+
+tr:nth-child(4n + 3) td {
+    height: 40px;
+}
+
+.a { background-color: var(--A); }
+.b { background-color: var(--B); }
+.c { background-color: var(--C); }
+.d { background-color: var(--D); }
+
+.ab { background-color: var(--AB); }
+.ac { background-color: var(--AC); }
+.ad { background-color: var(--AD); }
+.bc { background-color: var(--BC); }
+.bd { background-color: var(--BD); }
+.cd { background-color: var(--CD); }
+
+.aaab { background-color: var(--AAAB); }
+.aaac { background-color: var(--AAAC); }
+.aaad { background-color: var(--AAAD); }
+.bbba { background-color: var(--BBBA); }
+.bbbc { background-color: var(--BBBC); }
+.bbbd { background-color: var(--BBBD); }
+.ccca { background-color: var(--CCCA); }
+.cccb { background-color: var(--CCCB); }
+.cccd { background-color: var(--CCCD); }
+.ddda { background-color: var(--DDDA); }
+.dddb { background-color: var(--DDDB); }
+.dddc { background-color: var(--DDDC); }
+
+
+.xa { background-color: var(--A); }
+.xb { background-color: var(--B); }
+.xc { background-color: var(--C); }
+.xd { background-color: var(--D); }
+
+.xab { background-color: color-mix(in srgb, var(--A), var(--B)); }
+.xac { background-color: color-mix(in srgb, var(--A), var(--C)); }
+.xad { background-color: color-mix(in srgb, var(--A), var(--D)); }
+.xbc { background-color: color-mix(in srgb, var(--B), var(--C)); }
+.xbd { background-color: color-mix(in srgb, var(--B), var(--D)); }
+.xcd { background-color: color-mix(in srgb, var(--C), var(--D)); }
+
+.xaaab { background-color: color-mix(in srgb, var(--A) 75%, var(--B) 25%) }
+.xaaac { background-color: color-mix(in srgb, var(--A) 75%, var(--C) 25%) }
+.xaaad { background-color: color-mix(in srgb, var(--A) 75%, var(--D) 25%) }
+.xbbba { background-color: color-mix(in srgb, var(--B) 75%, var(--A) 25%) }
+.xbbbc { background-color: color-mix(in srgb, var(--B) 75%, var(--C) 25%) }
+.xbbbd { background-color: color-mix(in srgb, var(--B) 75%, var(--D) 25%) }
+.xccca { background-color: color-mix(in srgb, var(--C) 75%, var(--A) 25%) }
+.xcccb { background-color: color-mix(in srgb, var(--C) 75%, var(--B) 25%) }
+.xcccd { background-color: color-mix(in srgb, var(--C) 75%, var(--D) 25%) }
+.xddda { background-color: color-mix(in srgb, var(--D) 75%, var(--A) 25%) }
+.xdddb { background-color: color-mix(in srgb, var(--D) 75%, var(--B) 25%) }
+.xdddc { background-color: color-mix(in srgb, var(--D) 75%, var(--C) 25%) }
