@@ -3,29 +3,29 @@
     
     /* grays */
     --A: #000;
-    --AAAB: #5B5B5B;
-    --AB: #7C7C7C;
-    --BBBA: #959595;
+    --AAAB: #2B2B2B;
+    --AB: #555;
+    --BBBA: #7F7F7F;
     --B: #AAA;
-    --BBBC: #C4C4C4;
-    --BC: #DADADA;
-    --CCCB: #EDEDED;
+    --BBBC: #BFBFBF;
+    --BC: #D4D4D4;
+    --CCCB: #EAEAEA;
     --C: #FFF;
-    --CCCA: #E0E0E0;
-    --AC: #BCBCBC;
-    --AAAC: #888;
+    --CCCA: #BFBFBF;
+    --AC: #7F7F7F;
+    --AAAC: #404040;
 
     /* blues */
     --D: #68B;
-    --AD: #496289;
-    --AAAD: #364864;
-    --BD: #8D9AB3;
-    --BBBD: #9CA2AE;
-    --CD: #C6CFE0;
-    --CCCD: #E4E8F0;
-    --DDDA: #5977A4;
-    --DDDB: #7B91B7;
-    --DDDC: #9EAFCF;
+    --AD: #33445E;
+    --AAAD: #1A222F;
+    --BD: #8899B3;
+    --BBBD: #99A2AE;
+    --CD: #B3C3DD;
+    --CCCD: #D9E1EE;
+    --DDDA: #4D668C;
+    --DDDB: #7791B7;
+    --DDDC: #8CA6CC;
 
     /* primary colors */
     --shadow-color: var(--A);
@@ -35,11 +35,18 @@
 
     /* derived colors 1/2 */
     --background-color: var(--AB);
-    --foreground-color: var(--AC);
+    --foreground-color: var(--BBBC);
     --accent-background-color: var(--AD);
     --accent-faint-color: var(--BD);
     --accent-foreground-color: var(--CD);
     --shadow-highlight-color: var(--AC);
+/* 
+    --background-color: color-mix(in srgb, var(--A), var(--B));
+    --foreground-color: color-mix(in srgb, var(--A), var(--C));
+    --accent-background-color: color-mix(in srgb, var(--A), var(--D));
+    --accent-faint-color: color-mix(in srgb, var(--B), var(--D));
+    --accent-foreground-color: color-mix(in srgb, var(--C), var(--D));
+    --shadow-highlight-color: color-mix(in srgb, var(--A), var(--C)); */
 
     /*             
     0
@@ -53,7 +60,7 @@
 
     -webkit-text-size-adjust: none;
 
-    font-family: sans-serif;
+    font-family: system-ui, sans-serif;
     background-color: var(--midground-color);
     color: var(--shadow-color);
     cursor: default;
@@ -61,24 +68,51 @@
     -webkit-user-select: none;
 }
 
+@supports (--test: color-mix(in srgb, red, blue)) {
+    --test: 3;  /* quirk-fix for Safari 15 */
+
+    :root {
+        --AAAB: color-mix(in srgb, var(--A) 75%, var(--B) 25%);
+        --AB: color-mix(in srgb, var(--A), var(--B));
+        --BBBA: color-mix(in srgb, var(--B) 75%, var(--A) 25%);
+        --BBBC: color-mix(in srgb, var(--B) 75%, var(--C) 25%);
+        --BC: color-mix(in srgb, var(--B), var(--C));
+        --CCCB: color-mix(in srgb, var(--C) 75%, var(--B) 25%);
+        --CCCA: color-mix(in srgb, var(--C) 75%, var(--A) 25%);
+        --AC: color-mix(in srgb, var(--A), var(--C));
+        --AAAC: #color-mix(in srgb, var(--A) 75%, var(--C) 25%);
+
+        --AD: color-mix(in srgb, var(--A), var(--D));
+        --AAAD: color-mix(in srgb, var(--A) 75%, var(--D) 25%);
+        --BD: color-mix(in srgb, var(--B), var(--D));
+        --BBBD: color-mix(in srgb, var(--B) 75%, var(--D) 25%);
+        --CD: color-mix(in srgb, var(--C), var(--D));
+        --CCCD: color-mix(in srgb, var(--C) 75%, var(--D) 25%);
+        --DDDA: color-mix(in srgb, var(--D) 75%, var(--A) 25%);
+        --DDDB: color-mix(in srgb, var(--D) 75%, var(--B) 25%);
+        --DDDC: color-mix(in srgb, var(--D) 75%, var(--C) 25%);
+    }
+}
+
 
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --shadow-color: #FFF;
+        --A: #FFF;
+        --B: #555;
+        --C: #000;
+        /* --shadow-color: #FFF;
         --midground-color: #AAA;
         --highlight-color: #000;
-        --accent-color: #68B;
+        --accent-color: #68B; */
     
         /* derived colors */
-        --background-color: #7C7C7C;
+        /* --background-color: #7C7C7C;
         --foreground-color: #DADADA;
         --accent-background-color: #496289;
         --accent-faint-color: #8D9AB3;
         --accent-foreground-color: #C6CFE0;
-        --shadow-highlight-color: #BCBCBC;
-    
-        -webkit-text-size-adjust: none;
+        --shadow-highlight-color: #BCBCBC; */
     }
 }
 
@@ -125,6 +159,14 @@ body {
 
     margin: 0;
     /* color: blue; */
+}
+
+@media print {
+    html,
+    body {
+        overflow: auto;
+        height: auto;
+    }
 }
 
 
@@ -178,60 +220,6 @@ button:disabled {
 .hidden {
     display: none;
 }
-
-
-/* table {
-    border-collapse: collapse;
-}
-
-td {
-    border: 1px solid black;
-    box-sizing: border-box;
-    width: 64px;
-    height: 80px;
-    padding: 0;
-}
-
-td:nth-child(2n) {
-    width: 16px;
-}
-
-td:nth-child(4n+3) {
-    width: 32px;
-}
-
-tr:nth-child(2n) td {
-    height: 20px;
-}
-
-tr:nth-child(4n + 3) td {
-    height: 40px;
-} */
-
-.a { background-color: var(--A); }
-.b { background-color: var(--B); }
-.c { background-color: var(--C); }
-.d { background-color: var(--D); }
-
-.ab { background-color: var(--AB); }
-.ac { background-color: var(--AC); }
-.ad { background-color: var(--AD); }
-.bc { background-color: var(--BC); }
-.bd { background-color: var(--BD); }
-.cd { background-color: var(--CD); }
-
-.aaab { background-color: var(--AAAB); }
-.aaac { background-color: var(--AAAC); }
-.aaad { background-color: var(--AAAD); }
-.bbba { background-color: var(--BBBA); }
-.bbbc { background-color: var(--BBBC); }
-.bbbd { background-color: var(--BBBD); }
-.ccca { background-color: var(--CCCA); }
-.cccb { background-color: var(--CCCB); }
-.cccd { background-color: var(--CCCD); }
-.ddda { background-color: var(--DDDA); }
-.dddb { background-color: var(--DDDB); }
-.dddc { background-color: var(--DDDC); }
 
 
 ui-h-stack {

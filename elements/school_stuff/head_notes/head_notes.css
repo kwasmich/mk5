@@ -1,0 +1,89 @@
+/* @import "/style.css"; */
+
+:host {
+    background-color: var(--midground-color);
+    display: block;
+    padding: 30px;
+    overflow: auto;
+}
+
+
+h1[contenteditable] {
+    border-bottom: 2px solid black;
+}
+
+h1[contenteditable]:empty::before {
+    content: "Vorname Nachname";
+    opacity: 0.25;
+}
+
+
+
+summary::before {
+    content: "✓";
+    display: inline-block;
+    font-size: 1.5em;
+    width: 1.25em;
+    height: 1.25em;
+    background-color: limegreen;
+    color: white;
+    border-radius: 100%;
+    vertical-align: middle;
+    text-align: center;
+    margin-inline-end: 0.25em;
+    visibility: hidden;
+}
+
+summary.checked::before {
+    visibility: visible;
+}
+
+section {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin-inline-start: 4em;
+    margin-block-end: 1em;
+}
+
+
+@media screen {
+    label > span {
+        display: none
+    }
+    
+    label::before {
+        content: "…";
+        opacity: 0.25;
+        display: inline;
+    }
+}
+
+/* dd + dt {
+    margin-block-start: 1em;
+}
+
+
+
+dt:focus + dd,
+dd:focus-within {
+    display: grid;
+} */
+
+
+@media print {
+    summary.checked::before {
+        visibility: hidden;
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    input {
+        display: none;
+    }
+
+    input:not(:checked) + label {
+        display: none;
+    }
+}

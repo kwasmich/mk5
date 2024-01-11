@@ -113,6 +113,11 @@ export const Pages = Object.freeze({
         title: "Remote",
         component: UIView.registry.get(DefineApp("/elements/remote/remote.js")),
     },
+    SchoolHeadNotes: {
+        path: "/headnotes",
+        title: "Kopfnoten",
+        component: UIView.registry.get(DefineApp("/elements/school_stuff/head_notes/head_notes.js")),
+    },
 });
 
 
