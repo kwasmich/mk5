@@ -9,3 +9,8 @@ nav {
     padding: 8px;
 
 }
+
+hue-room-list,
+hue-light-list {
+    flex: 1 1 auto;
+}
