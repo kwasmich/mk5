@@ -2,7 +2,39 @@ import { UIView } from "/base/ui-view.js";
 
 
 
-const IDLE_TIMEOUT = 180000;
+const IDLE_TIMEOUT = 180000;    // 3 minutes
+
+const SOUND_MAP = {
+    begin: 53,
+    capture: 20,
+    countdown1: 6,
+    countdown2: 8,
+    countdown3: 8,
+    idle: 21,
+    print: 157
+};
+
+const LAST_SOUND = {
+    begin: 0,
+    capture: 0,
+    countdown1: 0,
+    countdown2: 0,
+    countdown3: 0,
+    idle: 0,
+    print: 0
+};
+
+
+function getRND(name) {
+    let rnd;
+
+    do {
+        rnd = 1 + Math.floor(Math.random() * SOUND_MAP[name]);
+    } while (rnd === LAST_SOUND[name]);
+
+    LAST_SOUND[name] = rnd;
+    return rnd;
+}
 
 
 
@@ -140,8 +172,8 @@ export class PhotoBooth extends UIView {
 
         if (this.#isIdle) {
             this.#isIdle = false;
-            const rnd = 1 + Math.floor(Math.random() * 14);
-            this.#audioElement.src = `elements/photo_booth/sounds/begin${rnd}.wav`
+            const rnd = getRND("begin");
+            this.#audioElement.src = `elements/photo_booth/sounds/begin/${rnd}.wav`
             this._stopIdle();
             this._startIdleTimer();
             return;
@@ -166,8 +198,8 @@ export class PhotoBooth extends UIView {
             if (count === 0) return;
 
             counter.textContent = count;
-            const rnd = (count !== 1) ? (1 + Math.floor(Math.random() * 2)) : "";
-            this.#audioElement.src = `elements/photo_booth/sounds/countdown${count}${rnd}.wav`
+            const rnd = getRND(`countdown${count}`);
+            this.#audioElement.src = `elements/photo_booth/sounds/countdown/${count}/${rnd}.wav`
             count--;
             counter.classList.add("count");
             counter.addEventListener("animationend", () => {
@@ -189,8 +221,8 @@ export class PhotoBooth extends UIView {
             flash.classList.remove("flash");
         }, { once: true });
 
-        const rnd = 1 + Math.floor(Math.random() * 9);
-        this.#audioElement.src = `elements/photo_booth/sounds/capture${rnd}.wav`
+        const rnd = getRND("capture");
+        this.#audioElement.src = `elements/photo_booth/sounds/capture/${rnd}.wav`
     }
 
 
@@ -204,13 +236,13 @@ export class PhotoBooth extends UIView {
         console.log(this.#cameraStream);
         this.#cameraStream?.getTracks().forEach((track) => console.log(track));
 
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext("2d");
         ctx.drawImage(video, 0, 0);
 
-        // var link = this.#shadowRoot.ownerDocument.createElement('A');
-        // link.download = `PhotoBooth_${new Date().toISOString()}.png`;
-        // link.href = canvas.toDataURL();
-        // link.click();
+        var link = this.#shadowRoot.ownerDocument.createElement("A");
+        link.download = `PhotoBooth_${new Date().toISOString()}.png`;
+        link.href = canvas.toDataURL();
+        link.click();
     }
 
 
@@ -223,8 +255,8 @@ export class PhotoBooth extends UIView {
             timeout ? setTimeout(next, timeout) : next();
         }, { once: true });
 
-        const rnd = 1 + Math.floor(Math.random() * 26);
-        this.#audioElement.src = `elements/photo_booth/sounds/print${rnd}.wav`
+        const rnd = getRND("print");
+        this.#audioElement.src = `elements/photo_booth/sounds/print/${rnd}.wav`
     }
 
 
@@ -232,7 +264,7 @@ export class PhotoBooth extends UIView {
         console.log("_finish");
         this.#busy = false;
         const canvas = this.#shadowRoot.querySelector("CANVAS");
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         this._startIdleTimer();
@@ -240,25 +272,25 @@ export class PhotoBooth extends UIView {
 
 
     _startIdleTimer() {
-        this.#idleTimer = setTimeout(this._startIdle, IDLE_TIMEOUT);
+        this.#idleTimer = setTimeout(this._startIdle, IDLE_TIMEOUT + Math.random() * IDLE_TIMEOUT);
     }
 
 
     _startIdle() {
         this.#isIdle = true;
-        const rnd = 1 + Math.floor(Math.random() * 8);
-        this.#audioElement.src = `elements/photo_booth/sounds/idle${rnd}.wav`
+        const rnd = getRND("idle");
+        this.#audioElement.src = `elements/photo_booth/sounds/idle/${rnd}.wav`
         this._startIdleTimer();
         // start idle animation
         const video = this.#shadowRoot.querySelector("VIDEO");
-        video.classList.add("idle");
+        video.parentElement.classList.add("idle");
     }
 
 
     _stopIdle() {
         // stop idle animation
         const video = this.#shadowRoot.querySelector("VIDEO");
-        video.classList.remove("idle");
+        video.parentElement.classList.remove("idle");
     }
 }
 

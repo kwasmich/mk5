@@ -1,8 +1,7 @@
-:host,
-div.fill {
+:host {
     background-color: #000;
     display: block;
-    inset: 30px;
+    height: 100%;
 }
 
 #controls {
@@ -15,9 +14,10 @@ video {
     /* outline: 2px solid red;
     outline-offset: -2px; */
     scale: -1 1;
+    transition: opacity 2s;
 }
 
-video.idle {
+.idle video {
     opacity: 0.5;
 }
 
@@ -122,47 +122,44 @@ canvas {
 
 
 
+/* https://codepen.io/wontem/pen/PqYXop */
 
+#glados {
+    /* display: none; */
+    scale: 0;
+    opacity: 0;
+    transition: scale 2s, opacity 2s;
+}
 
+.idle #glados {
+    /* display: block; */
+    scale: 1;
+    opacity: 1;
+}
 
-
-
-/* html, body {
-    background: #222;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-  } */
 .view {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    perspective: 400;
+    inset: 0;
+    perspective: 100vmin;
 }
 
 .plane {
-    width: 120px;
-    height: 120px;
+    width: 25vmin;
+    height: 25vmin;
     transform-style: preserve-3d;
 }
 
 .plane.main {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     margin: auto;
     transform: rotateX(60deg) rotateZ(-30deg);
-    -webkit-animation: rotate 20s infinite linear;
     animation: rotate 20s infinite linear;
 }
 
 .plane.main .circle {
-    width: 120px;
-    height: 120px;
+    width: 50vmin;
+    height: 50vmin;
     position: absolute;
     transform-style: preserve-3d;
     border-radius: 100%;
@@ -189,11 +186,11 @@ canvas {
 }
 
 .plane.main .circle::before {
-    transform: translateZ(-90px);
+    transform: translateZ(-50vmin);
 }
 
 .plane.main .circle::after {
-    transform: translateZ(90px);
+    transform: translateZ(50vmin);
 }
 
 .plane.main .circle:nth-child(1) {
@@ -216,15 +213,6 @@ canvas {
     transform: rotateZ(360deg) rotateX(63.435deg);
 }
 
-@-webkit-keyframes rotate {
-    0% {
-        transform: rotateX(0) rotateY(0) rotateZ(0);
-    }
-
-    100% {
-        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
-    }
-}
 
 @keyframes rotate {
     0% {
