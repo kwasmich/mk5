@@ -2,6 +2,10 @@ import { UIView } from "/base/ui-view.js";
 
 
 
+const IDLE_TIMEOUT = 180000;
+
+
+
 export class PhotoBooth extends UIView {
     static get observedAttributes() {
         return [];
@@ -12,10 +16,16 @@ export class PhotoBooth extends UIView {
     #selectElement;
     #cameraStream;
     #busy = false;
+    #audioElement;
+    #idleTimer;
+    #isIdle = false;
 
 
     constructor(...args) {
         const self = super(args);
+        this._eject = this._eject.bind(this);
+        this._finish = this._finish.bind(this);
+        this._startIdle = this._startIdle.bind(this);
         Object.seal(this);
 
         this._init(this.#shadowRoot);
@@ -33,12 +43,12 @@ export class PhotoBooth extends UIView {
             return;
         }
 
+        this.#audioElement = this.#shadowRoot.querySelector("AUDIO");
         this.#selectElement = this.#shadowRoot.querySelector("SELECT");
         this.#selectElement.onchange = (event) => this._onChange(event);
-        const button = this.#shadowRoot.querySelector("BUTTON");
-        button.onclick = () => this._takeStill();
         const all = this.#shadowRoot.querySelector("DIV.fill");
         all.onclick = () => this._toggleFullScreen();
+        // all.onclick = () => this._trigger();
         this._listCameras();
     }
 
@@ -46,6 +56,7 @@ export class PhotoBooth extends UIView {
     disconnectedCallback() {
         this.#selectElement.onchange = undefined;
         this.#selectElement = undefined;
+        this.#audioElement = undefined;
         this._stopStream();
     }
 
@@ -53,13 +64,20 @@ export class PhotoBooth extends UIView {
     async _listCameras() {
         try {
             const devices = await navigator.mediaDevices.enumerateDevices();
-            
-            devices.filter((d) => d.kind === "videoinput").forEach((d) => {
+            const deviceList = devices.filter((d) => d.kind === "videoinput");
+
+            deviceList.forEach((d) => {
+                console.info(d);
                 const option = this.#shadowRoot.ownerDocument.createElement("OPTION");
                 option.value = d.deviceId;
                 option.text = d.label;
                 this.#selectElement.append(option);
             });
+
+            if (deviceList.length === 1) {
+                this.#selectElement.value = deviceList.at(0).deviceId;
+                this._onChange();
+            }
         } catch (err) {
             console.error(err);
         }
@@ -94,6 +112,7 @@ export class PhotoBooth extends UIView {
             console.error("Fullscreen API unavailable");
 
         all.onclick = () => this._trigger();
+        this._startIdleTimer();
     }
 
     
@@ -117,13 +136,24 @@ export class PhotoBooth extends UIView {
 
     _trigger() {
         console.log("_trigger");
+        clearTimeout(this.#idleTimer);
+
+        if (this.#isIdle) {
+            this.#isIdle = false;
+            const rnd = 1 + Math.floor(Math.random() * 14);
+            this.#audioElement.src = `elements/photo_booth/sounds/begin${rnd}.wav`
+            this._stopIdle();
+            this._startIdleTimer();
+            return;
+        }
+
         if (this.#busy) return;
 
         this.#busy = true;
         this._countDown();
         setTimeout(() => this._flash(), 3000);
         setTimeout(() => this._takeStill(), 4000);
-        setTimeout(() => this._finish(), 7000 + 3000);
+        setTimeout(() => this._eject(this._finish), 7000);
     }
 
 
@@ -136,6 +166,8 @@ export class PhotoBooth extends UIView {
             if (count === 0) return;
 
             counter.textContent = count;
+            const rnd = (count !== 1) ? (1 + Math.floor(Math.random() * 2)) : "";
+            this.#audioElement.src = `elements/photo_booth/sounds/countdown${count}${rnd}.wav`
             count--;
             counter.classList.add("count");
             counter.addEventListener("animationend", () => {
@@ -156,6 +188,9 @@ export class PhotoBooth extends UIView {
         flash.addEventListener("animationend", () => {
             flash.classList.remove("flash");
         }, { once: true });
+
+        const rnd = 1 + Math.floor(Math.random() * 9);
+        this.#audioElement.src = `elements/photo_booth/sounds/capture${rnd}.wav`
     }
 
 
@@ -172,10 +207,24 @@ export class PhotoBooth extends UIView {
         const ctx = canvas.getContext('2d');
         ctx.drawImage(video, 0, 0);
 
-        var link = this.#shadowRoot.ownerDocument.createElement('A');
-        link.download = `PhotoBooth_${new Date().toISOString()}.png`;
-        link.href = canvas.toDataURL();
-        link.click();
+        // var link = this.#shadowRoot.ownerDocument.createElement('A');
+        // link.download = `PhotoBooth_${new Date().toISOString()}.png`;
+        // link.href = canvas.toDataURL();
+        // link.click();
+    }
+
+
+    _eject(next, timeout) {
+        console.log("_eject");
+        const canvas = this.#shadowRoot.querySelector("CANVAS");
+        canvas.classList.add("eject");
+        canvas.addEventListener("animationend", () => {
+            canvas.classList.remove("eject");
+            timeout ? setTimeout(next, timeout) : next();
+        }, { once: true });
+
+        const rnd = 1 + Math.floor(Math.random() * 26);
+        this.#audioElement.src = `elements/photo_booth/sounds/print${rnd}.wav`
     }
 
 
@@ -185,6 +234,31 @@ export class PhotoBooth extends UIView {
         const canvas = this.#shadowRoot.querySelector("CANVAS");
         const ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        this._startIdleTimer();
+    }
+
+
+    _startIdleTimer() {
+        this.#idleTimer = setTimeout(this._startIdle, IDLE_TIMEOUT);
+    }
+
+
+    _startIdle() {
+        this.#isIdle = true;
+        const rnd = 1 + Math.floor(Math.random() * 8);
+        this.#audioElement.src = `elements/photo_booth/sounds/idle${rnd}.wav`
+        this._startIdleTimer();
+        // start idle animation
+        const video = this.#shadowRoot.querySelector("VIDEO");
+        video.classList.add("idle");
+    }
+
+
+    _stopIdle() {
+        // stop idle animation
+        const video = this.#shadowRoot.querySelector("VIDEO");
+        video.classList.remove("idle");
     }
 }
 
