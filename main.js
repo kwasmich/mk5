@@ -5,6 +5,7 @@ import "/base/ui-navigation-view/ui-navigation-view.js";
 import "/base/ui-tab-view/ui-tab-view.js";
 import "/base/ui.js";
 import "/util/custom_element_helper.js";
+import "/util/math_extension.js";
 import "/util/promise_extension.js";
 import "/util/security.js";
 
