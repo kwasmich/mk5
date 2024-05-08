@@ -1,7 +1,10 @@
-.DS_Store
 .*
+!/.htaccess
+!/.devcontainer
 !/.vscode
 /.vscode/*
 !/.vscode/settings.json
+/node_modules
+/dist
 HueIconPack2019*
 HueImagePack*
