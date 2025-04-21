@@ -66,6 +66,8 @@
     cursor: default;
     user-select: none;
     -webkit-user-select: none;
+
+    overscroll-behavior: contain;
 }
 
 @supports (--test: color-mix(in srgb, red, blue)) {
@@ -154,11 +156,15 @@ body {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
     overflow: hidden;
 
     margin: 0;
     /* color: blue; */
+
+    box-sizing: border-box;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 @media print {
