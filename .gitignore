@@ -6,5 +6,8 @@
 !/.vscode/settings.json
 /node_modules
 /dist
+/elements/photo_booth/sounds*
+/elements/photo_booth/snd.zip
+/elements/school_stuff/head_notes/*.pdf
 HueIconPack2019*
 HueImagePack*
