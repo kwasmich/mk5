@@ -81,6 +81,7 @@ export const Pages = Object.freeze({
         icon: "/apps/hue_icon.png",
         screen: "/apps/hue_screen.png",
         component: UIView.registry.get(DefineApp("/elements/my_hue/my_hue.js")),
+        // onlyProtocol: "http"
     },
     PhotoBooth: {
         path: "/photo-booth",
@@ -88,6 +89,7 @@ export const Pages = Object.freeze({
         icon: "/apps/Photo Booth Icon.png",
         screen: "/apps/Photo Booth Screen.png",
         component: UIView.registry.get(DefineApp("/elements/photo_booth/photo_booth.js")),
+        onlyProtocol: "https"
     },
     List: {
         path: "/list",
@@ -113,6 +115,7 @@ export const Pages = Object.freeze({
         path: "/remote",
         title: "Remote",
         component: UIView.registry.get(DefineApp("/elements/remote/remote.js")),
+        onlyProtocol: "http"
     },
     SchoolHeadNotes: {
         path: "/headnotes",

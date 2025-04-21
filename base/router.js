@@ -28,7 +28,11 @@ class Router {
       throw "Routes set twice!";
     }
 
-    this.#pages = pages;
+    const protocol = window.location.protocol.replace(":", "");
+    const entries = Object.entries(pages);
+    const filteredEntries = entries.filter((entry) => (entry[1].onlyProtocol ?? protocol) === protocol);
+    const filteredPages = Object.fromEntries(filteredEntries);
+    this.#pages = filteredPages;
     this.#defaultPage = Object.values(pages)[0];
     this.#currentPage = this.getCurrentPageFromUrl();
     
