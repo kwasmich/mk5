@@ -7,7 +7,7 @@
 #controls {
     background-color: var(--midground-color);
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
 }
 
 video {
