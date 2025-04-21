@@ -21,7 +21,7 @@ export class UIListView extends UIView {
     #shadowRoot = this.attachShadow({ mode: "open" });
     #template = this.querySelector("TEMPLATE");
     #cache = [];
-
+    
 
     get selectMode() {
         console.assert([SELECT_NONE, SELECT_SINGLE, SELECT_MULTI].includes(this.getAttribute(SELECT_ATTR)));
@@ -48,6 +48,7 @@ export class UIListView extends UIView {
         const self = super(args);
         this._onKeyboardDown = this._onKeyboardDown.bind(self);
         this._onMouseDown = this._onMouseDown.bind(self);
+        this._onScroll = this._onScroll.bind(self);
         Object.seal(this);
 
         this._init(this.#shadowRoot);
@@ -72,12 +73,14 @@ export class UIListView extends UIView {
     connectedCallback() {
         this.#shadowRoot.addEventListener("keydown", this._onKeyboardDown);
         this.#shadowRoot.addEventListener("mousedown", this._onMouseDown);
+        this.addEventListener("scroll", this._onScroll);
     }
     
     
     disconnectedCallback() {
         this.#shadowRoot.removeEventListener("keydown", this._onKeyboardDown);
         this.#shadowRoot.removeEventListener("mousedown", this._onMouseDown);
+        this.removeEventListener("scroll", this._onScroll);
     }
 
 
@@ -167,6 +170,8 @@ export class UIListView extends UIView {
 
         if (newFocus) newFocus.tabIndex = 0;
         if (focusElement) newFocus.focus();
+
+        setTimeout(() => this._onScroll(), 0);
     }
 
 
@@ -230,6 +235,24 @@ export class UIListView extends UIView {
         this._select(currentFocus, mouseEvent.target, toggle, range);
         this.#listElements.forEach((e) => e.tabIndex = -1);
         mouseEvent.target.tabIndex = 0;
+    }
+
+
+    _onScroll(event) {
+        const isAtTop = this.scrollTop <= 0;
+        const isAtBottom = this.scrollTop >= (this.scrollHeight - this.clientHeight);
+
+        if (isAtTop) {
+            this.style.setProperty("--top", "var(--line-height)");
+        } else {
+            this.style.removeProperty("--top");
+        }
+
+        if (isAtBottom) {
+            this.style.setProperty("--bottom", "var(--line-height)");
+        } else {
+            this.style.removeProperty("--bottom");
+        }
     }
 
 

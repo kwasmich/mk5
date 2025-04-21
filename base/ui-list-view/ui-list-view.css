@@ -1,7 +1,21 @@
 :host {
+    --line-height: 55px;
+    --top: 0px;
+    --bottom: 0px;
+
     display: flex;
     flex-direction: column;
     overflow: auto;
+
+    flex: 1 1 auto;
+
+    contain: content; /* fix iPadOS 18.4 scroll bar falling below sticky header */
+
+    /* mask: linear-gradient(#0000, #ffff var(--line-height)), linear-gradient(0deg, #0000, #ffff var(--line-height));
+    mask-composite: intersect;
+    mask-size: auto calc(100% + var(--line-height)), auto calc(100% + var(--line-height));
+    mask-position: 0 calc(-1 * var(--top)), 0 calc(100% + var(--bottom));
+    transition: mask-position 200ms; */
 }
 
 :host :focus {
@@ -25,6 +39,12 @@
     display: flex;
     flex-direction: column;
     isolation: isolate;
+
+    mask: linear-gradient(#0000, #ffff var(--line-height)), linear-gradient(0deg, #0000, #ffff var(--line-height));
+    mask-composite: intersect;
+    mask-size: auto calc(100% + var(--line-height)), auto calc(100% + var(--line-height));
+    mask-position: 0 calc(-1 * var(--top)), 0 calc(100% + var(--bottom));
+    transition: mask-position 200ms;
 }
 
 :host section header {
