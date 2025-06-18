@@ -122,6 +122,11 @@ export const Pages = Object.freeze({
         title: "Kopfnoten",
         component: UIView.registry.get(DefineApp("/elements/school_stuff/head_notes/head_notes.js")),
     },
+    Signals: {
+        path: "/signals",
+        title: "Signals",
+        component: UIView.registry.get(DefineApp("/elements/signals/signals.js")),
+    },
 });
 
 
