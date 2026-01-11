@@ -222,6 +222,10 @@ export class UIListView extends UIView {
 
 
     _onMouseDown(mouseEvent) {
+        if (mouseEvent.buttons !== 1) {
+            return;
+        }
+
         if (!this.#listElements.includes(mouseEvent.target)) {
             mouseEvent.preventDefault();
             const oldFocus = this.#listElements.find((e) => e.tabIndex === 0);
