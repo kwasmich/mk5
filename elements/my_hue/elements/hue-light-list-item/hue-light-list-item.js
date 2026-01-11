@@ -3,6 +3,11 @@ import { LightIconMap, LightTypeIconMap } from "../../hue_utils.js";
 
 
 
+const NOOP = (e) => {
+    e.stopPropagation();
+};
+
+
 
 export class HueLightListItem extends UIView {
     static get observedAttributes() {
@@ -64,8 +69,10 @@ export class HueLightListItem extends UIView {
         this.#name = sr.querySelector("span");
         this.#on = sr.querySelector("input[type=checkbox]");
         this.#on.onchange = (e) => this._onInputChange(e);
+        this.#on.onclick = NOOP;
         this.#bri = sr.querySelector("input[type=range]");
         this.#bri.onchange = (e) => this._onInputChange(e);
+        this.#bri.onclick = NOOP;
         this.#initialized = true;
         this._updateView();
     }

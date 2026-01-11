@@ -21,6 +21,7 @@ export class UIListView extends UIView {
     #shadowRoot = this.attachShadow({ mode: "open" });
     #template = this.querySelector("TEMPLATE");
     #cache = [];
+    #previousActiveElement = undefined;
     
 
     get selectMode() {
@@ -48,6 +49,7 @@ export class UIListView extends UIView {
         const self = super(args);
         this._onKeyboardDown = this._onKeyboardDown.bind(self);
         this._onMouseDown = this._onMouseDown.bind(self);
+        this._onMouseClick = this._onMouseClick.bind(self);
         this._onScroll = this._onScroll.bind(self);
         Object.seal(this);
 
@@ -73,6 +75,7 @@ export class UIListView extends UIView {
     connectedCallback() {
         this.#shadowRoot.addEventListener("keydown", this._onKeyboardDown);
         this.#shadowRoot.addEventListener("mousedown", this._onMouseDown);
+        this.#shadowRoot.addEventListener("click", this._onMouseClick);
         this.addEventListener("scroll", this._onScroll);
     }
     
@@ -80,6 +83,7 @@ export class UIListView extends UIView {
     disconnectedCallback() {
         this.#shadowRoot.removeEventListener("keydown", this._onKeyboardDown);
         this.#shadowRoot.removeEventListener("mousedown", this._onMouseDown);
+        this.#shadowRoot.removeEventListener("click", this._onMouseClick);
         this.removeEventListener("scroll", this._onScroll);
     }
 
@@ -222,7 +226,7 @@ export class UIListView extends UIView {
 
 
     _onMouseDown(mouseEvent) {
-        if (mouseEvent.buttons !== 1) {
+        if ((mouseEvent.button !== 0) || (mouseEvent.buttons !== 1)) {
             return;
         }
 
@@ -233,12 +237,26 @@ export class UIListView extends UIView {
             return;
         }
 
-        const currentFocus = this.#shadowRoot.activeElement;
+        this.#previousActiveElement = this.#shadowRoot.activeElement;
+        this.#listElements.forEach((e) => e.tabIndex = -1);
+        mouseEvent.target.tabIndex = 0;
+    }
+
+
+    _onMouseClick(mouseEvent) {
+        if ((mouseEvent.button !== 0) || (mouseEvent.buttons !== 0)) {
+            return;
+        }
+
+        if (!this.#listElements.includes(mouseEvent.target)) {
+            mouseEvent.preventDefault();
+            return;
+        }
+
+        const currentFocus = this.#previousActiveElement;
         const toggle = mouseEvent.metaKey;
         const range = mouseEvent.shiftKey;
         this._select(currentFocus, mouseEvent.target, toggle, range);
-        this.#listElements.forEach((e) => e.tabIndex = -1);
-        mouseEvent.target.tabIndex = 0;
     }
 
 

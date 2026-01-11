@@ -33,7 +33,7 @@ export class ListTestView extends UIView {
         listView.addEventListener("selectionChanged", (customEvent) => this._onSelectionChanged(customEvent));
         listView.listData = [...Array(50)].map((val, idx) => idx);
 
-        const createList = () => listView.listData = [...Array(10 + Math.floor(20 * Math.random()))].map((val, idx) => idx);
+        const createList = () => listView.listData = [...Array(10 + Math.floor(40 * Math.random()))].map((val, idx) => idx);
         const createGroups = () => {
             const probability = 0.7;
             const data = new Map();

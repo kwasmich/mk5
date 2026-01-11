@@ -2,6 +2,7 @@
 
 :host {
     display: flex;
+    gap: 12px;
     background-color: red;
     padding: 8px;
     border-radius: 4px;
@@ -10,7 +11,6 @@
 
 img {
     flex: 0 0 auto;
-    margin-inline-end: 12px;
     width: 32px;
     height: 32px;
     filter: drop-shadow(0 0 2px #fff);
@@ -28,6 +28,7 @@ span {
 
 input[type=checkbox] {
     flex: 0 0 auto;
+    height: 75%;
 }
 
 div.col {

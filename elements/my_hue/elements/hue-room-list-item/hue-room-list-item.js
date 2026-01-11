@@ -4,6 +4,10 @@ import Hue from "../../hue.js";
 
 
 
+const NOOP = (e) => {
+    e.stopPropagation();
+};
+
 
 
 export class HueRoomListItem extends UIView {
@@ -68,8 +72,10 @@ export class HueRoomListItem extends UIView {
         this.#name = sr.querySelector("span");
         this.#on = sr.querySelector("input[type=checkbox]");
         this.#on.onchange = (e) => this._onInputChange(e);
+        this.#on.onclick = NOOP;
         this.#bri = sr.querySelector("input[type=range]");
         this.#bri.onchange = (e) => this._onInputChange(e);
+        this.#bri.onclick = NOOP;
         this.#initialized = true;
         this._updateView();
     }
