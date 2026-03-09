@@ -122,6 +122,11 @@ export const Pages = Object.freeze({
         title: "Kopfnoten",
         component: UIView.registry.get(DefineApp("/elements/school_stuff/head_notes/head_notes.js")),
     },
+    RecurringTaskManager: {
+        path: "/rtm",
+        title: "Recurring Task Manager",
+        component: UIView.registry.get(DefineApp("/elements/app_rtm/rtm.js")),
+    },
     Signals: {
         path: "/signals",
         title: "Signals",
